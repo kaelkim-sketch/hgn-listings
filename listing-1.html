@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0d1526">
+<title>북수원이목지구 디에트르 더 리체Ⅱ — 호갱노노 분양</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --ink:#16213a; --ink2:#27395c; --gold:#b5985a;
+  --hgn:#5753c4; --hgn-l:#eeedf8;
+  --on:#2c5ff5; --remain:#b87000; --promo:#8a7300;
+  --txt:#1e2533; --muted:#8a8f99; --line:#e8eaef;
+  --bg:#fff; --soft:#f5f6f9;
+  --maxw:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Pretendard Variable","Pretendard",-apple-system,system-ui,sans-serif;color:var(--txt);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ── 플레이스홀더 ── */
+.shot{position:relative;width:100%;overflow:hidden}
+.shot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block}
+.shot.ph{background:linear-gradient(140deg,#1b2945 0%,#2d3f65 55%,#6b7a96 100%)}
+
+/* ── GNB ── */
+header.gnb{position:sticky;top:0;z-index:50;background:rgba(13,21,38,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
+.gnb .wrap{display:flex;align-items:center;height:60px;gap:16px}
+.gnb-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0}
+.gnb-logo b{font-size:15px;font-weight:900;color:#fff;letter-spacing:-.01em}
+.gnb-back{font-size:13px;color:#5a7090;font-weight:600;transition:color .15s;margin-left:auto}
+.gnb-back:hover{color:#c0d0e0}
+.gnb-back svg{display:inline;vertical-align:-.12em;margin-right:4px}
+.gnb-cta{flex-shrink:0;height:36px;padding:0 18px;border-radius:8px;background:var(--hgn);color:#fff;font-size:13px;font-weight:800;cursor:pointer;transition:background .15s;border:none}
+.gnb-cta:hover{background:#4541a8}
+
+/* ── HERO ── */
+.hero{background:#0d1526;position:relative;overflow:hidden}
+.hero-img{position:relative}
+.hero-img .shot{min-height:500px}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(5,10,22,.99) 0%,rgba(5,10,22,.3) 50%,rgba(5,10,22,.1) 100%)}
+.hero-over{position:absolute;bottom:0;left:0;right:0;padding:40px;z-index:2}
+.hero-over .wrap{padding:0}
+.h-stag{display:inline-flex;align-items:center;gap:6px;margin-bottom:14px}
+.stag{font-size:11px;font-weight:800;padding:5px 12px;border-radius:20px;letter-spacing:.06em}
+.stag.on{background:var(--on);color:#fff}
+.stag.remain{background:#fff8ec;color:var(--remain);border:1px solid #f0d590}
+.stag.promo{background:rgba(181,152,90,.12);color:var(--gold);border:1px solid rgba(181,152,90,.4)}
+.dday-tag{font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;background:rgba(255,255,255,.1);color:#8090b0;border:1px solid rgba(255,255,255,.12)}
+.hero-over h1{font-size:38px;font-weight:900;color:#fff;letter-spacing:-.04em;line-height:1.2;margin-bottom:6px}
+.hero-over .sub{font-size:14px;color:#4a6080;margin-bottom:28px}
+.hero-stats-bar{display:flex;gap:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden}
+.hsb-item{flex:1;padding:14px 16px;border-right:1px solid rgba(255,255,255,.07)}
+.hsb-item:last-child{border-right:none}
+.hsb-item .k{font-size:10.5px;color:#3a5070;font-weight:600;margin-bottom:5px}
+.hsb-item .v{font-size:16px;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1}
+.hsb-item .v.gold{color:var(--gold)}
+.hsb-item .v.on{color:#6b8ff5}
+
+/* ── 스티키 서브 NAV ── */
+.subnav{position:sticky;top:60px;z-index:40;background:rgba(13,21,38,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07)}
+.subnav .wrap{display:flex;align-items:center;height:48px;gap:0;overflow-x:auto;scrollbar-width:none}
+.subnav .wrap::-webkit-scrollbar{display:none}
+.snav-link{flex-shrink:0;height:48px;padding:0 18px;font-size:13.5px;font-weight:700;color:#4a5c78;display:flex;align-items:center;position:relative;transition:color .15s;white-space:nowrap}
+.snav-link:hover,.snav-link.on{color:#c0d0f0}
+.snav-link.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--hgn);border-radius:2px}
+
+/* ── 컨텐츠 ── */
+.content{padding:56px 0 100px}
+.pg-sec{scroll-margin-top:112px;margin-bottom:64px}
+.sec-ttl{font-size:18px;font-weight:900;color:var(--ink);letter-spacing:-.02em;margin-bottom:22px;padding-bottom:14px;border-bottom:2px solid var(--ink)}
+
+/* ── 단지 개요 테이블 ── */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.ig-row{display:contents}
+.ig-row .k{font-size:13px;font-weight:700;color:var(--muted);background:var(--soft);padding:13px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+.ig-row .v{font-size:13.5px;font-weight:600;color:var(--ink);padding:13px 16px;border-bottom:1px solid var(--line)}
+.ig-row:last-child .k,.ig-row:last-child .v{border-bottom:none}
+.ig-row .v.gold{color:var(--gold);font-weight:800}
+
+/* ── 분양 일정 타임라인 ── */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:1.5px;background:var(--line)}
+.tl-item{position:relative;margin-bottom:22px}
+.tl-item:last-child{margin-bottom:0}
+.tl-dot{width:15px;height:15px;border-radius:50%;background:var(--hgn);position:absolute;left:-28px;top:3px;border:2px solid #fff;box-shadow:0 0 0 2px var(--hgn)}
+.tl-dot.done{background:var(--ink2)}
+.tl-dot.done{box-shadow:0 0 0 2px var(--ink2)}
+.tl-item .tdate{font-size:11.5px;color:var(--muted);font-weight:600;margin-bottom:3px}
+.tl-item .ttitle{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.tl-item .tdesc{font-size:12.5px;color:#555;margin-top:3px;line-height:1.6}
+.tl-item.active .tl-dot{background:var(--on);box-shadow:0 0 0 4px rgba(44,95,245,.15)}
+.tl-item.active .ttitle{color:var(--on)}
+
+/* ── 평형별 분양가 ── */
+.type-table{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.type-table thead th{background:var(--soft);font-size:12px;font-weight:700;color:var(--muted);padding:12px 16px;text-align:left;border-bottom:1px solid var(--line)}
+.type-table tbody td{font-size:13.5px;padding:13px 16px;border-bottom:1px solid var(--soft);vertical-align:middle}
+.type-table tbody tr:last-child td{border-bottom:none}
+.type-table tbody tr:hover{background:var(--soft)}
+.type-badge{font-size:11px;font-weight:800;padding:3px 9px;border-radius:20px;display:inline-block}
+.type-badge.a{background:#e8f0fe;color:#1a56db}
+.type-badge.b{background:#e8f7ee;color:#1a7a3c}
+.type-badge.c{background:#fef3e2;color:#b06000}
+.price-main{font-size:15px;font-weight:900;color:var(--ink);letter-spacing:-.02em}
+.price-sub{font-size:11.5px;color:var(--muted);margin-top:2px}
+.stock-ok{color:#1a7a3c;font-weight:800;font-size:13px}
+.stock-low{color:#d94f4f;font-weight:800;font-size:13px}
+.stock-wait{color:var(--muted);font-size:13px}
+
+/* ── 갤러리 ── */
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.gallery-grid .g-main{grid-column:1/-1}
+.gallery-grid .g-main .shot{border-radius:10px;min-height:320px}
+.gallery-grid .g-sub .shot{border-radius:10px;aspect-ratio:16/9}
+
+/* ── 입지 ── */
+.loc-content{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.loc-desc{font-size:14.5px;color:#333;line-height:1.8}
+.loc-infra{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.infra-item{background:var(--soft);border-radius:10px;padding:14px 15px}
+.infra-item .ik{font-size:10.5px;color:var(--muted);font-weight:700;margin-bottom:4px;letter-spacing:.08em}
+.infra-item .iv{font-size:13px;font-weight:800;color:var(--ink)}
+
+/* ── 담당 상담사 카드 ── */
+.consultant-card{display:flex;gap:22px;background:var(--soft);border-radius:16px;padding:24px;align-items:flex-start}
+.con-photo{width:88px;height:88px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--line);border:2px solid var(--line);position:relative}
+.con-photo img{width:100%;height:100%;object-fit:cover}
+.con-info{flex:1}
+.con-info .cn{font-size:18px;font-weight:900;color:var(--ink);letter-spacing:-.02em}
+.con-info .cp{font-size:12px;font-weight:700;color:var(--hgn);margin-top:3px}
+.con-info .cr{font-size:13px;color:var(--muted);margin-top:4px}
+.con-tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.con-tag{font-size:11.5px;font-weight:700;color:#555877;background:#eeedf8;border-radius:20px;padding:4px 10px}
+.con-meta{display:flex;gap:18px;margin-top:12px}
+.con-meta .cm{font-size:12.5px;color:var(--muted);font-weight:600}
+.con-meta .cm b{color:var(--gold)}
+.con-btns{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.con-btn{height:42px;padding:0 20px;border-radius:9px;font-size:13.5px;font-weight:800;font-family:inherit;cursor:pointer;transition:all .15s;border:none;display:inline-flex;align-items:center;gap:7px;text-decoration:none}
+.con-btn.primary{background:var(--ink);color:#fff}
+.con-btn.primary:hover{background:var(--ink2)}
+.con-btn.outline{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.con-btn.outline:hover{border-color:var(--ink);background:var(--soft)}
+
+/* ── 플로팅 CTA ── */
+.float-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:12px 20px;z-index:48;display:none}
+.float-cta .fc-inner{max-width:680px;margin:0 auto;display:flex;gap:10px}
+.fc-main{flex:2;height:50px;border-radius:10px;background:var(--ink);color:#fff;font-size:15px;font-weight:900;font-family:inherit;cursor:pointer;transition:background .15s;border:none}
+.fc-main:hover{background:var(--ink2)}
+.fc-sub{flex:1;height:50px;border-radius:10px;background:var(--soft);color:var(--ink);font-size:14px;font-weight:800;font-family:inherit;cursor:pointer;transition:background .15s;border:1.5px solid var(--line)}
+.fc-sub:hover{background:var(--line)}
+
+/* ── 반응형 ── */
+@media(max-width:800px){
+  .hero-over h1{font-size:28px}
+  .hero-img .shot{min-height:340px}
+  .hero-stats-bar{flex-wrap:wrap}
+  .hsb-item{flex:1 0 45%;border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}
+  .info-grid{grid-template-columns:1fr}
+  .ig-row .k{border-right:none}
+  .loc-content{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr}
+  .gallery-grid .g-main{grid-column:auto}
+  .consultant-card{flex-direction:column}
+  .float-cta{display:block}
+  .content{padding-bottom:86px}
+}
+@media(max-width:540px){
+  .hero-over{padding:24px 16px}
+  .hero-over h1{font-size:24px}
+  .gnb-cta{display:none}
+  .float-cta{display:block}
+}
+</style>
+</head>
+<body>
+
+<!-- ──── GNB ──── -->
+<header class="gnb">
+  <div class="wrap">
+    <a href="index.html" class="gnb-logo">
+      <svg width="26" height="26" viewBox="0 0 36 36" fill="none">
+        <rect width="36" height="36" rx="9" fill="#5753c4"/>
+        <path d="M18 7L4.5 17.5H8.5V30H27.5V17.5H31.5L18 7Z" fill="white"/>
+        <rect x="13" y="18.5" width="10" height="2" rx="1" fill="#5753c4"/>
+        <rect x="15" y="15.5" width="2" height="4" rx="1" fill="#5753c4"/>
+        <rect x="19" y="15.5" width="2" height="4" rx="1" fill="#5753c4"/>
+        <ellipse cx="18" cy="24.5" rx="3.5" ry="2.2" stroke="#5753c4" stroke-width="2" fill="none"/>
+      </svg>
+      <b>호갱노노 분양</b>
+    </a>
+    <a href="index.html" class="gnb-back">
+      <svg width="14" height="12" fill="none" viewBox="0 0 14 12"><path stroke="#5a7090" stroke-linecap="round" stroke-width="1.6" d="M7 1L1 6m0 0l6 5M1 6h12"/></svg>
+      현장 목록
+    </a>
+    <button class="gnb-cta" onclick="openConsult()">상담사 연결하기</button>
+  </div>
+</header>
+
+<!-- ──── HERO ──── -->
+<div class="hero">
+  <div class="hero-img">
+    <div class="shot ph" style="min-height:500px">
+      <img src="assets/img/listings/1/main.jfif" alt="북수원이목지구 디에트르 더 리체Ⅱ"
+           onload="this.parentElement.classList.remove('ph')"
+           onerror="this.style.display='none'">
+    </div>
+  </div>
+  <div class="hero-over">
+    <div class="wrap">
+      <div class="h-stag">
+        <span class="stag on">분양중</span>
+        <span class="dday-tag">청약 D-21</span>
+      </div>
+      <h1>북수원이목지구<br>디에트르 더 리체Ⅱ</h1>
+      <div class="sub">경기 수원시 장안구 이목동 · 롯데건설</div>
+      <div class="hero-stats-bar">
+        <div class="hsb-item"><div class="k">전용면적</div><div class="v">84 · 101 · 141㎡</div></div>
+        <div class="hsb-item"><div class="k">총 세대수</div><div class="v">1,744세대</div></div>
+        <div class="hsb-item"><div class="k">분양가 (84㎡)</div><div class="v gold">5.4억~6.1억</div></div>
+        <div class="hsb-item"><div class="k">입주예정</div><div class="v on">2027년 6월</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── 서브 NAV ──── -->
+<div class="subnav">
+  <div class="wrap">
+    <a href="#info" class="snav-link on">단지 정보</a>
+    <a href="#schedule" class="snav-link">분양 일정</a>
+    <a href="#types" class="snav-link">평형·분양가</a>
+    <a href="#gallery" class="snav-link">갤러리</a>
+    <a href="#location" class="snav-link">입지</a>
+    <a href="#consultant" class="snav-link">담당 상담사</a>
+  </div>
+</div>
+
+
+<!-- ──── 컨텐츠 ──── -->
+<div class="content">
+  <div class="wrap">
+
+    <!-- 단지 정보 -->
+    <div class="pg-sec" id="info">
+      <div class="sec-ttl">단지 정보</div>
+      <div class="info-grid">
+        <div class="ig-row">
+          <div class="k">단지명</div>
+          <div class="v">북수원이목지구 디에트르 더 리체Ⅱ</div>
+        </div>
+        <div class="ig-row">
+          <div class="k">위치</div>
+          <div class="v">경기도 수원시 장안구 이목동 474</div>
+        </div>
+        <div class="ig-row">
+          <div class="k">건설사</div>
+          <div class="v">롯데건설 (디에트르 브랜드)</div>
+        </div>
+        <div class="ig-row">
+          <div class="k">시행사</div>
+          <div class="v">이목지구 주택개발 PFV</div>
+        </div>
+        <div class="ig-row">
+          <div class="k">총 세대수</div>
+          <div class="v">1,744세대 (일반공급 1,288 · 특별공급 456)</div>
+        </div>
+        <div class="ig-row">
+          <div class="k">규모</div>
+          <div class="v">지하 3층 ~ 지상 최고 35층, 12개 동</div>
+        </div>
+        <div class="ig-row">
+          <div class="k">전용면적</div>
+          <div class="v">84㎡ · 101㎡ · 141㎡</div>
+        </div>
+        <div class="ig-row">
+          <div class="k">분양가상한제</div>
+          <div class="v">비적용 지역</div>
+        </div>
+        <div class="ig-row">
+          <div class="k">주차</div>
+          <div class="v">세대당 1.8대 (총 3,139대)</div>
+        </div>
+        <div class="ig-row">
+          <div class="k">입주예정</div>
+          <div class="v gold">2027년 6월 (예정)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 분양 일정 -->
+    <div class="pg-sec" id="schedule">
+      <div class="sec-ttl">분양 일정</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot done"></div>
+          <div class="tdate">2025.03.15</div>
+          <div class="ttitle">입주자 모집공고</div>
+          <div class="tdesc">한국부동산원 청약홈 공고 등록 완료</div>
+        </div>
+        <div class="tl-item active">
+          <div class="tl-dot"></div>
+          <div class="tdate">2025.06.20 ~ 2025.06.22</div>
+          <div class="ttitle">특별공급 / 1순위 청약 접수 중</div>
+          <div class="tdesc">청약홈(www.applyhome.co.kr) 온라인 접수</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tdate">2025.07.04</div>
+          <div class="ttitle">당첨자 발표</div>
+          <div class="tdesc">청약홈 및 개별 통보</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tdate">2025.07.09 ~ 2025.07.11</div>
+          <div class="ttitle">정당계약</div>
+          <div class="tdesc">견본주택 내 계약실 방문 계약</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tdate">2027.06 (예정)</div>
+          <div class="ttitle">입주</div>
+          <div class="tdesc">입주 지정기간 내 입주 (30일간)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 평형·분양가 -->
+    <div class="pg-sec" id="types">
+      <div class="sec-ttl">평형별 분양가</div>
+      <table class="type-table">
+        <thead>
+          <tr>
+            <th>타입</th>
+            <th>전용면적</th>
+            <th>공급세대</th>
+            <th>분양가 (최저~최고)</th>
+            <th>잔여</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="type-badge a">84A</span></td>
+            <td>84.97㎡</td>
+            <td>782세대</td>
+            <td><div class="price-main">5.38억 ~ 6.12억</div><div class="price-sub">층·향에 따라 상이</div></td>
+            <td><span class="stock-ok">접수 중</span></td>
+          </tr>
+          <tr>
+            <td><span class="type-badge b">101B</span></td>
+            <td>101.24㎡</td>
+            <td>436세대</td>
+            <td><div class="price-main">6.94억 ~ 7.68억</div><div class="price-sub">층·향에 따라 상이</div></td>
+            <td><span class="stock-ok">접수 중</span></td>
+          </tr>
+          <tr>
+            <td><span class="type-badge c">141C</span></td>
+            <td>141.02㎡</td>
+            <td>70세대</td>
+            <td><div class="price-main">9.40억 ~ 10.8억</div><div class="price-sub">층·향에 따라 상이</div></td>
+            <td><span class="stock-low">소수 잔여</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:12px;color:var(--muted);margin-top:12px;line-height:1.7">※ 분양가는 입주자 모집공고 기준이며, 발코니 확장비 등 옵션 비용은 별도입니다.<br>※ 잔여세대 및 분양가 상세 문의는 담당 상담사에게 연결해드립니다.</p>
+    </div>
+
+    <!-- 갤러리 -->
+    <div class="pg-sec" id="gallery">
+      <div class="sec-ttl">현장 갤러리</div>
+      <div class="gallery-grid">
+        <div class="g-main">
+          <div class="shot ph" style="min-height:320px;border-radius:10px">
+            <img src="assets/img/listings/1/main.jfif" alt=""
+                 onload="this.parentElement.classList.remove('ph')"
+                 onerror="this.style.display='none'">
+          </div>
+        </div>
+        <div class="g-sub">
+          <div class="shot ph" style="aspect-ratio:16/9;border-radius:10px">
+            <img src="assets/img/listings/1/2.jpg" alt=""
+                 onload="this.parentElement.classList.remove('ph')"
+                 onerror="this.style.display='none'">
+          </div>
+        </div>
+        <div class="g-sub">
+          <div class="shot ph" style="aspect-ratio:16/9;border-radius:10px">
+            <img src="assets/img/listings/1/3.jpg" alt=""
+                 onload="this.parentElement.classList.remove('ph')"
+                 onerror="this.style.display='none'">
+          </div>
+        </div>
+        <div class="g-sub">
+          <div class="shot ph" style="aspect-ratio:16/9;border-radius:10px">
+            <img src="assets/img/listings/1/4.jpg" alt=""
+                 onload="this.parentElement.classList.remove('ph')"
+                 onerror="this.style.display='none'">
+          </div>
+        </div>
+        <div class="g-sub">
+          <div class="shot ph" style="aspect-ratio:16/9;border-radius:10px">
+            <img src="assets/img/listings/1/5.jpg" alt=""
+                 onload="this.parentElement.classList.remove('ph')"
+                 onerror="this.style.display='none'">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 입지 -->
+    <div class="pg-sec" id="location">
+      <div class="sec-ttl">입지 안내</div>
+      <div class="loc-content">
+        <div>
+          <p class="loc-desc">
+            수원 이목동은 수원 북부 핵심 생활권으로, GTX-C 수원역(예정)과 지하철 1호선 성균관대역을 이용하는 광역 교통의 수혜 지역입니다.
+            단지 인근으로 이목초·중·성균관대 등 학세권을 형성하며, 홈플러스·이마트 등 대형 마트가 차로 10분 거리에 위치합니다.
+            광교신도시·동수원IC 접근성이 뛰어나며, 화성산업단지·삼성전자(화성)로의 출퇴근 수요가 높습니다.
+          </p>
+        </div>
+        <div class="loc-infra">
+          <div class="infra-item">
+            <div class="ik">교통</div>
+            <div class="iv">1호선 성균관대역 도보 12분</div>
+          </div>
+          <div class="infra-item">
+            <div class="ik">광역버스</div>
+            <div class="iv">강남·여의도 직행 노선</div>
+          </div>
+          <div class="infra-item">
+            <div class="ik">교육</div>
+            <div class="iv">이목초·북수원중 도보권</div>
+          </div>
+          <div class="infra-item">
+            <div class="ik">쇼핑</div>
+            <div class="iv">홈플러스 수원점 5분</div>
+          </div>
+          <div class="infra-item">
+            <div class="ik">도로</div>
+            <div class="iv">동수원IC 10분</div>
+          </div>
+          <div class="infra-item">
+            <div class="ik">공원</div>
+            <div class="iv">이목근린공원 인접</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 담당 상담사 -->
+    <div class="pg-sec" id="consultant">
+      <div class="sec-ttl">담당 상담사</div>
+      <div class="consultant-card">
+        <div class="con-photo">
+          <img src="assets/img/consultants/1/profile.png" alt="김상담"
+               onerror="this.style.display='none'">
+        </div>
+        <div class="con-info">
+          <div class="cn">김상담</div>
+          <div class="cp">호갱노노 공식 파트너</div>
+          <div class="cr">수원·화성·평택 전담 · 경력 12년</div>
+          <div class="con-tags">
+            <span class="con-tag">아파트</span>
+            <span class="con-tag">수원</span>
+            <span class="con-tag">신규분양</span>
+            <span class="con-tag">청약 컨설팅</span>
+          </div>
+          <div class="con-meta">
+            <span class="cm"><b>4.8★</b> 만족도</span>
+            <span class="cm"><b>127건</b> 거래 완료</span>
+            <span class="cm"><b>무료</b> 상담</span>
+          </div>
+          <div class="con-btns">
+            <a href="consultant-profile-template.html" class="con-btn primary">상담사 프로필 보기</a>
+            <button class="con-btn outline" onclick="openConsult()">바로 연결하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ──── 모바일 플로팅 CTA ──── -->
+<div class="float-cta">
+  <div class="fc-inner">
+    <button class="fc-main" onclick="openConsult()">상담사 연결 — 무료</button>
+    <a href="consultant-profile-template.html" class="fc-sub" style="display:flex;align-items:center;justify-content:center;text-decoration:none;border-radius:10px;font-size:14px;font-weight:800;color:var(--ink);background:var(--soft);border:1.5px solid var(--line)">프로필 보기</a>
+  </div>
+</div>
+
+
+<script>
+function openConsult() {
+  window.location.href = 'consultant-profile-template.html';
+}
+
+/* 서브 nav 스크롤 스파이 */
+const secs = ['info','schedule','types','gallery','location','consultant'];
+window.addEventListener('scroll', function(){
+  const y = window.scrollY + 130;
+  let cur = secs[0];
+  secs.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= y) cur = id;
+  });
+  document.querySelectorAll('.snav-link').forEach(a => {
+    a.classList.toggle('on', a.getAttribute('href') === '#'+cur);
+  });
+}, {passive:true});
+</script>
+</body>
+</html>
