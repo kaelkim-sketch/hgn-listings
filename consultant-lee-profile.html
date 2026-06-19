@@ -189,7 +189,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 <div class="topbar">
   <div class="wrap">
     <a href="index.html">← 현장 목록으로</a>
-    <div class="tb-r"><a href="#about">소개</a><a href="#listing">담당현장</a><a href="#contact">상담신청</a></div>
+    <div class="tb-r"><a href="#about">소개</a><a href="#listing">분양이력</a><a href="#contact">상담신청</a></div>
   </div>
 </div>
 <header class="gnb">
@@ -199,7 +199,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
       <div class="logo-txt"><b>이상담 분양상담사</b><small>HOGANGNONO OFFICIAL</small></div>
     </a>
     <nav class="menu">
-      <a href="#about">소개</a><a href="#listing">담당현장</a><a href="#career">상담이력</a><a href="#reviews">후기</a><a href="#contact">상담신청</a>
+      <a href="#about">소개</a><a href="#listing">분양이력</a><a href="#reviews">후기</a><a href="#contact">상담신청</a>
     </nav>
     <div class="gnb-cta">
       <div class="gnb-tel">분양 직통<b>010-1111-2222</b></div>
@@ -249,7 +249,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
       <div class="actions">
         <button class="btn-heart" id="heartBtn" onclick="toggleHeart(this)">♡</button>
         <button class="btn-buy" onclick="openContact()">📞 상담사 연결하기</button>
-        <button class="btn-note" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">문의 남기기</button>
+        <button class="btn-note" onclick="openIq()">문의 남기기</button>
       </div>
       <div class="trust"><span>상담비 없음</span><span>수수료 없음</span><span>계약까지 함께</span><span>호갱노노 공인</span></div>
     </div>
@@ -258,8 +258,8 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 
 <div class="tabs"><div class="wrap">
   <a href="#about" class="active">소개</a>
-  <a href="#listing">담당현장</a>
-  <a href="#career">상담이력</a>
+  <a href="#listing">분양이력</a>
+  
   <a href="#reviews">후기<span style="font-size:12px;color:var(--gold);margin-left:4px;font-weight:700">62</span></a>
   <a href="#contact">상담신청</a>
 </div></div>
@@ -283,29 +283,18 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 
 <div class="section" id="listing">
   <div class="wrap">
-    <div class="sec-head"><p class="ey">CURRENT LISTING</p><h2>담당 분양현장</h2><p>직접 현장을 확인하고 안내하는 곳만 담당합니다</p></div>
-    <div style="display:flex;justify-content:center">
-      <div class="lst-single">
-        <div class="limg"><div class="shot ph"><img src="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/assets/img/aerial.jpg" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div></div>
-        <div class="lbody">
-          <span class="ltag promo">사전홍보</span>
-          <div class="lname">오산 헤리티지 자이</div>
-          <div class="lloc">경기 오산시 · GS건설 · 59~99㎡</div>
-          <div class="lprice">분양가 상담</div>
-          <div class="l-btns">
-            <a href="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/index.html" class="l-btn det">현장 상세 보기</a>
-            <button class="l-btn con" onclick="openContact()">상담 신청</button>
-          </div>
+    <div class="sec-head"><p class="ey">SALES HISTORY</p><h2>분양 상담 이력</h2><p>담당 진행 중인 현장과 완료한 분양 상담 이력입니다</p></div>
+    <div class="career-grid">
+      <div class="cj cj-active">
+        <div class="cj-yr cj-yr-now">NOW</div>
+        <div class="cj-body">
+          <div class="cj-loc">경기 오산시</div>
+          <div class="cj-name">오산 헤리티지 자이</div>
+          <div class="cj-detail">전용 59~99㎡ · 총 1,783세대 · GS건설</div>
+          <a href="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/index.html" class="cj-link">현장 상세 보기 →</a>
+          <span class="cj-badge cj-badge-now">담당 중</span>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
-<div class="section" id="career">
-  <div class="wrap">
-    <div class="sec-head"><p class="ey">CAREER HISTORY</p><h2>주요 분양 상담 이력</h2><p>지금까지 성공적으로 분양 상담을 완료한 현장들입니다</p></div>
-    <div class="career-grid">
       <div class="cj"><div class="cj-yr">2024</div><div class="cj-body"><div class="cj-loc">경기 화성시 동탄2신도시</div><div class="cj-name">동탄2 푸르지오 센트럴파크</div><div class="cj-detail">전용 74~99㎡ · 총 860세대 · 분양가 6~9억</div><span class="cj-badge">분양 완료</span></div></div>
       <div class="cj"><div class="cj-yr">2023</div><div class="cj-body"><div class="cj-loc">경기 수원시 광교신도시</div><div class="cj-name">광교 자이 더 클래스</div><div class="cj-detail">전용 84~115㎡ · 총 492세대 · 분양가 9~14억</div><span class="cj-badge">분양 완료</span></div></div>
       <div class="cj"><div class="cj-yr">2023</div><div class="cj-body"><div class="cj-loc">경기 평택시 고덕국제신도시</div><div class="cj-name">고덕 힐스테이트 리버파크</div><div class="cj-detail">전용 84~114㎡ · 총 1,200세대 · 분양가 5~8억</div><span class="cj-badge">분양 완료</span></div></div>
@@ -355,6 +344,22 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
   </div>
 </div>
 
+<div class="iqmodal" id="iqModal" onclick="if(event.target===this)closeIq()">
+  <div class="cmodal-card">
+    <button class="cmodal-close" onclick="closeIq()">×</button>
+    <h3>문의 남기기</h3>
+    <p class="cm-sub">남겨주시면 24시간 내 연락드립니다.</p>
+    <div class="iq-fld"><label>이름</label><input type="text" placeholder="홍길동"></div>
+    <div class="iq-fld"><label>연락처</label><input type="tel" placeholder="010-0000-0000"></div>
+    <div class="iq-fld"><label>관심 현장</label>
+      <select><option>오산 헤리티지 자이</option><option>기타 (직접 문의)</option></select>
+    </div>
+    <div class="iq-fld"><label>문의 내용 (선택)</label><input type="text" placeholder="청약 일정, 평형 추천 등 자유롭게"></div>
+    <div class="iq-agree"><input type="checkbox"><label>개인정보 수집 및 이용에 동의합니다 (필수)</label></div>
+    <button class="iq-submit" onclick="alert('문의가 접수되었습니다. 24시간 내 연락드리겠습니다.');closeIq()">문의 접수하기</button>
+  </div>
+</div>
+
 <div class="cmodal" id="contactModal" onclick="if(event.target===this)closeContact()">
   <div class="cmodal-card">
     <button class="cmodal-close" onclick="closeContact()">×</button>
@@ -370,8 +375,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 
 <nav class="sidenav" id="sidenav">
   <a href="#about"><span class="lbl">소개</span><span class="dot"></span></a>
-  <a href="#listing"><span class="lbl">담당현장</span><span class="dot"></span></a>
-  <a href="#career"><span class="lbl">상담이력</span><span class="dot"></span></a>
+  <a href="#listing"><span class="lbl">분양이력</span><span class="dot"></span></a>
   <a href="#reviews"><span class="lbl">후기</span><span class="dot"></span></a>
   <a href="#contact"><span class="lbl">상담신청</span><span class="dot"></span></a>
 </nav>
@@ -379,7 +383,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 <div class="mbar">
   <button class="mbar-heart" id="mbarHeart" onclick="toggleHeart(this)">♡</button>
   <button class="mbar-call" onclick="openContact()">📞 상담사 연결하기</button>
-  <a href="#contact" class="mbar-note">문의 남기기</a>
+  <button class="mbar-note" onclick="openIq()">문의 남기기</button>
 </div>
 <button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <footer>
@@ -395,6 +399,8 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 function switchImg(t,s){document.querySelectorAll('.gallery .thumbs .shot').forEach(x=>x.classList.remove('active'));t.classList.add('active');const m=document.getElementById('mainImg');document.getElementById('mainShot').classList.add('ph');m.src=s;m.onload=()=>document.getElementById('mainShot').classList.remove('ph')}
 function toggleHeart(btn){btn.classList.toggle('on');btn.textContent=btn.classList.contains('on')?'♥':'♡';const mb=document.getElementById('mbarHeart');if(mb){mb.classList.toggle('on');mb.textContent=btn.textContent}}
 function openContact(){document.getElementById('contactModal').classList.add('open');document.body.style.overflow='hidden'}
+function openIq(){document.getElementById("iqModal").classList.add("open");document.body.style.overflow="hidden"}
+function closeIq(){document.getElementById("iqModal").classList.remove("open");document.body.style.overflow=""}
 function closeContact(){document.getElementById('contactModal').classList.remove('open');document.body.style.overflow=''}
 const SECS=['about','listing','career','reviews','contact'];
 window.addEventListener('scroll',function(){const y=window.scrollY+140;let cur=SECS[0];SECS.forEach(id=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)cur=id});document.querySelectorAll('.tabs a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));document.querySelectorAll('.sidenav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));document.getElementById('sidenav').classList.toggle('show',window.scrollY>300);document.getElementById('topBtn').classList.toggle('show',window.scrollY>400)},{passive:true});

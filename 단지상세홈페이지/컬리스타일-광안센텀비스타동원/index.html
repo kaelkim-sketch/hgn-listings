@@ -221,6 +221,18 @@ nav.menu a:hover{color:var(--ink)}
 .faq-list details[open] summary{border-bottom:1px solid var(--line)}
 .faq-list .a{padding:16px 22px 20px;font-size:14.5px;color:#555;line-height:1.75}
 
+/* ============ 담당 분양상담사 카드 ============ */
+.consultant-section{background:var(--soft)}
+.consultant-card{max-width:680px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 32px;display:flex;align-items:center;gap:28px}
+.consultant-card .cc-photo{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#1b2945,#33486f);display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff;font-weight:800;flex-shrink:0}
+.consultant-card .cc-info{flex:1}
+.consultant-card .cc-name{font-size:20px;font-weight:800;color:var(--ink)}
+.consultant-card .cc-badge{display:inline-block;font-size:11px;font-weight:700;color:var(--gold-d);background:#fbf6ea;border:1px solid #ead9b8;border-radius:20px;padding:3px 10px;margin:4px 0 8px}
+.consultant-card .cc-spec{font-size:13.5px;color:#555;line-height:1.7}
+.consultant-card .cc-actions{display:flex;gap:10px;margin-top:16px;flex-shrink:0;flex-direction:column}
+.cc-btn-call{height:46px;padding:0 20px;border-radius:8px;border:none;background:var(--ink);color:#fff;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap}
+.cc-btn-note{height:46px;padding:0 20px;border-radius:8px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap}
+@media(max-width:640px){.consultant-card{flex-direction:column;align-items:flex-start;padding:22px}.consultant-card .cc-actions{flex-direction:row;width:100%}.cc-btn-call,.cc-btn-note{flex:1}}
 /* ============ 관심고객 등록 (Kurly 문의 → 폼) ============ */
 .reg{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:900px;margin:0 auto;align-items:start}
 .reg .lead-x h3{font-size:22px;color:var(--ink);font-weight:800;margin-bottom:14px}
@@ -811,6 +823,69 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
     <div class="rm-tel">바로 상담을 원하시면<b>📞 051-741-3300</b></div>
   </div>
 </div>
+
+<!-- ===== 담당 분양상담사 ===== -->
+<section class="section consultant-section" id="consultant">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="ey">CERTIFIED PARTNER</div>
+      <h2>담당 분양상담사</h2>
+      <p>이 현장 전담 호갱노노 공인 파트너입니다</p>
+    </div>
+    <div class="consultant-card">
+      <div class="cc-photo">김</div>
+      <div class="cc-info">
+        <div class="cc-name">김상담</div>
+        <span class="cc-badge">🏆 호갱노노 공인 파트너</span>
+        <div class="cc-spec">부산·경남 신규 분양 전문 · 12년 경력 · 127건 거래 완료<br>상담비 무료 · 수수료 없음</div>
+      </div>
+      <div class="cc-actions">
+        <button class="cc-btn-call" onclick="location.href='tel:010-0000-0000'">📞 전화 상담</button>
+        <button class="cc-btn-note" onclick="openRegModal()">관심고객 등록</button>
+        <a href="../../consultant-profile-template.html" class="cc-btn-note" style="display:flex;align-items:center;justify-content:center;text-decoration:none">프로필 보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 관심고객 등록 (인라인 폼) ===== -->
+<section class="section" id="register">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="ey">REGISTER</div>
+      <h2>관심고객 등록</h2>
+      <p>먼저 등록하신 분께 분양 일정과 사전예약 혜택을 우선 안내드립니다</p>
+    </div>
+    <div class="reg">
+      <div class="lead-x">
+        <h3>지금 등록하면<br>가장 먼저 받아보는 혜택</h3>
+        <p>관심고객으로 등록해 주시면 잔여세대 동호수, 타입별 분양가, 계약 조건 및 한정 혜택을 가장 먼저 안내해 드립니다.</p>
+        <ul class="perk">
+          <li>잔여세대 동호수 · 분양 조건 우선 안내</li>
+          <li>타입별 분양가 및 계약 한정 혜택</li>
+          <li>견본주택 방문 예약 (1:1 관람)</li>
+          <li>전담 상담 및 맞춤 자금계획 안내</li>
+        </ul>
+      </div>
+      <div class="form">
+        <div class="fld"><label for="rname">성함</label><input id="rname" type="text" placeholder="홍길동" required></div>
+        <div class="fld"><label for="rtel">연락처</label><input id="rtel" type="tel" placeholder="010-0000-0000" required></div>
+        <div class="fld"><label for="rtype">관심 타입</label>
+          <select id="rtype">
+            <option value="">선택 안함</option>
+            <option>전용 59㎡</option>
+            <option>전용 84㎡ A</option>
+            <option>전용 84㎡ B</option>
+            <option>전용 84㎡ C</option>
+          </select>
+        </div>
+        <div class="agree"><input type="checkbox" id="ragree" required><label for="ragree">개인정보 수집·이용 및 마케팅 활용에 동의합니다 (필수)</label></div>
+        <button class="submit" onclick="alert('관심고객 등록이 완료되었습니다. 김상담 상담사가 연락드리겠습니다.')">관심고객 등록하기</button>
+        <div class="sub-tel">바로 상담을 원하시면<b>📞 010-0000-0000</b></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ===== 오시는 길 ===== -->
 <section class="section" id="location">

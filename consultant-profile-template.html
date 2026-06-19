@@ -168,6 +168,26 @@ nav.menu a:hover{color:var(--ink)}
 .form .sub-tel{text-align:center;margin-top:14px;font-size:13px;color:var(--muted)}
 .form .sub-tel b{color:var(--ink);font-size:17px;display:block;margin-top:2px}
 
+/* career / listing unified */
+.cj-badge-now{background:#e8f0ff;color:#1a4fd6;border:1px solid #b5caff}
+.cj-active{border-color:var(--gold);background:#fffdf7}
+.cj-yr-now{background:var(--gold-d);letter-spacing:0;font-size:11px}
+.cj-link{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;color:var(--ink);text-decoration:underline}
+/* CERTIFIED PARTNER checkmark */
+.cpart-check{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;background:var(--gold);color:#fff;border-radius:50%;font-size:9px;font-weight:900;margin-right:5px;vertical-align:middle}
+/* inquiry modal (form popup) */
+.iqmodal{position:fixed;inset:0;z-index:120;display:none;align-items:flex-end;justify-content:center;background:rgba(10,16,30,.55)}
+.iqmodal.open{display:flex}
+@media(min-width:640px){.iqmodal{align-items:center}}
+.iqmodal .cmodal-card{max-width:440px}
+.iq-fld{margin-bottom:12px}
+.iq-fld label{display:block;font-size:13px;font-weight:700;color:#555;margin-bottom:5px}
+.iq-fld input,.iq-fld select{width:100%;padding:12px 14px;border:1px solid #d6dae1;border-radius:6px;font-size:14px;font-family:inherit;color:#333}
+.iq-fld input:focus,.iq-fld select:focus{outline:none;border-color:var(--ink)}
+.iq-agree{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:#777;margin:8px 0 14px}
+.iq-agree input{width:auto;margin-top:2px}
+.iq-submit{width:100%;height:50px;border:none;border-radius:6px;background:var(--ink);color:#fff;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;transition:background .15s}
+.iq-submit:hover{background:var(--ink2)}
 /* contact modal */
 .cmodal{position:fixed;inset:0;z-index:120;display:none;align-items:flex-end;justify-content:center;background:rgba(10,16,30,.55)}
 .cmodal.open{display:flex}
@@ -343,7 +363,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
       <div class="actions">
         <button class="btn-heart" id="heartBtn" onclick="toggleHeart(this)">♡</button>
         <button class="btn-buy" onclick="openContact()">📞 상담사 연결하기</button>
-        <button class="btn-note" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">문의 남기기</button>
+        <button class="btn-note" onclick="openIq()">문의 남기기</button>
       </div>
       <div class="trust">
         <span>상담비 없음</span><span>수수료 없음</span><span>계약까지 함께</span><span>호갱노노 공인</span>
@@ -355,8 +375,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 <div class="tabs">
   <div class="wrap">
     <a href="#about" class="active">소개</a>
-    <a href="#listing">담당현장</a>
-    <a href="#career">상담이력</a>
+    <a href="#listing">분양이력</a>
     <a href="#reviews">후기<span style="font-size:12px;color:var(--gold);margin-left:4px;font-weight:700">84</span></a>
     <a href="#contact">상담신청</a>
   </div>
@@ -383,33 +402,21 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
   </div>
 </div>
 
-<!-- ── 담당 현장 ── -->
+<!-- ── 분양 상담 이력 (담당중 + 완료 통합) ── -->
 <div class="section" id="listing">
   <div class="wrap">
-    <div class="sec-head"><p class="ey">CURRENT LISTING</p><h2>담당 분양현장</h2><p>직접 현장을 확인하고 안내하는 곳만 담당합니다</p></div>
-    <div style="display:flex;justify-content:center">
-      <div class="lst-single">
-        <div class="limg"><div class="shot ph"><img src="단지상세홈페이지/컬리스타일-광안센텀비스타동원/assets/img/aerial.jpg" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div></div>
-        <div class="lbody">
-          <span class="ltag remain">잔여세대</span>
-          <div class="lname">광안 센텀 비스타동원</div>
-          <div class="lloc">부산 수영구 · 동원개발 · 59·84㎡</div>
-          <div class="lprice">5.1억~8.4억</div>
-          <div class="l-btns">
-            <a href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html" class="l-btn det">현장 상세 보기</a>
-            <button class="l-btn con" onclick="openContact()">상담 신청</button>
-          </div>
+    <div class="sec-head"><p class="ey">SALES HISTORY</p><h2>분양 상담 이력</h2><p>담당 진행 중인 현장과 완료한 분양 상담 이력입니다</p></div>
+    <div class="career-grid">
+      <div class="cj cj-active">
+        <div class="cj-yr cj-yr-now">NOW</div>
+        <div class="cj-body">
+          <div class="cj-loc">부산 수영구 광안동</div>
+          <div class="cj-name">광안 센텀 비스타동원</div>
+          <div class="cj-detail">전용 59·84㎡ · 총 525세대 · 분양가 5.1~8.4억</div>
+          <a href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html" class="cj-link">현장 상세 보기 →</a>
+          <span class="cj-badge cj-badge-now">담당 중</span>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── 상담 이력 ── -->
-<div class="section" id="career">
-  <div class="wrap">
-    <div class="sec-head"><p class="ey">CAREER HISTORY</p><h2>주요 분양 상담 이력</h2><p>지금까지 성공적으로 분양 상담을 완료한 현장들입니다</p></div>
-    <div class="career-grid">
       <div class="cj">
         <div class="cj-yr">2023</div>
         <div class="cj-body">
@@ -512,6 +519,23 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
   </div>
 </div>
 
+<!-- inquiry modal (문의 남기기 팝업) -->
+<div class="iqmodal" id="iqModal" onclick="if(event.target===this)closeIq()">
+  <div class="cmodal-card">
+    <button class="cmodal-close" onclick="closeIq()">×</button>
+    <h3>문의 남기기</h3>
+    <p class="cm-sub">남겨주시면 24시간 내 연락드립니다.</p>
+    <div class="iq-fld"><label>이름</label><input type="text" placeholder="홍길동"></div>
+    <div class="iq-fld"><label>연락처</label><input type="tel" placeholder="010-0000-0000"></div>
+    <div class="iq-fld"><label>관심 현장</label>
+      <select><option>광안 센텀 비스타동원</option><option>기타 (직접 문의)</option></select>
+    </div>
+    <div class="iq-fld"><label>문의 내용 (선택)</label><input type="text" placeholder="청약 일정, 평형 추천 등 자유롭게"></div>
+    <div class="iq-agree"><input type="checkbox"><label>개인정보 수집 및 이용에 동의합니다 (필수)</label></div>
+    <button class="iq-submit" onclick="alert('문의가 접수되었습니다. 24시간 내 연락드리겠습니다.');closeIq()">문의 접수하기</button>
+  </div>
+</div>
+
 <!-- contact modal -->
 <div class="cmodal" id="contactModal" onclick="if(event.target===this)closeContact()">
   <div class="cmodal-card">
@@ -528,8 +552,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 
 <nav class="sidenav" id="sidenav">
   <a href="#about"><span class="lbl">소개</span><span class="dot"></span></a>
-  <a href="#listing"><span class="lbl">담당현장</span><span class="dot"></span></a>
-  <a href="#career"><span class="lbl">상담이력</span><span class="dot"></span></a>
+  <a href="#listing"><span class="lbl">분양이력</span><span class="dot"></span></a>
   <a href="#reviews"><span class="lbl">후기</span><span class="dot"></span></a>
   <a href="#contact"><span class="lbl">상담신청</span><span class="dot"></span></a>
 </nav>
@@ -542,7 +565,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 <div class="mbar">
   <button class="mbar-heart" id="mbarHeart" onclick="toggleHeart(this)">♡</button>
   <button class="mbar-call" onclick="openContact()">📞 상담사 연결하기</button>
-  <a href="#contact" class="mbar-note">문의 남기기</a>
+  <button class="mbar-note" onclick="openIq()">문의 남기기</button>
 </div>
 
 <button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
@@ -578,6 +601,8 @@ function switchImg(t,s){document.querySelectorAll('.gallery .thumbs .shot').forE
 function toggleHeart(btn){btn.classList.toggle('on');btn.textContent=btn.classList.contains('on')?'♥':'♡';const mb=document.getElementById('mbarHeart');if(mb){mb.classList.toggle('on');mb.textContent=btn.textContent}}
 function openContact(){document.getElementById('contactModal').classList.add('open');document.body.style.overflow='hidden'}
 function closeContact(){document.getElementById('contactModal').classList.remove('open');document.body.style.overflow=''}
+function openIq(){document.getElementById('iqModal').classList.add('open');document.body.style.overflow='hidden'}
+function closeIq(){document.getElementById('iqModal').classList.remove('open');document.body.style.overflow=''}
 const SECS=['about','listing','career','reviews','contact'];
 window.addEventListener('scroll',function(){
   const y=window.scrollY+140;

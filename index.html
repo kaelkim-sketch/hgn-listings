@@ -118,21 +118,45 @@ nav.menu a:hover{color:var(--ink)}
 .l-btn.con{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
 .l-btn.con:hover{border-color:var(--ink);background:var(--soft)}
 
-/* ── 상담사 섹션 ── */
-.con-card{max-width:680px;margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px}
-.con-card .cp{position:relative}
+/* ── 상담사 섹션 (3열 그리드) ── */
+.con-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.con-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.con-grid{grid-template-columns:1fr}}
+.con-card{display:flex;flex-direction:column;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 22px 22px;text-align:center}
+.con-card .cp{position:relative;width:100%;max-width:130px;margin-bottom:16px}
 .con-card .cp .shot{aspect-ratio:1/1;border-radius:10px}
-.con-card .cp .cbadge{position:absolute;bottom:10px;left:10px;right:10px;background:var(--ink);color:#fff;font-size:11px;font-weight:700;text-align:center;padding:6px;border-radius:6px;letter-spacing:.04em}
-.con-card .ci .cname{font-size:28px;font-weight:800;color:var(--ink);letter-spacing:-.03em;margin-bottom:6px}
-.con-card .ci .cpart{font-size:12px;font-weight:700;color:var(--gold-d);letter-spacing:.14em;background:#fbf6ea;border:1px solid #f0e3c4;border-radius:20px;display:inline-block;padding:4px 12px;margin-bottom:16px}
-.con-card .ci .cspec{width:100%;border-top:1px solid var(--line);font-size:14px}
-.cspec dl{display:flex;padding:10px 0;border-bottom:1px solid var(--soft)}
-.cspec dt{flex:0 0 80px;color:var(--muted);font-weight:600}
+.con-card .cp .cbadge{position:absolute;bottom:8px;left:6px;right:6px;background:var(--ink);color:#fff;font-size:10px;font-weight:700;text-align:center;padding:5px;border-radius:5px;letter-spacing:.03em}
+.con-card .ci{width:100%;text-align:left}
+.con-card .ci .cname{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:4px}
+.con-card .ci .cpart{font-size:11px;font-weight:700;color:var(--gold-d);letter-spacing:.12em;background:#fbf6ea;border:1px solid #f0e3c4;border-radius:20px;display:inline-flex;align-items:center;padding:4px 11px;margin-bottom:12px}
+.cpart-check{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;background:var(--gold);color:#fff;border-radius:50%;font-size:8px;font-weight:900;margin-right:4px;flex-shrink:0}
+.con-card .ci .cspec{width:100%;border-top:1px solid var(--line);font-size:13px}
+.cspec dl{display:flex;padding:8px 0;border-bottom:1px solid var(--soft)}
+.cspec dt{flex:0 0 70px;color:var(--muted);font-weight:600}
 .cspec dd{flex:1;color:#333;font-weight:600}
-.con-card .ci .ctags{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0}
-.ctag{font-size:12px;font-weight:700;background:var(--soft);color:#555;border-radius:20px;padding:5px 12px}
-.con-card .ci .cbtns{display:flex;gap:10px;margin-top:20px}
-.con-card .ci .cbtns .l-btn{flex:1;height:50px;font-size:14.5px}
+.con-card .ci .ctags{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}
+.ctag{font-size:11.5px;font-weight:700;background:var(--soft);color:#555;border-radius:20px;padding:4px 10px}
+.con-card .ci .cbtns{display:flex;gap:8px;margin-top:14px}
+.con-card .ci .cbtns .l-btn{flex:1;height:46px;font-size:13.5px}
+/* 상담문의 팝업 */
+.con-modal{position:fixed;inset:0;z-index:130;display:none;align-items:flex-end;justify-content:center;background:rgba(10,16,30,.58)}
+@media(min-width:640px){.con-modal{align-items:center}}
+.con-modal.open{display:flex}
+.con-modal-card{position:relative;width:100%;max-width:420px;background:#fff;border-radius:20px 20px 0 0;padding:28px 24px 36px;max-height:92vh;overflow-y:auto;animation:cmSlide .3s ease}
+@media(min-width:640px){.con-modal-card{border-radius:18px}}
+@keyframes cmSlide{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+.con-modal-close{position:absolute;top:14px;right:16px;width:32px;height:32px;border-radius:50%;border:none;background:#f3f4f6;color:#888;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.con-modal .cm-con{display:flex;align-items:center;gap:12px;background:#f7f8fa;border-radius:10px;padding:12px 14px;margin-bottom:18px;border:1px solid var(--line)}
+.con-modal .cm-photo{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1b2945,#33486f);display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;font-weight:800;flex-shrink:0}
+.con-modal .cm-info .cm-name{font-size:14px;font-weight:800;color:var(--ink)}
+.con-modal .cm-info .cm-role{font-size:11.5px;color:var(--muted);margin-top:1px}
+.con-modal h3{font-size:19px;font-weight:800;color:var(--ink);margin-bottom:14px}
+.cm-fld{margin-bottom:11px}
+.cm-fld label{display:block;font-size:12.5px;font-weight:700;color:#555;margin-bottom:4px}
+.cm-fld input,.cm-fld select{width:100%;padding:11px 13px;border:1px solid #d6dae1;border-radius:6px;font-size:14px;font-family:inherit;color:#333}
+.cm-agree{display:flex;align-items:flex-start;gap:7px;font-size:11.5px;color:#777;margin:8px 0 14px}
+.cm-agree input{width:auto;margin-top:2px}
+.cm-submit{width:100%;height:50px;border:none;border-radius:8px;background:var(--ink);color:#fff;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit}
 
 /* ── WHY 섹션 ── */
 .section.why{background:linear-gradient(162deg,#0e1729 0%,#192745 58%,#212f59 100%);position:relative;overflow:hidden}
@@ -374,107 +398,100 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
       <h2>호갱노노 인증 상담사</h2>
       <p>현장을 직접 발로 뛰는 공인 파트너입니다</p>
     </div>
-    <div class="con-card">
-      <div class="cp">
-        <div class="shot ph">
-          <img src="assets/img/about/1.jpg" alt="상담사 프로필"
-               onload="this.parentElement.classList.remove('ph')"
-               onerror="this.style.display='none'">
+    <div class="con-grid">
+      <!-- 김상담 -->
+      <div class="con-card">
+        <div class="cp">
+          <div class="shot ph">
+            <img src="assets/img/about/1.jpg" alt="김상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'">
+          </div>
+          <div class="cbadge">호갱노노 공인 파트너</div>
         </div>
-        <div class="cbadge">호갱노노 공인 파트너</div>
-      </div>
-      <div class="ci">
-        <div class="cname">김상담</div>
-        <span class="cpart">CERTIFIED PARTNER</span>
-        <div class="cspec">
-          <dl><dt>전문분야</dt><dd>신규 분양 · 수도권 · 부산경남</dd></dl>
-          <dl><dt>경력</dt><dd>12년 (분양 전문)</dd></dl>
-          <dl><dt>거래완료</dt><dd>127건</dd></dl>
-          <dl><dt>고객만족도</dt><dd>4.9★ (리뷰 84건)</dd></dl>
-          <dl><dt>담당현장</dt><dd>광안 센텀 비스타동원</dd></dl>
-        </div>
-        <div class="ctags">
-          <span class="ctag">아파트 분양</span>
-          <span class="ctag">부산경남</span>
-          <span class="ctag">수도권</span>
-          <span class="ctag">청약 컨설팅</span>
-          <span class="ctag">상담비 무료</span>
-        </div>
-        <div class="cbtns">
-          <a href="consultant-profile-template.html" class="l-btn det">상담사 프로필 보기</a>
-          <a href="consultant-profile-template.html" class="l-btn con">바로 상담 문의</a>
+        <div class="ci">
+          <div class="cname">김상담</div>
+          <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
+          <div class="cspec">
+            <dl><dt>전문분야</dt><dd>부산·경남</dd></dl>
+            <dl><dt>경력</dt><dd>12년 · 127건</dd></dl>
+            <dl><dt>담당현장</dt><dd>광안 센텀 비스타동원</dd></dl>
+          </div>
+          <div class="ctags"><span class="ctag">부산경남</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
+          <div class="cbtns">
+            <a href="consultant-profile-template.html" class="l-btn det">프로필 보기</a>
+            <button class="l-btn con" onclick="openConModal('김','김상담','광안 센텀 비스타동원 담당')">상담 문의</button>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- 이상담 -->
-    <div class="con-card" style="margin-top:24px">
-      <div class="cp">
-        <div class="shot ph">
-          <img src="assets/img/about/2.jpg" alt="이상담 프로필"
-               onload="this.parentElement.classList.remove('ph')"
-               onerror="this.style.display='none'">
+      <!-- 이상담 -->
+      <div class="con-card">
+        <div class="cp">
+          <div class="shot ph">
+            <img src="assets/img/about/2.jpg" alt="이상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'">
+          </div>
+          <div class="cbadge">호갱노노 공인 파트너</div>
         </div>
-        <div class="cbadge">호갱노노 공인 파트너</div>
-      </div>
-      <div class="ci">
-        <div class="cname">이상담</div>
-        <span class="cpart">CERTIFIED PARTNER</span>
-        <div class="cspec">
-          <dl><dt>전문분야</dt><dd>신규 분양 · 수도권 남부</dd></dl>
-          <dl><dt>경력</dt><dd>8년 (분양 전문)</dd></dl>
-          <dl><dt>거래완료</dt><dd>89건</dd></dl>
-          <dl><dt>고객만족도</dt><dd>4.8★ (리뷰 62건)</dd></dl>
-          <dl><dt>담당현장</dt><dd>오산 헤리티지 자이</dd></dl>
-        </div>
-        <div class="ctags">
-          <span class="ctag">아파트 분양</span>
-          <span class="ctag">경기 오산·화성·평택</span>
-          <span class="ctag">청약 컨설팅</span>
-          <span class="ctag">상담비 무료</span>
-        </div>
-        <div class="cbtns">
-          <a href="consultant-lee-profile.html" class="l-btn det">상담사 프로필 보기</a>
-          <a href="consultant-lee-profile.html" class="l-btn con">바로 상담 문의</a>
+        <div class="ci">
+          <div class="cname">이상담</div>
+          <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
+          <div class="cspec">
+            <dl><dt>전문분야</dt><dd>수도권 남부</dd></dl>
+            <dl><dt>경력</dt><dd>8년 · 89건</dd></dl>
+            <dl><dt>담당현장</dt><dd>오산 헤리티지 자이</dd></dl>
+          </div>
+          <div class="ctags"><span class="ctag">경기 오산·화성</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
+          <div class="cbtns">
+            <a href="consultant-lee-profile.html" class="l-btn det">프로필 보기</a>
+            <button class="l-btn con" onclick="openConModal('이','이상담','오산 헤리티지 자이 담당')">상담 문의</button>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- 박상담 -->
-    <div class="con-card" style="margin-top:24px">
-      <div class="cp">
-        <div class="shot ph">
-          <img src="assets/img/about/3.jpg" alt="박상담 프로필"
-               onload="this.parentElement.classList.remove('ph')"
-               onerror="this.style.display='none'">
+      <!-- 박상담 -->
+      <div class="con-card">
+        <div class="cp">
+          <div class="shot ph">
+            <img src="assets/img/about/3.jpg" alt="박상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'">
+          </div>
+          <div class="cbadge">호갱노노 공인 파트너</div>
         </div>
-        <div class="cbadge">호갱노노 공인 파트너</div>
-      </div>
-      <div class="ci">
-        <div class="cname">박상담</div>
-        <span class="cpart">CERTIFIED PARTNER</span>
-        <div class="cspec">
-          <dl><dt>전문분야</dt><dd>신규 분양 · 충청권</dd></dl>
-          <dl><dt>경력</dt><dd>10년 (분양 전문)</dd></dl>
-          <dl><dt>거래완료</dt><dd>103건</dd></dl>
-          <dl><dt>고객만족도</dt><dd>4.9★ (리뷰 79건)</dd></dl>
-          <dl><dt>담당현장</dt><dd>천안 동일하이빌 파크레인</dd></dl>
-        </div>
-        <div class="ctags">
-          <span class="ctag">아파트 분양</span>
-          <span class="ctag">천안·아산·세종</span>
-          <span class="ctag">청약 컨설팅</span>
-          <span class="ctag">상담비 무료</span>
-        </div>
-        <div class="cbtns">
-          <a href="consultant-park-profile.html" class="l-btn det">상담사 프로필 보기</a>
-          <a href="consultant-park-profile.html" class="l-btn con">바로 상담 문의</a>
+        <div class="ci">
+          <div class="cname">박상담</div>
+          <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
+          <div class="cspec">
+            <dl><dt>전문분야</dt><dd>충청권</dd></dl>
+            <dl><dt>경력</dt><dd>10년 · 103건</dd></dl>
+            <dl><dt>담당현장</dt><dd>천안 동일하이빌 파크레인</dd></dl>
+          </div>
+          <div class="ctags"><span class="ctag">천안·아산·세종</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
+          <div class="cbtns">
+            <a href="consultant-park-profile.html" class="l-btn det">프로필 보기</a>
+            <button class="l-btn con" onclick="openConModal('박','박상담','천안 동일하이빌 파크레인 담당')">상담 문의</button>
+          </div>
         </div>
       </div>
     </div>
 
   </div>
 </section>
+
+<!-- 상담 문의 팝업 모달 -->
+<div class="con-modal" id="conModal" onclick="if(event.target===this)closeConModal()">
+  <div class="con-modal-card">
+    <button class="con-modal-close" onclick="closeConModal()">×</button>
+    <div class="cm-con">
+      <div class="cm-photo" id="cmPhoto">김</div>
+      <div class="cm-info">
+        <div class="cm-name" id="cmName">김상담 분양상담사</div>
+        <div class="cm-role" id="cmRole">광안 센텀 비스타동원 담당 · 호갱노노 공인 파트너</div>
+      </div>
+    </div>
+    <h3>상담 문의</h3>
+    <div class="cm-fld"><label>이름</label><input type="text" placeholder="홍길동"></div>
+    <div class="cm-fld"><label>연락처</label><input type="tel" placeholder="010-0000-0000"></div>
+    <div class="cm-fld"><label>문의 내용 (선택)</label><input type="text" placeholder="청약 일정, 평형 추천 등 자유롭게"></div>
+    <div class="cm-agree"><input type="checkbox"><label>개인정보 수집 및 이용에 동의합니다 (필수)</label></div>
+    <button class="cm-submit" onclick="alert('문의가 접수되었습니다. 24시간 내 연락드리겠습니다.');closeConModal()">문의 접수하기</button>
+  </div>
+</div>
 
 
 <!-- ── WHY 섹션 ── -->
@@ -566,6 +583,17 @@ window.addEventListener('scroll',function(){
 },{passive:true});
 function toggleDrawer(open){
   document.querySelector('.drawer').classList.toggle('open',open);
+}
+function openConModal(photo, name, role){
+  document.getElementById('cmPhoto').textContent=photo;
+  document.getElementById('cmName').textContent=name+' 분양상담사';
+  document.getElementById('cmRole').textContent=role+' · 호갱노노 공인 파트너';
+  document.getElementById('conModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeConModal(){
+  document.getElementById('conModal').classList.remove('open');
+  document.body.style.overflow='';
 }
 </script>
 </body>
