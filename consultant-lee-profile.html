@@ -138,6 +138,8 @@ nav.menu a:hover{color:var(--ink)}
 .cmodal-close{position:absolute;top:14px;right:16px;width:32px;height:32px;border-radius:50%;border:none;background:var(--soft);color:var(--muted);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .cmodal h3{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:6px}
 .cmodal .cm-sub{font-size:13.5px;color:var(--muted);margin-bottom:24px}
+.iq-fld{margin-bottom:14px}.iq-fld label{display:block;font-size:12.5px;color:var(--muted);font-weight:700;margin-bottom:5px}.iq-fld input,.iq-fld select{width:100%;height:44px;border:1.5px solid var(--line);border-radius:8px;padding:0 12px;font-size:14px;font-family:inherit;color:var(--ink);outline:none;transition:border-color .15s}.iq-fld input:focus,.iq-fld select:focus{border-color:var(--ink)}.iq-agree{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;color:#555;margin:14px 0 16px;line-height:1.5}.iq-agree input{width:16px;height:16px;margin-top:1px;flex-shrink:0;accent-color:var(--ink)}.iq-agree a{color:var(--ink);text-decoration:underline;cursor:pointer}.iq-submit{width:100%;height:50px;border:none;border-radius:8px;background:var(--ink);color:#fff;font-size:15.5px;font-weight:800;cursor:pointer;font-family:inherit;transition:background .15s}.iq-submit:hover{background:var(--ink2)}
+.privacy-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(10,16,30,.6)}.privacy-modal.open{display:flex}.privacy-card{background:#fff;border-radius:16px;padding:28px 24px;max-width:460px;width:90%;max-height:80vh;overflow-y:auto;position:relative}.privacy-card h4{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:16px}.privacy-card .pv-close{position:absolute;top:14px;right:16px;background:var(--soft);border:none;border-radius:50%;width:30px;height:30px;font-size:16px;cursor:pointer}.privacy-card p{font-size:13px;color:#444;line-height:1.8;margin-bottom:10px}.privacy-card b{color:var(--ink)}
 .cmodal-btns{display:flex;flex-direction:column;gap:10px}
 .cm-btn{height:54px;border-radius:10px;border:none;font-size:15.5px;font-weight:800;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;transition:all .15s}
 .cm-btn.tel{background:var(--ink);color:#fff}.cm-btn.sms{background:var(--soft);color:var(--ink);border:1.5px solid var(--line)}.cm-btn.kakao{background:#FEE500;color:#191919}
@@ -375,19 +377,31 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
   </div>
 </div>
 
-<div class="iqmodal" id="iqModal" onclick="if(event.target===this)closeIq()">
+<div class="cmodal" id="iqModal" onclick="if(event.target===this)closeIq()">
   <div class="cmodal-card">
     <button class="cmodal-close" onclick="closeIq()">×</button>
     <h3>문의 남기기</h3>
     <p class="cm-sub">남겨주시면 24시간 내 연락드립니다.</p>
-    <div class="iq-fld"><label>이름</label><input type="text" placeholder="홍길동"></div>
-    <div class="iq-fld"><label>연락처</label><input type="tel" placeholder="010-0000-0000"></div>
+    <div class="iq-fld"><label>이름 (필수)</label><input type="text" id="iqName" placeholder="홍길동"></div>
+    <div class="iq-fld"><label>연락처 (필수)</label><input type="tel" id="iqTel" placeholder="010-0000-0000"></div>
     <div class="iq-fld"><label>관심 현장</label>
       <select><option>오산 헤리티지 자이</option><option>기타 (직접 문의)</option></select>
     </div>
     <div class="iq-fld"><label>문의 내용 (선택)</label><input type="text" placeholder="청약 일정, 평형 추천 등 자유롭게"></div>
-    <div class="iq-agree"><input type="checkbox"><label>개인정보 수집 및 이용에 동의합니다 (필수)</label></div>
-    <button class="iq-submit" onclick="alert('문의가 접수되었습니다. 24시간 내 연락드리겠습니다.');closeIq()">문의 접수하기</button>
+    <div class="iq-agree"><input type="checkbox" id="iqAgree"><label for="iqAgree">개인정보 수집·이용 및 마케팅 활용에 동의합니다 (필수) <a onclick="openPrivacy()">전문 보기</a></label></div>
+    <button class="iq-submit" onclick="submitIq()">문의 접수하기</button>
+  </div>
+</div>
+
+<div class="privacy-modal" id="privacyModal" onclick="if(event.target===this)closePrivacy()">
+  <div class="privacy-card">
+    <button class="pv-close" onclick="closePrivacy()">×</button>
+    <h4>개인정보 수집·이용 동의서</h4>
+    <p><b>수집 항목</b>: 성명, 연락처(휴대폰번호)</p>
+    <p><b>수집 목적</b>: 분양 상담 연결, 관심고객 관리, 분양 관련 마케팅 정보 제공</p>
+    <p><b>보유 및 이용 기간</b>: 수집일로부터 1년 (동의 철회 시 즉시 삭제)</p>
+    <p><b>제3자 제공</b>: 담당 분양상담사에게 상담 목적으로 제공될 수 있습니다.</p>
+    <p>정보주체는 개인정보 수집·이용에 동의를 거부할 권리가 있으나, 미동의 시 관심고객 등록 서비스 이용이 제한됩니다.</p>
   </div>
 </div>
 
@@ -432,6 +446,9 @@ function toggleHeart(btn){btn.classList.toggle('on');btn.textContent=btn.classLi
 function openContact(){document.getElementById('contactModal').classList.add('open');document.body.style.overflow='hidden'}
 function openIq(){document.getElementById("iqModal").classList.add("open");document.body.style.overflow="hidden"}
 function closeIq(){document.getElementById("iqModal").classList.remove("open");document.body.style.overflow=""}
+function submitIq(){var n=document.getElementById('iqName').value.trim();var t=document.getElementById('iqTel').value.trim();var a=document.getElementById('iqAgree').checked;if(!n){alert('이름을 입력해주세요.');return;}if(!t){alert('연락처를 입력해주세요.');return;}if(!a){alert('개인정보 수집·이용 및 마케팅 활용에 동의해주세요.');return;}alert('문의가 접수되었습니다. 24시간 내 연락드리겠습니다.');closeIq();}
+function openPrivacy(){document.getElementById('privacyModal').classList.add('open')}
+function closePrivacy(){document.getElementById('privacyModal').classList.remove('open')}
 function closeContact(){document.getElementById('contactModal').classList.remove('open');document.body.style.overflow=''}
 const SECS=['about','listing','career','reviews','contact'];
 window.addEventListener('scroll',function(){const y=window.scrollY+140;let cur=SECS[0];SECS.forEach(id=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)cur=id});document.querySelectorAll('.tabs a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));document.querySelectorAll('.sidenav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));document.getElementById('sidenav').classList.toggle('show',window.scrollY>300);document.getElementById('topBtn').classList.toggle('show',window.scrollY>400)},{passive:true});
