@@ -85,7 +85,63 @@ nav.menu a:hover{color:var(--ink)}
 
 /* ── 섹션 공통 ── */
 .section{padding:72px 0;scroll-margin-top:70px}
-.section:nth-child(even){background:var(--soft)}
+.tier-sec{padding:52px 0}
+/* ── 광고 노출 등급 ── */
+.tier-head{display:flex;align-items:center;gap:10px;margin-bottom:24px;padding-bottom:14px;border-bottom:2px solid var(--line)}
+.tbadge{display:inline-flex;align-items:center;height:22px;padding:0 12px;border-radius:11px;font-size:10px;font-weight:900;letter-spacing:.1em}
+.tbadge.hit{background:linear-gradient(135deg,#b5985a,#d4a830);color:#fff}
+.tbadge.pop{background:var(--ink);color:#fff}
+.tbadge.std{background:#e0e2ea;color:#555}
+.tier-head h3{font-size:18px;font-weight:800;color:var(--ink);margin:0;letter-spacing:-.02em}
+.tier-plan{font-size:11.5px;color:var(--muted);font-weight:600;background:var(--soft);border:1px solid var(--line);padding:3px 9px;border-radius:20px}
+/* ── 가로 광고 배너 ── */
+.h-ad-wrap{text-align:center;padding:16px 20px 8px}
+.h-ad-ph{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:90px;width:100%;max-width:728px;background:#f5f6fa;border:1px dashed #c8cdd8;border-radius:8px;font-size:11.5px;color:#b0b5bf}
+/* ── HIT 단지 카드 ── */
+.lcard-hit{display:grid;grid-template-columns:1.6fr 1fr;border-radius:16px;overflow:hidden;background:#fff;border:2px solid var(--gold);box-shadow:0 8px 40px rgba(181,152,90,.16);position:relative}
+.lcard-hit .limg{position:relative}
+.lcard-hit .limg .shot{aspect-ratio:auto;height:100%;min-height:300px}
+.lcard-hit .hit-pin{position:absolute;top:14px;left:14px;background:linear-gradient(135deg,#b5985a,#d4a830);color:#fff;font-size:10px;font-weight:900;padding:5px 14px;border-radius:20px;letter-spacing:.1em;z-index:2}
+.lcard-hit .lbody{padding:36px 30px;display:flex;flex-direction:column}
+.lcard-hit .lname{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.lcard-hit .lloc{font-size:13px;color:var(--muted);margin-bottom:16px}
+.lcard-hit .lprice{font-size:24px;font-weight:900;color:var(--ink);margin:14px 0 6px;letter-spacing:-.02em}
+.lcard-hit .lnote{font-size:13px;color:var(--muted);flex:1;margin-bottom:20px;line-height:1.7}
+.lcard-hit .lbtns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto}
+/* ── 소형 단지 카드 (절반 높이) ── */
+.lcard-sm .limg .shot{aspect-ratio:16/9}
+.lcard-sm .lbody{padding:12px 14px 14px}
+.lcard-sm .lname{font-size:13.5px;margin-bottom:2px}
+.lcard-sm .lloc{font-size:11.5px;margin-bottom:8px}
+.lcard-sm .lsp{padding:5px 0}
+.lcard-sm .lsp .k{font-size:9.5px}
+.lcard-sm .lsp .v{font-size:11px}
+.lcard-sm .lprice{font-size:13.5px;margin-bottom:2px}
+.lcard-sm .lnote{display:none}
+.lcard-sm .lbtns{grid-template-columns:1fr}
+.lcard-sm .lbtns .l-btn.con{display:none}
+/* ── HIT 상담사 카드 ── */
+.con-card-hit{display:grid;grid-template-columns:220px 1fr;border-radius:16px;overflow:hidden;background:#fff;border:2px solid var(--gold);box-shadow:0 8px 40px rgba(181,152,90,.16);position:relative}
+.con-card-hit .cp{position:relative;width:220px;background:linear-gradient(160deg,#0e1729,#1e2f50)}
+.con-card-hit .cp .shot{aspect-ratio:auto;height:100%;min-height:260px}
+.con-card-hit .cp .cbadge{bottom:auto;top:14px;left:8px;right:8px}
+.con-card-hit .ci{padding:32px 28px;display:flex;flex-direction:column}
+.con-card-hit .ci .cname{font-size:26px}
+.con-card-hit .ci .cbtns{margin-top:auto}
+.con-card-hit .ci .ctags{margin:14px 0 20px}
+/* ── 소형 상담사 카드 (절반 높이) ── */
+.con-card-sm{display:grid;grid-template-columns:76px 1fr;gap:12px;padding:14px;align-items:flex-start;text-align:left}
+.con-card-sm .cp{width:76px;max-width:76px;margin:0}
+.con-card-sm .cp .shot{aspect-ratio:1;border-radius:8px}
+.con-card-sm .cp .cbadge{display:none}
+.con-card-sm .ci .cname{font-size:16px}
+.con-card-sm .ci .ctags{display:none}
+.con-card-sm .cspec dl{padding:5px 0}
+.con-card-sm .cspec dt,.con-card-sm .cspec dd{font-size:12px}
+.con-card-sm .ci .cbtns{flex-direction:column;gap:6px;margin-top:10px}
+.con-card-sm .ci .cbtns .l-btn{height:36px;font-size:12.5px}
+.con-card-sm .ci .cbtns .l-btn.con{display:none}
+@media(max-width:700px){.lcard-hit{grid-template-columns:1fr}.lcard-hit .limg .shot{min-height:200px}.lcard-hit .lbody{padding:20px}.con-card-hit{grid-template-columns:1fr}.con-card-hit .cp{width:100%}.con-card-hit .cp .shot{min-height:180px}.con-card-hit .ci{padding:20px}}
 .sec-head{text-align:center;margin-bottom:44px}
 .sec-head .ey{font-size:11.5px;letter-spacing:.22em;color:var(--gold);font-weight:700}
 .sec-head h2{font-size:28px;font-weight:800;color:var(--ink);margin:10px 0 8px;letter-spacing:-.02em}
@@ -284,34 +340,30 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
       <button class="hero-btn-main" onclick="document.getElementById('listings').scrollIntoView({behavior:'smooth'})">지금 현장 보기 →</button>
       <a href="consultant-profile-template.html" class="hero-btn-sub">상담사 연결하기</a>
     </div>
-    <div class="hero-stats">
-      <div class="hs"><div class="hv">3건</div><div class="hk">안내 가능 현장</div></div>
-      <div class="hs"><div class="hv">무료</div><div class="hk">상담 · 수수료</div></div>
-      <div class="hs"><div class="hv">4.9★</div><div class="hk">고객 만족도</div></div>
-      <div class="hs"><div class="hv">12년</div><div class="hk">파트너 경력</div></div>
-    </div>
   </div>
 </section>
 
 
-<!-- ── 분양현장 ── -->
-<section class="section" id="listings">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="ey">AVAILABLE NOW</p>
-      <h2>지금 안내 가능한 분양현장</h2>
-      <p>호갱노노 공인 파트너가 직접 현장을 안내합니다</p>
-    </div>
-    <div class="listing-grid">
+<!-- ══════════════════════════════════════════
+     분양현장 — 3단 노출 등급
+═══════════════════════════════════════════ -->
+<div id="listings">
 
-      <!-- 광안 센텀 비스타동원 -->
-      <div class="lcard">
+  <!-- ① HIT 분양단지 (하이스트) -->
+  <section class="section tier-sec">
+    <div class="wrap">
+      <div class="tier-head">
+        <span class="tbadge hit">HIT</span>
+        <h3>HIT 분양단지</h3>
+        <span class="tier-plan">하이스트</span>
+      </div>
+      <div class="lcard-hit">
         <div class="limg">
           <div class="shot ph">
             <img src="단지상세홈페이지/컬리스타일-광안센텀비스타동원/assets/img/aerial.jpg" alt="광안 센텀 비스타동원"
-                 onload="this.parentElement.classList.remove('ph')"
-                 onerror="this.style.display='none'">
+                 onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'">
           </div>
+          <span class="hit-pin">★ HIT</span>
           <span class="lstag remain">잔여세대</span>
         </div>
         <div class="lbody">
@@ -323,155 +375,301 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
             <div class="lsp"><div class="k">입주</div><div class="v">2026</div></div>
           </div>
           <div class="lprice">5.1억~8.4억</div>
-          <div class="lnote">더블역세권 · 광안리해수욕장 인근 · 잔여세대 즉시 계약 가능</div>
+          <div class="lnote">더블역세권 · 광안리해수욕장 인근 · 잔여세대 즉시 계약 가능. 부산 수영구 핵심 입지의 프리미엄 주거 단지.</div>
           <div class="lbtns">
             <a href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html" class="l-btn det">현장 상세 보기</a>
             <a href="consultant-profile-template.html" class="l-btn con">상담사 연결</a>
           </div>
         </div>
       </div>
-
-      <!-- 오산 헤리티지 자이 -->
-      <div class="lcard">
-        <div class="limg">
-          <div class="shot ph">
-            <img src="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/assets/img/aerial.jpg" alt="오산 헤리티지 자이"
-                 onload="this.parentElement.classList.remove('ph')"
-                 onerror="this.style.display='none'">
-          </div>
-          <span class="lstag promo">사전홍보</span>
-        </div>
-        <div class="lbody">
-          <div class="lname">오산 헤리티지 자이</div>
-          <div class="lloc">경기 오산시 · GS건설</div>
-          <div class="lspecs">
-            <div class="lsp"><div class="k">전용</div><div class="v">59~99㎡</div></div>
-            <div class="lsp"><div class="k">세대</div><div class="v">1,783</div></div>
-            <div class="lsp"><div class="k">입주</div><div class="v">2028</div></div>
-          </div>
-          <div class="lprice">분양가 상담</div>
-          <div class="lnote">1호선 병점역 도보권 · 1,783세대 대단지 · 관심고객 선접수 진행 중</div>
-          <div class="lbtns">
-            <a href="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/index.html" class="l-btn det">현장 상세 보기</a>
-            <a href="consultant-lee-profile.html" class="l-btn con">상담사 연결</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 천안 동일하이빌 파크레인 -->
-      <div class="lcard">
-        <div class="limg">
-          <div class="shot ph">
-            <img src="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/assets/img/aerial.jpg" alt="천안 동일하이빌 파크레인"
-                 onload="this.parentElement.classList.remove('ph')"
-                 onerror="this.style.display='none'">
-          </div>
-          <span class="lstag promo">사전홍보</span>
-        </div>
-        <div class="lbody">
-          <div class="lname">천안 동일하이빌 파크레인</div>
-          <div class="lloc">충남 천안시 · 동일토건</div>
-          <div class="lspecs">
-            <div class="lsp"><div class="k">전용</div><div class="v">74~99㎡</div></div>
-            <div class="lsp"><div class="k">세대</div><div class="v">948</div></div>
-            <div class="lsp"><div class="k">입주</div><div class="v">2028</div></div>
-          </div>
-          <div class="lprice">분양가 상담</div>
-          <div class="lnote">천안아산역 인근 · 자연친화 설계 · 관심고객 선접수 진행 중</div>
-          <div class="lbtns">
-            <a href="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/index.html" class="l-btn det">현장 상세 보기</a>
-            <a href="consultant-park-profile.html" class="l-btn con">상담사 연결</a>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- 가로 광고 배너 728×90 -->
+  <div class="h-ad-wrap"><div class="h-ad-ph"><!-- ▼ 광고 태그 삽입 (728×90) --><span style="font-size:18px">📢</span> 광고 영역 728×90</div></div>
 
-<!-- ── 인증 상담사 ── -->
-<section class="section" id="consultant">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="ey">CERTIFIED PARTNER</p>
-      <h2>호갱노노 인증 상담사</h2>
-      <p>현장을 직접 발로 뛰는 공인 파트너입니다</p>
-    </div>
-    <div class="con-grid">
-      <!-- 김상담 -->
-      <div class="con-card">
-        <div class="cp">
-          <div class="shot ph">
-            <img src="assets/img/consultants/kim/profile.jpg" alt="김상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'">
-          </div>
-          <div class="cbadge">호갱노노 공인 파트너</div>
-        </div>
-        <div class="ci">
-          <div class="cname">김상담</div>
-          <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
-          <div class="cspec">
-            <dl><dt>전문분야</dt><dd>부산·경남</dd></dl>
-            <dl><dt>경력</dt><dd>12년 · 127건</dd></dl>
-            <dl><dt>담당현장</dt><dd>광안 센텀 비스타동원</dd></dl>
-          </div>
-          <div class="ctags"><span class="ctag">부산경남</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
-          <div class="cbtns">
-            <a href="consultant-profile-template.html" class="l-btn det">프로필 보기</a>
-            <button class="l-btn con" onclick="openConModal('김','김상담','광안 센텀 비스타동원 담당')">상담 문의</button>
-          </div>
-        </div>
+  <!-- ② 실시간 인기단지 (하이스트) -->
+  <section class="section tier-sec">
+    <div class="wrap">
+      <div class="tier-head">
+        <span class="tbadge pop">인기</span>
+        <h3>실시간 인기단지</h3>
+        <span class="tier-plan">하이스트</span>
       </div>
-      <!-- 이상담 -->
-      <div class="con-card">
-        <div class="cp">
-          <div class="shot ph">
-            <img src="assets/img/consultants/lee/profile.jpg" alt="이상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'">
+      <div class="listing-grid">
+        <!-- 오산 헤리티지 자이 -->
+        <div class="lcard">
+          <div class="limg">
+            <div class="shot ph"><img src="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/assets/img/aerial.jpg" alt="오산 헤리티지 자이" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div>
+            <span class="lstag promo">사전홍보</span>
           </div>
-          <div class="cbadge">호갱노노 공인 파트너</div>
+          <div class="lbody">
+            <div class="lname">오산 헤리티지 자이</div>
+            <div class="lloc">경기 오산시 · GS건설</div>
+            <div class="lspecs">
+              <div class="lsp"><div class="k">전용</div><div class="v">59~99㎡</div></div>
+              <div class="lsp"><div class="k">세대</div><div class="v">1,783</div></div>
+              <div class="lsp"><div class="k">입주</div><div class="v">2028</div></div>
+            </div>
+            <div class="lprice">분양가 상담</div>
+            <div class="lnote">1호선 병점역 도보권 · 1,783세대 대단지 · 관심고객 선접수</div>
+            <div class="lbtns">
+              <a href="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/index.html" class="l-btn det">현장 상세 보기</a>
+              <a href="consultant-lee-profile.html" class="l-btn con">상담사 연결</a>
+            </div>
+          </div>
         </div>
-        <div class="ci">
-          <div class="cname">이상담</div>
-          <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
-          <div class="cspec">
-            <dl><dt>전문분야</dt><dd>수도권 남부</dd></dl>
-            <dl><dt>경력</dt><dd>8년 · 89건</dd></dl>
-            <dl><dt>담당현장</dt><dd>오산 헤리티지 자이</dd></dl>
+        <!-- 천안 동일하이빌 파크레인 -->
+        <div class="lcard">
+          <div class="limg">
+            <div class="shot ph"><img src="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/assets/img/aerial.jpg" alt="천안 동일하이빌 파크레인" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div>
+            <span class="lstag promo">사전홍보</span>
           </div>
-          <div class="ctags"><span class="ctag">경기 오산·화성</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
-          <div class="cbtns">
-            <a href="consultant-lee-profile.html" class="l-btn det">프로필 보기</a>
-            <button class="l-btn con" onclick="openConModal('이','이상담','오산 헤리티지 자이 담당')">상담 문의</button>
+          <div class="lbody">
+            <div class="lname">천안 동일하이빌 파크레인</div>
+            <div class="lloc">충남 천안시 · 동일토건</div>
+            <div class="lspecs">
+              <div class="lsp"><div class="k">전용</div><div class="v">74~99㎡</div></div>
+              <div class="lsp"><div class="k">세대</div><div class="v">948</div></div>
+              <div class="lsp"><div class="k">입주</div><div class="v">2028</div></div>
+            </div>
+            <div class="lprice">분양가 상담</div>
+            <div class="lnote">천안아산역 인근 · 자연친화 설계 · 관심고객 선접수</div>
+            <div class="lbtns">
+              <a href="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/index.html" class="l-btn det">현장 상세 보기</a>
+              <a href="consultant-park-profile.html" class="l-btn con">상담사 연결</a>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- 박상담 -->
-      <div class="con-card">
-        <div class="cp">
-          <div class="shot ph">
-            <img src="assets/img/consultants/park/profile.jpg" alt="박상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'">
+        <!-- 세종 나성 힐스테이트 (샘플) -->
+        <div class="lcard">
+          <div class="limg">
+            <div class="shot ph"><img src="" alt="" onerror="this.style.display='none'"></div>
+            <span class="lstag promo">사전홍보</span>
           </div>
-          <div class="cbadge">호갱노노 공인 파트너</div>
-        </div>
-        <div class="ci">
-          <div class="cname">박상담</div>
-          <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
-          <div class="cspec">
-            <dl><dt>전문분야</dt><dd>충청권</dd></dl>
-            <dl><dt>경력</dt><dd>10년 · 103건</dd></dl>
-            <dl><dt>담당현장</dt><dd>천안 동일하이빌 파크레인</dd></dl>
-          </div>
-          <div class="ctags"><span class="ctag">천안·아산·세종</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
-          <div class="cbtns">
-            <a href="consultant-park-profile.html" class="l-btn det">프로필 보기</a>
-            <button class="l-btn con" onclick="openConModal('박','박상담','천안 동일하이빌 파크레인 담당')">상담 문의</button>
+          <div class="lbody">
+            <div class="lname">세종 나성 힐스테이트</div>
+            <div class="lloc">세종특별자치시 나성동 · 현대건설</div>
+            <div class="lspecs">
+              <div class="lsp"><div class="k">전용</div><div class="v">84~116㎡</div></div>
+              <div class="lsp"><div class="k">세대</div><div class="v">1,250</div></div>
+              <div class="lsp"><div class="k">입주</div><div class="v">2028</div></div>
+            </div>
+            <div class="lprice">분양가 상담</div>
+            <div class="lnote">세종 행정중심복합도시 · BRT역 도보권 · 대형 평형 중심</div>
+            <div class="lbtns">
+              <a href="#" class="l-btn det">현장 상세 보기</a>
+              <a href="#" class="l-btn con">상담사 연결</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- 가로 광고 배너 728×90 -->
+  <div class="h-ad-wrap"><div class="h-ad-ph"><!-- ▼ 광고 태그 삽입 (728×90) --><span style="font-size:18px">📢</span> 광고 영역 728×90</div></div>
+
+  <!-- ③ 시선집중 분양단지 (스마트) -->
+  <section class="section tier-sec">
+    <div class="wrap">
+      <div class="tier-head">
+        <span class="tbadge std">스마트</span>
+        <h3>시선집중 분양단지</h3>
+        <span class="tier-plan">스마트</span>
+      </div>
+      <div class="listing-grid">
+        <div class="lcard lcard-sm">
+          <div class="limg"><div class="shot ph"><img src="" alt="" onerror="this.style.display='none'"></div><span class="lstag on">모집중</span></div>
+          <div class="lbody">
+            <div class="lname">김포 고촌 e편한세상</div><div class="lloc">경기 김포시 고촌읍 · 대림산업</div>
+            <div class="lspecs"><div class="lsp"><div class="k">전용</div><div class="v">59~84㎡</div></div><div class="lsp"><div class="k">세대</div><div class="v">876</div></div><div class="lsp"><div class="k">입주</div><div class="v">2028</div></div></div>
+            <div class="lprice">4.2억~6.8억</div>
+            <div class="lbtns"><a href="#" class="l-btn det">현장 상세 보기</a></div>
+          </div>
+        </div>
+        <div class="lcard lcard-sm">
+          <div class="limg"><div class="shot ph"><img src="" alt="" onerror="this.style.display='none'"></div><span class="lstag promo">사전홍보</span></div>
+          <div class="lbody">
+            <div class="lname">하남 미사 힐스테이트</div><div class="lloc">경기 하남시 미사동 · 현대건설</div>
+            <div class="lspecs"><div class="lsp"><div class="k">전용</div><div class="v">74~99㎡</div></div><div class="lsp"><div class="k">세대</div><div class="v">642</div></div><div class="lsp"><div class="k">입주</div><div class="v">2029</div></div></div>
+            <div class="lprice">6.5억~9.2억</div>
+            <div class="lbtns"><a href="#" class="l-btn det">현장 상세 보기</a></div>
+          </div>
+        </div>
+        <div class="lcard lcard-sm">
+          <div class="limg"><div class="shot ph"><img src="" alt="" onerror="this.style.display='none'"></div><span class="lstag promo">사전홍보</span></div>
+          <div class="lbody">
+            <div class="lname">평택 화양 자이</div><div class="lloc">경기 평택시 화양동 · GS건설</div>
+            <div class="lspecs"><div class="lsp"><div class="k">전용</div><div class="v">59~84㎡</div></div><div class="lsp"><div class="k">세대</div><div class="v">1,430</div></div><div class="lsp"><div class="k">입주</div><div class="v">2028</div></div></div>
+            <div class="lprice">3.8억~5.9억</div>
+            <div class="lbtns"><a href="#" class="l-btn det">현장 상세 보기</a></div>
+          </div>
+        </div>
+        <div class="lcard lcard-sm">
+          <div class="limg"><div class="shot ph"><img src="" alt="" onerror="this.style.display='none'"></div><span class="lstag remain">잔여세대</span></div>
+          <div class="lbody">
+            <div class="lname">수원 영통 롯데캐슬</div><div class="lloc">경기 수원시 영통구 · 롯데건설</div>
+            <div class="lspecs"><div class="lsp"><div class="k">전용</div><div class="v">59~84㎡</div></div><div class="lsp"><div class="k">세대</div><div class="v">784</div></div><div class="lsp"><div class="k">입주</div><div class="v">2028</div></div></div>
+            <div class="lprice">5.3억~7.1억</div>
+            <div class="lbtns"><a href="#" class="l-btn det">현장 상세 보기</a></div>
+          </div>
+        </div>
+        <div class="lcard lcard-sm">
+          <div class="limg"><div class="shot ph"><img src="" alt="" onerror="this.style.display='none'"></div><span class="lstag promo">사전홍보</span></div>
+          <div class="lbody">
+            <div class="lname">인천 검단 우미린</div><div class="lloc">인천 서구 검단동 · 우미건설</div>
+            <div class="lspecs"><div class="lsp"><div class="k">전용</div><div class="v">74~99㎡</div></div><div class="lsp"><div class="k">세대</div><div class="v">958</div></div><div class="lsp"><div class="k">입주</div><div class="v">2029</div></div></div>
+            <div class="lprice">분양가 상담</div>
+            <div class="lbtns"><a href="#" class="l-btn det">현장 상세 보기</a></div>
+          </div>
+        </div>
+        <div class="lcard lcard-sm">
+          <div class="limg"><div class="shot ph"><img src="" alt="" onerror="this.style.display='none'"></div><span class="lstag on">모집중</span></div>
+          <div class="lbody">
+            <div class="lname">대전 도안 더샵</div><div class="lloc">대전 유성구 도안동 · 포스코건설</div>
+            <div class="lspecs"><div class="lsp"><div class="k">전용</div><div class="v">59~84㎡</div></div><div class="lsp"><div class="k">세대</div><div class="v">612</div></div><div class="lsp"><div class="k">입주</div><div class="v">2027</div></div></div>
+            <div class="lprice">4.1억~5.8억</div>
+            <div class="lbtns"><a href="#" class="l-btn det">현장 상세 보기</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /#listings -->
+
+
+<!-- ══════════════════════════════════════════
+     인증 상담사 — 3단 노출 등급
+═══════════════════════════════════════════ -->
+<div id="consultant" style="background:var(--soft)">
+
+  <!-- ① HIT 분양상담사 (하이스트) -->
+  <section class="section tier-sec" style="background:var(--soft)">
+    <div class="wrap">
+      <div class="tier-head">
+        <span class="tbadge hit">HIT</span>
+        <h3>HIT 분양상담사</h3>
+        <span class="tier-plan">하이스트</span>
+      </div>
+      <div class="con-card-hit">
+        <div class="cp">
+          <div class="shot ph"><img src="assets/img/consultants/kim/profile.jpg" alt="김상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div>
+          <div class="cbadge">호갱노노 공인 파트너</div>
+        </div>
+        <div class="ci">
+          <div>
+            <div class="cname">김상담</div>
+            <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
+            <div class="cspec">
+              <dl><dt>전문분야</dt><dd>부산·경남</dd></dl>
+              <dl><dt>경력</dt><dd>12년 · 127건</dd></dl>
+              <dl><dt>담당현장</dt><dd>광안 센텀 비스타동원</dd></dl>
+            </div>
+          </div>
+          <div>
+            <div class="ctags"><span class="ctag">부산경남</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span><span class="ctag">잔여세대 전문</span></div>
+            <div class="cbtns">
+              <a href="consultant-profile-template.html" class="l-btn det">프로필 보기</a>
+              <button class="l-btn con" onclick="openConModal('김','김상담','광안 센텀 비스타동원 담당')">상담 문의</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 가로 광고 배너 728×90 -->
+  <div class="h-ad-wrap" style="background:var(--soft)"><div class="h-ad-ph"><!-- ▼ 광고 태그 삽입 (728×90) --><span style="font-size:18px">📢</span> 광고 영역 728×90</div></div>
+
+  <!-- ② 실시간 인기상담사 (하이스트) -->
+  <section class="section tier-sec" style="background:var(--soft)">
+    <div class="wrap">
+      <div class="tier-head">
+        <span class="tbadge pop">인기</span>
+        <h3>실시간 인기상담사</h3>
+        <span class="tier-plan">하이스트</span>
+      </div>
+      <div class="con-grid">
+        <!-- 이상담 -->
+        <div class="con-card">
+          <div class="cp"><div class="shot ph"><img src="assets/img/consultants/lee/profile.jpg" alt="이상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div><div class="cbadge">호갱노노 공인 파트너</div></div>
+          <div class="ci">
+            <div class="cname">이상담</div>
+            <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
+            <div class="cspec"><dl><dt>전문분야</dt><dd>수도권 남부</dd></dl><dl><dt>경력</dt><dd>8년 · 89건</dd></dl><dl><dt>담당현장</dt><dd>오산 헤리티지 자이</dd></dl></div>
+            <div class="ctags"><span class="ctag">경기 오산·화성</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
+            <div class="cbtns"><a href="consultant-lee-profile.html" class="l-btn det">프로필 보기</a><button class="l-btn con" onclick="openConModal('이','이상담','오산 헤리티지 자이 담당')">상담 문의</button></div>
+          </div>
+        </div>
+        <!-- 박상담 -->
+        <div class="con-card">
+          <div class="cp"><div class="shot ph"><img src="assets/img/consultants/park/profile.jpg" alt="박상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div><div class="cbadge">호갱노노 공인 파트너</div></div>
+          <div class="ci">
+            <div class="cname">박상담</div>
+            <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
+            <div class="cspec"><dl><dt>전문분야</dt><dd>충청권</dd></dl><dl><dt>경력</dt><dd>10년 · 103건</dd></dl><dl><dt>담당현장</dt><dd>천안 동일하이빌 파크레인</dd></dl></div>
+            <div class="ctags"><span class="ctag">천안·아산·세종</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
+            <div class="cbtns"><a href="consultant-park-profile.html" class="l-btn det">프로필 보기</a><button class="l-btn con" onclick="openConModal('박','박상담','천안 동일하이빌 파크레인 담당')">상담 문의</button></div>
+          </div>
+        </div>
+        <!-- 최상담 (샘플) -->
+        <div class="con-card">
+          <div class="cp"><div class="shot ph"><img src="" alt="최상담 프로필" onerror="this.style.display='none'"></div><div class="cbadge">호갱노노 공인 파트너</div></div>
+          <div class="ci">
+            <div class="cname">최상담</div>
+            <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
+            <div class="cspec"><dl><dt>전문분야</dt><dd>수도권 북부</dd></dl><dl><dt>경력</dt><dd>7년 · 78건</dd></dl><dl><dt>담당현장</dt><dd>세종 나성 힐스테이트</dd></dl></div>
+            <div class="ctags"><span class="ctag">파주·양주·의정부</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
+            <div class="cbtns"><a href="#" class="l-btn det">프로필 보기</a><button class="l-btn con" onclick="openConModal('최','최상담','세종 나성 힐스테이트 담당')">상담 문의</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 가로 광고 배너 728×90 -->
+  <div class="h-ad-wrap" style="background:var(--soft)"><div class="h-ad-ph"><!-- ▼ 광고 태그 삽입 (728×90) --><span style="font-size:18px">📢</span> 광고 영역 728×90</div></div>
+
+  <!-- ③ 시선집중 분양상담사 (스마트) -->
+  <section class="section tier-sec" style="background:var(--soft)">
+    <div class="wrap">
+      <div class="tier-head">
+        <span class="tbadge std">스마트</span>
+        <h3>시선집중 분양상담사</h3>
+        <span class="tier-plan">스마트</span>
+      </div>
+      <div class="con-grid">
+        <div class="con-card con-card-sm">
+          <div class="cp"><div class="shot ph"><img src="" alt="" onerror="this.style.display='none'"></div></div>
+          <div class="ci"><div class="cname">정상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span><div class="cspec"><dl><dt>전문분야</dt><dd>대구·경북</dd></dl><dl><dt>경력</dt><dd>9년 · 112건</dd></dl></div><div class="cbtns"><a href="#" class="l-btn det">프로필 보기</a></div></div>
+        </div>
+        <div class="con-card con-card-sm">
+          <div class="cp"><div class="shot ph"><img src="" alt="" onerror="this.style.display='none'"></div></div>
+          <div class="ci"><div class="cname">한상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span><div class="cspec"><dl><dt>전문분야</dt><dd>인천·부천·김포</dd></dl><dl><dt>경력</dt><dd>6년 · 64건</dd></dl></div><div class="cbtns"><a href="#" class="l-btn det">프로필 보기</a></div></div>
+        </div>
+        <div class="con-card con-card-sm">
+          <div class="cp"><div class="shot ph"><img src="" alt="" onerror="this.style.display='none'"></div></div>
+          <div class="ci"><div class="cname">윤상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span><div class="cspec"><dl><dt>전문분야</dt><dd>수원·용인·수지</dd></dl><dl><dt>경력</dt><dd>11년 · 98건</dd></dl></div><div class="cbtns"><a href="#" class="l-btn det">프로필 보기</a></div></div>
+        </div>
+        <div class="con-card con-card-sm">
+          <div class="cp"><div class="shot ph"><img src="" alt="" onerror="this.style.display='none'"></div></div>
+          <div class="ci"><div class="cname">강상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span><div class="cspec"><dl><dt>전문분야</dt><dd>대전·세종</dd></dl><dl><dt>경력</dt><dd>8년 · 87건</dd></dl></div><div class="cbtns"><a href="#" class="l-btn det">프로필 보기</a></div></div>
+        </div>
+        <div class="con-card con-card-sm">
+          <div class="cp"><div class="shot ph"><img src="" alt="" onerror="this.style.display='none'"></div></div>
+          <div class="ci"><div class="cname">오상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span><div class="cspec"><dl><dt>전문분야</dt><dd>광주·전남</dd></dl><dl><dt>경력</dt><dd>5년 · 52건</dd></dl></div><div class="cbtns"><a href="#" class="l-btn det">프로필 보기</a></div></div>
+        </div>
+        <div class="con-card con-card-sm">
+          <div class="cp"><div class="shot ph"><img src="" alt="" onerror="this.style.display='none'"></div></div>
+          <div class="ci"><div class="cname">류상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span><div class="cspec"><dl><dt>전문분야</dt><dd>창원·진주</dd></dl><dl><dt>경력</dt><dd>7년 · 73건</dd></dl></div><div class="cbtns"><a href="#" class="l-btn det">프로필 보기</a></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /#consultant -->
 
 <!-- 상담 문의 팝업 모달 -->
 <div class="con-modal" id="conModal" onclick="if(event.target===this)closeConModal()">
