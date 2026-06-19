@@ -714,5 +714,15 @@ window.addEventListener('scroll',function(){
   buildDots();goTo(0);
 })();
 </script>
+<!-- 세로 광고 사이드바 (데스크톱 전용 · 모바일 자동 숨김) -->
+<div style="position:fixed;top:180px;left:16px;width:160px;z-index:45;display:none" id="adSidebar">
+  <div style="width:160px;min-height:600px;background:#f5f6fa;border:1px dashed #c8cdd8;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:11px;color:#b0b5c0;text-align:center;padding:16px">
+    <span style="font-size:22px">📢</span>
+    <span>광고 영역<br>160×600</span>
+  </div>
+</div>
+<script>
+(function(){var el=document.getElementById('adSidebar');function show(){el.style.display=window.innerWidth>=1340?'block':'none'}show();window.addEventListener('resize',show);})();
+</script>
 </body>
 </html>

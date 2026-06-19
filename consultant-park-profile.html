@@ -327,5 +327,15 @@ window.addEventListener('scroll',function(){const y=window.scrollY+140;let cur=S
 (function(){var track=document.getElementById('careerTrack');var dotsEl=document.getElementById('careerDots');var prevBtn=document.getElementById('careerPrev');var nextBtn=document.getElementById('careerNext');if(!track)return;var idx=0;function pv(){return window.innerWidth<580?1:window.innerWidth<860?2:3}function total(){return track.children.length}function maxIdx(){return Math.max(0,total()-pv())}function cardW(){var gap=16;var p=pv();return (track.parentElement.offsetWidth-gap*(p-1))/p;}function buildDots(){dotsEl.innerHTML='';for(var i=0;i<=maxIdx();i++){var d=document.createElement('button');d.className='carousel-dot'+(i===idx?' active':'');d.setAttribute('data-i',i);d.onclick=(function(n){return function(){goTo(n)}})(i);dotsEl.appendChild(d);}}function goTo(i){idx=Math.max(0,Math.min(i,maxIdx()));track.style.transform='translateX(-'+(idx*(cardW()+16))+'px)';prevBtn.disabled=(idx===0);nextBtn.disabled=(idx>=maxIdx());dotsEl.querySelectorAll('.carousel-dot').forEach(function(d,di){d.classList.toggle('active',di===idx)});}window.carouselMove=function(dir){goTo(idx+dir)};window.addEventListener('resize',function(){buildDots();goTo(Math.min(idx,maxIdx()))});buildDots();goTo(0);})();
 (function(){var track=document.getElementById('rvTrack');var dotsEl=document.getElementById('rvDots');var prevBtn=document.getElementById('rvPrev');var nextBtn=document.getElementById('rvNext');var cntEl=document.getElementById('rvCounter');if(!track)return;var idx=0;function total(){return track.children.length}function buildDots(){dotsEl.innerHTML='';for(var i=0;i<total();i++){var d=document.createElement('button');d.className='carousel-dot'+(i===idx?' active':'');d.onclick=(function(n){return function(){goTo(n)}})(i);dotsEl.appendChild(d);}}function goTo(i){idx=Math.max(0,Math.min(i,total()-1));track.style.transform='translateX(-'+(idx*100)+'%)';if(prevBtn)prevBtn.disabled=(idx===0);if(nextBtn)nextBtn.disabled=(idx>=total()-1);if(cntEl)cntEl.textContent=(idx+1)+' / '+total();dotsEl.querySelectorAll('.carousel-dot').forEach(function(d,di){d.classList.toggle('active',di===idx)});}window.rvMove=function(dir){goTo(idx+dir)};buildDots();goTo(0);})();
 </script>
+<!-- 세로 광고 사이드바 (데스크톱 전용 · 모바일 자동 숨김) -->
+<div style="position:fixed;top:180px;left:16px;width:160px;z-index:45;display:none" id="adSidebar">
+  <div style="width:160px;min-height:600px;background:#f5f6fa;border:1px dashed #c8cdd8;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:11px;color:#b0b5c0;text-align:center;padding:16px">
+    <span style="font-size:22px">📢</span>
+    <span>광고 영역<br>160×600</span>
+  </div>
+</div>
+<script>
+(function(){var el=document.getElementById('adSidebar');function show(){el.style.display=window.innerWidth>=1340?'block':'none'}show();window.addEventListener('resize',show);})();
+</script>
 </body>
 </html>
