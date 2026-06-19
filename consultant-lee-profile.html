@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이상담 분양상담사 | 호갱노노 공인</title>
+<meta name="description" content="호갱노노 공인 파트너 이상담. 수도권 남부(경기 오산·화성·평택) 신규 분양 전문 8년. 상담비 무료.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --ink:#16213a;--ink2:#27395c;--gold:#b5985a;--gold-d:#9a7e44;
+  --sale:#d94f4f;--txt:#222;--muted:#8a8f99;--line:#ececec;
+  --bg:#fff;--soft:#f7f8fa;--radius:6px;--maxw:1050px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Pretendard",-apple-system,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--txt);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.shot{position:relative;width:100%;background:#eef0f4;overflow:hidden;border-radius:var(--radius)}
+.shot img{width:100%;height:100%;object-fit:cover;display:block}
+.shot.ph{background:linear-gradient(135deg,#1b2945 0%,#33486f 45%,#7c8aa3 100%)}
+.topbar{background:var(--ink);color:#cdd4e0;font-size:12px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:34px}
+.topbar a{color:#cdd4e0;opacity:.8;transition:opacity .15s}.topbar a:hover{opacity:1}
+.topbar .tb-r a{margin-left:16px}
+header.gnb{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+.gnb .wrap{display:flex;align-items:center;height:64px;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-img{height:34px;width:auto;display:block}
+.logo-txt b{font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.01em;display:block}
+.logo-txt small{font-size:10px;letter-spacing:.2em;color:var(--gold);font-weight:700;display:block;margin-top:1px}
+nav.menu{display:flex;gap:18px}
+nav.menu a{font-size:14px;font-weight:600;color:#444;padding:6px 0;white-space:nowrap;transition:color .15s}
+nav.menu a:hover{color:var(--ink)}
+.gnb-cta{margin-left:auto;display:flex;align-items:center;gap:14px;flex-shrink:0}
+.gnb-tel{font-size:12.5px;color:var(--muted);text-align:right;line-height:1.25}
+.gnb-tel b{display:block;font-size:16px;color:var(--ink);font-weight:800}
+.btn-pill{background:var(--ink);color:#fff;border:none;border-radius:30px;padding:10px 20px;font-size:14px;font-weight:700;transition:background .15s}
+.btn-pill:hover{background:var(--ink2)}
+.hamb{display:none;background:none;border:none;font-size:24px;color:var(--ink);margin-left:auto}
+.drawer{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:99;opacity:0;visibility:hidden;transition:.25s}
+.drawer.open{opacity:1;visibility:visible}
+.drawer-panel{position:absolute;right:0;top:0;width:78%;max-width:300px;height:100%;background:#fff;padding:24px;transform:translateX(100%);transition:.25s}
+.drawer.open .drawer-panel{transform:translateX(0)}
+.drawer-panel a{display:block;padding:15px 4px;font-size:17px;font-weight:600;border-bottom:1px solid var(--line);cursor:pointer}
+.drawer-close{position:absolute;top:16px;right:18px;font-size:26px;background:none;border:none;cursor:pointer}
+.crumb{font-size:12px;color:var(--muted);padding:16px 0 4px}
+.crumb span{margin:0 6px;color:#cbcfd6}
+.product{display:grid;grid-template-columns:400px 1fr;gap:52px;padding:14px 0 60px;align-items:start}
+.gallery .main{aspect-ratio:1/1}
+.gallery .thumbs{display:flex;gap:10px;margin-top:12px}
+.gallery .thumbs .shot{aspect-ratio:1/1;flex:1;cursor:pointer;border:2px solid transparent;transition:border-color .15s}
+.gallery .thumbs .shot.active{border-color:var(--ink)}
+.info .badge{display:inline-flex;align-items:center;gap:6px;background:#fbf6ea;color:var(--gold-d);border:1px solid #ead9b8;font-size:11px;font-weight:700;letter-spacing:.12em;padding:5px 12px;border-radius:30px}
+.info h1{font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1.15;color:var(--ink);margin:12px 0 2px}
+.info .sub-title{font-size:15px;color:#666;margin-bottom:18px}
+.score-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:6px}
+.score-row .stars{font-size:20px;color:var(--gold);letter-spacing:2px}
+.score-row .sn{font-size:22px;font-weight:800;color:var(--ink)}
+.score-row .sc{font-size:13px;color:var(--muted)}
+.spec{width:100%;border-top:1px solid var(--line);margin-top:6px;font-size:14px}
+.spec dl{display:flex;padding:11px 0;border-bottom:1px solid var(--soft)}
+.spec dt{flex:0 0 96px;color:var(--muted);font-weight:600}
+.spec dd{flex:1;color:#333}
+.total{display:flex;justify-content:space-between;align-items:flex-end;border-top:2px solid var(--ink);margin-top:18px;padding-top:16px}
+.total .t-l{font-size:14px;color:#555;font-weight:600}
+.total .t-r{font-size:14px;color:var(--ink);font-weight:800}
+.total .t-r b{font-size:22px}
+.actions{display:flex;gap:10px;margin-top:18px}
+.btn-heart{flex:0 0 56px;height:56px;border:1px solid #d6dae1;border-radius:6px;background:#fff;font-size:22px;color:#c2c7cf;display:flex;align-items:center;justify-content:center}
+.btn-heart.on{color:var(--sale);border-color:#f3c7c7;background:#fdf3f3}
+.btn-buy{flex:1;height:56px;border:none;border-radius:6px;background:var(--ink);color:#fff;font-size:17px;font-weight:800;transition:background .15s}
+.btn-buy:hover{background:var(--ink2)}
+.btn-note{flex:1;height:56px;border:1.5px solid var(--ink);border-radius:6px;background:#fff;color:var(--ink);font-size:15px;font-weight:800;transition:all .15s}
+.btn-note:hover{background:var(--soft)}
+.trust{display:flex;gap:16px;margin-top:16px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+.trust span::before{content:"✓ ";color:var(--gold)}
+.tabs{position:sticky;top:64px;z-index:40;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex}
+.tabs a{flex:1;text-align:center;padding:17px 0;font-size:15px;font-weight:700;color:#9aa0ab;position:relative;transition:color .15s}
+.tabs a.active{color:var(--ink)}
+.tabs a.active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--ink)}
+.section{padding:64px 0;scroll-margin-top:130px}
+.section:nth-child(even){background:var(--soft)}
+.sec-head{text-align:center;margin-bottom:40px}
+.sec-head .ey{font-size:11.5px;letter-spacing:.22em;color:var(--gold);font-weight:700}
+.sec-head h2{font-size:28px;font-weight:800;color:var(--ink);margin:10px 0 8px;letter-spacing:-.02em}
+.sec-head p{color:#777;font-size:15px;line-height:1.7}
+.narrow{max-width:840px;margin:0 auto}
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about-img .shot{aspect-ratio:4/3;border-radius:12px}
+.about-txt h3{font-size:22px;font-weight:800;color:var(--ink);line-height:1.45;margin-bottom:14px}
+.about-txt h3 .g{color:var(--gold)}
+.about-txt p{font-size:15px;color:#555;line-height:1.85;margin-bottom:12px}
+.about-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.about-tag{font-size:13px;font-weight:700;background:var(--soft);color:var(--ink);border-radius:20px;padding:6px 14px;border:1px solid var(--line)}
+.career-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:780px;margin:0 auto}
+.cj{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 20px 18px;display:flex;align-items:flex-start;gap:14px}
+.cj .cj-yr{flex:0 0 44px;height:44px;background:var(--ink);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;letter-spacing:.01em}
+.cj .cj-body{flex:1}
+.cj .cj-loc{font-size:11.5px;color:var(--muted);margin-bottom:4px}
+.cj .cj-name{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.cj .cj-detail{font-size:12.5px;color:#666}
+.cj .cj-badge{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;background:#ecf8f2;color:#1e7e50;border:1px solid #b8e6d0}
+.lst-single{max-width:380px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.lst-single:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(22,33,58,.12)}
+.lst-single .limg .shot{aspect-ratio:4/3;border-radius:0}
+.lst-single .lbody{padding:20px}
+.ltag{display:inline-block;font-size:11px;font-weight:800;padding:4px 10px;border-radius:20px;margin-bottom:8px}
+.ltag.promo{background:rgba(181,152,90,.1);color:var(--gold-d);border:1px solid rgba(181,152,90,.35)}
+.lst-single .lname{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.lst-single .lloc{font-size:13px;color:var(--muted);margin-bottom:10px}
+.lst-single .lprice{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:14px}
+.lst-single .l-btns{display:flex;gap:8px}
+.l-btn{flex:1;height:40px;border-radius:6px;font-size:13px;font-weight:800;font-family:inherit;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .15s}
+.l-btn.det{background:var(--ink);color:#fff}.l-btn.det:hover{background:var(--ink2)}
+.l-btn.con{background:var(--soft);color:var(--ink);border:1.5px solid var(--line)}.l-btn.con:hover{background:var(--line)}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rv{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px 20px}
+.rv .rs{color:var(--gold);font-size:16px;letter-spacing:2px;margin-bottom:10px}
+.rv .rt{font-size:14.5px;color:#333;line-height:1.75;margin-bottom:14px}
+.rv .ra{font-size:12.5px;color:var(--muted);font-weight:600}
+.rv .rd{font-size:12px;color:#b0b5bf;margin-top:2px}
+.reg{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:900px;margin:0 auto;align-items:start}
+.reg .lead-x h3{font-size:22px;color:var(--ink);font-weight:800;margin-bottom:14px}
+.reg .lead-x p{color:#666;font-size:15px;line-height:1.8;margin-bottom:22px}
+.reg .perk{list-style:none}
+.reg .perk li{padding:10px 0 10px 26px;position:relative;font-size:14.5px;color:#444;border-bottom:1px dashed var(--line)}
+.reg .perk li::before{content:"●";color:var(--gold);position:absolute;left:4px;font-size:9px;top:14px}
+.form{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px}
+.form .fld{margin-bottom:14px}
+.form label{display:block;font-size:13px;font-weight:700;color:#555;margin-bottom:6px}
+.form input,.form select{width:100%;padding:13px 14px;border:1px solid #d6dae1;border-radius:6px;font-size:14.5px;font-family:inherit;color:#333}
+.form input:focus,.form select:focus{outline:none;border-color:var(--ink)}
+.form .agree{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;color:#777;margin:6px 0 16px}
+.form .agree input{width:auto;margin-top:2px}
+.form .submit{width:100%;height:54px;border:none;border-radius:6px;background:var(--ink);color:#fff;font-size:16px;font-weight:800;cursor:pointer;transition:background .15s}
+.form .submit:hover{background:var(--ink2)}
+.form .sub-tel{text-align:center;margin-top:14px;font-size:13px;color:var(--muted)}
+.form .sub-tel b{color:var(--ink);font-size:17px;display:block;margin-top:2px}
+.cmodal{position:fixed;inset:0;z-index:120;display:none;align-items:flex-end;justify-content:center;background:rgba(10,16,30,.55)}
+.cmodal.open{display:flex}
+@media(min-width:640px){.cmodal{align-items:center}}
+.cmodal-card{position:relative;width:100%;max-width:400px;background:#fff;border-radius:20px 20px 0 0;padding:28px 24px 36px;animation:slideUp .3s ease}
+@media(min-width:640px){.cmodal-card{border-radius:18px;padding:32px}}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+.cmodal-close{position:absolute;top:14px;right:16px;width:32px;height:32px;border-radius:50%;border:none;background:var(--soft);color:var(--muted);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cmodal h3{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.cmodal .cm-sub{font-size:13.5px;color:var(--muted);margin-bottom:24px}
+.cmodal-btns{display:flex;flex-direction:column;gap:10px}
+.cm-btn{height:54px;border-radius:10px;border:none;font-size:15.5px;font-weight:800;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;transition:all .15s}
+.cm-btn.tel{background:var(--ink);color:#fff}.cm-btn.sms{background:var(--soft);color:var(--ink);border:1.5px solid var(--line)}.cm-btn.kakao{background:#FEE500;color:#191919}
+.sidenav{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:55;display:flex;flex-direction:column;gap:15px;opacity:0;visibility:hidden;transition:opacity .3s}
+.sidenav.show{opacity:1;visibility:visible}
+.sidenav::before{content:"";position:absolute;right:5px;top:4px;bottom:4px;width:1px;background:rgba(22,33,58,.14)}
+.sidenav a{display:flex;align-items:center;justify-content:flex-end;gap:10px}
+.sidenav .lbl{font-size:12px;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:20px;padding:4px 11px;box-shadow:0 3px 10px rgba(0,0,0,.1);white-space:nowrap;opacity:0;transform:translateX(8px);transition:.2s;pointer-events:none}
+.sidenav .dot{flex:0 0 auto;width:11px;height:11px;border-radius:50%;background:#fff;border:2px solid #c4c9d2;transition:.2s;z-index:1}
+.sidenav a.active .dot{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 5px rgba(181,152,90,.18)}
+.sidenav a:hover .lbl,.sidenav a.active .lbl{opacity:1;transform:none}
+@media(max-width:1100px){.sidenav{display:none}}
+.hgn-badge{position:fixed;left:18px;bottom:22px;z-index:56;width:80px;height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.16);text-decoration:none;transition:transform .15s}
+.hgn-badge:hover{transform:translateY(-2px)}
+.hgn-badge img{width:46px;height:auto}
+.hgn-badge span{font-size:10px;color:var(--muted);font-weight:700}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);display:none;padding:9px 10px;gap:8px;box-shadow:0 -3px 12px rgba(0,0,0,.06)}
+.mbar-heart{flex:0 0 50px;height:50px;border-radius:6px;border:1.5px solid #d6dae1;background:#fff;font-size:22px;color:#c2c7cf;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.mbar-heart.on{color:var(--sale);border-color:#f3c7c7}
+.mbar-call{flex:1;height:50px;border-radius:6px;border:none;background:var(--ink);color:#fff;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit}
+.mbar-note{flex:0 0 86px;height:50px;border-radius:6px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.top-btn{position:fixed;right:18px;bottom:78px;z-index:55;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:18px;color:var(--ink);box-shadow:0 3px 12px rgba(0,0,0,.12);display:none;cursor:pointer}
+.top-btn.show{display:block}
+footer{background:var(--ink);color:#aeb6c4;font-size:13px;padding:46px 0 110px}
+footer .ft-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.12)}
+footer .ft-logo{display:flex;align-items:center;gap:10px}
+footer .ft-logo-img{height:28px;width:auto}
+footer .ft-logo b{font-size:16px;color:#fff;font-weight:800}
+footer .fl h4{font-size:11px;font-weight:700;color:#c0c8d8;margin-bottom:12px;letter-spacing:.1em}
+footer .fl a{display:block;font-size:12.5px;color:#5a6a84;margin-bottom:8px;transition:color .15s}
+footer .fl a:hover{color:#fff}
+footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
+@media(max-width:980px){.product{grid-template-columns:1fr;gap:32px}.gallery .main{aspect-ratio:4/3}.info h1{font-size:32px}.about-wrap{grid-template-columns:1fr}.career-grid{grid-template-columns:1fr}.reg{grid-template-columns:1fr;gap:28px}.reviews{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){nav.menu,.gnb-cta,.topbar .tb-r{display:none}.hamb{display:block}.tabs{top:56px}.gnb .wrap{height:56px}.tabs .wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.tabs a{flex:0 0 auto;font-size:13px;padding:14px 15px;white-space:nowrap}.section{padding:46px 0}.sec-head h2{font-size:23px}.career-grid{grid-template-columns:1fr}.reviews{grid-template-columns:1fr}.mbar{display:flex}footer{padding-bottom:80px}.hgn-badge{bottom:76px;left:10px}.actions{flex-wrap:wrap}.btn-note{flex:1 0 100%}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <a href="index.html">← 현장 목록으로</a>
+    <div class="tb-r"><a href="#about">소개</a><a href="#listing">담당현장</a><a href="#contact">상담신청</a></div>
+  </div>
+</div>
+<header class="gnb">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo.png" alt="호갱노노" class="logo-img" onerror="this.style.display='none'">
+      <div class="logo-txt"><b>이상담 분양상담사</b><small>HOGANGNONO OFFICIAL</small></div>
+    </a>
+    <nav class="menu">
+      <a href="#about">소개</a><a href="#listing">담당현장</a><a href="#career">상담이력</a><a href="#reviews">후기</a><a href="#contact">상담신청</a>
+    </nav>
+    <div class="gnb-cta">
+      <div class="gnb-tel">분양 직통<b>010-1111-2222</b></div>
+      <button class="btn-pill" onclick="openContact()">상담사 연결</button>
+    </div>
+    <button class="hamb" onclick="document.querySelector('.drawer').classList.add('open')">☰</button>
+  </div>
+</header>
+<div class="drawer" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="drawer-panel">
+    <button class="drawer-close" onclick="document.querySelector('.drawer').classList.remove('open')">×</button>
+    <a href="index.html">← 현장 목록</a>
+    <a href="#about" onclick="document.querySelector('.drawer').classList.remove('open')">소개</a>
+    <a href="#listing" onclick="document.querySelector('.drawer').classList.remove('open')">담당현장</a>
+    <a href="#career" onclick="document.querySelector('.drawer').classList.remove('open')">상담이력</a>
+    <a href="#reviews" onclick="document.querySelector('.drawer').classList.remove('open')">후기</a>
+    <a href="#contact" onclick="document.querySelector('.drawer').classList.remove('open')">상담신청</a>
+    <a onclick="openContact();document.querySelector('.drawer').classList.remove('open')" style="color:var(--gold)">바로 상담하기</a>
+  </div>
+</div>
+<div class="wrap"><div class="crumb"><a href="index.html">호갱노노 분양상담</a><span>›</span>수도권 남부<span>›</span>이상담 파트너</div></div>
+
+<div class="wrap">
+  <div class="product">
+    <div class="gallery">
+      <div class="main shot ph" id="mainShot"><img id="mainImg" src="assets/img/about/1.jpg" alt="이상담" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div>
+      <div class="thumbs">
+        <div class="shot ph active" onclick="switchImg(this,'assets/img/about/1.jpg')"><img src="assets/img/about/1.jpg" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div>
+        <div class="shot ph" onclick="switchImg(this,'assets/img/gallery/1.png')"><img src="assets/img/gallery/1.png" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div>
+        <div class="shot ph" onclick="switchImg(this,'assets/img/gallery/2.png')"><img src="assets/img/gallery/2.png" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div>
+        <div class="shot ph" onclick="switchImg(this,'assets/img/gallery/3.png')"><img src="assets/img/gallery/3.png" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div>
+      </div>
+    </div>
+    <div class="info">
+      <span class="badge">🏆 호갱노노 공인 파트너</span>
+      <h1>이상담</h1>
+      <p class="sub-title">수도권 남부 신규 분양 전담 상담사</p>
+      <div class="score-row"><span class="stars">★★★★★</span><span class="sn">4.8</span><span class="sc">후기 62건</span></div>
+      <div class="spec">
+        <dl><dt>전문분야</dt><dd>신규 분양 · 경기 오산·화성·평택</dd></dl>
+        <dl><dt>경력</dt><dd>8년 (분양 전문 컨설턴트)</dd></dl>
+        <dl><dt>거래완료</dt><dd>89건</dd></dl>
+        <dl><dt>담당현장</dt><dd>오산 헤리티지 자이 (사전홍보)</dd></dl>
+        <dl><dt>상담 비용</dt><dd>무료 (수수료 없음)</dd></dl>
+      </div>
+      <div class="total"><div class="t-l">상담 비용</div><div class="t-r"><b>무료</b></div></div>
+      <div class="actions">
+        <button class="btn-heart" id="heartBtn" onclick="toggleHeart(this)">♡</button>
+        <button class="btn-buy" onclick="openContact()">📞 상담사 연결하기</button>
+        <button class="btn-note" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">문의 남기기</button>
+      </div>
+      <div class="trust"><span>상담비 없음</span><span>수수료 없음</span><span>계약까지 함께</span><span>호갱노노 공인</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="tabs"><div class="wrap">
+  <a href="#about" class="active">소개</a>
+  <a href="#listing">담당현장</a>
+  <a href="#career">상담이력</a>
+  <a href="#reviews">후기<span style="font-size:12px;color:var(--gold);margin-left:4px;font-weight:700">62</span></a>
+  <a href="#contact">상담신청</a>
+</div></div>
+
+<div class="section" id="about">
+  <div class="wrap narrow">
+    <div class="sec-head"><p class="ey">ABOUT</p><h2>상담사 소개</h2></div>
+    <div class="about-wrap">
+      <div class="about-img"><div class="shot ph" style="border-radius:12px"><img src="assets/img/gallery/1.png" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div></div>
+      <div class="about-txt">
+        <h3>수도권 남부 분양은<br><span class="g">입지 흐름을 알아야 합니다</span></h3>
+        <p>오산·화성·평택 등 수도권 남부 신도시 분양 현장을 8년째 전담하고 있습니다. GTX·SRT 연장 등 교통 개발 흐름과 신도시 공급 일정을 정확히 읽고, 최적의 타이밍에 안내합니다.</p>
+        <p>사전청약·본청약·후분양·잔여세대까지 단계별로 차별화된 전략으로 접근하며, 처음 분양이어도 쉽고 빠르게 의사결정할 수 있도록 돕습니다.</p>
+        <div class="about-tags">
+          <span class="about-tag">수도권 남부 분양</span><span class="about-tag">GTX 라인 입지</span><span class="about-tag">사전청약 전문</span><span class="about-tag">현장 방문 동행</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="listing">
+  <div class="wrap">
+    <div class="sec-head"><p class="ey">CURRENT LISTING</p><h2>담당 분양현장</h2><p>직접 현장을 확인하고 안내하는 곳만 담당합니다</p></div>
+    <div style="display:flex;justify-content:center">
+      <div class="lst-single">
+        <div class="limg"><div class="shot ph"><img src="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/assets/img/aerial.jpg" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div></div>
+        <div class="lbody">
+          <span class="ltag promo">사전홍보</span>
+          <div class="lname">오산 헤리티지 자이</div>
+          <div class="lloc">경기 오산시 · GS건설 · 59~99㎡</div>
+          <div class="lprice">분양가 상담</div>
+          <div class="l-btns">
+            <a href="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/index.html" class="l-btn det">현장 상세 보기</a>
+            <button class="l-btn con" onclick="openContact()">상담 신청</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="career">
+  <div class="wrap">
+    <div class="sec-head"><p class="ey">CAREER HISTORY</p><h2>주요 분양 상담 이력</h2><p>지금까지 성공적으로 분양 상담을 완료한 현장들입니다</p></div>
+    <div class="career-grid">
+      <div class="cj"><div class="cj-yr">2024</div><div class="cj-body"><div class="cj-loc">경기 화성시 동탄2신도시</div><div class="cj-name">동탄2 푸르지오 센트럴파크</div><div class="cj-detail">전용 74~99㎡ · 총 860세대 · 분양가 6~9억</div><span class="cj-badge">분양 완료</span></div></div>
+      <div class="cj"><div class="cj-yr">2023</div><div class="cj-body"><div class="cj-loc">경기 수원시 광교신도시</div><div class="cj-name">광교 자이 더 클래스</div><div class="cj-detail">전용 84~115㎡ · 총 492세대 · 분양가 9~14억</div><span class="cj-badge">분양 완료</span></div></div>
+      <div class="cj"><div class="cj-yr">2023</div><div class="cj-body"><div class="cj-loc">경기 평택시 고덕국제신도시</div><div class="cj-name">고덕 힐스테이트 리버파크</div><div class="cj-detail">전용 84~114㎡ · 총 1,200세대 · 분양가 5~8억</div><span class="cj-badge">분양 완료</span></div></div>
+      <div class="cj"><div class="cj-yr">2022</div><div class="cj-body"><div class="cj-loc">경기 오산시 세교2지구</div><div class="cj-name">오산 세교 반도유보라</div><div class="cj-detail">전용 59~74㎡ · 총 628세대 · 분양가 3~5억</div><span class="cj-badge">분양 완료</span></div></div>
+      <div class="cj"><div class="cj-yr">2021</div><div class="cj-body"><div class="cj-loc">경기 화성시 봉담읍</div><div class="cj-name">봉담 e편한세상 어반</div><div class="cj-detail">전용 59~84㎡ · 총 756세대 · 분양가 3~5억</div><span class="cj-badge">분양 완료</span></div></div>
+      <div class="cj"><div class="cj-yr">2020</div><div class="cj-body"><div class="cj-loc">경기 안성시 공도읍</div><div class="cj-name">안성 공도 두산위브</div><div class="cj-detail">전용 74~99㎡ · 총 544세대 · 분양가 2~4억</div><span class="cj-badge">분양 완료</span></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="reviews">
+  <div class="wrap">
+    <div class="sec-head"><p class="ey">REVIEWS</p><h2>상담 후기</h2><p>실제 수분양자 고객분들의 후기입니다</p></div>
+    <div class="reviews narrow">
+      <div class="rv"><div class="rs">★★★★★</div><p class="rt">"GTX 개통 전 입지를 미리 파악해서 안내해주셔서 정말 좋은 타이밍에 계약할 수 있었습니다. 데이터 기반 분석이 정말 인상적이었어요."</p><div class="ra">최*진 님</div><div class="rd">동탄2 푸르지오 · 84㎡</div></div>
+      <div class="rv"><div class="rs">★★★★★</div><p class="rt">"사전청약부터 본청약까지 전 과정을 함께 해주셨어요. 매 단계 필요한 서류와 일정을 미리 알려주셔서 빠뜨린 게 하나도 없었습니다."</p><div class="ra">정*호 님</div><div class="rd">고덕 힐스테이트 · 84㎡</div></div>
+      <div class="rv"><div class="rs">★★★★★</div><p class="rt">"오산이 낯선 곳이었는데 주변 교통·학군·생활편의를 현장에서 직접 보여주시면서 설명해주셔서 걱정이 사라졌어요. 덕분에 확신을 갖고 계약했습니다."</p><div class="ra">손*현 님</div><div class="rd">오산 세교 반도유보라 · 59㎡</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="contact">
+  <div class="wrap">
+    <div class="sec-head"><p class="ey">CONSULTATION</p><h2>상담 신청</h2><p>남겨주시면 24시간 내 연락드립니다</p></div>
+    <div class="reg">
+      <div class="lead-x">
+        <h3>분양 상담,<br>부담 없이 시작하세요</h3>
+        <p>처음 분양이어도 괜찮습니다. 수도권 남부 입지와 청약 전략을 차근차근 안내해드립니다.</p>
+        <ul class="perk">
+          <li>상담비 · 수수료 일체 없음</li>
+          <li>현장 방문 동행 안내 가능</li>
+          <li>GTX·교통 개발 흐름 입지 분석</li>
+          <li>청약 가점 · 자격 사전 체크</li>
+          <li>계약 후 입주까지 지속 관리</li>
+        </ul>
+      </div>
+      <div class="form">
+        <div class="fld"><label>이름</label><input type="text" placeholder="홍길동"></div>
+        <div class="fld"><label>연락처</label><input type="tel" placeholder="010-0000-0000"></div>
+        <div class="fld"><label>관심 현장</label><select><option>오산 헤리티지 자이</option><option>기타 (직접 문의)</option></select></div>
+        <div class="fld"><label>문의 내용 (선택)</label><input type="text" placeholder="청약 일정, 평형 추천 등 자유롭게"></div>
+        <div class="agree"><input type="checkbox" id="agree"><label for="agree">개인정보 수집 및 이용에 동의합니다</label></div>
+        <button class="submit" onclick="alert('상담 신청이 접수되었습니다. 24시간 내 연락드리겠습니다.')">상담 신청하기</button>
+        <p class="sub-tel">또는 전화로 바로 상담<b>010-1111-2222</b></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cmodal" id="contactModal" onclick="if(event.target===this)closeContact()">
+  <div class="cmodal-card">
+    <button class="cmodal-close" onclick="closeContact()">×</button>
+    <h3>상담사 연결</h3>
+    <p class="cm-sub">이상담 상담사에게 바로 연락하세요.</p>
+    <div class="cmodal-btns">
+      <a href="tel:010-1111-2222" class="cm-btn tel">📞 전화 상담</a>
+      <a href="sms:010-1111-2222?body=안녕하세요, 오산 헤리티지 자이 분양 상담 문의드립니다." class="cm-btn sms">💬 문자 보내기</a>
+      <a href="https://pf.kakao.com/" target="_blank" class="cm-btn kakao">카카오톡 채널 상담</a>
+    </div>
+  </div>
+</div>
+
+<nav class="sidenav" id="sidenav">
+  <a href="#about"><span class="lbl">소개</span><span class="dot"></span></a>
+  <a href="#listing"><span class="lbl">담당현장</span><span class="dot"></span></a>
+  <a href="#career"><span class="lbl">상담이력</span><span class="dot"></span></a>
+  <a href="#reviews"><span class="lbl">후기</span><span class="dot"></span></a>
+  <a href="#contact"><span class="lbl">상담신청</span><span class="dot"></span></a>
+</nav>
+<a href="index.html" class="hgn-badge"><img src="assets/img/logo.png" alt="호갱노노" onerror="this.style.display='none'"><span>현장 목록</span></a>
+<div class="mbar">
+  <button class="mbar-heart" id="mbarHeart" onclick="toggleHeart(this)">♡</button>
+  <button class="mbar-call" onclick="openContact()">📞 상담사 연결하기</button>
+  <a href="#contact" class="mbar-note">문의 남기기</a>
+</div>
+<button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<footer>
+  <div class="wrap">
+    <div class="ft-top">
+      <div><div class="ft-logo"><img src="assets/img/logo.png" class="ft-logo-img" alt="호갱노노" onerror="this.style.display='none'"><b>이상담 분양상담사</b></div><p style="margin-top:12px;font-size:12px;color:#4a5870;line-height:1.8">호갱노노 공인 분양 파트너 · 수도권 남부 전문 · 상담비 무료</p></div>
+      <div style="display:flex;gap:36px"><div class="fl"><h4>담당 현장</h4><a href="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/index.html">오산 헤리티지 자이</a></div><div class="fl"><h4>바로가기</h4><a href="index.html">현장 목록</a><a href="#contact">상담 신청</a></div></div>
+    </div>
+    <div class="ft-info">본 상담은 호갱노노 공인 분양 파트너가 제공합니다. 분양 성사 시 건설사로부터 수수료를 받으며, 고객에게는 별도 비용을 청구하지 않습니다.</div>
+  </div>
+</footer>
+<script>
+function switchImg(t,s){document.querySelectorAll('.gallery .thumbs .shot').forEach(x=>x.classList.remove('active'));t.classList.add('active');const m=document.getElementById('mainImg');document.getElementById('mainShot').classList.add('ph');m.src=s;m.onload=()=>document.getElementById('mainShot').classList.remove('ph')}
+function toggleHeart(btn){btn.classList.toggle('on');btn.textContent=btn.classList.contains('on')?'♥':'♡';const mb=document.getElementById('mbarHeart');if(mb){mb.classList.toggle('on');mb.textContent=btn.textContent}}
+function openContact(){document.getElementById('contactModal').classList.add('open');document.body.style.overflow='hidden'}
+function closeContact(){document.getElementById('contactModal').classList.remove('open');document.body.style.overflow=''}
+const SECS=['about','listing','career','reviews','contact'];
+window.addEventListener('scroll',function(){const y=window.scrollY+140;let cur=SECS[0];SECS.forEach(id=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)cur=id});document.querySelectorAll('.tabs a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));document.querySelectorAll('.sidenav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));document.getElementById('sidenav').classList.toggle('show',window.scrollY>300);document.getElementById('topBtn').classList.toggle('show',window.scrollY>400)},{passive:true});
+</script>
+</body>
+</html>
