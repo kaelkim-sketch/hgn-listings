@@ -111,12 +111,7 @@ nav.menu a:hover{color:var(--ink)}
 .l-btn{flex:1;height:40px;border-radius:6px;font-size:13px;font-weight:800;font-family:inherit;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .15s}
 .l-btn.det{background:var(--ink);color:#fff}.l-btn.det:hover{background:var(--ink2)}
 .l-btn.con{background:var(--soft);color:var(--ink);border:1.5px solid var(--line)}.l-btn.con:hover{background:var(--line)}
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.rv{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px 20px}
-.rv .rs{color:var(--gold);font-size:16px;letter-spacing:2px;margin-bottom:10px}
-.rv .rt{font-size:14.5px;color:#333;line-height:1.75;margin-bottom:14px}
-.rv .ra{font-size:12.5px;color:var(--muted);font-weight:600}
-.rv .rd{font-size:12px;color:#b0b5bf;margin-top:2px}
+.rv-carousel-wrap{max-width:720px;margin:0 auto}.rv-carousel{overflow:hidden}.rv-track{display:flex;transition:transform .4s cubic-bezier(.25,0,.25,1)}.rv-track .rv{flex:0 0 100%;min-width:0}.rv{background:#fff;border:1px solid var(--line);border-radius:16px;padding:36px 40px;text-align:center;box-shadow:0 3px 12px rgba(22,33,58,.06)}.rv .rs{color:var(--gold);font-size:22px;letter-spacing:4px;margin-bottom:18px}.rv .rt{font-size:16px;color:#333;line-height:1.85;margin-bottom:24px;font-style:italic}.rv .ra{font-size:13.5px;color:var(--ink);font-weight:700}.rv .rd{font-size:12.5px;color:#b0b5bf;margin-top:5px}.rv-counter{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
 .reg{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:900px;margin:0 auto;align-items:start}
 .reg .lead-x h3{font-size:22px;color:var(--ink);font-weight:800;margin-bottom:14px}
 .reg .lead-x p{color:#666;font-size:15px;line-height:1.8;margin-bottom:22px}
@@ -175,8 +170,8 @@ footer .fl h4{font-size:11px;font-weight:700;color:#c0c8d8;margin-bottom:12px;le
 footer .fl a{display:block;font-size:12.5px;color:#5a6a84;margin-bottom:8px;transition:color .15s}
 footer .fl a:hover{color:#fff}
 footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
-@media(max-width:980px){.product{grid-template-columns:1fr;gap:32px}.gallery .main{aspect-ratio:4/3}.info h1{font-size:32px}.about-wrap{grid-template-columns:1fr}.career-track .cj{flex:0 0 100%}.reg{grid-template-columns:1fr;gap:28px}.reviews{grid-template-columns:1fr 1fr}}
-@media(max-width:720px){nav.menu,.gnb-cta,.topbar .tb-r{display:none}.hamb{display:block}.tabs{top:56px}.gnb .wrap{height:56px}.tabs .wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.tabs a{flex:0 0 auto;font-size:13px;padding:14px 15px;white-space:nowrap}.section{padding:46px 0}.sec-head h2{font-size:23px}.career-track .cj{flex:0 0 100%}.reviews{grid-template-columns:1fr}.mbar{display:flex}footer{padding-bottom:80px}.hgn-badge{bottom:76px;left:10px}.actions{flex-wrap:wrap}.btn-note{flex:1 0 100%}}
+@media(max-width:980px){.product{grid-template-columns:1fr;gap:32px}.gallery .main{aspect-ratio:4/3}.info h1{font-size:32px}.about-wrap{grid-template-columns:1fr}.career-track .cj{flex:0 0 100%}.reg{grid-template-columns:1fr;gap:28px}}
+@media(max-width:720px){nav.menu,.gnb-cta,.topbar .tb-r{display:none}.hamb{display:block}.tabs{top:56px}.gnb .wrap{height:56px}.tabs .wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.tabs a{flex:0 0 auto;font-size:13px;padding:14px 15px;white-space:nowrap}.section{padding:46px 0}.sec-head h2{font-size:23px}.career-track .cj{flex:0 0 100%}.rv{padding:28px 24px}.mbar{display:flex}footer{padding-bottom:80px}.hgn-badge{bottom:76px;left:10px}.actions{flex-wrap:wrap}.btn-note{flex:1 0 100%}}
 </style>
 </head>
 <body>
@@ -231,7 +226,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
       <span class="badge">🏆 호갱노노 공인 파트너</span>
       <h1>이상담</h1>
       <p class="sub-title">수도권 남부 신규 분양 전담 상담사</p>
-      <div class="score-row"><span class="stars">★★★★★</span><span class="sn">4.8</span><span class="sc">후기 62건</span></div>
+      <div class="score-row"><span class="stars">★★★★★</span><span class="sn">4.8</span><span class="sc">후기 7건</span></div>
       <div class="spec">
         <dl><dt>전문분야</dt><dd>신규 분양 · 경기 오산·화성·평택</dd></dl>
         <dl><dt>경력</dt><dd>8년 (분양 전문 컨설턴트)</dd></dl>
@@ -330,10 +325,24 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 <div class="section" id="reviews">
   <div class="wrap">
     <div class="sec-head"><p class="ey">REVIEWS</p><h2>상담 후기</h2><p>실제 수분양자 고객분들의 후기입니다</p></div>
-    <div class="reviews narrow">
-      <div class="rv"><div class="rs">★★★★★</div><p class="rt">"GTX 개통 전 입지를 미리 파악해서 안내해주셔서 정말 좋은 타이밍에 계약할 수 있었습니다. 데이터 기반 분석이 정말 인상적이었어요."</p><div class="ra">최*진 님</div><div class="rd">동탄2 푸르지오 · 84㎡</div></div>
-      <div class="rv"><div class="rs">★★★★★</div><p class="rt">"사전청약부터 본청약까지 전 과정을 함께 해주셨어요. 매 단계 필요한 서류와 일정을 미리 알려주셔서 빠뜨린 게 하나도 없었습니다."</p><div class="ra">정*호 님</div><div class="rd">고덕 힐스테이트 · 84㎡</div></div>
-      <div class="rv"><div class="rs">★★★★★</div><p class="rt">"오산이 낯선 곳이었는데 주변 교통·학군·생활편의를 현장에서 직접 보여주시면서 설명해주셔서 걱정이 사라졌어요. 덕분에 확신을 갖고 계약했습니다."</p><div class="ra">손*현 님</div><div class="rd">오산 세교 반도유보라 · 59㎡</div></div>
+    <div class="rv-carousel-wrap">
+      <div class="rv-carousel">
+        <div class="rv-track" id="rvTrack">
+          <div class="rv"><div class="rs">★★★★★</div><p class="rt">"GTX 개통 전 입지를 미리 파악해서 안내해주셔서 정말 좋은 타이밍에 계약할 수 있었습니다. 데이터 기반 분석이 정말 인상적이었어요."</p><div class="ra">최*진 님</div><div class="rd">동탄2 푸르지오 · 84㎡</div></div>
+          <div class="rv"><div class="rs">★★★★★</div><p class="rt">"사전청약부터 본청약까지 전 과정을 함께 해주셨어요. 매 단계 필요한 서류와 일정을 미리 알려주셔서 빠뜨린 게 하나도 없었습니다."</p><div class="ra">정*호 님</div><div class="rd">고덕 힐스테이트 · 84㎡</div></div>
+          <div class="rv"><div class="rs">★★★★★</div><p class="rt">"오산이 낯선 곳이었는데 주변 교통·학군·생활편의를 현장에서 직접 보여주시면서 설명해주셔서 걱정이 사라졌어요. 덕분에 확신을 갖고 계약했습니다."</p><div class="ra">손*현 님</div><div class="rd">오산 세교 반도유보라 · 59㎡</div></div>
+          <div class="rv"><div class="rs">★★★★★</div><p class="rt">"수원에서 오산으로 갈아탈까 망설였는데, 가격 대비 입지 분석을 숫자로 보여주셔서 결단하는 데 큰 도움이 됐습니다. 정말 만족해요."</p><div class="ra">윤*서 님</div><div class="rd">오산 세교 제일풍경채 · 74㎡</div></div>
+          <div class="rv"><div class="rs">★★★★★</div><p class="rt">"잔금 날 일정이 갑자기 바뀌었는데도 즉시 은행 담당자와 연결해주셔서 무사히 처리했습니다. 진짜 든든한 상담사예요."</p><div class="ra">허*름 님</div><div class="rd">평택 지제 자이 · 59㎡</div></div>
+          <div class="rv"><div class="rs">★★★★★</div><p class="rt">"수도권 남부를 이렇게 꼼꼼하게 분석하는 상담사는 처음 봤어요. 어느 단지가 가성비 좋은지 비교표까지 만들어주셔서 선택이 쉬웠습니다."</p><div class="ra">조*연 님</div><div class="rd">화성 향남 푸르지오 · 84㎡</div></div>
+          <div class="rv"><div class="rs">★★★★★</div><p class="rt">"친구 소개로 연결됐는데 너무 친절하고 빠른 응대에 감동받았어요. 계약 이후에도 꾸준히 체크해주시는 것도 좋습니다."</p><div class="ra">배*현 님</div><div class="rd">수원 권선 힐스테이트 · 59㎡</div></div>
+        </div>
+      </div>
+      <div class="carousel-nav" style="margin-top:24px">
+        <button class="carousel-btn" id="rvPrev" onclick="rvMove(-1)">‹</button>
+        <div class="carousel-dots" id="rvDots"></div>
+        <button class="carousel-btn" id="rvNext" onclick="rvMove(1)">›</button>
+      </div>
+      <p class="rv-counter" id="rvCounter"></p>
     </div>
   </div>
 </div>
@@ -427,6 +436,7 @@ function closeContact(){document.getElementById('contactModal').classList.remove
 const SECS=['about','listing','career','reviews','contact'];
 window.addEventListener('scroll',function(){const y=window.scrollY+140;let cur=SECS[0];SECS.forEach(id=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)cur=id});document.querySelectorAll('.tabs a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));document.querySelectorAll('.sidenav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));document.getElementById('sidenav').classList.toggle('show',window.scrollY>300);document.getElementById('topBtn').classList.toggle('show',window.scrollY>400)},{passive:true});
 (function(){var track=document.getElementById('careerTrack');var dotsEl=document.getElementById('careerDots');var prevBtn=document.getElementById('careerPrev');var nextBtn=document.getElementById('careerNext');if(!track)return;var idx=0;function pv(){return window.innerWidth<580?1:window.innerWidth<860?2:3}function total(){return track.children.length}function maxIdx(){return Math.max(0,total()-pv())}function cardW(){var gap=16;var p=pv();return (track.parentElement.offsetWidth-gap*(p-1))/p;}function buildDots(){dotsEl.innerHTML='';for(var i=0;i<=maxIdx();i++){var d=document.createElement('button');d.className='carousel-dot'+(i===idx?' active':'');d.setAttribute('data-i',i);d.onclick=(function(n){return function(){goTo(n)}})(i);dotsEl.appendChild(d);}}function goTo(i){idx=Math.max(0,Math.min(i,maxIdx()));track.style.transform='translateX(-'+(idx*(cardW()+16))+'px)';prevBtn.disabled=(idx===0);nextBtn.disabled=(idx>=maxIdx());dotsEl.querySelectorAll('.carousel-dot').forEach(function(d,di){d.classList.toggle('active',di===idx)});}window.carouselMove=function(dir){goTo(idx+dir)};window.addEventListener('resize',function(){buildDots();goTo(Math.min(idx,maxIdx()))});buildDots();goTo(0);})();
+(function(){var track=document.getElementById('rvTrack');var dotsEl=document.getElementById('rvDots');var prevBtn=document.getElementById('rvPrev');var nextBtn=document.getElementById('rvNext');var cntEl=document.getElementById('rvCounter');if(!track)return;var idx=0;function total(){return track.children.length}function buildDots(){dotsEl.innerHTML='';for(var i=0;i<total();i++){var d=document.createElement('button');d.className='carousel-dot'+(i===idx?' active':'');d.onclick=(function(n){return function(){goTo(n)}})(i);dotsEl.appendChild(d);}}function goTo(i){idx=Math.max(0,Math.min(i,total()-1));track.style.transform='translateX(-'+(idx*100)+'%)';if(prevBtn)prevBtn.disabled=(idx===0);if(nextBtn)nextBtn.disabled=(idx>=total()-1);if(cntEl)cntEl.textContent=(idx+1)+' / '+total();dotsEl.querySelectorAll('.carousel-dot').forEach(function(d,di){d.classList.toggle('active',di===idx)});}window.rvMove=function(dir){goTo(idx+dir)};buildDots();goTo(0);})();
 </script>
 </body>
 </html>

@@ -165,13 +165,17 @@ nav.menu a:hover{color:var(--ink)}
 .l-btn.det{background:var(--ink);color:#fff}.l-btn.det:hover{background:var(--ink2)}
 .l-btn.con{background:var(--soft);color:var(--ink);border:1.5px solid var(--line)}.l-btn.con:hover{background:var(--line)}
 
-/* reviews */
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.rv{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px 20px}
-.rv .rs{color:var(--gold);font-size:16px;letter-spacing:2px;margin-bottom:10px}
-.rv .rt{font-size:14.5px;color:#333;line-height:1.75;margin-bottom:14px}
-.rv .ra{font-size:12.5px;color:var(--muted);font-weight:600}
-.rv .rd{font-size:12px;color:#b0b5bf;margin-top:2px}
+/* reviews carousel */
+.rv-carousel-wrap{max-width:720px;margin:0 auto}
+.rv-carousel{overflow:hidden}
+.rv-track{display:flex;transition:transform .4s cubic-bezier(.25,0,.25,1)}
+.rv-track .rv{flex:0 0 100%;min-width:0}
+.rv{background:#fff;border:1px solid var(--line);border-radius:16px;padding:36px 40px;text-align:center;box-shadow:0 3px 12px rgba(22,33,58,.06)}
+.rv .rs{color:var(--gold);font-size:22px;letter-spacing:4px;margin-bottom:18px}
+.rv .rt{font-size:16px;color:#333;line-height:1.85;margin-bottom:24px;font-style:italic}
+.rv .ra{font-size:13.5px;color:var(--ink);font-weight:700}
+.rv .rd{font-size:12.5px;color:#b0b5bf;margin-top:5px}
+.rv-counter{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
 
 /* contact form */
 .reg{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:900px;margin:0 auto;align-items:start}
@@ -271,7 +275,6 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
   .about-wrap{grid-template-columns:1fr}
   .career-track .cj{flex:0 0 calc((100% - 16px)/2)}
   .reg{grid-template-columns:1fr;gap:28px}
-  .reviews{grid-template-columns:1fr 1fr}
 }
 @media(max-width:720px){
   nav.menu,.gnb-cta,.topbar .tb-r{display:none}
@@ -281,7 +284,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
   .tabs a{flex:0 0 auto;font-size:13px;padding:14px 15px;white-space:nowrap}
   .section{padding:46px 0}.sec-head h2{font-size:23px}
   .career-track .cj{flex:0 0 100%}
-  .reviews{grid-template-columns:1fr}
+  .rv{padding:28px 24px}
   .mbar{display:flex}
   footer{padding-bottom:80px}
   .hgn-badge{bottom:76px;left:10px}
@@ -367,7 +370,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
       <div class="score-row">
         <span class="stars">★★★★★</span>
         <span class="sn">4.9</span>
-        <span class="sc">후기 84건</span>
+        <span class="sc">후기 7건</span>
       </div>
       <div class="spec">
         <dl><dt>전문분야</dt><dd>신규 분양 · 부산·경남</dd></dl>
@@ -479,10 +482,24 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 <div class="section" id="reviews">
   <div class="wrap">
     <div class="sec-head"><p class="ey">REVIEWS</p><h2>상담 후기</h2><p>실제 수분양자 고객분들의 후기입니다</p></div>
-    <div class="reviews narrow">
-      <div class="rv"><div class="rs">★★★★★</div><p class="rt">"처음 분양이라 무서웠는데 처음부터 끝까지 함께 해주셔서 너무 감사했습니다. 청약부터 계약까지 한 번도 헷갈린 적이 없었어요."</p><div class="ra">이*경 님</div><div class="rd">광안 센텀 비스타동원 · 84㎡</div></div>
-      <div class="rv"><div class="rs">★★★★★</div><p class="rt">"현장을 3번 같이 방문했는데 매번 성심성의껏 설명해주셨어요. 단지 주변 생활환경까지 꼼꼼하게 알려주셔서 확신을 갖고 계약했습니다."</p><div class="ra">박*훈 님</div><div class="rd">해운대 센텀 더샵 · 84㎡</div></div>
-      <div class="rv"><div class="rs">★★★★★</div><p class="rt">"다른 곳엔 수수료를 요구했는데 여기는 정말 무료였어요. 호갱노노 인증 파트너라 믿음이 갔고, 실제로도 그 믿음을 져버리지 않으셨습니다."</p><div class="ra">김*수 님</div><div class="rd">서면 반도유보라 아이파크 · 59㎡</div></div>
+    <div class="rv-carousel-wrap">
+      <div class="rv-carousel">
+        <div class="rv-track" id="rvTrack">
+          <div class="rv"><div class="rs">★★★★★</div><p class="rt">"처음 분양이라 무서웠는데 처음부터 끝까지 함께 해주셔서 너무 감사했습니다. 청약부터 계약까지 한 번도 헷갈린 적이 없었어요."</p><div class="ra">이*경 님</div><div class="rd">광안 센텀 비스타동원 · 84㎡</div></div>
+          <div class="rv"><div class="rs">★★★★★</div><p class="rt">"현장을 3번 같이 방문했는데 매번 성심성의껏 설명해주셨어요. 단지 주변 생활환경까지 꼼꼼하게 알려주셔서 확신을 갖고 계약했습니다."</p><div class="ra">박*훈 님</div><div class="rd">해운대 센텀 더샵 · 84㎡</div></div>
+          <div class="rv"><div class="rs">★★★★★</div><p class="rt">"다른 곳엔 수수료를 요구했는데 여기는 정말 무료였어요. 호갱노노 인증 파트너라 믿음이 갔고, 실제로도 그 믿음을 져버리지 않으셨습니다."</p><div class="ra">김*수 님</div><div class="rd">서면 반도유보라 아이파크 · 59㎡</div></div>
+          <div class="rv"><div class="rs">★★★★★</div><p class="rt">"청약 가점이 낮아서 포기할 뻔했는데, 미청약 물량과 선착순 계약 방법을 알려주셔서 좋은 호수로 계약할 수 있었습니다."</p><div class="ra">최*훈 님</div><div class="rd">기장 정관 힐스테이트 · 74㎡</div></div>
+          <div class="rv"><div class="rs">★★★★★</div><p class="rt">"계약서부터 중도금, 잔금까지 일정마다 직접 챙겨 연락주셨어요. 혼자였으면 정말 헤맸을 것 같은데 끝까지 든든하게 함께해주셨습니다."</p><div class="ra">정*아 님</div><div class="rd">대연 e편한세상 파크 · 59㎡</div></div>
+          <div class="rv"><div class="rs">★★★★★</div><p class="rt">"부산을 잘 모르는데 입지별 장단점을 비교 설명해주셔서 결국 제일 좋은 위치로 계약했습니다. 판단에 도움이 정말 많이 됐어요."</p><div class="ra">임*준 님</div><div class="rd">창원 센텀 두산위브 · 84㎡</div></div>
+          <div class="rv"><div class="rs">★★★★★</div><p class="rt">"지인 소개로 만났는데 정말 친절하고 정직하셨어요. 수수료도 없고 끝까지 신경 써주셔서 다음 분양도 꼭 함께 하고 싶습니다."</p><div class="ra">오*미 님</div><div class="rd">연산 롯데캐슬 골드포레 · 84㎡</div></div>
+        </div>
+      </div>
+      <div class="carousel-nav" style="margin-top:24px">
+        <button class="carousel-btn" id="rvPrev" onclick="rvMove(-1)">‹</button>
+        <div class="carousel-dots" id="rvDots"></div>
+        <button class="carousel-btn" id="rvNext" onclick="rvMove(1)">›</button>
+      </div>
+      <p class="rv-counter" id="rvCounter"></p>
     </div>
   </div>
 </div>
@@ -643,6 +660,32 @@ window.addEventListener('scroll',function(){
   }
   window.carouselMove=function(dir){goTo(idx+dir)};
   window.addEventListener('resize',function(){buildDots();goTo(Math.min(idx,maxIdx()))});
+  buildDots();goTo(0);
+})();
+
+/* review carousel (1 at a time) */
+(function(){
+  var track=document.getElementById('rvTrack');
+  var dotsEl=document.getElementById('rvDots');
+  var prevBtn=document.getElementById('rvPrev');
+  var nextBtn=document.getElementById('rvNext');
+  var cntEl=document.getElementById('rvCounter');
+  if(!track)return;
+  var idx=0;
+  function total(){return track.children.length}
+  function buildDots(){
+    dotsEl.innerHTML='';
+    for(var i=0;i<total();i++){var d=document.createElement('button');d.className='carousel-dot'+(i===idx?' active':'');d.onclick=(function(n){return function(){goTo(n)}})(i);dotsEl.appendChild(d);}
+  }
+  function goTo(i){
+    idx=Math.max(0,Math.min(i,total()-1));
+    track.style.transform='translateX(-'+(idx*100)+'%)';
+    if(prevBtn)prevBtn.disabled=(idx===0);
+    if(nextBtn)nextBtn.disabled=(idx>=total()-1);
+    if(cntEl)cntEl.textContent=(idx+1)+' / '+total();
+    dotsEl.querySelectorAll('.carousel-dot').forEach(function(d,di){d.classList.toggle('active',di===idx)});
+  }
+  window.rvMove=function(dir){goTo(idx+dir)};
   buildDots();goTo(0);
 })();
 </script>
