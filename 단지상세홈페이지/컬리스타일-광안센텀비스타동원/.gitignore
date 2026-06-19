@@ -1,0 +1,5 @@
+# 배포 제외 — 내부 문서/스크립트 (라이브 사이트엔 index.html + assets 만)
+*.md
+*.sql
+*.gs
+assets/img/README.txt

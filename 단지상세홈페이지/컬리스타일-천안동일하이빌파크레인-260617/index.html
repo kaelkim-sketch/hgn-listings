@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>천안동일하이빌파크레인 | 분양안내</title>
+<meta name="description" content="북천안의 최고 중심지! 895세대 대단지! 천안동일하이빌파크레인 분양 안내 — 조감도·평면안내·사업개요·관심고객 등록.">
+<!-- OG -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="천안동일하이빌파크레인 | 분양안내">
+<meta property="og:description" content="북천안의 최고 중심지! 895세대 대단지! 천안동일하이빌파크레인 분양 안내.">
+<meta property="og:image" content="assets/img/aerial.jpg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+/* ============================================================
+   천안동일하이빌파크레인 — 마켓컬리 상품 상세페이지 구조 차용 샘플
+   레이아웃 DNA: Kurly 상품 상단(갤러리+구매정보) + 스티키 탭 + 롱스크롤 상세
+   테마: 프리미엄 네이비 + 골드 (분양 브랜드 톤)
+   ※ 수치/문구는 샘플 값 — 실제 사업 데이터로 교체하세요.
+   ============================================================ */
+:root{
+  --ink:#16213a;        /* 딥 네이비 (메인) */
+  --ink2:#27395c;       /* 네이비 라이트/호버 */
+  --brand:#2b3a5a;      /* 보조 다크 */
+  --gold:#b5985a;       /* 서브 포인트 골드 (프리미엄) */
+  --gold-d:#9a7e44;
+  --sale:#d94f4f;       /* 혜택 강조(컬리 할인 레드 대체) */
+  --txt:#222;
+  --muted:#8a8f99;
+  --line:#ececec;
+  --bg:#fff;
+  --soft:#f7f8fa;
+  --radius:6px;
+  --maxw:1050px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Pretendard",-apple-system,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--txt);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+/* ---------- 이미지 자리(플레이스홀더) ----------
+   실제 이미지를 assets/img/ 에 넣으면 자동 표시,
+   없으면 라벨이 있는 그라데이션 박스로 폴백 */
+.shot{position:relative;width:100%;background:#eef0f4;overflow:hidden;border-radius:var(--radius)}
+.shot img{width:100%;height:100%;object-fit:cover}
+.shot.ph{background:linear-gradient(135deg,#1b2945 0%,#33486f 45%,#7c8aa3 100%)}
+.shot.ph::after{content:attr(data-label);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:14px;letter-spacing:.04em;font-weight:600;text-align:center;padding:16px;
+  text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.shot.ph::before{content:"SAMPLE";position:absolute;top:10px;left:10px;font-size:10px;letter-spacing:.15em;
+  color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.45);padding:2px 7px;border-radius:30px}
+
+/* ============ 헤더 ============ */
+.topbar{background:var(--ink);color:#cdd4e0;font-size:12px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:34px}
+.topbar a{color:#cdd4e0;opacity:.85}
+.topbar a:hover{opacity:1}
+.topbar .tb-r span{margin-left:14px}
+
+header.gnb{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+.gnb .wrap{display:flex;align-items:center;height:64px;gap:28px}
+.logo{display:flex;align-items:center;gap:10px;line-height:1.05}
+.logo-img{height:32px;width:auto;display:block}
+.logo-txt b{font-size:17px;font-weight:800;color:var(--ink);letter-spacing:-.01em;display:block}
+.logo-txt small{font-size:10px;letter-spacing:.22em;color:var(--gold);font-weight:700;margin-top:2px;display:block}
+nav.menu{display:flex;gap:18px;margin-left:6px}
+nav.menu a{font-size:14px;font-weight:600;color:#444;padding:6px 0;position:relative;white-space:nowrap}
+nav.menu a:hover{color:var(--ink)}
+.gnb-cta{margin-left:auto;display:flex;align-items:center;gap:12px}
+.gnb-tel{font-size:13px;color:var(--muted);text-align:right;line-height:1.2}
+.gnb-tel b{display:block;font-size:18px;color:var(--ink);font-weight:800;letter-spacing:.01em}
+.btn-pill{background:var(--ink);color:#fff;border:none;border-radius:30px;padding:10px 18px;font-size:14px;font-weight:700}
+.btn-pill:hover{background:var(--ink2)}
+.hamb{display:none;background:none;border:none;font-size:24px;color:var(--ink);margin-left:auto}
+
+/* 모바일 드로어 */
+.drawer{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:99;opacity:0;visibility:hidden;transition:.25s}
+.drawer.open{opacity:1;visibility:visible}
+.drawer-panel{position:absolute;right:0;top:0;width:78%;max-width:320px;height:100%;background:#fff;padding:24px;transform:translateX(100%);transition:.25s}
+.drawer.open .drawer-panel{transform:translateX(0)}
+.drawer-panel a{display:block;padding:15px 4px;font-size:17px;font-weight:600;border-bottom:1px solid var(--line)}
+.drawer-close{position:absolute;top:16px;right:18px;font-size:26px;background:none;border:none}
+
+/* ============ 브레드크럼 ============ */
+.crumb{font-size:12px;color:var(--muted);padding:16px 0 4px}
+.crumb span{margin:0 6px;color:#cbcfd6}
+
+/* ============ 상품 상단(갤러리+정보) — Kurly product top ============ */
+.product{display:grid;grid-template-columns:430px 1fr;gap:48px;padding:14px 0 56px;align-items:start}
+
+/* 갤러리 */
+.gallery .main{aspect-ratio:1/1}
+.gallery .thumbs{display:flex;gap:10px;margin-top:12px}
+.gallery .thumbs .shot{aspect-ratio:1/1;flex:1;cursor:pointer;border:2px solid transparent}
+.gallery .thumbs .shot.active{border-color:var(--ink)}
+.gallery .thumbs .shot.ph::before{display:none}
+.gallery .thumbs .shot.ph::after{font-size:11px}
+
+/* 정보 패널 */
+.info .badge{display:inline-block;background:var(--soft);color:var(--gold-d);border:1px solid #ead9b8;
+  font-size:11px;font-weight:700;letter-spacing:.12em;padding:5px 11px;border-radius:30px}
+.info h1{font-size:40px;font-weight:800;letter-spacing:-.02em;line-height:1.18;color:var(--ink);margin:14px 0 10px}
+.info .lead{font-size:15px;color:#666;margin-bottom:22px}
+
+.price-box{padding:18px 0;border-top:1px solid var(--line)}
+.price-box .label{font-size:13px;color:var(--muted);margin-bottom:4px}
+.price-box .sale{color:var(--sale);font-size:26px;font-weight:800;margin-right:8px;vertical-align:-1px}
+.price-box .amt{font-size:30px;font-weight:800;color:var(--ink)}
+.price-box .amt small{font-size:17px;font-weight:700}
+.price-box .was{display:block;margin-top:6px;color:#aab;font-size:14px}
+.price-box .was s{margin-right:6px}
+.price-box .note{margin-top:10px;font-size:12.5px;color:#8a6b2e;background:#fbf6ea;border:1px solid #f0e3c4;padding:8px 11px;border-radius:6px}
+
+/* 정보 테이블 (Kurly 배송/판매자/포장… 구조) */
+.spec{width:100%;border-top:1px solid var(--line);margin-top:6px;font-size:14px}
+.spec dl{display:flex;padding:11px 0;border-bottom:1px solid var(--soft)}
+.spec dt{flex:0 0 96px;color:var(--muted);font-weight:600}
+.spec dd{flex:1;color:#333}
+
+/* 옵션 선택 */
+.option{margin-top:22px}
+.option label{display:block;font-size:13px;font-weight:700;color:#555;margin-bottom:8px}
+.select{position:relative}
+.select select{width:100%;padding:14px 16px;border:1px solid #d6dae1;border-radius:6px;font-size:15px;
+  background:#fff;appearance:none;color:#333}
+.select::after{content:"▾";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:#9aa;pointer-events:none}
+
+/* 선택된 타입 카드 */
+.picked{margin-top:14px}
+.picked .card{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:14px 16px;
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.picked .card .nm{font-weight:700;color:var(--ink)}
+.picked .card .sub{font-size:12.5px;color:var(--muted);margin-top:2px}
+.picked .card .rm{background:none;border:none;color:#b9bec7;font-size:18px}
+
+.total{display:flex;justify-content:space-between;align-items:flex-end;border-top:2px solid var(--ink);
+  margin-top:18px;padding-top:16px}
+.total .t-l{font-size:14px;color:#555;font-weight:600}
+.total .t-r{font-size:14px;color:var(--ink);font-weight:800}
+.total .t-r b{font-size:22px}
+
+/* 액션 버튼 */
+.actions{display:flex;gap:10px;margin-top:18px}
+.btn-heart{flex:0 0 56px;height:56px;border:1px solid #d6dae1;border-radius:6px;background:#fff;font-size:22px;color:#c2c7cf;display:flex;align-items:center;justify-content:center}
+.btn-heart.on{color:var(--sale);border-color:#f3c7c7;background:#fdf3f3}
+.btn-buy{flex:1;height:56px;border:none;border-radius:6px;background:var(--ink);color:#fff;font-size:17px;font-weight:800;letter-spacing:.01em}
+.btn-buy:hover{background:var(--ink2)}
+.trust{display:flex;gap:16px;margin-top:16px;font-size:12px;color:var(--muted)}
+.trust span::before{content:"✓ ";color:var(--gold)}
+
+/* ============ 스티키 탭 (Kurly 상품설명/상세정보/후기/문의) ============ */
+.tabs{position:sticky;top:64px;z-index:40;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex}
+.tabs a{flex:1;text-align:center;padding:17px 0;font-size:15px;font-weight:700;color:#9aa0ab;position:relative}
+.tabs a .cnt{font-size:12px;color:var(--gold);margin-left:4px;font-weight:700}
+.tabs a.active{color:var(--ink)}
+.tabs a.active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--ink)}
+
+/* ============ 상세 본문 공통 ============ */
+.section{padding:64px 0;scroll-margin-top:130px}
+.section:nth-child(even){background:var(--soft)}
+.sec-head{text-align:center;margin-bottom:40px}
+.sec-head .ey{font-size:12px;letter-spacing:.22em;color:var(--gold);font-weight:700}
+.sec-head h2{font-size:28px;font-weight:800;color:var(--ink);margin:10px 0 8px;letter-spacing:-.02em}
+.sec-head p{color:#777;font-size:15px}
+.narrow{max-width:840px;margin:0 auto}
+
+/* 단지소개 롱스크롤 */
+.story .shot{margin-bottom:28px}
+.story .big{aspect-ratio:16/9}
+.story .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.story .grid2 .shot{aspect-ratio:4/3;margin-bottom:0}
+.copy-block{text-align:center;padding:18px 0 40px}
+.copy-block h3{font-size:23px;font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.4}
+.copy-block .g{color:var(--gold)}
+.copy-block p{color:#666;margin-top:14px;font-size:15.5px;line-height:1.8}
+
+/* 프리미엄 3카드 */
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px}
+.feat .it{background:#fff;border:1px solid var(--line);border-radius:10px;padding:30px 24px;text-align:center}
+.feat .it .ic{width:54px;height:54px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 16px}
+.feat .it h4{font-size:18px;color:var(--ink);font-weight:800;margin-bottom:8px}
+.feat .it p{font-size:14px;color:#777;line-height:1.7}
+
+/* 평면 타입 탭 */
+.typer{margin-top:8px}
+.type-tabs{display:flex;gap:8px;justify-content:center;margin-bottom:24px;flex-wrap:wrap}
+.type-tabs button{padding:10px 20px;border:1px solid #d6dae1;background:#fff;border-radius:30px;font-size:14px;font-weight:700;color:#888}
+.type-tabs button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.type-panel{display:none;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.type-panel.active{display:grid}
+.type-panel .shot{aspect-ratio:1/1}
+.type-info h3{font-size:26px;color:var(--ink);font-weight:800}
+.type-info .tt{color:var(--gold);font-weight:700;font-size:13px;letter-spacing:.1em;margin-bottom:6px}
+.type-info ul{margin-top:18px;border-top:1px solid var(--line)}
+.type-info li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--soft);font-size:14.5px}
+.type-info li span:first-child{color:var(--muted)}
+.type-info li span:last-child{font-weight:700;color:#333}
+
+/* ============ 사업개요 (Kurly 상세정보 표) ============ */
+.overview{max-width:760px;margin:0 auto;border-top:2px solid var(--ink)}
+.overview dl{display:flex;border-bottom:1px solid var(--line)}
+.overview dt{flex:0 0 150px;background:var(--soft);padding:15px 20px;font-weight:700;color:var(--ink);font-size:14px}
+.overview dd{flex:1;padding:15px 20px;font-size:14px;color:#444}
+.disc{max-width:760px;margin:22px auto 0;font-size:12px;color:#9aa0ab;line-height:1.7}
+
+/* ============ 자주 묻는 질문 (Kurly 상품문의 차용) ============ */
+.faq-list{max-width:760px;margin:0 auto}
+.faq-list details{border:1px solid var(--line);border-radius:10px;background:#fff;margin-bottom:12px;overflow:hidden}
+.faq-list summary{list-style:none;cursor:pointer;padding:18px 22px;font-size:15.5px;font-weight:700;color:var(--ink);
+  display:flex;align-items:center;gap:12px}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary .q{flex:0 0 auto;width:24px;height:24px;border-radius:6px;background:var(--soft);color:var(--gold-d);
+  font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.faq-list summary::after{content:"+";margin-left:auto;font-size:22px;line-height:1;color:#c2c7cf;font-weight:300;transition:transform .2s}
+.faq-list details[open] summary::after{transform:rotate(45deg)}
+.faq-list details[open] summary{border-bottom:1px solid var(--line)}
+.faq-list .a{padding:16px 22px 20px;font-size:14.5px;color:#555;line-height:1.75}
+
+/* ============ 관심고객 등록 (Kurly 문의 → 폼) ============ */
+.reg{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:900px;margin:0 auto;align-items:start}
+.reg .lead-x h3{font-size:22px;color:var(--ink);font-weight:800;margin-bottom:14px}
+.reg .lead-x p{color:#666;font-size:15px;line-height:1.8;margin-bottom:22px}
+.reg .perk{list-style:none}
+.reg .perk li{padding:10px 0 10px 26px;position:relative;font-size:14.5px;color:#444;border-bottom:1px dashed var(--line)}
+.reg .perk li::before{content:"●";color:var(--gold);position:absolute;left:4px;font-size:9px;top:14px}
+.form{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px}
+.form .fld{margin-bottom:14px}
+.form label{display:block;font-size:13px;font-weight:700;color:#555;margin-bottom:6px}
+.form input,.form select{width:100%;padding:13px 14px;border:1px solid #d6dae1;border-radius:6px;font-size:14.5px;font-family:inherit}
+.form .agree{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;color:#777;margin:6px 0 16px}
+.form .agree input{width:auto;margin-top:2px}
+.form .submit{width:100%;height:54px;border:none;border-radius:6px;background:var(--ink);color:#fff;font-size:16px;font-weight:800}
+.form .submit:hover{background:var(--ink2)}
+.form .sub-tel{text-align:center;margin-top:14px;font-size:13px;color:var(--muted)}
+.form .sub-tel b{color:var(--ink);font-size:17px;display:block;margin-top:2px}
+
+/* ============ 푸터 ============ */
+footer{background:var(--ink);color:#aeb6c4;font-size:13px;padding:46px 0 120px}
+footer .ft-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.12)}
+footer .ft-logo b{font-size:18px;color:#fff;font-weight:800}
+footer .ft-logo small{display:block;color:var(--gold);letter-spacing:.2em;font-size:10px;margin-top:4px}
+footer .ft-tel{font-size:13px;text-align:right}
+footer .ft-tel b{display:block;font-size:24px;color:#fff;font-weight:800;letter-spacing:.02em}
+footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
+footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.5px}
+.badges{display:flex;gap:10px;margin-top:18px}
+.badges span{font-size:11px;color:#cdd4e0;border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 12px}
+
+/* ============ 모바일 고정 하단바 (Kurly mobile bottom) ============ */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);
+  display:none;padding:9px 12px;gap:8px;box-shadow:0 -3px 12px rgba(0,0,0,.06)}
+.mbar a{flex:1;height:50px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800}
+.mbar .m-tel{flex:0 0 54px;background:var(--soft);color:var(--ink);font-size:22px}
+.mbar .m-reg{background:var(--ink);color:#fff}
+
+/* 맨위로 */
+.top-btn{position:fixed;right:18px;bottom:78px;z-index:55;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
+  background:#fff;font-size:18px;color:var(--ink);box-shadow:0 3px 12px rgba(0,0,0,.12);display:none}
+.top-btn.show{display:block}
+
+/* 직방 홈페이지 랜딩 버튼 (좌측 하단 고정, 정사각형) */
+.zb-badge{position:fixed;left:18px;bottom:22px;z-index:56;width:88px;height:88px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 6px 20px rgba(0,0,0,.16);text-decoration:none;transition:transform .15s,box-shadow .15s}
+.zb-badge:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.24)}
+.zb-badge img{width:64px;height:auto;display:block}
+.zb-badge span{font-size:11px;color:#8a8f99;letter-spacing:.01em;font-weight:700}
+
+/* 우측 섹션 가이드 (스크롤 인디케이터) */
+.sidenav{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:55;
+  display:flex;flex-direction:column;gap:15px;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.sidenav.show{opacity:1;visibility:visible}
+.sidenav::before{content:"";position:absolute;right:5px;top:4px;bottom:4px;width:1px;background:rgba(22,33,58,.14)}
+.sidenav a{position:relative;display:flex;align-items:center;justify-content:flex-end;gap:10px;text-decoration:none}
+.sidenav .lbl{font-size:12px;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--line);
+  border-radius:20px;padding:4px 11px;box-shadow:0 3px 10px rgba(0,0,0,.10);white-space:nowrap;
+  opacity:0;transform:translateX(8px);transition:.2s;pointer-events:none}
+.sidenav .dot{flex:0 0 auto;width:11px;height:11px;border-radius:50%;background:#fff;border:2px solid #c4c9d2;transition:.2s;z-index:1}
+.sidenav a:hover .dot{border-color:var(--ink)}
+.sidenav a.active .dot{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 5px rgba(181,152,90,.18)}
+.sidenav a:hover .lbl,.sidenav a.active .lbl{opacity:1;transform:none}
+@media(max-width:1100px){.sidenav{display:none}}
+
+/* ============ 이미지 갤러리 (중앙 확대 + 우측 슬롯 인벤토리) ============ */
+.imgset{display:grid;grid-template-columns:1fr 132px;gap:16px;align-items:start;margin-top:6px}
+.imgset .iv-main{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;margin:0}
+.imgset .iv-main.ph::after{display:none}
+.imgset .iv-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:16px 18px;color:#fff;
+  font-size:14px;font-weight:700;letter-spacing:-.01em;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+.imgset .iv-thumbs{display:flex;flex-direction:column;gap:10px}
+.imgset .iv-thumbs .shot{aspect-ratio:4/3;cursor:pointer;border:2px solid transparent;border-radius:9px;transition:border-color .15s,transform .15s}
+.imgset .iv-thumbs .shot:hover{transform:translateY(-1px)}
+.imgset .iv-thumbs .shot.active{border-color:var(--ink)}
+.imgset .iv-thumbs .shot.ph::before{display:none}
+.imgset .iv-thumbs .shot.ph::after{font-size:10px;padding:5px;letter-spacing:0}
+/* 프리미엄: 썸네일 인벤토리를 메인 아래(가로 필름스트립)로 */
+.imgset.stacked{grid-template-columns:1fr}
+.imgset.stacked .iv-main{aspect-ratio:16/9}
+.imgset.stacked .iv-thumbs{flex-direction:row;gap:12px;margin-top:14px}
+.imgset.stacked .iv-thumbs .shot{flex:1 1 0;min-width:0}
+
+/* ============ WHY ZIGBANG · HOGANGNONO (Kurly WHY KURLY 차용) ============ */
+.section.why{position:relative;overflow:hidden;
+  background:linear-gradient(162deg,#0e1729 0%,#192745 58%,#212f59 100%)}
+.section.why::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(55% 45% at 85% 6%, rgba(181,152,90,.18), transparent 62%),
+            radial-gradient(46% 42% at 6% 98%, rgba(255,102,0,.10), transparent 60%)}
+.why .wrap{position:relative;z-index:1}
+.why .sec-head .ey{color:var(--gold)}
+.why .sec-head h2{color:#fff;letter-spacing:.06em;font-weight:800}
+.why .sec-head p{color:#b9c2d4}
+.why-logos{display:flex;align-items:center;justify-content:center;gap:15px;margin:6px auto 42px;
+  background:#fff;border-radius:40px;padding:12px 24px;width:max-content;max-width:92%;
+  box-shadow:0 12px 36px rgba(0,0,0,.32)}
+.why-logos .zb{height:22px;width:auto;display:block}
+.why-logos .sep{width:1px;height:22px;background:#e6e6e6}
+.why-hgn{display:flex;align-items:center;gap:7px}
+.why-hgn img{height:25px;width:25px;border-radius:7px;display:block}
+.why-hgn b{font-size:18px;color:#5b5bd6;font-weight:800;letter-spacing:-.02em}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.why-grid .wi{position:relative;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);
+  border-radius:16px;padding:30px 22px 26px;overflow:hidden;
+  transition:transform .22s ease,border-color .22s ease,background .22s ease}
+.why-grid .wi::after{content:"";position:absolute;left:0;top:0;width:100%;height:3px;
+  background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:opacity .22s}
+.why-grid .wi:hover{transform:translateY(-5px);border-color:rgba(181,152,90,.45);background:rgba(255,255,255,.075)}
+.why-grid .wi:hover::after{opacity:1}
+.why-grid .n{font-size:30px;line-height:1;font-weight:800;margin-bottom:16px;
+  background:linear-gradient(180deg,#e4cd97,#b5985a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.why-grid .tag{display:block;font-size:11px;letter-spacing:.14em;color:var(--gold);font-weight:700;margin-bottom:9px}
+.why-grid h4{font-size:17px;color:#fff;font-weight:800;margin-bottom:10px;letter-spacing:-.01em}
+.why-grid p{font-size:13.5px;color:#a9b2c4;line-height:1.75}
+.why-lead{max-width:700px;margin:2px auto 36px;text-align:center;color:#c4ccda;font-size:15px;line-height:1.75}
+.why-quote{margin-top:26px;text-align:center;color:#cdd4e0;font-size:15px;font-weight:600;border-top:1px solid rgba(255,255,255,.10);padding-top:28px}
+.why-quote .g{color:var(--gold)}
+
+/* ============ 이벤트 팝업 (모달) ============ */
+.modal{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:20px;
+  background:rgba(10,16,30,.62)}
+.modal.open{display:flex}
+.modal-card{position:relative;width:100%;max-width:380px;max-height:92vh;overflow-y:auto;background:#fff;
+  border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.45);animation:popIn .25s ease}
+@keyframes popIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.modal-close{position:absolute;top:12px;right:12px;z-index:2;width:34px;height:34px;border-radius:50%;border:none;
+  background:rgba(0,0,0,.38);color:#fff;font-size:21px;line-height:1;cursor:pointer}
+.modal-hero{position:relative;aspect-ratio:16/10;background:var(--ink);border-radius:18px 18px 0 0;overflow:hidden}
+.modal-hero img{width:100%;height:100%;object-fit:cover;opacity:.9}
+.modal-hero .ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:22px 24px;
+  background:linear-gradient(180deg,rgba(22,33,58,.15),rgba(22,33,58,.86))}
+.modal-hero .badge2{align-self:flex-start;background:var(--gold);color:#1c1405;font-size:11px;font-weight:800;
+  letter-spacing:.08em;padding:5px 11px;border-radius:30px;margin-bottom:10px}
+.modal-hero h3{color:#fff;font-size:22px;font-weight:800;line-height:1.3;letter-spacing:-.02em}
+.modal-hero .sub{color:#e4cd97;font-size:13px;font-weight:700;margin-top:6px}
+/* 경품(제품컷) 이미지용: 흰 배경에 잘림 없이 표시 */
+.modal-hero.gift{display:flex;align-items:center;justify-content:center;background:#f3f5f8}
+.modal-hero.gift img{width:auto;max-width:74%;height:84%;object-fit:contain;opacity:1}
+.modal-hero .badge2{position:absolute;top:14px;left:14px;margin:0;z-index:2}
+.modal-title{font-size:21px;color:var(--ink);font-weight:800;line-height:1.34;letter-spacing:-.02em;text-align:center;margin-bottom:8px}
+.modal-title .g{color:var(--gold-d)}
+.modal-desc{font-size:13.5px;color:#777;line-height:1.6;text-align:center;margin-bottom:16px}
+.modal-note{font-size:11.5px;color:#aaa;margin:2px 0 16px}
+.modal-body{padding:22px 24px 6px}
+.modal-body ul{list-style:none;margin-bottom:18px}
+.modal-body li{position:relative;padding:9px 0 9px 26px;font-size:14.5px;color:#444;border-bottom:1px solid var(--soft)}
+.modal-body li b{color:var(--ink)}
+.modal-body li::before{content:"✓";position:absolute;left:2px;color:var(--gold);font-weight:800}
+.modal-cta{display:block;width:100%;height:52px;line-height:52px;text-align:center;border:none;border-radius:8px;
+  background:var(--ink);color:#fff;font-size:16px;font-weight:800;text-decoration:none}
+.modal-cta:hover{background:var(--ink2)}
+.modal-tel{display:block;text-align:center;margin-top:10px;font-size:14px;color:var(--muted)}
+.modal-tel b{color:var(--ink)}
+.modal-foot{display:flex;align-items:center;justify-content:space-between;padding:14px 24px 18px}
+.modal-foot label{display:flex;align-items:center;gap:7px;font-size:13px;color:#8a8f99;cursor:pointer}
+.modal-foot .x{background:none;border:none;font-size:13px;color:#8a8f99;cursor:pointer;text-decoration:underline}
+
+/* ============ 반응형 ============ */
+@media(max-width:980px){
+  .product{grid-template-columns:1fr;gap:30px}
+  .gallery .main{aspect-ratio:4/3}
+  .info h1{font-size:32px}
+  .reg{grid-template-columns:1fr;gap:30px}
+  .type-panel.active{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:720px){
+  nav.menu,.gnb-cta{display:none}
+  .hamb{display:block}
+  .tabs{top:56px}
+  .gnb .wrap{height:56px}
+  header.gnb{top:0}
+  .tabs .wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .tabs .wrap::-webkit-scrollbar{display:none}
+  .tabs a{flex:0 0 auto;font-size:13px;padding:14px 15px;white-space:nowrap}
+  .feat{grid-template-columns:1fr}
+  .story .grid2{grid-template-columns:1fr}
+  .section{padding:46px 0}
+  .sec-head h2{font-size:23px}
+  .mbar{display:flex}
+  footer{padding-bottom:80px}
+  .topbar{display:none}
+  .why-grid{grid-template-columns:1fr}
+  .imgset{grid-template-columns:1fr}
+  .imgset .iv-thumbs{flex-direction:row;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .imgset .iv-thumbs::-webkit-scrollbar{display:none}
+  .imgset .iv-thumbs .shot{flex:0 0 96px}
+  .imgset.stacked .iv-thumbs .shot{flex:0 0 96px}
+  .zb-badge{width:72px;height:72px;bottom:80px;left:12px;gap:5px}
+  .zb-badge img{width:52px}
+  .zb-badge span{font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 상단 유틸바 ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="tb-l">강원태 분양 안내센터</div>
+    <div class="tb-r">
+      <a href="#overview"><span>사업개요</span></a>
+      <a href="#register"><span>관심고객 등록</span></a>
+      <a href="#location"><span>오시는 길</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 헤더 GNB ===== -->
+<header class="gnb">
+  <div class="wrap">
+    <a href="../../index.html" class="logo">
+      <img src="../../assets/img/logo.png" class="logo-img" alt="호갱노노 분양" onerror="this.style.display='none'">
+      <div class="logo-txt">
+        <b>호갱노노 분양</b>
+        <small>OFFICIAL PARTNER</small>
+      </div>
+    </a>
+    <nav class="menu">
+      <a href="#overview">사업개요</a>
+      <a href="#site">입지조건</a>
+      <a href="#premium">프리미엄</a>
+      <a href="#floorplan">평면안내</a>
+      <a href="#faq">FAQ</a>
+      <a href="#register">관심고객등록</a>
+      <a href="../../consultant-profile-template.html" style="color:var(--gold)">상담사 연결</a>
+    </nav>
+    <div class="gnb-cta">
+      <div class="gnb-tel">분양문의<b>1588-1588</b></div>
+      <button class="btn-pill" onclick="scrollToId('register')">방문예약</button>
+    </div>
+    <button class="hamb" aria-label="메뉴" onclick="toggleDrawer(true)">☰</button>
+  </div>
+</header>
+
+<!-- 모바일 드로어 -->
+<div class="drawer" id="drawer" onclick="if(event.target===this)toggleDrawer(false)">
+  <div class="drawer-panel">
+    <button class="drawer-close" onclick="toggleDrawer(false)">×</button>
+    <a href="#overview" onclick="toggleDrawer(false)">사업개요</a>
+    <a href="#site" onclick="toggleDrawer(false)">입지조건</a>
+    <a href="#premium" onclick="toggleDrawer(false)">프리미엄</a>
+    <a href="#floorplan" onclick="toggleDrawer(false)">평면안내</a>
+    <a href="#faq" onclick="toggleDrawer(false)">자주 묻는 질문</a>
+    <a href="#register" onclick="toggleDrawer(false)">관심고객등록</a>
+    <a href="#location" onclick="toggleDrawer(false)">오시는 길</a>
+    <a href="tel:1588-1588" style="color:var(--gold)">📞 분양문의 1588-1588</a>
+  </div>
+</div>
+
+<!-- ===== 이벤트 팝업 ===== -->
+<div class="modal" id="eventPopup" onclick="if(event.target===this)closePopup()">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="이벤트 안내">
+    <button class="modal-close" onclick="closePopup()" aria-label="닫기">×</button>
+    <div class="modal-hero gift">
+      <span class="badge2">SPECIAL EVENT</span>
+      <img src="assets/img/popup.jpg" onerror="this.onerror=null;this.src='assets/img/aerial.jpg'" alt="이벤트 경품 이미지">
+    </div>
+    <div class="modal-body">
+      <h3 class="modal-title">관심고객 등록하고<br><span class="g">신세계 백화점 상품권 10만원</span> 받기</h3>
+      <p class="modal-desc">천안동일하이빌파크레인 관심고객으로 등록하시면<br>푸짐한 혜택을 드립니다.</p>
+      <ul>
+        <li>신세계 백화점 상품권 10만원 <b>증정</b></li>
+        <li>잔여세대 동호수 우선 안내</li>
+        <li>견본주택 1:1 방문 예약</li>
+      </ul>
+      <p class="modal-note">※ 경품은 소진 시 조기 종료될 수 있습니다.</p>
+      <a class="modal-cta" href="#register" onclick="closePopup()">관심고객 등록하기</a>
+      <span class="modal-tel">바로 상담 <b>1588-1588</b></span>
+    </div>
+    <div class="modal-foot">
+      <label><input type="checkbox" id="popupToday"> 오늘 하루 보지 않기</label>
+      <button class="x" onclick="closePopup()">닫기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 상품 상단(갤러리 + 분양 핵심정보) ===== -->
+<div class="wrap">
+  <div class="crumb">홈<span>›</span>서브 천안동일하이빌파크레인 테스트1<span>›</span>천안동일하이빌파크레인</div>
+
+  <section class="product">
+    <!-- 갤러리 -->
+    <div class="gallery">
+      <figure class="shot ph main" id="mainShot" data-label="대표 비주얼 · 천안동일하이빌파크레인">
+        <img src="assets/img/aerial.jpg" alt="천안동일하이빌파크레인 대표 비주얼" onerror="phFail(this)">
+      </figure>
+      <div class="thumbs">
+        <figure class="shot ph active" data-label="대표" data-big="대표 비주얼 · 천안동일하이빌파크레인" onclick="pickThumb(this)"><img src="assets/img/aerial.jpg" onerror="phFail(this)" alt=""></figure>
+        <figure class="shot ph" data-label="조감도" data-big="광역 조감도 · 천안동일하이빌파크레인" onclick="pickThumb(this)"><img src="assets/img/city.png" onerror="phFail(this)" alt=""></figure>
+        <figure class="shot ph" data-label="위치도" data-big="입지 위치도 · 천안동일하이빌파크레인" onclick="pickThumb(this)"><img src="assets/img/map.jpg" onerror="phFail(this)" alt=""></figure>
+        <figure class="shot ph" data-label="84A 내부" data-big="84A 내부 컷" onclick="pickThumb(this)"><img src="assets/img/premium_design.jpg" onerror="phFail(this)" alt=""></figure>
+        <figure class="shot ph" data-label="84B 내부" data-big="84B 내부 컷" onclick="pickThumb(this)"><img src="assets/img/school.png" onerror="phFail(this)" alt=""></figure>
+      </div>
+    </div>
+
+    <!-- 정보 패널 -->
+    <div class="info">
+      <span class="badge">DONGIL HAIVILL PREMIUM RESIDENCE</span>
+      <h1>천안동일하이빌파크레인</h1>
+      <p class="lead">북천안의 최고 중심지! 895세대 대단지! — 천안동일하이빌파크레인이 제안하는 프리미엄 주거.</p>
+
+      <!-- 가격(분양가) — Kurly 할인/가격 영역 차용 -->
+      <div class="price-box">
+        <div class="label">분양가 (전용면적 기준)</div>
+        <div>
+          <span class="sale">전용 59㎡</span>
+          <span class="amt">6억 <small>2,200만원~</small></span>
+        </div>
+        <span class="was"><s>전용 84㎡</s> 8억 4,100만원 (최고가 기준)</span>
+        <p class="note">※ 분양가는 타입/층/향에 따라 상이합니다. 잔여세대·동호수 및 혜택은 관심고객 등록 시 개별 안내드립니다.</p>
+      </div>
+
+      <!-- 핵심 스펙 (Kurly 배송/판매자/포장 구조 차용) -->
+      <div class="spec">
+        <dl><dt>위치</dt><dd>메인 천안동일하이빌파크레인 테스트1</dd></dl>
+        <dl><dt>공급규모</dt><dd>규모 테스트1</dd></dl>
+        <dl><dt>총세대</dt><dd>세대수 테스트1</dd></dl>
+        <dl><dt>전용면적</dt><dd>59㎡ · 74㎡ · 84㎡</dd></dl>
+        <dl><dt>입주예정</dt><dd>입주연도 테스트1</dd></dl>
+        <dl><dt>시행 · 시공</dt><dd>강원태 · 강원태</dd></dl>
+      </div>
+
+      <!-- 옵션(평형/타입) 선택 -->
+      <div class="option">
+        <label for="typeSel">관심 평형(타입) 선택</label>
+        <div class="select">
+          <select id="typeSel" onchange="addType(this)">
+            <option value="">평형을 선택하세요</option>
+            <option value="59A|전용 59㎡ · 약 1만원|114세대">59A타입 · 전용 59㎡</option>
+            <option value="59B|전용 59㎡ · 약 1만원|114세대">59B타입 · 전용 59㎡</option>
+            <option value="74A|전용 59㎡ · 약 1만원|114세대">74A타입 · 전용 59㎡</option>
+            <option value="84A|전용 59㎡ · 약 1만원|114세대">84A타입 · 전용 59㎡</option>
+            <option value="84B|전용 59㎡ · 약 1만원|114세대">84B타입 · 전용 59㎡</option>
+          </select>
+        </div>
+        <div class="picked" id="picked"></div>
+      </div>
+
+      <div class="total">
+        <span class="t-l">선택한 관심 타입</span>
+        <span class="t-r"><b id="pickCnt">0</b> 개 타입</span>
+      </div>
+
+      <!-- 액션 (찜 → 관심고객, 구매 → 상담신청) -->
+      <div class="actions">
+        <button class="btn-heart" id="heart" onclick="toggleHeart()" aria-label="관심고객 등록">♡</button>
+        <button class="btn-buy" onclick="scrollToId('register')">전화상담 · 방문예약 신청</button>
+      </div>
+      <div class="trust">
+        <span>당일 상담 가능</span>
+        <span>모델하우스 운영중</span>
+        <span>1:1 맞춤 분양 안내</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== 스티키 탭 (Kurly 상품설명/상세정보/후기/문의) ===== -->
+<div class="tabs" id="tabs">
+  <div class="wrap">
+    <a href="#overview" data-t="overview">사업개요</a>
+    <a href="#site" data-t="site">입지조건</a>
+    <a href="#premium" data-t="premium">프리미엄</a>
+    <a href="#floorplan" data-t="floorplan">평면안내</a>
+    <a href="#faq" data-t="faq">자주 묻는 질문</a>
+    <a href="#register" data-t="register">관심고객등록</a>
+  </div>
+</div>
+
+<!-- ===== ① 사업개요 (Kurly 상세정보 표) — 최상단 배치 ===== -->
+<section class="section" id="overview">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="ey">PROJECT INFO</div>
+      <h2>사업개요</h2>
+      <p>천안동일하이빌파크레인 공급 정보</p>
+    </div>
+    <div class="overview">
+      <dl><dt>단지명</dt><dd>천안동일하이빌파크레인</dd></dl>
+      <dl><dt>대지위치</dt><dd>메인 천안동일하이빌파크레인 테스트1</dd></dl>
+      <dl><dt>건축규모</dt><dd>규모 테스트1</dd></dl>
+      <dl><dt>공급세대</dt><dd>세대수 테스트1</dd></dl>
+      <dl><dt>주택형</dt><dd>전용 59㎡ · 74㎡ · 84㎡ (59A·59B·74A·84A·84B)</dd></dl>
+      <dl><dt>분양가</dt><dd>분양가 테스트 · 전용 59㎡ 약 6.2억 / 전용 84㎡ 최고 8억 4,100만원</dd></dl>
+      <dl><dt>청약일정</dt><dd>분양/청약 단계 테스트1</dd></dl>
+      <dl><dt>입주예정</dt><dd>입주연도 테스트1</dd></dl>
+      <dl><dt>시행사</dt><dd>강원태</dd></dl>
+      <dl><dt>시공사</dt><dd>강원태</dd></dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ② 입지조건 (신규) ===== -->
+<section class="section" id="site">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="ey">LOCATION</div>
+      <h2>입지조건</h2>
+      <p>북천안의 최고 중심지 — 천안동일하이빌파크레인 입지 안내</p>
+    </div>
+
+    <div class="imgset">
+      <figure class="shot ph iv-main" data-label="입지 위치도">
+        <img src="assets/img/map.jpg" onerror="phFail(this)" alt="천안동일하이빌파크레인 입지 위치도">
+        <figcaption class="iv-cap">입지 위치도 · 천안동일하이빌파크레인</figcaption>
+      </figure>
+      <div class="iv-thumbs">
+        <figure class="shot ph active" data-label="위치도" data-src="assets/img/map.jpg" data-cap="입지 위치도 · 천안동일하이빌파크레인" onclick="pickShot(this)"><img src="assets/img/map.jpg" onerror="phFail(this)" alt=""></figure>
+        <figure class="shot ph" data-label="조감도" data-src="assets/img/city.png" data-cap="광역 조감도 · 천안동일하이빌파크레인" onclick="pickShot(this)"><img src="assets/img/city.png" onerror="phFail(this)" alt=""></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ③ 프리미엄 ===== -->
+<section class="section" id="premium">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="ey">PREMIUM</div>
+      <h2>프리미엄</h2>
+      <p>천안동일하이빌파크레인이 선사하는 랜드마크의 품격</p>
+    </div>
+
+    <div class="copy-block">
+      <h3>북천안의 중심에서, <span class="g">새로운 기준을 세우다</span></h3>
+      <p>북천안 최고 중심지에 들어서는 895세대 대단지.<br>
+         일상의 품격을 새롭게 제안합니다.</p>
+    </div>
+
+    <div class="imgset stacked">
+      <figure class="shot ph iv-main" data-label="광역 조감도">
+        <img src="assets/img/city.png" onerror="phFail(this)" alt="천안동일하이빌파크레인 광역 조감도">
+        <figcaption class="iv-cap">광역 조감도 · 천안동일하이빌파크레인</figcaption>
+      </figure>
+      <div class="iv-thumbs">
+        <figure class="shot ph active" data-label="조감도" data-src="assets/img/city.png" data-cap="광역 조감도 · 천안동일하이빌파크레인" onclick="pickShot(this)"><img src="assets/img/city.png" onerror="phFail(this)" alt=""></figure>
+        <figure class="shot ph" data-label="프리미엄①" data-src="assets/img/premium_community.jpg" data-cap="단지 프리미엄 컷 ①" onclick="pickShot(this)"><img src="assets/img/premium_community.jpg" onerror="phFail(this)" alt=""></figure>
+        <figure class="shot ph" data-label="프리미엄②" data-src="assets/img/premium_landscape.jpg" data-cap="단지 프리미엄 컷 ②" onclick="pickShot(this)"><img src="assets/img/premium_landscape.jpg" onerror="phFail(this)" alt=""></figure>
+        <figure class="shot ph" data-label="84A 내부①" data-src="assets/img/premium_design.jpg" data-cap="84A 내부 ①" onclick="pickShot(this)"><img src="assets/img/premium_design.jpg" onerror="phFail(this)" alt=""></figure>
+        <figure class="shot ph" data-label="84A 내부②" data-src="assets/img/traffic.png" data-cap="84A 내부 ②" onclick="pickShot(this)"><img src="assets/img/traffic.png" onerror="phFail(this)" alt=""></figure>
+        <figure class="shot ph" data-label="84B 내부①" data-src="assets/img/school.png" data-cap="84B 내부 ①" onclick="pickShot(this)"><img src="assets/img/school.png" onerror="phFail(this)" alt=""></figure>
+        <figure class="shot ph" data-label="84B 내부②" data-src="assets/img/life.png" data-cap="84B 내부 ②" onclick="pickShot(this)"><img src="assets/img/life.png" onerror="phFail(this)" alt=""></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ④ 평면안내 ===== -->
+<section class="section" id="floorplan">
+  <div class="wrap narrow">
+    <div class="sec-head">
+      <div class="ey">UNIT PLAN</div>
+      <h2>평면안내</h2>
+      <p>라이프스타일에 맞춘 다양한 타입 구성</p>
+    </div>
+    <div class="typer">
+      <div class="type-tabs">
+        <button class="active" onclick="pickType(0,this)">84A</button>
+        <button onclick="pickType(1,this)">84B</button>
+      </div>
+
+      <div class="type-panel active">
+        <figure class="shot ph" data-label="84A 평면도 · assets/img/plan_84.jpg"><img src="assets/img/plan_84.jpg" onerror="phFail(this)" alt=""></figure>
+        <div class="type-info">
+          <div class="tt">TYPE 84A</div>
+          <h3>전용 59㎡</h3>
+          <ul>
+            <li><span>전용면적</span><span>59㎡</span></li>
+            <li><span>구성</span><span>방3 · 욕실2</span></li>
+            <li><span>세대수</span><span>114세대</span></li>
+            <li><span>분양가</span><span>약 1만원</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="type-panel">
+        <figure class="shot ph" data-label="84B 평면도 · assets/img/plan_84b.jpg"><img src="assets/img/plan_84b.jpg" onerror="phFail(this)" alt=""></figure>
+        <div class="type-info">
+          <div class="tt">TYPE 84B</div>
+          <h3>전용 59㎡</h3>
+          <ul>
+            <li><span>전용면적</span><span>59㎡</span></li>
+            <li><span>구성</span><span>방3 · 욕실2</span></li>
+            <li><span>세대수</span><span>114세대</span></li>
+            <li><span>분양가</span><span>약 1만원</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 와이 직방·호갱노노 (데이터 기반 분양 마케팅) — 평면안내와 후기 사이 ===== -->
+<section class="section why" id="why">
+  <div class="wrap narrow">
+    <div class="sec-head">
+      <div class="ey">DATA-DRIVEN MARKETING</div>
+      <h2>WHY ZIGBANG · HOGANGNONO</h2>
+      <p>관심은 데이터가 되고, 데이터는 분양 전환 전략이 됩니다.</p>
+    </div>
+
+    <div class="why-logos">
+      <img class="zb" src="assets/img/zigbang_logo.png" alt="직방">
+      <span class="sep"></span>
+      <span class="why-hgn"><img src="assets/img/hogangnono_icon.png" alt="호갱노노"><b>호갱노노</b></span>
+    </div>
+
+    <p class="why-lead">직방·호갱노노는 사용자의 실제 탐색·비교·문의·방문 관심 행동을 분석해, 분양에 관심 있는 고객에게 더 정확하게 현장 정보를 전달합니다.</p>
+
+    <!-- 핵심 강점 4카드 -->
+    <div class="why-grid">
+      <div class="wi">
+        <div class="n">01</div>
+        <div class="tag">DEMAND DISCOVERY</div>
+        <h4>움직이는 수요 발견</h4>
+        <p>관심 지역을 반복 조회하거나 유사 단지를 비교하는 행동을 분석해, 현장에 반응할 가능성이 높은 수요를 발견합니다.</p>
+      </div>
+      <div class="wi">
+        <div class="n">02</div>
+        <div class="tag">CUSTOMER JOURNEY</div>
+        <h4>단계별 고객 여정 분석</h4>
+        <p>인지 → 탐색 → 비교 → 고려 → 문의 → 방문으로 이어지는 의사결정 흐름을 기반으로 전환 가능성을 판단합니다.</p>
+      </div>
+      <div class="wi">
+        <div class="n">03</div>
+        <div class="tag">CUSTOM TARGETING</div>
+        <h4>현장 맞춤 타겟팅</h4>
+        <p>지역·단지·가격·상품 조건·상담 행동을 종합해 분양 현장별로 적합한 고객군을 세분화합니다.</p>
+      </div>
+      <div class="wi">
+        <div class="n">04</div>
+        <div class="tag">AD EFFICIENCY</div>
+        <h4>광고 효율 극대화</h4>
+        <p>무분별한 노출보다 전환 가능성이 높은 고객에게 메시지를 집중해 광고 효율과 상담 전환 가능성을 높입니다.</p>
+      </div>
+    </div>
+
+    <p class="why-quote">광고는 많이 보여주는 것이 아니라, <span class="g">움직이는 수요를 정확히 발견</span>하는 것입니다.</p>
+  </div>
+</section>
+
+<!-- ===== 자주 묻는 질문 (Kurly 상품문의 차용) ===== -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="ey">FAQ</div>
+      <h2>자주 묻는 질문</h2>
+      <p>분양 상담 전, 가장 많이 궁금해하시는 내용을 모았습니다</p>
+    </div>
+
+    <div class="faq-list">
+      <details open>
+        <summary><span class="q">Q</span>현재 분양 단계는 어떻게 되나요?</summary>
+        <div class="a">분양/청약 단계 테스트1 단계입니다. 동·호수 및 잔여 현황은 상담 시 안내해 드립니다.</div>
+      </details>
+      <details>
+        <summary><span class="q">Q</span>청약통장이 없어도 상담이 가능한가요?</summary>
+        <div class="a">네, 잔여세대 분양 상담은 청약통장 보유 여부와 무관하게 가능합니다. 자세한 신청 자격은 상담 시 개별 안내드립니다.</div>
+      </details>
+      <details>
+        <summary><span class="q">Q</span>분양가와 납부 조건이 궁금합니다.</summary>
+        <div class="a">타입별 분양가는 상담 시 안내해 드립니다. 타입·층·향에 따라 상이하며, 계약금·중도금 등 납부 조건도 함께 안내드립니다.</div>
+      </details>
+      <details>
+        <summary><span class="q">Q</span>입주는 언제 예정인가요?</summary>
+        <div class="a">입주연도 테스트1 입주 예정입니다. 일정은 공사 및 사업 추진 상황에 따라 변동될 수 있으며, 정확한 내용은 입주자 모집공고를 따릅니다.</div>
+      </details>
+      <details>
+        <summary><span class="q">Q</span>견본주택(모델하우스) 방문은 어떻게 하나요?</summary>
+        <div class="a">관심고객 등록 또는 분양문의 전화(1588-1588)로 예약하시면 1:1 방문 상담을 도와드립니다. 사전 예약 시 대기 없이 관람하실 수 있습니다.</div>
+      </details>
+      <details>
+        <summary><span class="q">Q</span>중도금 대출 등 금융 조건은 어떻게 되나요?</summary>
+        <div class="a">중도금 관련 사항은 입주자 모집공고 및 금융기관 조건에 따릅니다. 자세한 내용은 분양 상담을 통해 확인하실 수 있습니다.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ④ 관심고객 등록 (Kurly 문의 → 폼) ===== -->
+<section class="section" id="register">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="ey">REGISTER</div>
+      <h2>관심고객 등록</h2>
+      <p>먼저 등록하신 분께 분양 일정과 사전예약 혜택을 우선 안내드립니다</p>
+    </div>
+
+    <div class="reg">
+      <div class="lead-x">
+        <h3>지금 등록하면<br>가장 먼저 받아보는 혜택</h3>
+        <p>관심고객으로 등록해 주시면 잔여세대 동호수, 타입별 분양가, 계약 조건 및 한정 혜택을 가장 먼저 안내해 드립니다.</p>
+        <ul class="perk">
+          <li>잔여세대 동호수 · 분양 조건 우선 안내</li>
+          <li>타입별 분양가 및 계약 한정 혜택</li>
+          <li>견본주택 방문 예약 (1:1 관람)</li>
+          <li>전담 상담 및 맞춤 자금계획 안내</li>
+        </ul>
+      </div>
+
+      <form class="form" onsubmit="return submitReg(event)">
+        <div class="fld">
+          <label for="rname">성함</label>
+          <input id="rname" type="text" placeholder="홍길동" required>
+        </div>
+        <div class="fld">
+          <label for="rtel">연락처</label>
+          <input id="rtel" type="tel" placeholder="010-0000-0000" required>
+        </div>
+        <div class="fld">
+          <label for="rtype">관심 타입</label>
+          <div class="select">
+            <select id="rtype">
+              <option value="">선택 안함</option>
+              <option>59A타입 · 전용 59㎡</option>
+              <option>59B타입 · 전용 59㎡</option>
+              <option>74A타입 · 전용 59㎡</option>
+              <option>84A타입 · 전용 84㎡</option>
+              <option>84B타입 · 전용 84㎡</option>
+            </select>
+          </div>
+        </div>
+        <label class="agree"><input type="checkbox" required> 개인정보 수집·이용 및 마케팅 활용에 동의합니다. (필수)</label>
+        <button class="submit" type="submit">관심고객 등록하기</button>
+        <div class="sub-tel">바로 상담을 원하시면<b>📞 1588-1588</b></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 오시는 길 ===== -->
+<section class="section" id="location">
+  <div class="wrap narrow">
+    <div class="sec-head">
+      <div class="ey">DIRECTIONS</div>
+      <h2>모델하우스 오시는 길</h2>
+      <p>주소 천안동일하이빌파크레인 테스트1 · 사전예약 후 방문 안내</p>
+    </div>
+    <figure class="shot ph big" data-label="입지 위치도 · 천안동일하이빌파크레인"><img src="assets/img/map.jpg" onerror="phFail(this)" alt="천안동일하이빌파크레인 입지 위치도"></figure>
+  </div>
+</section>
+
+<!-- ===== 푸터 ===== -->
+<footer>
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-logo">
+        <b>천안동일하이빌파크레인</b>
+        <small>CHEONAN DONGIL HAIVILL PARK LANE</small>
+      </div>
+      <div class="ft-tel">분양문의<b>1588-1588</b></div>
+    </div>
+    <div class="ft-info">
+      시행 : 강원태 &nbsp;·&nbsp; 시공 : 강원태 &nbsp;|&nbsp; 견본주택 : 주소 천안동일하이빌파크레인 테스트1<br>
+      <div class="disc">
+        ※ 본 페이지는 <b>마켓컬리 상품 상세페이지의 구성을 차용한 디자인 샘플</b>로, 실제 분양 광고가 아닙니다.
+        기재된 단지명·수치·이미지·문구는 예시이며 실제와 다를 수 있습니다. 평면 및 투시도는 소비자의 이해를 돕기 위한 것으로
+        실제와 차이가 있을 수 있으며, 본 광고의 내용은 관련 법령 및 입주자 모집공고가 우선합니다.
+      </div>
+      <div class="badges">
+        <span>직방</span><span>호갱노노</span><span>분양 광고 샘플</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- 모바일 고정 하단바 -->
+<div class="mbar">
+  <a class="m-tel" href="tel:1588-1588" aria-label="전화">📞</a>
+  <a class="m-reg" href="#register">관심고객 등록하기</a>
+</div>
+
+<!-- 우측 섹션 가이드 (스크롤 인디케이터) -->
+<nav class="sidenav" id="sidenav" aria-label="섹션 이동">
+  <a href="#overview" data-s="overview"><span class="lbl">사업개요</span><span class="dot"></span></a>
+  <a href="#site" data-s="site"><span class="lbl">입지조건</span><span class="dot"></span></a>
+  <a href="#premium" data-s="premium"><span class="lbl">프리미엄</span><span class="dot"></span></a>
+  <a href="#floorplan" data-s="floorplan"><span class="lbl">평면안내</span><span class="dot"></span></a>
+  <a href="#faq" data-s="faq"><span class="lbl">자주 묻는 질문</span><span class="dot"></span></a>
+  <a href="#register" data-s="register"><span class="lbl">관심고객등록</span><span class="dot"></span></a>
+</nav>
+
+<!-- 맨위로 -->
+<button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- 직방 공식 로고 (분양 광고 제휴) -->
+<a class="zb-badge" href="https://www.zigbang.com" target="_blank" rel="noopener" aria-label="직방">
+  <img src="assets/img/zigbang_logo.png" alt="직방">
+  <span>바로가기</span>
+</a>
+
+<script>
+/* 이미지 로드 실패 → 플레이스홀더 라벨 표시 */
+function phFail(img){
+  var fig=img.parentNode;
+  img.remove();
+  fig.classList.add('ph'); /* 이미 ph지만 안전하게 */
+}
+/* 초기: 이미지가 없으면 phFail이 처리, 있으면 ph::after 가려지도록 */
+document.querySelectorAll('.shot img').forEach(function(im){
+  if(im.complete && im.naturalWidth>0){ im.parentNode.classList.remove('ph'); }
+  im.addEventListener('load',function(){ this.parentNode.classList.remove('ph'); });
+});
+
+/* 갤러리 썸네일 전환 */
+function pickThumb(el){
+  document.querySelectorAll('.gallery .thumbs .shot').forEach(function(t){t.classList.remove('active')});
+  el.classList.add('active');
+  var main=document.getElementById('mainShot');
+  var inner=el.querySelector('img');
+  main.innerHTML='';
+  main.classList.add('ph');
+  main.dataset.label=el.dataset.big||el.dataset.label;
+  if(inner){ /* 썸네일 이미지가 실제로 로드된 경우 복제 */
+    var clone=document.createElement('img');
+    clone.src=inner.getAttribute('src');
+    clone.onerror=function(){phFail(this)};
+    clone.onload=function(){main.classList.remove('ph')};
+    main.appendChild(clone);
+  }
+}
+
+/* 입지조건·프리미엄 갤러리: 우측 슬롯 클릭 → 중앙 확대 */
+function pickShot(el){
+  var set=el.closest('.imgset'); if(!set) return;
+  set.querySelectorAll('.iv-thumbs .shot').forEach(function(t){t.classList.remove('active')});
+  el.classList.add('active');
+  var main=set.querySelector('.iv-main');
+  var cap=main.querySelector('.iv-cap');
+  var label=el.dataset.cap||el.dataset.label||'';
+  if(cap) cap.textContent=label;
+  var old=main.querySelector('img'); if(old) old.remove();
+  main.classList.add('ph');
+  main.dataset.label=el.dataset.label||'';
+  var src=el.dataset.src||'';
+  if(src){
+    var im=document.createElement('img');
+    im.src=src; im.alt=label;
+    im.onerror=function(){phFail(this)};
+    im.onload=function(){main.classList.remove('ph')};
+    main.insertBefore(im, cap||null);
+  }
+}
+
+/* 평형(타입) 선택 → 카드 추가 (Kurly 옵션 박스) */
+var picks={};
+function addType(sel){
+  var v=sel.value; if(!v) return;
+  if(picks[v]){ sel.value=''; return; }
+  var p=v.split('|'); /* code|desc|cnt */
+  picks[v]=true;
+  var box=document.getElementById('picked');
+  var card=document.createElement('div');
+  card.className='card';
+  card.dataset.key=v;
+  card.innerHTML='<div><div class="nm">'+p[0]+'타입</div><div class="sub">'+p[1]+' · '+p[2]+'</div></div>'+
+                 '<button type="button" class="rm" aria-label="삭제">×</button>';
+  card.querySelector('.rm').onclick=function(){ delete picks[v]; card.remove(); updateCnt(); };
+  box.appendChild(card);
+  sel.value='';
+  updateCnt();
+}
+function updateCnt(){ document.getElementById('pickCnt').textContent=Object.keys(picks).length; }
+
+/* 관심고객(찜) 토글 */
+function toggleHeart(){
+  var h=document.getElementById('heart');
+  h.classList.toggle('on');
+  h.textContent=h.classList.contains('on')?'♥':'♡';
+}
+
+/* 평면 타입 탭 */
+function pickType(i,btn){
+  document.querySelectorAll('.type-tabs button').forEach(function(b){b.classList.remove('active')});
+  btn.classList.add('active');
+  document.querySelectorAll('.type-panel').forEach(function(p,idx){p.classList.toggle('active',idx===i)});
+}
+
+/* ===== 관심고객 등록 수집 =====
+   우선순위: ① Supabase(진짜 DB, 무제한) → ② Formspree(백업) → ③ 샘플
+   Supabase 사용 시 아래 2개만 채우면 됨(프로젝트 Settings → API). */
+var SUPABASE_URL = '';   /* 천안 동일하이빌 파크레인 전용 Supabase Project URL — 생성 후 입력 */
+var SUPABASE_KEY = '';   /* 천안 전용 publishable key — 생성 후 입력 */
+var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xaqzvydv';  /* Supabase 미설정 시 백업 */
+
+function submitReg(e){
+  e.preventDefault();
+  var form=e.target;
+  var name=document.getElementById('rname').value.trim();
+  var tel=document.getElementById('rtel').value.trim();
+  var type=document.getElementById('rtype').value || '(선택 안함)';
+  if(!name || !tel){ alert('성함과 연락처를 입력해 주세요.'); return false; }
+  if(!/^[0-9()+\-\s]{8,}$/.test(tel)){ alert('연락처를 정확히 입력해 주세요.'); return false; }
+
+  var btn=form.querySelector('.submit'); var orig=btn.textContent;
+  var reset=function(){ btn.disabled=false; btn.textContent=orig; };
+  var ok=function(){ reset(); form.reset(); alert(name+'님, 관심고객 등록이 완료되었습니다.\n빠른 시일 내 분양 안내 연락드리겠습니다.'); };
+  var fail=function(){ reset(); alert('전송에 실패했습니다. 잠시 후 다시 시도하시거나 1588-1588으로 연락 주세요.'); };
+
+  /* ① Supabase (진짜 DB) */
+  if(SUPABASE_URL && SUPABASE_KEY){
+    btn.disabled=true; btn.textContent='등록 중...';
+    fetch(SUPABASE_URL.replace(/\/+$/,'')+'/rest/v1/leads',{
+      method:'POST',
+      headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,
+               'Content-Type':'application/json','Prefer':'return=minimal'},
+      body:JSON.stringify({site:'천안동일하이빌파크레인',name:name,phone:tel,unit_type:type,agree:'Y',source_url:location.href})
+    }).then(function(r){ r.ok?ok():fail(); }).catch(fail);
+    return false;
+  }
+
+  /* ② Formspree (백업) */
+  if(FORMSPREE_ENDPOINT){
+    btn.disabled=true; btn.textContent='등록 중...';
+    var fd=new FormData();
+    fd.append('현장','천안동일하이빌파크레인'); fd.append('성함',name); fd.append('연락처',tel);
+    fd.append('관심타입',type); fd.append('동의','Y'); fd.append('등록경로',location.href);
+    fd.append('_subject','[천안동일하이빌파크레인] 관심고객 등록 - '+name);
+    fetch(FORMSPREE_ENDPOINT,{method:'POST',body:fd,headers:{'Accept':'application/json'}})
+      .then(function(r){ r.ok?ok():fail(); }).catch(fail);
+    return false;
+  }
+
+  /* ③ 샘플 */
+  alert((name||'고객')+'님, 관심고객 등록이 접수되었습니다. (샘플 동작)'); form.reset(); return false;
+}
+
+/* 드로어 */
+function toggleDrawer(open){ document.getElementById('drawer').classList.toggle('open',open); }
+
+/* 스무스 스크롤 + 헤더 오프셋 보정 */
+function scrollToId(id){
+  var el=document.getElementById(id); if(!el) return;
+  var y=el.getBoundingClientRect().top+window.pageYOffset-118;
+  window.scrollTo({top:y,behavior:'smooth'});
+}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var id=this.getAttribute('href').slice(1);
+    if(id && document.getElementById(id)){ e.preventDefault(); scrollToId(id); }
+  });
+});
+
+/* 스티키 탭 스크롤스파이 + 맨위로 버튼 */
+var tabLinks=document.querySelectorAll('.tabs a');
+var sideNav=document.getElementById('sidenav');
+var sideLinks=document.querySelectorAll('.sidenav a');
+var sections=['overview','site','premium','floorplan','faq','register'].map(function(id){return document.getElementById(id)});
+window.addEventListener('scroll',function(){
+  var y=window.pageYOffset+140, cur='';
+  sections.forEach(function(s){ if(s && s.offsetTop<=y) cur=s.id; });
+  tabLinks.forEach(function(a){ a.classList.toggle('active',a.dataset.t===cur); });
+  sideLinks.forEach(function(a){ a.classList.toggle('active',a.dataset.s===cur); });
+  if(sideNav) sideNav.classList.toggle('show', window.pageYOffset>400);
+  document.getElementById('topBtn').classList.toggle('show',window.pageYOffset>600);
+});
+
+/* 이벤트 팝업 */
+function closePopup(){
+  var chk=document.getElementById('popupToday');
+  if(chk && chk.checked){ try{ localStorage.setItem('gv_popup_hide', new Date().toDateString()); }catch(e){} }
+  document.getElementById('eventPopup').classList.remove('open');
+}
+(function initPopup(){
+  var hide=false;
+  try{ hide = localStorage.getItem('gv_popup_hide') === new Date().toDateString(); }catch(e){}
+  if(!hide){ setTimeout(function(){ document.getElementById('eventPopup').classList.add('open'); }, 700); }
+})();
+document.addEventListener('keydown',function(e){ if(e.key==='Escape') closePopup(); });
+</script>
+</body>
+</html>
