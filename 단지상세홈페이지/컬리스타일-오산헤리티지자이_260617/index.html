@@ -307,7 +307,30 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
 .imgset.stacked .iv-thumbs{flex-direction:row;gap:12px;margin-top:14px}
 .imgset.stacked .iv-thumbs .shot{flex:1 1 0;min-width:0}
 
-/* ============ WHY ZIGBANG · HOGANGNONO (Kurly WHY KURLY 차용) ============ */
+/* ============ 관심고객 등록 모달 ============ */
+.reg-modal{position:fixed;inset:0;z-index:130;display:none;align-items:flex-end;justify-content:center;background:rgba(10,16,30,.58)}
+@media(min-width:640px){.reg-modal{align-items:center}}
+.reg-modal.open{display:flex}
+.reg-modal-card{position:relative;width:100%;max-width:480px;background:#fff;border-radius:20px 20px 0 0;padding:32px 28px 40px;max-height:92vh;overflow-y:auto;animation:rmSlide .3s ease}
+@media(min-width:640px){.reg-modal-card{border-radius:18px}}
+@keyframes rmSlide{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+.reg-modal-close{position:absolute;top:14px;right:16px;width:32px;height:32px;border-radius:50%;border:none;background:#f3f4f6;color:#888;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.reg-modal .rm-consultant{display:flex;align-items:center;gap:14px;background:#f7f8fa;border-radius:10px;padding:14px 16px;margin-bottom:22px;border:1px solid var(--line)}
+.reg-modal .rm-consultant .rmc-photo{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#1b2945,#33486f);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;font-weight:800}
+.reg-modal .rm-consultant .rmc-info{flex:1}
+.reg-modal .rm-consultant .rmc-name{font-size:15px;font-weight:800;color:var(--ink)}
+.reg-modal .rm-consultant .rmc-role{font-size:12px;color:var(--muted);margin-top:2px}
+.reg-modal h3{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:18px}
+.reg-modal .rm-fld{margin-bottom:12px}
+.reg-modal .rm-fld label{display:block;font-size:13px;font-weight:700;color:#555;margin-bottom:5px}
+.reg-modal .rm-fld input,.reg-modal .rm-fld select{width:100%;padding:12px 14px;border:1px solid #d6dae1;border-radius:6px;font-size:14.5px;font-family:inherit;color:#333}
+.reg-modal .rm-fld input:focus,.reg-modal .rm-fld select:focus{outline:none;border-color:var(--ink)}
+.reg-modal .rm-agree{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:#777;margin:10px 0 16px}
+.reg-modal .rm-agree input{width:auto;margin-top:2px}
+.reg-modal .rm-submit{width:100%;height:52px;border:none;border-radius:8px;background:var(--ink);color:#fff;font-size:16px;font-weight:800;cursor:pointer;font-family:inherit;transition:background .15s}
+.reg-modal .rm-submit:hover{background:var(--ink2)}
+.reg-modal .rm-tel{text-align:center;margin-top:12px;font-size:12.5px;color:var(--muted)}
+.reg-modal .rm-tel b{color:var(--ink);font-size:16px;display:block;margin-top:2px}
 .section.why{position:relative;overflow:hidden;
   background:linear-gradient(162deg,#0e1729 0%,#192745 58%,#212f59 100%)}
 .section.why::before{content:"";position:absolute;inset:0;pointer-events:none;
@@ -426,7 +449,7 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
     <div class="tb-l">GS건설 분양 안내센터</div>
     <div class="tb-r">
       <a href="#overview"><span>사업개요</span></a>
-      <a href="#register"><span>관심고객 등록</span></a>
+      <a href="javascript:void(0)" onclick="openRegModal()"><span>관심고객 등록</span></a>
       <a href="#location"><span>오시는 길</span></a>
     </div>
   </div>
@@ -448,12 +471,12 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
       <a href="#premium">프리미엄</a>
       <a href="#floorplan">평면안내</a>
       <a href="#faq">FAQ</a>
-      <a href="#register">관심고객등록</a>
-      <a href="../../consultant-profile-template.html" style="color:var(--gold)">상담사 연결</a>
+      <a href="javascript:void(0)" onclick="openRegModal()">관심고객 등록</a>
+      <a href="../../consultant-lee-profile.html" style="color:var(--gold)">상담사 연결</a>
     </nav>
     <div class="gnb-cta">
       <div class="gnb-tel">분양문의<b>1600-1646</b></div>
-      <button class="btn-pill" onclick="scrollToId('register')">방문예약</button>
+      <button class="btn-pill" onclick="openRegModal()">방문예약</button>
     </div>
     <button class="hamb" aria-label="메뉴" onclick="toggleDrawer(true)">☰</button>
   </div>
@@ -468,7 +491,7 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
     <a href="#premium" onclick="toggleDrawer(false)">프리미엄</a>
     <a href="#floorplan" onclick="toggleDrawer(false)">평면안내</a>
     <a href="#faq" onclick="toggleDrawer(false)">자주 묻는 질문</a>
-    <a href="#register" onclick="toggleDrawer(false)">관심고객등록</a>
+    <a href="javascript:void(0)" onclick="toggleDrawer(false);openRegModal()">관심고객 등록</a>
     <a href="#location" onclick="toggleDrawer(false)">오시는 길</a>
     <a href="tel:1600-1646" style="color:var(--gold)">📞 분양문의 1600-1646</a>
   </div>
@@ -491,7 +514,7 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
         <li>견본주택 1:1 방문 예약</li>
       </ul>
       <p class="modal-note">※ 경품은 소진 시 조기 종료될 수 있습니다.</p>
-      <a class="modal-cta" href="#register" onclick="closePopup()">관심고객 등록하기</a>
+      <a class="modal-cta" href="javascript:void(0)" onclick="closePopup();openRegModal()">관심고객 등록하기</a>
       <span class="modal-tel">바로 상담 <b>1600-1646</b></span>
     </div>
     <div class="modal-foot">
@@ -573,7 +596,7 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
       <!-- 액션 (찜 → 관심고객, 구매 → 상담신청) -->
       <div class="actions">
         <button class="btn-heart" id="heart" onclick="toggleHeart()" aria-label="관심고객 등록">♡</button>
-        <button class="btn-buy" onclick="scrollToId('register')">전화상담 · 방문예약 신청</button>
+        <button class="btn-buy" onclick="openRegModal()">전화상담 · 방문예약 신청</button>
       </div>
       <div class="trust">
         <span>당일 상담 가능</span>
@@ -592,7 +615,7 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
     <a href="#premium" data-t="premium">프리미엄</a>
     <a href="#floorplan" data-t="floorplan">평면안내</a>
     <a href="#faq" data-t="faq">자주 묻는 질문</a>
-    <a href="#register" data-t="register">관심고객등록</a>
+    <a href="javascript:void(0)" onclick="openRegModal()" data-t="register">관심고객 등록</a>
   </div>
 </div>
 
@@ -734,46 +757,31 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
   </div>
 </section>
 
-<!-- ===== 와이 직방·호갱노노 (데이터 기반 분양 마케팅) — 평면안내와 후기 사이 ===== -->
-<section class="section why" id="why">
+<!-- 관심고객 등록 팝업 모달 (이상담 담당) -->
+<div class="reg-modal" id="regModal" onclick="if(event.target===this)closeRegModal()">
+  <div class="reg-modal-card">
+    <button class="reg-modal-close" onclick="closeRegModal()">×</button>
+    <div class="rm-consultant">
+      <div class="rmc-photo">이</div>
+      <div class="rmc-info"><div class="rmc-name">이상담 분양상담사</div><div class="rmc-role">오산 헤리티지 자이 담당 · 호갱노노 공인 파트너</div></div>
+    </div>
+    <h3>관심고객 등록</h3>
+    <div class="rm-fld"><label>성함</label><input type="text" placeholder="홍길동"></div>
+    <div class="rm-fld"><label>연락처</label><input type="tel" placeholder="010-0000-0000"></div>
+    <div class="rm-fld"><label>관심 타입</label>
+      <select><option value="">선택 안함</option><option>전용 75㎡</option><option>전용 84㎡ A</option><option>전용 84㎡ B</option><option>전용 84㎡ C</option><option>전용 102㎡</option><option>전용 124㎡</option></select>
+    </div>
+    <div class="rm-agree"><input type="checkbox"><label>개인정보 수집·이용 및 마케팅 활용에 동의합니다. (필수)</label></div>
+    <button class="rm-submit" onclick="alert('관심고객 등록이 완료되었습니다. 이상담 상담사가 연락드리겠습니다.');closeRegModal()">관심고객 등록하기</button>
+    <div class="rm-tel">바로 상담을 원하시면<b>📞 010-1111-2222</b></div>
+  </div>
+</div>
+
+<section class="section why" id="why" style="display:none">
   <div class="wrap narrow">
-    <div class="sec-head">
-      <div class="ey">DATA-DRIVEN MARKETING</div>
-      <h2>WHY ZIGBANG · HOGANGNONO</h2>
-      <p>관심은 데이터가 되고, 데이터는 분양 전환 전략이 됩니다.</p>
-    </div>
-
-    <div class="why-logos">
-      <img class="zb" src="assets/img/zigbang_logo.png" alt="직방">
-      <span class="sep"></span>
-      <span class="why-hgn"><img src="assets/img/hogangnono_icon.png" alt="호갱노노"><b>호갱노노</b></span>
-    </div>
-
-    <p class="why-lead">직방·호갱노노는 사용자의 실제 탐색·비교·문의·방문 관심 행동을 분석해, 분양에 관심 있는 고객에게 더 정확하게 현장 정보를 전달합니다.</p>
-
-    <!-- 핵심 강점 4카드 -->
-    <div class="why-grid">
-      <div class="wi">
-        <div class="n">01</div>
-        <div class="tag">DEMAND DISCOVERY</div>
-        <h4>움직이는 수요 발견</h4>
-        <p>관심 지역을 반복 조회하거나 유사 단지를 비교하는 행동을 분석해, 현장에 반응할 가능성이 높은 수요를 발견합니다.</p>
-      </div>
-      <div class="wi">
-        <div class="n">02</div>
-        <div class="tag">CUSTOMER JOURNEY</div>
-        <h4>단계별 고객 여정 분석</h4>
-        <p>인지 → 탐색 → 비교 → 고려 → 문의 → 방문으로 이어지는 의사결정 흐름을 기반으로 전환 가능성을 판단합니다.</p>
-      </div>
-      <div class="wi">
-        <div class="n">03</div>
-        <div class="tag">CUSTOM TARGETING</div>
-        <h4>현장 맞춤 타겟팅</h4>
-        <p>지역·단지·가격·상품 조건·상담 행동을 종합해 분양 현장별로 적합한 고객군을 세분화합니다.</p>
-      </div>
-      <div class="wi">
-        <div class="n">04</div>
-        <div class="tag">AD EFFICIENCY</div>
+    <div class="wi">
+      <div class="n">04</div>
+      <div class="tag">AD EFFICIENCY</div>
         <h4>광고 효율 극대화</h4>
         <p>무분별한 노출보다 전환 가능성이 높은 고객에게 메시지를 집중해 광고 효율과 상담 전환 가능성을 높입니다.</p>
       </div>
@@ -821,58 +829,6 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
   </div>
 </section>
 
-<!-- ===== ④ 관심고객 등록 (Kurly 문의 → 폼) ===== -->
-<section class="section" id="register">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="ey">REGISTER</div>
-      <h2>관심고객 등록</h2>
-      <p>먼저 등록하신 분께 분양 일정과 사전예약 혜택을 우선 안내드립니다</p>
-    </div>
-
-    <div class="reg">
-      <div class="lead-x">
-        <h3>지금 등록하면<br>가장 먼저 받아보는 혜택</h3>
-        <p>관심고객으로 등록해 주시면 잔여세대 동호수, 타입별 분양가, 계약 조건 및 한정 혜택을 가장 먼저 안내해 드립니다.</p>
-        <ul class="perk">
-          <li>잔여세대 동호수 · 분양 조건 우선 안내</li>
-          <li>타입별 분양가 및 계약 한정 혜택</li>
-          <li>견본주택 방문 예약 (1:1 관람)</li>
-          <li>전담 상담 및 맞춤 자금계획 안내</li>
-        </ul>
-      </div>
-
-      <form class="form" onsubmit="return submitReg(event)">
-        <div class="fld">
-          <label for="rname">성함</label>
-          <input id="rname" type="text" placeholder="홍길동" required>
-        </div>
-        <div class="fld">
-          <label for="rtel">연락처</label>
-          <input id="rtel" type="tel" placeholder="010-1600-1646" required>
-        </div>
-        <div class="fld">
-          <label for="rtype">관심 타입</label>
-          <div class="select">
-            <select id="rtype">
-              <option value="">선택 안함</option>
-              <option>전용 75㎡</option>
-              <option>전용 84㎡ A</option>
-              <option>전용 84㎡ B</option>
-              <option>전용 84㎡ C</option>
-              <option>전용 102㎡</option>
-              <option>전용 124㎡</option>
-              <option>전용 166㎡ (PH)</option>
-            </select>
-          </div>
-        </div>
-        <label class="agree"><input type="checkbox" required> 개인정보 수집·이용 및 마케팅 활용에 동의합니다. (필수)</label>
-        <button class="submit" type="submit">관심고객 등록하기</button>
-        <div class="sub-tel">바로 상담을 원하시면<b>📞 1600-1646</b></div>
-      </form>
-    </div>
-  </div>
-</section>
 
 <!-- ===== 오시는 길 ===== -->
 <section class="section" id="location">
@@ -913,7 +869,7 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
 <!-- 모바일 고정 하단바 -->
 <div class="mbar">
   <a class="m-tel" href="tel:1600-1646" aria-label="전화">📞</a>
-  <a class="m-reg" href="#register">관심고객 등록하기</a>
+  <a class="m-reg" href="javascript:void(0)" onclick="openRegModal()">관심고객 등록하기</a>
 </div>
 
 <!-- 우측 섹션 가이드 (스크롤 인디케이터) -->
@@ -923,7 +879,7 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
   <a href="#premium" data-s="premium"><span class="lbl">프리미엄</span><span class="dot"></span></a>
   <a href="#floorplan" data-s="floorplan"><span class="lbl">평면안내</span><span class="dot"></span></a>
   <a href="#faq" data-s="faq"><span class="lbl">자주 묻는 질문</span><span class="dot"></span></a>
-  <a href="#register" data-s="register"><span class="lbl">관심고객등록</span><span class="dot"></span></a>
+  <a href="javascript:void(0)" onclick="openRegModal()" data-s="register"><span class="lbl">관심고객등록</span><span class="dot"></span></a>
 </nav>
 
 <!-- 맨위로 -->
@@ -1029,6 +985,8 @@ var SUPABASE_URL = '';   /* 오산 헤리티지 자이 전용 Supabase Project U
 var SUPABASE_KEY = '';   /* 오산 전용 publishable key — 생성 후 입력 */
 var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xaqzvydv';  /* Supabase 미설정 시 백업 */
 
+function openRegModal(){document.getElementById("regModal").classList.add("open");document.body.style.overflow="hidden"}
+function closeRegModal(){document.getElementById("regModal").classList.remove("open");document.body.style.overflow=""}
 function submitReg(e){
   e.preventDefault();
   var form=e.target;

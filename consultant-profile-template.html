@@ -3,39 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>김상담 | 호갱노노 공인 분양 상담사</title>
-<meta name="description" content="호갱노노 공인 파트너 김상담. 수도권·부산경남 신규 분양 전문. 상담비 무료 · 경력 12년 · 거래완료 127건.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="김상담 | 호갱노노 공인 분양 파트너">
-<meta property="og:image" content="assets/img/about/1.jpg">
+<title>김상담 분양상담사 | 호갱노노 공인</title>
+<meta name="description" content="호갱노노 공인 파트너 김상담. 부산·경남 신규 분양 전문 12년. 상담비 무료 · 거래완료 127건.">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 :root{
-  --ink:#16213a; --ink2:#27395c; --brand:#2b3a5a;
-  --gold:#b5985a; --gold-d:#9a7e44;
-  --sale:#d94f4f;
-  --txt:#222; --muted:#8a8f99; --line:#ececec;
-  --bg:#fff; --soft:#f7f8fa;
-  --radius:6px; --maxw:1050px;
+  --ink:#16213a;--ink2:#27395c;--gold:#b5985a;--gold-d:#9a7e44;
+  --sale:#d94f4f;--txt:#222;--muted:#8a8f99;--line:#ececec;
+  --bg:#fff;--soft:#f7f8fa;--radius:6px;--maxw:1050px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:"Pretendard",-apple-system,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--txt);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-button{font-family:inherit;cursor:pointer}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
-
 .shot{position:relative;width:100%;background:#eef0f4;overflow:hidden;border-radius:var(--radius)}
 .shot img{width:100%;height:100%;object-fit:cover;display:block}
 .shot.ph{background:linear-gradient(135deg,#1b2945 0%,#33486f 45%,#7c8aa3 100%)}
 
-/* ── 상단바 ── */
+/* ── topbar ── */
 .topbar{background:var(--ink);color:#cdd4e0;font-size:12px}
 .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:34px}
-.topbar a{color:#cdd4e0;opacity:.8;transition:opacity .15s}
-.topbar a:hover{opacity:1}
+.topbar a{color:#cdd4e0;opacity:.8;transition:opacity .15s}.topbar a:hover{opacity:1}
 .topbar .tb-r a{margin-left:16px}
 
 /* ── GNB ── */
@@ -43,9 +33,8 @@ header.gnb{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px so
 .gnb .wrap{display:flex;align-items:center;height:64px;gap:24px}
 .logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .logo-img{height:34px;width:auto;display:block}
-.logo-txt{display:flex;flex-direction:column;line-height:1.05}
-.logo-txt b{font-size:17px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
-.logo-txt small{font-size:10px;letter-spacing:.22em;color:var(--gold);font-weight:700;margin-top:2px}
+.logo-txt b{font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.01em;display:block}
+.logo-txt small{font-size:10px;letter-spacing:.2em;color:var(--gold);font-weight:700;display:block;margin-top:1px}
 nav.menu{display:flex;gap:18px}
 nav.menu a{font-size:14px;font-weight:600;color:#444;padding:6px 0;white-space:nowrap;transition:color .15s}
 nav.menu a:hover{color:var(--ink)}
@@ -56,7 +45,7 @@ nav.menu a:hover{color:var(--ink)}
 .btn-pill:hover{background:var(--ink2)}
 .hamb{display:none;background:none;border:none;font-size:24px;color:var(--ink);margin-left:auto}
 
-/* ── 드로어 ── */
+/* drawer */
 .drawer{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:99;opacity:0;visibility:hidden;transition:.25s}
 .drawer.open{opacity:1;visibility:visible}
 .drawer-panel{position:absolute;right:0;top:0;width:78%;max-width:300px;height:100%;background:#fff;padding:24px;transform:translateX(100%);transition:.25s}
@@ -64,22 +53,20 @@ nav.menu a:hover{color:var(--ink)}
 .drawer-panel a{display:block;padding:15px 4px;font-size:17px;font-weight:600;border-bottom:1px solid var(--line);cursor:pointer}
 .drawer-close{position:absolute;top:16px;right:18px;font-size:26px;background:none;border:none;cursor:pointer}
 
-/* ── 브레드크럼 ── */
+/* breadcrumb */
 .crumb{font-size:12px;color:var(--muted);padding:16px 0 4px}
 .crumb span{margin:0 6px;color:#cbcfd6}
 
-/* ══ 상품 상단 (마켓컬리 product-top) ══ */
-.product{display:grid;grid-template-columns:420px 1fr;gap:52px;padding:14px 0 64px;align-items:start}
-
-/* 갤러리 */
+/* ── product top ── */
+.product{display:grid;grid-template-columns:400px 1fr;gap:52px;padding:14px 0 60px;align-items:start}
 .gallery .main{aspect-ratio:1/1}
 .gallery .thumbs{display:flex;gap:10px;margin-top:12px}
 .gallery .thumbs .shot{aspect-ratio:1/1;flex:1;cursor:pointer;border:2px solid transparent;transition:border-color .15s}
 .gallery .thumbs .shot.active{border-color:var(--ink)}
 
-/* 정보 패널 */
-.info .badge{display:inline-block;background:#fbf6ea;color:var(--gold-d);border:1px solid #ead9b8;font-size:11px;font-weight:700;letter-spacing:.12em;padding:5px 12px;border-radius:30px}
-.info h1{font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1.15;color:var(--ink);margin:12px 0 4px}
+/* info panel */
+.info .badge{display:inline-flex;align-items:center;gap:6px;background:#fbf6ea;color:var(--gold-d);border:1px solid #ead9b8;font-size:11px;font-weight:700;letter-spacing:.12em;padding:5px 12px;border-radius:30px}
+.info h1{font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1.15;color:var(--ink);margin:12px 0 2px}
 .info .sub-title{font-size:15px;color:#666;margin-bottom:18px}
 .score-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:6px}
 .score-row .stars{font-size:20px;color:var(--gold);letter-spacing:2px}
@@ -89,65 +76,72 @@ nav.menu a:hover{color:var(--ink)}
 .spec dl{display:flex;padding:11px 0;border-bottom:1px solid var(--soft)}
 .spec dt{flex:0 0 96px;color:var(--muted);font-weight:600}
 .spec dd{flex:1;color:#333}
-.option{margin-top:22px}
-.option label{display:block;font-size:13px;font-weight:700;color:#555;margin-bottom:8px}
-.select{position:relative}
-.select select{width:100%;padding:14px 16px;border:1px solid #d6dae1;border-radius:6px;font-size:15px;background:#fff;appearance:none;color:#333;font-family:inherit}
-.select::after{content:"▾";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:#9aa;pointer-events:none}
 .total{display:flex;justify-content:space-between;align-items:flex-end;border-top:2px solid var(--ink);margin-top:18px;padding-top:16px}
 .total .t-l{font-size:14px;color:#555;font-weight:600}
 .total .t-r{font-size:14px;color:var(--ink);font-weight:800}
 .total .t-r b{font-size:22px}
 .actions{display:flex;gap:10px;margin-top:18px}
-.btn-heart{flex:0 0 56px;height:56px;border:1px solid #d6dae1;border-radius:6px;background:#fff;font-size:22px;color:#c2c7cf;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.btn-heart{flex:0 0 56px;height:56px;border:1px solid #d6dae1;border-radius:6px;background:#fff;font-size:22px;color:#c2c7cf;display:flex;align-items:center;justify-content:center}
 .btn-heart.on{color:var(--sale);border-color:#f3c7c7;background:#fdf3f3}
-.btn-buy{flex:1;height:56px;border:none;border-radius:6px;background:var(--ink);color:#fff;font-size:17px;font-weight:800;cursor:pointer;transition:background .15s}
+.btn-buy{flex:1;height:56px;border:none;border-radius:6px;background:var(--ink);color:#fff;font-size:17px;font-weight:800;transition:background .15s}
 .btn-buy:hover{background:var(--ink2)}
+.btn-note{flex:1;height:56px;border:1.5px solid var(--ink);border-radius:6px;background:#fff;color:var(--ink);font-size:15px;font-weight:800;transition:all .15s}
+.btn-note:hover{background:var(--soft)}
 .trust{display:flex;gap:16px;margin-top:16px;font-size:12px;color:var(--muted);flex-wrap:wrap}
 .trust span::before{content:"✓ ";color:var(--gold)}
 
-/* ══ 스티키 탭 ══ */
+/* ── tabs ── */
 .tabs{position:sticky;top:64px;z-index:40;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .tabs .wrap{display:flex}
 .tabs a{flex:1;text-align:center;padding:17px 0;font-size:15px;font-weight:700;color:#9aa0ab;position:relative;transition:color .15s}
-.tabs .cnt{font-size:12px;color:var(--gold);margin-left:4px;font-weight:700}
 .tabs a.active{color:var(--ink)}
 .tabs a.active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--ink)}
 
-/* ══ 섹션 공통 ══ */
+/* ── sections ── */
 .section{padding:64px 0;scroll-margin-top:130px}
 .section:nth-child(even){background:var(--soft)}
 .sec-head{text-align:center;margin-bottom:40px}
 .sec-head .ey{font-size:11.5px;letter-spacing:.22em;color:var(--gold);font-weight:700}
 .sec-head h2{font-size:28px;font-weight:800;color:var(--ink);margin:10px 0 8px;letter-spacing:-.02em}
-.sec-head p{color:#777;font-size:15px}
+.sec-head p{color:#777;font-size:15px;line-height:1.7}
 .narrow{max-width:840px;margin:0 auto}
 
-/* ── 소개 ── */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+/* about */
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
 .about-img .shot{aspect-ratio:4/3;border-radius:12px}
-.about-txt h3{font-size:24px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.4;margin-bottom:16px}
+.about-txt h3{font-size:22px;font-weight:800;color:var(--ink);line-height:1.45;margin-bottom:14px}
 .about-txt h3 .g{color:var(--gold)}
-.about-txt p{font-size:15px;color:#555;line-height:1.85;margin-bottom:14px}
-.about-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.about-txt p{font-size:15px;color:#555;line-height:1.85;margin-bottom:12px}
+.about-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
 .about-tag{font-size:13px;font-weight:700;background:var(--soft);color:var(--ink);border-radius:20px;padding:6px 14px;border:1px solid var(--line)}
 
-/* ── 담당 현장 ── */
-.lst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.lst-card{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;display:block}
-.lst-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(22,33,58,.12)}
-.lst-card .limg .shot{aspect-ratio:4/3;border-radius:0}
-.lst-card .lbody{padding:16px}
+/* career history */
+.career-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:780px;margin:0 auto}
+.cj{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 20px 18px;display:flex;align-items:flex-start;gap:14px}
+.cj .cj-yr{flex:0 0 44px;height:44px;background:var(--ink);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;letter-spacing:.01em}
+.cj .cj-body{flex:1}
+.cj .cj-loc{font-size:11.5px;color:var(--muted);margin-bottom:4px}
+.cj .cj-name{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.cj .cj-detail{font-size:12.5px;color:#666}
+.cj .cj-badge{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;background:#ecf8f2;color:#1e7e50;border:1px solid #b8e6d0}
+
+/* listing (current) */
+.lst-single{max-width:380px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.lst-single:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(22,33,58,.12)}
+.lst-single .limg .shot{aspect-ratio:4/3;border-radius:0}
+.lst-single .lbody{padding:20px}
 .ltag{display:inline-block;font-size:11px;font-weight:800;padding:4px 10px;border-radius:20px;margin-bottom:8px}
 .ltag.remain{background:#fff8ec;color:#b87000;border:1px solid #f0d590}
 .ltag.promo{background:rgba(181,152,90,.1);color:var(--gold-d);border:1px solid rgba(181,152,90,.35)}
-.lst-card .lname{font-size:14.5px;font-weight:800;color:var(--ink);margin-bottom:4px}
-.lst-card .lloc{font-size:12.5px;color:var(--muted);margin-bottom:10px}
-.lst-card .lprice{font-size:15px;font-weight:800;color:var(--ink)}
-.lst-card .lbtn{display:block;margin-top:12px;height:38px;background:var(--ink);color:#fff;border-radius:6px;font-size:13px;font-weight:800;font-family:inherit;border:none;cursor:pointer;width:100%;text-align:center;line-height:38px;transition:background .15s;text-decoration:none}
-.lst-card .lbtn:hover{background:var(--ink2)}
+.lst-single .lname{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.lst-single .lloc{font-size:13px;color:var(--muted);margin-bottom:10px}
+.lst-single .lprice{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:14px}
+.lst-single .l-btns{display:flex;gap:8px}
+.l-btn{flex:1;height:40px;border-radius:6px;font-size:13px;font-weight:800;font-family:inherit;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .15s}
+.l-btn.det{background:var(--ink);color:#fff}.l-btn.det:hover{background:var(--ink2)}
+.l-btn.con{background:var(--soft);color:var(--ink);border:1.5px solid var(--line)}.l-btn.con:hover{background:var(--line)}
 
-/* ── 후기 ── */
+/* reviews */
 .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .rv{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px 20px}
 .rv .rs{color:var(--gold);font-size:16px;letter-spacing:2px;margin-bottom:10px}
@@ -155,7 +149,7 @@ nav.menu a:hover{color:var(--ink)}
 .rv .ra{font-size:12.5px;color:var(--muted);font-weight:600}
 .rv .rd{font-size:12px;color:#b0b5bf;margin-top:2px}
 
-/* ── 상담 신청 폼 ── */
+/* contact form */
 .reg{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:900px;margin:0 auto;align-items:start}
 .reg .lead-x h3{font-size:22px;color:var(--ink);font-weight:800;margin-bottom:14px}
 .reg .lead-x p{color:#666;font-size:15px;line-height:1.8;margin-bottom:22px}
@@ -174,7 +168,7 @@ nav.menu a:hover{color:var(--ink)}
 .form .sub-tel{text-align:center;margin-top:14px;font-size:13px;color:var(--muted)}
 .form .sub-tel b{color:var(--ink);font-size:17px;display:block;margin-top:2px}
 
-/* ── 상담 모달 ── */
+/* contact modal */
 .cmodal{position:fixed;inset:0;z-index:120;display:none;align-items:flex-end;justify-content:center;background:rgba(10,16,30,.55)}
 .cmodal.open{display:flex}
 @media(min-width:640px){.cmodal{align-items:center}}
@@ -186,188 +180,161 @@ nav.menu a:hover{color:var(--ink)}
 .cmodal .cm-sub{font-size:13.5px;color:var(--muted);margin-bottom:24px}
 .cmodal-btns{display:flex;flex-direction:column;gap:10px}
 .cm-btn{height:54px;border-radius:10px;border:none;font-size:15.5px;font-weight:800;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;transition:all .15s}
-.cm-btn.tel{background:var(--ink);color:#fff}
-.cm-btn.tel:hover{background:var(--ink2)}
-.cm-btn.sms{background:var(--soft);color:var(--ink);border:1.5px solid var(--line)}
-.cm-btn.sms:hover{background:var(--line)}
+.cm-btn.tel{background:var(--ink);color:#fff}.cm-btn.tel:hover{background:var(--ink2)}
+.cm-btn.sms{background:var(--soft);color:var(--ink);border:1.5px solid var(--line)}.cm-btn.sms:hover{background:var(--line)}
 .cm-btn.kakao{background:#FEE500;color:#191919}
 
-/* ── 사이드 네비 ── */
+/* sidenav */
 .sidenav{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:55;display:flex;flex-direction:column;gap:15px;opacity:0;visibility:hidden;transition:opacity .3s}
 .sidenav.show{opacity:1;visibility:visible}
 .sidenav::before{content:"";position:absolute;right:5px;top:4px;bottom:4px;width:1px;background:rgba(22,33,58,.14)}
 .sidenav a{display:flex;align-items:center;justify-content:flex-end;gap:10px}
-.sidenav .lbl{font-size:12px;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:20px;padding:4px 11px;box-shadow:0 3px 10px rgba(0,0,0,.10);white-space:nowrap;opacity:0;transform:translateX(8px);transition:.2s;pointer-events:none}
+.sidenav .lbl{font-size:12px;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:20px;padding:4px 11px;box-shadow:0 3px 10px rgba(0,0,0,.1);white-space:nowrap;opacity:0;transform:translateX(8px);transition:.2s;pointer-events:none}
 .sidenav .dot{flex:0 0 auto;width:11px;height:11px;border-radius:50%;background:#fff;border:2px solid #c4c9d2;transition:.2s;z-index:1}
 .sidenav a:hover .dot,.sidenav a.active .dot{border-color:var(--ink)}
 .sidenav a.active .dot{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 5px rgba(181,152,90,.18)}
 .sidenav a:hover .lbl,.sidenav a.active .lbl{opacity:1;transform:none}
 @media(max-width:1100px){.sidenav{display:none}}
 
-/* ── HGN 배지 ── */
-.hgn-badge{position:fixed;left:18px;bottom:22px;z-index:56;width:84px;height:84px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.16);text-decoration:none;transition:transform .15s}
+/* hgn-badge */
+.hgn-badge{position:fixed;left:18px;bottom:22px;z-index:56;width:80px;height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.16);text-decoration:none;transition:transform .15s}
 .hgn-badge:hover{transform:translateY(-2px)}
-.hgn-badge img{width:52px;height:auto}
+.hgn-badge img{width:46px;height:auto}
 .hgn-badge span{font-size:10px;color:var(--muted);font-weight:700}
 
-/* ── 모바일 하단바 ── */
-.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);display:none;padding:9px 12px;gap:8px;box-shadow:0 -3px 12px rgba(0,0,0,.06)}
-.mbar a,.mbar button{flex:1;height:50px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14.5px;font-weight:800;border:none;font-family:inherit;cursor:pointer;text-decoration:none}
-.mbar .m-tel{flex:0 0 54px;background:var(--soft);color:var(--ink);font-size:22px}
-.mbar .m-buy{background:var(--ink);color:#fff}
+/* mbar */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);display:none;padding:9px 10px;gap:8px;box-shadow:0 -3px 12px rgba(0,0,0,.06)}
+.mbar-heart{flex:0 0 50px;height:50px;border-radius:6px;border:1.5px solid #d6dae1;background:#fff;font-size:22px;color:#c2c7cf;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.mbar-heart.on{color:var(--sale);border-color:#f3c7c7}
+.mbar-call{flex:1;height:50px;border-radius:6px;border:none;background:var(--ink);color:#fff;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit}
+.mbar-note{flex:0 0 86px;height:50px;border-radius:6px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.mbar-note:hover{background:var(--soft)}
 .top-btn{position:fixed;right:18px;bottom:78px;z-index:55;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:18px;color:var(--ink);box-shadow:0 3px 12px rgba(0,0,0,.12);display:none;cursor:pointer}
 .top-btn.show{display:block}
 
-/* ── 푸터 ── */
+/* footer */
 footer{background:var(--ink);color:#aeb6c4;font-size:13px;padding:46px 0 110px}
 footer .ft-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.12)}
 footer .ft-logo{display:flex;align-items:center;gap:10px}
 footer .ft-logo-img{height:28px;width:auto}
 footer .ft-logo b{font-size:16px;color:#fff;font-weight:800}
-footer .ft-links{display:flex;gap:36px}
 footer .fl h4{font-size:11px;font-weight:700;color:#c0c8d8;margin-bottom:12px;letter-spacing:.1em}
 footer .fl a{display:block;font-size:12.5px;color:#5a6a84;margin-bottom:8px;transition:color .15s}
 footer .fl a:hover{color:#fff}
 footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 
-/* ── 반응형 ── */
+/* responsive */
 @media(max-width:980px){
   .product{grid-template-columns:1fr;gap:32px}
   .gallery .main{aspect-ratio:4/3}
   .info h1{font-size:32px}
-  .about-grid{grid-template-columns:1fr}
-  .lst-grid{grid-template-columns:1fr 1fr}
+  .about-wrap{grid-template-columns:1fr}
+  .career-grid{grid-template-columns:1fr}
   .reg{grid-template-columns:1fr;gap:28px}
   .reviews{grid-template-columns:1fr 1fr}
 }
 @media(max-width:720px){
   nav.menu,.gnb-cta,.topbar .tb-r{display:none}
   .hamb{display:block}
-  .tabs{top:56px}
-  .gnb .wrap{height:56px}
+  .tabs{top:56px}.gnb .wrap{height:56px}
   .tabs .wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .tabs a{flex:0 0 auto;font-size:13px;padding:14px 15px;white-space:nowrap}
-  .section{padding:46px 0}
-  .sec-head h2{font-size:23px}
-  .lst-grid{grid-template-columns:1fr}
+  .section{padding:46px 0}.sec-head h2{font-size:23px}
+  .career-grid{grid-template-columns:1fr}
   .reviews{grid-template-columns:1fr}
   .mbar{display:flex}
   footer{padding-bottom:80px}
-  .hgn-badge{width:70px;height:70px;bottom:76px;left:12px}
-  .hgn-badge img{width:44px}
+  .hgn-badge{bottom:76px;left:10px}
+  .actions{flex-wrap:wrap}
+  .btn-note{flex:1 0 100%}
 }
 </style>
 </head>
 <body>
 
-<!-- ── 상단바 ── -->
 <div class="topbar">
   <div class="wrap">
     <a href="index.html">← 현장 목록으로</a>
     <div class="tb-r">
       <a href="#about">소개</a>
-      <a href="#listings">담당현장</a>
+      <a href="#listing">담당현장</a>
       <a href="#contact">상담신청</a>
     </div>
   </div>
 </div>
 
-<!-- ── GNB ── -->
 <header class="gnb">
   <div class="wrap">
     <a href="index.html" class="logo">
-      <img src="assets/img/logo.png" alt="호갱노노 분양" class="logo-img" onerror="this.style.display='none'">
+      <img src="assets/img/logo.png" alt="호갱노노" class="logo-img" onerror="this.style.display='none'">
       <div class="logo-txt">
-        <b>호갱노노 분양</b>
-        <small>OFFICIAL PARTNER</small>
+        <b>김상담 분양상담사</b>
+        <small>HOGANGNONO OFFICIAL</small>
       </div>
     </a>
     <nav class="menu">
       <a href="#about">소개</a>
-      <a href="#listings">담당 현장</a>
-      <a href="#reviews">상담 후기</a>
-      <a href="#contact">상담 신청</a>
+      <a href="#listing">담당현장</a>
+      <a href="#career">상담이력</a>
+      <a href="#reviews">후기</a>
+      <a href="#contact">상담신청</a>
     </nav>
     <div class="gnb-cta">
-      <div class="gnb-tel">바로 상담<b>010-0000-0000</b></div>
-      <button class="btn-pill" onclick="openContact()">상담 문의하기</button>
+      <div class="gnb-tel">분양 직통<b>010-0000-0000</b></div>
+      <button class="btn-pill" onclick="openContact()">상담사 연결</button>
     </div>
     <button class="hamb" onclick="document.querySelector('.drawer').classList.add('open')">☰</button>
   </div>
 </header>
 
-<!-- 드로어 -->
 <div class="drawer" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="drawer-panel">
     <button class="drawer-close" onclick="document.querySelector('.drawer').classList.remove('open')">×</button>
     <a href="index.html">← 현장 목록</a>
     <a href="#about" onclick="document.querySelector('.drawer').classList.remove('open')">소개</a>
-    <a href="#listings" onclick="document.querySelector('.drawer').classList.remove('open')">담당 현장</a>
-    <a href="#reviews" onclick="document.querySelector('.drawer').classList.remove('open')">상담 후기</a>
-    <a href="#contact" onclick="document.querySelector('.drawer').classList.remove('open')">상담 신청</a>
+    <a href="#listing" onclick="document.querySelector('.drawer').classList.remove('open')">담당현장</a>
+    <a href="#career" onclick="document.querySelector('.drawer').classList.remove('open')">상담이력</a>
+    <a href="#reviews" onclick="document.querySelector('.drawer').classList.remove('open')">후기</a>
+    <a href="#contact" onclick="document.querySelector('.drawer').classList.remove('open')">상담신청</a>
     <a onclick="openContact();document.querySelector('.drawer').classList.remove('open')" style="color:var(--gold)">바로 상담하기</a>
   </div>
 </div>
 
-
-<!-- ── 브레드크럼 ── -->
 <div class="wrap">
-  <div class="crumb"><a href="index.html">홈</a><span>›</span>인증 상담사<span>›</span>김상담</div>
+  <div class="crumb">
+    <a href="index.html">호갱노노 분양상담</a><span>›</span>부산·경남<span>›</span>김상담 파트너
+  </div>
 </div>
 
-
-<!-- ══ 상품 상단 ══ -->
+<!-- product top -->
 <div class="wrap">
   <div class="product">
-    <!-- 갤러리 -->
     <div class="gallery">
       <div class="main shot ph" id="mainShot">
-        <img id="mainImg" src="assets/img/about/1.jpg" alt="김상담"
-             onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'">
+        <img id="mainImg" src="assets/img/about/1.jpg" alt="김상담" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'">
       </div>
       <div class="thumbs">
-        <div class="shot ph active" onclick="switchImg(this,'assets/img/about/1.jpg')">
-          <img src="assets/img/about/1.jpg" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'">
-        </div>
-        <div class="shot ph" onclick="switchImg(this,'assets/img/gallery/1.png')">
-          <img src="assets/img/gallery/1.png" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'">
-        </div>
-        <div class="shot ph" onclick="switchImg(this,'assets/img/gallery/2.png')">
-          <img src="assets/img/gallery/2.png" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'">
-        </div>
-        <div class="shot ph" onclick="switchImg(this,'assets/img/gallery/3.png')">
-          <img src="assets/img/gallery/3.png" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'">
-        </div>
+        <div class="shot ph active" onclick="switchImg(this,'assets/img/about/1.jpg')"><img src="assets/img/about/1.jpg" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div>
+        <div class="shot ph" onclick="switchImg(this,'assets/img/gallery/1.png')"><img src="assets/img/gallery/1.png" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div>
+        <div class="shot ph" onclick="switchImg(this,'assets/img/gallery/2.png')"><img src="assets/img/gallery/2.png" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div>
+        <div class="shot ph" onclick="switchImg(this,'assets/img/gallery/3.png')"><img src="assets/img/gallery/3.png" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div>
       </div>
     </div>
-
-    <!-- 정보 패널 -->
     <div class="info">
-      <span class="badge">호갱노노 공인 파트너</span>
+      <span class="badge">🏆 호갱노노 공인 파트너</span>
       <h1>김상담</h1>
-      <p class="sub-title">수도권 · 부산경남 신규 분양 전담</p>
+      <p class="sub-title">부산·경남 신규 분양 전담 상담사</p>
       <div class="score-row">
         <span class="stars">★★★★★</span>
         <span class="sn">4.9</span>
-        <span class="sc">리뷰 84건</span>
+        <span class="sc">후기 84건</span>
       </div>
       <div class="spec">
-        <dl><dt>전문분야</dt><dd>신규 분양 · 수도권 · 부산경남</dd></dl>
+        <dl><dt>전문분야</dt><dd>신규 분양 · 부산·경남</dd></dl>
         <dl><dt>경력</dt><dd>12년 (분양 전문 컨설턴트)</dd></dl>
         <dl><dt>거래완료</dt><dd>127건</dd></dl>
-        <dl><dt>상담 방법</dt><dd>전화 · 문자 · 카카오톡 · 현장 방문</dd></dl>
+        <dl><dt>담당현장</dt><dd>광안 센텀 비스타동원 (잔여세대)</dd></dl>
         <dl><dt>상담 비용</dt><dd>무료 (수수료 없음)</dd></dl>
-      </div>
-      <div class="option">
-        <label>문의할 현장 선택</label>
-        <div class="select">
-          <select>
-            <option value="">현장을 선택하세요</option>
-            <option>광안 센텀 비스타동원 (잔여세대)</option>
-            <option>오산 헤리티지 자이 (사전홍보)</option>
-            <option>천안 동일하이빌 파크레인 (사전홍보)</option>
-          </select>
-        </div>
       </div>
       <div class="total">
         <div class="t-l">상담 비용</div>
@@ -375,97 +342,156 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
       </div>
       <div class="actions">
         <button class="btn-heart" id="heartBtn" onclick="toggleHeart(this)">♡</button>
-        <button class="btn-buy" onclick="openContact()">상담 문의하기</button>
+        <button class="btn-buy" onclick="openContact()">📞 상담사 연결하기</button>
+        <button class="btn-note" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">문의 남기기</button>
       </div>
       <div class="trust">
-        <span>상담비 없음</span>
-        <span>수수료 없음</span>
-        <span>계약까지 함께</span>
-        <span>호갱노노 공인</span>
+        <span>상담비 없음</span><span>수수료 없음</span><span>계약까지 함께</span><span>호갱노노 공인</span>
       </div>
     </div>
   </div>
 </div>
 
-
-<!-- ══ 스티키 탭 ══ -->
 <div class="tabs">
   <div class="wrap">
     <a href="#about" class="active">소개</a>
-    <a href="#listings">담당 현장</a>
-    <a href="#reviews">상담 후기<span class="cnt">84</span></a>
-    <a href="#contact">상담 신청</a>
+    <a href="#listing">담당현장</a>
+    <a href="#career">상담이력</a>
+    <a href="#reviews">후기<span style="font-size:12px;color:var(--gold);margin-left:4px;font-weight:700">84</span></a>
+    <a href="#contact">상담신청</a>
   </div>
 </div>
 
-
-<!-- 소개 -->
+<!-- ── 소개 ── -->
 <div class="section" id="about">
-  <div class="wrap">
+  <div class="wrap narrow">
     <div class="sec-head"><p class="ey">ABOUT</p><h2>상담사 소개</h2></div>
-    <div class="about-grid narrow">
+    <div class="about-wrap">
       <div class="about-img"><div class="shot ph" style="border-radius:12px"><img src="assets/img/gallery/1.png" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div></div>
       <div class="about-txt">
-        <h3>분양은 현장을 알아야<br><span class="g">제대로 안내할 수 있습니다</span></h3>
-        <p>저는 12년째 분양 현장에서 수분양자분들과 함께해왔습니다. 단지 정보와 분양가를 전달하는 것에 그치지 않고, 고객분이 실제 생활하게 될 현장의 입지·교통·학군·생활편의를 직접 발로 뛰며 확인합니다.</p>
-        <p>호갱노노의 실거래가 데이터와 현장 경험을 결합해, 처음 분양이어도 가장 좋은 조건으로 계약할 수 있도록 처음부터 끝까지 함께합니다. 상담비도, 수수료도 없습니다.</p>
+        <h3>부산 현장은 발로 뛰어야<br><span class="g">제대로 안내할 수 있습니다</span></h3>
+        <p>12년째 부산·경남 분양 현장에서 수분양자분들과 함께해왔습니다. 단지 정보 전달에 그치지 않고, 실제 생활 입지·교통·학군·생활편의를 직접 확인하고 안내합니다.</p>
+        <p>호갱노노의 실거래 데이터와 현장 경험을 결합해, 처음 분양이어도 가장 좋은 조건으로 계약할 수 있도록 처음부터 끝까지 함께합니다.</p>
         <div class="about-tags">
-          <span class="about-tag">아파트 분양</span>
+          <span class="about-tag">부산·경남 분양</span>
+          <span class="about-tag">잔여세대 전문</span>
+          <span class="about-tag">현장 방문 동행</span>
           <span class="about-tag">청약 컨설팅</span>
-          <span class="about-tag">수도권</span>
-          <span class="about-tag">부산·경남</span>
-          <span class="about-tag">현장 방문 안내</span>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- 담당 현장 -->
-<div class="section" id="listings">
+<!-- ── 담당 현장 ── -->
+<div class="section" id="listing">
   <div class="wrap">
-    <div class="sec-head"><p class="ey">MY LISTINGS</p><h2>담당 분양현장</h2><p>직접 현장을 확인하고 안내하는 곳만 담당합니다</p></div>
-    <div class="lst-grid">
-      <a href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html" class="lst-card">
+    <div class="sec-head"><p class="ey">CURRENT LISTING</p><h2>담당 분양현장</h2><p>직접 현장을 확인하고 안내하는 곳만 담당합니다</p></div>
+    <div style="display:flex;justify-content:center">
+      <div class="lst-single">
         <div class="limg"><div class="shot ph"><img src="단지상세홈페이지/컬리스타일-광안센텀비스타동원/assets/img/aerial.jpg" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div></div>
-        <div class="lbody"><span class="ltag remain">잔여세대</span><div class="lname">광안 센텀 비스타동원</div><div class="lloc">부산 수영구 · 동원개발 · 59·84㎡</div><div class="lprice">5.1억~8.4억</div><div class="lbtn">현장 상세 보기 →</div></div>
-      </a>
-      <a href="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/index.html" class="lst-card">
-        <div class="limg"><div class="shot ph"><img src="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/assets/img/aerial.jpg" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div></div>
-        <div class="lbody"><span class="ltag promo">사전홍보</span><div class="lname">오산 헤리티지 자이</div><div class="lloc">경기 오산시 · GS건설 · 59~99㎡</div><div class="lprice">분양가 상담</div><div class="lbtn">현장 상세 보기 →</div></div>
-      </a>
-      <a href="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/index.html" class="lst-card">
-        <div class="limg"><div class="shot ph"><img src="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/assets/img/aerial.jpg" alt="" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div></div>
-        <div class="lbody"><span class="ltag promo">사전홍보</span><div class="lname">천안 동일하이빌 파크레인</div><div class="lloc">충남 천안시 · 동일토건 · 74~99㎡</div><div class="lprice">분양가 상담</div><div class="lbtn">현장 상세 보기 →</div></div>
-      </a>
+        <div class="lbody">
+          <span class="ltag remain">잔여세대</span>
+          <div class="lname">광안 센텀 비스타동원</div>
+          <div class="lloc">부산 수영구 · 동원개발 · 59·84㎡</div>
+          <div class="lprice">5.1억~8.4억</div>
+          <div class="l-btns">
+            <a href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html" class="l-btn det">현장 상세 보기</a>
+            <button class="l-btn con" onclick="openContact()">상담 신청</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- 후기 -->
+<!-- ── 상담 이력 ── -->
+<div class="section" id="career">
+  <div class="wrap">
+    <div class="sec-head"><p class="ey">CAREER HISTORY</p><h2>주요 분양 상담 이력</h2><p>지금까지 성공적으로 분양 상담을 완료한 현장들입니다</p></div>
+    <div class="career-grid">
+      <div class="cj">
+        <div class="cj-yr">2023</div>
+        <div class="cj-body">
+          <div class="cj-loc">부산 해운대구 우동</div>
+          <div class="cj-name">해운대 센텀 더샵</div>
+          <div class="cj-detail">전용 84~115㎡ · 총 482세대 · 분양가 9~14억</div>
+          <span class="cj-badge">분양 완료</span>
+        </div>
+      </div>
+      <div class="cj">
+        <div class="cj-yr">2022</div>
+        <div class="cj-body">
+          <div class="cj-loc">부산 부산진구 서면</div>
+          <div class="cj-name">서면 반도유보라 아이파크</div>
+          <div class="cj-detail">전용 59~84㎡ · 총 310세대 · 분양가 5~8억</div>
+          <span class="cj-badge">분양 완료</span>
+        </div>
+      </div>
+      <div class="cj">
+        <div class="cj-yr">2022</div>
+        <div class="cj-body">
+          <div class="cj-loc">부산 기장군 정관읍</div>
+          <div class="cj-name">기장 정관 힐스테이트</div>
+          <div class="cj-detail">전용 74~99㎡ · 총 654세대 · 분양가 4~7억</div>
+          <span class="cj-badge">분양 완료</span>
+        </div>
+      </div>
+      <div class="cj">
+        <div class="cj-yr">2021</div>
+        <div class="cj-body">
+          <div class="cj-loc">부산 남구 대연동</div>
+          <div class="cj-name">대연 e편한세상 파크</div>
+          <div class="cj-detail">전용 59~84㎡ · 총 398세대 · 분양가 5~8억</div>
+          <span class="cj-badge">분양 완료</span>
+        </div>
+      </div>
+      <div class="cj">
+        <div class="cj-yr">2020</div>
+        <div class="cj-body">
+          <div class="cj-loc">경남 창원시 의창구</div>
+          <div class="cj-name">창원 센텀 두산위브</div>
+          <div class="cj-detail">전용 84~115㎡ · 총 572세대 · 분양가 4~6억</div>
+          <span class="cj-badge">분양 완료</span>
+        </div>
+      </div>
+      <div class="cj">
+        <div class="cj-yr">2019</div>
+        <div class="cj-body">
+          <div class="cj-loc">부산 연제구 연산동</div>
+          <div class="cj-name">연산 롯데캐슬 골드포레</div>
+          <div class="cj-detail">전용 59~84㎡ · 총 436세대 · 분양가 4~7억</div>
+          <span class="cj-badge">분양 완료</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 후기 ── -->
 <div class="section" id="reviews">
   <div class="wrap">
-    <div class="sec-head"><p class="ey">REVIEWS</p><h2>상담 후기</h2><p>실제 수분양자 고객분들의 생생한 후기입니다</p></div>
+    <div class="sec-head"><p class="ey">REVIEWS</p><h2>상담 후기</h2><p>실제 수분양자 고객분들의 후기입니다</p></div>
     <div class="reviews narrow">
       <div class="rv"><div class="rs">★★★★★</div><p class="rt">"처음 분양이라 무서웠는데 처음부터 끝까지 함께 해주셔서 너무 감사했습니다. 청약부터 계약까지 한 번도 헷갈린 적이 없었어요."</p><div class="ra">이*경 님</div><div class="rd">광안 센텀 비스타동원 · 84㎡</div></div>
-      <div class="rv"><div class="rs">★★★★★</div><p class="rt">"현장을 3번 같이 방문했는데 매번 성심성의껏 설명해주셨어요. 단지 주변 생활환경까지 꼼꼼하게 알려주셔서 확신을 갖고 계약할 수 있었습니다."</p><div class="ra">박*훈 님</div><div class="rd">오산 헤리티지 자이 · 84㎡</div></div>
-      <div class="rv"><div class="rs">★★★★★</div><p class="rt">"다른 곳에선 수수료를 요구했는데 여기는 정말 무료였어요. 호갱노노 인증 파트너라 믿음이 갔고, 실제로도 그 믿음을 져버리지 않으셨습니다."</p><div class="ra">김*수 님</div><div class="rd">천안 동일하이빌 파크레인 · 74㎡</div></div>
+      <div class="rv"><div class="rs">★★★★★</div><p class="rt">"현장을 3번 같이 방문했는데 매번 성심성의껏 설명해주셨어요. 단지 주변 생활환경까지 꼼꼼하게 알려주셔서 확신을 갖고 계약했습니다."</p><div class="ra">박*훈 님</div><div class="rd">해운대 센텀 더샵 · 84㎡</div></div>
+      <div class="rv"><div class="rs">★★★★★</div><p class="rt">"다른 곳엔 수수료를 요구했는데 여기는 정말 무료였어요. 호갱노노 인증 파트너라 믿음이 갔고, 실제로도 그 믿음을 져버리지 않으셨습니다."</p><div class="ra">김*수 님</div><div class="rd">서면 반도유보라 아이파크 · 59㎡</div></div>
     </div>
   </div>
 </div>
 
-<!-- 상담 신청 -->
+<!-- ── 상담 신청 ── -->
 <div class="section" id="contact">
   <div class="wrap">
     <div class="sec-head"><p class="ey">CONSULTATION</p><h2>상담 신청</h2><p>남겨주시면 24시간 내 연락드립니다</p></div>
     <div class="reg">
       <div class="lead-x">
         <h3>분양 상담,<br>부담 없이 시작하세요</h3>
-        <p>현장 정보 요청부터 청약 전략, 계약까지 — 처음 분양이어도 괜찮습니다. 단계별로 차근차근 안내해드립니다.</p>
+        <p>처음 분양이어도 괜찮습니다. 단계별로 차근차근 안내해드립니다.</p>
         <ul class="perk">
           <li>상담비 · 수수료 일체 없음</li>
           <li>현장 방문 동행 안내 가능</li>
-          <li>호갱노노 실거래 데이터 기반 분석 제공</li>
+          <li>호갱노노 실거래 데이터 기반 분석</li>
           <li>청약 가점 · 자격 사전 체크</li>
           <li>계약 후 입주까지 지속 관리</li>
         </ul>
@@ -475,7 +501,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
         <div class="fld"><label>연락처</label><input type="tel" placeholder="010-0000-0000"></div>
         <div class="fld">
           <label>관심 현장</label>
-          <select><option value="">선택하세요</option><option>광안 센텀 비스타동원</option><option>오산 헤리티지 자이</option><option>천안 동일하이빌 파크레인</option><option>기타 (직접 문의)</option></select>
+          <select><option>광안 센텀 비스타동원</option><option>기타 (직접 문의)</option></select>
         </div>
         <div class="fld"><label>문의 내용 (선택)</label><input type="text" placeholder="청약 일정, 평형 추천 등 자유롭게"></div>
         <div class="agree"><input type="checkbox" id="agree"><label for="agree">개인정보 수집 및 이용에 동의합니다</label></div>
@@ -486,8 +512,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
   </div>
 </div>
 
-
-<!-- ── 상담 모달 ── -->
+<!-- contact modal -->
 <div class="cmodal" id="contactModal" onclick="if(event.target===this)closeContact()">
   <div class="cmodal-card">
     <button class="cmodal-close" onclick="closeContact()">×</button>
@@ -503,19 +528,21 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 
 <nav class="sidenav" id="sidenav">
   <a href="#about"><span class="lbl">소개</span><span class="dot"></span></a>
-  <a href="#listings"><span class="lbl">담당현장</span><span class="dot"></span></a>
+  <a href="#listing"><span class="lbl">담당현장</span><span class="dot"></span></a>
+  <a href="#career"><span class="lbl">상담이력</span><span class="dot"></span></a>
   <a href="#reviews"><span class="lbl">후기</span><span class="dot"></span></a>
   <a href="#contact"><span class="lbl">상담신청</span><span class="dot"></span></a>
 </nav>
 
 <a href="index.html" class="hgn-badge">
   <img src="assets/img/logo.png" alt="호갱노노" onerror="this.style.display='none'">
-  <span>분양 목록</span>
+  <span>현장 목록</span>
 </a>
 
 <div class="mbar">
-  <a href="tel:010-0000-0000" class="m-tel">☎</a>
-  <button class="m-buy" onclick="openContact()">상담 문의하기</button>
+  <button class="mbar-heart" id="mbarHeart" onclick="toggleHeart(this)">♡</button>
+  <button class="mbar-call" onclick="openContact()">📞 상담사 연결하기</button>
+  <a href="#contact" class="mbar-note">문의 남기기</a>
 </div>
 
 <button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
@@ -526,16 +553,14 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
       <div>
         <div class="ft-logo">
           <img src="assets/img/logo.png" class="ft-logo-img" alt="호갱노노" onerror="this.style.display='none'">
-          <b>호갱노노 분양 파트너</b>
+          <b>김상담 분양상담사</b>
         </div>
-        <p style="margin-top:12px;font-size:12px;color:#4a5870;line-height:1.8">공인 파트너 김상담 · 상담비 무료 · 수수료 없음</p>
+        <p style="margin-top:12px;font-size:12px;color:#4a5870;line-height:1.8">호갱노노 공인 분양 파트너 · 부산·경남 전문 · 상담비 무료</p>
       </div>
-      <div class="ft-links">
+      <div style="display:flex;gap:36px">
         <div class="fl">
           <h4>담당 현장</h4>
           <a href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html">광안 센텀 비스타동원</a>
-          <a href="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/index.html">오산 헤리티지 자이</a>
-          <a href="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/index.html">천안 동일하이빌 파크레인</a>
         </div>
         <div class="fl">
           <h4>바로가기</h4>
@@ -549,35 +574,18 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 </footer>
 
 <script>
-function switchImg(thumb, src) {
-  document.querySelectorAll('.gallery .thumbs .shot').forEach(t => t.classList.remove('active'));
-  thumb.classList.add('active');
-  const main = document.getElementById('mainImg');
-  document.getElementById('mainShot').classList.add('ph');
-  main.src = src;
-  main.onload = () => document.getElementById('mainShot').classList.remove('ph');
-}
-function toggleHeart(btn) {
-  btn.classList.toggle('on');
-  btn.textContent = btn.classList.contains('on') ? '♥' : '♡';
-}
-function openContact() {
-  document.getElementById('contactModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeContact() {
-  document.getElementById('contactModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-const secs = ['about','listings','reviews','contact'];
-window.addEventListener('scroll', function(){
-  const y = window.scrollY + 140;
-  let cur = secs[0];
-  secs.forEach(id => { const el = document.getElementById(id); if(el && el.offsetTop <= y) cur = id; });
-  document.querySelectorAll('.tabs a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#'+cur));
-  document.querySelectorAll('.sidenav a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#'+cur));
-  document.getElementById('sidenav').classList.toggle('show', window.scrollY > 300);
-  document.getElementById('topBtn').classList.toggle('show', window.scrollY > 400);
+function switchImg(t,s){document.querySelectorAll('.gallery .thumbs .shot').forEach(x=>x.classList.remove('active'));t.classList.add('active');const m=document.getElementById('mainImg');document.getElementById('mainShot').classList.add('ph');m.src=s;m.onload=()=>document.getElementById('mainShot').classList.remove('ph')}
+function toggleHeart(btn){btn.classList.toggle('on');btn.textContent=btn.classList.contains('on')?'♥':'♡';const mb=document.getElementById('mbarHeart');if(mb){mb.classList.toggle('on');mb.textContent=btn.textContent}}
+function openContact(){document.getElementById('contactModal').classList.add('open');document.body.style.overflow='hidden'}
+function closeContact(){document.getElementById('contactModal').classList.remove('open');document.body.style.overflow=''}
+const SECS=['about','listing','career','reviews','contact'];
+window.addEventListener('scroll',function(){
+  const y=window.scrollY+140;
+  let cur=SECS[0];SECS.forEach(id=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)cur=id});
+  document.querySelectorAll('.tabs a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+  document.querySelectorAll('.sidenav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+  document.getElementById('sidenav').classList.toggle('show',window.scrollY>300);
+  document.getElementById('topBtn').classList.toggle('show',window.scrollY>400);
 },{passive:true});
 </script>
 </body>
