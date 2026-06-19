@@ -131,17 +131,19 @@ nav.menu a:hover{color:var(--ink)}
 .con-card-hit .ci .cbtns{margin-top:auto}
 .con-card-hit .ci .ctags{margin:14px 0 20px}
 /* ── 소형 상담사 카드 (절반 높이) ── */
-.con-card-sm{display:flex;flex-direction:column;gap:0;padding:14px;text-align:left}
-.con-sm-top{display:grid;grid-template-columns:76px 1fr;gap:12px;align-items:flex-start}
+.con-card-sm{display:flex;flex-direction:column;gap:0;padding:14px;text-align:left;align-items:stretch}
+.con-card-sm .con-sm-top{display:grid;grid-template-columns:76px 1fr;gap:12px;align-items:flex-start;flex:1}
 .con-card-sm .cp{width:76px;max-width:76px;margin:0}
 .con-card-sm .cp .shot{aspect-ratio:1;border-radius:8px}
 .con-card-sm .cp .cbadge{display:none}
+.con-card-sm .ci{min-width:0}
 .con-card-sm .cheader{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
 .con-card-sm .cheader .cname{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em;margin-bottom:0}
 .con-card-sm .cheader .cpart{font-size:9px;margin-bottom:0;padding:2px 7px;letter-spacing:.06em}
 .con-card-sm .ci .ctags{display:none}
 .con-card-sm .cspec dl{padding:4px 0}
 .con-card-sm .cspec dt,.con-card-sm .cspec dd{font-size:12px}
+.con-card-sm .cspec dd{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @media(max-width:700px){.lcard-hit{grid-template-columns:1fr}.lcard-hit .limg .shot{min-height:200px}.lcard-hit .lbody{padding:20px}.con-card-hit{grid-template-columns:1fr}.con-card-hit .cp{width:100%}.con-card-hit .cp .shot{min-height:180px}.con-card-hit .ci{padding:20px}}
 .sec-head{text-align:center;margin-bottom:44px}
 .sec-head .ey{font-size:11.5px;letter-spacing:.22em;color:var(--gold);font-weight:700}
@@ -300,8 +302,8 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 .lcard-sm .lbtns{margin-top:0;display:block}
 .lcard-sm .lbtns .l-btn.det{display:block;width:100%;height:42px;font-size:12.5px;font-weight:800;text-align:center;line-height:42px}
 /* ── 스마트 상담사 카드 보정 ── */
-.con-card-sm>.cbtns{margin-top:10px;padding-top:10px;border-top:1px solid var(--soft);display:block}
-.con-card-sm>.cbtns .l-btn{display:block;width:100%;height:46px;font-size:13.5px;font-weight:800;text-align:center;line-height:46px}
+.con-card-sm>.cbtns{margin-top:10px;padding-top:10px;border-top:1px solid var(--soft);width:100%}
+.con-card-sm>.cbtns .l-btn{width:100%;height:46px;font-size:13.5px;font-weight:800}
 /* ── 로얄 상담사 카드 (가로 레이아웃) ── */
 .con-card-royal{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:130px 1fr;gap:0;text-align:left;align-items:stretch}
 .con-card-royal .cp{width:130px;position:relative}
@@ -572,9 +574,9 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
             <div class="cname">김상담</div>
             <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
             <div class="cspec">
-              <dl><dt>전문분야</dt><dd>부산·경남</dd></dl>
-              <dl><dt>경력</dt><dd>12년 · 127건</dd></dl>
               <dl><dt>담당현장</dt><dd>광안 센텀 비스타동원</dd></dl>
+              <dl><dt>경력</dt><dd>12년 · 127건</dd></dl>
+              <dl><dt>전문분야</dt><dd>신규분양 · 부산경남</dd></dl>
             </div>
           </div>
           <div>
@@ -604,7 +606,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
           <div class="ci">
             <div class="cname">이상담</div>
             <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
-            <div class="cspec"><dl><dt>담당지명</dt><dd>수도권 남부</dd></dl><dl><dt>경력</dt><dd>8년 · 89건</dd></dl><dl><dt>담당현장</dt><dd>오산 헤리티지 자이</dd></dl></div>
+            <div class="cspec"><dl><dt>담당현장</dt><dd>오산 헤리티지 자이</dd></dl><dl><dt>경력</dt><dd>8년 · 89건</dd></dl><dl><dt>전문분야</dt><dd>신규분양 · 수도권</dd></dl></div>
             <div class="ctags"><span class="ctag">경기 오산·화성</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
             <div class="cbtns"><a href="consultant-lee-profile.html" class="l-btn det">프로필 보기</a><button class="l-btn con" onclick="openConModal('이','이상담','오산 헤리티지 자이 담당')">상담 문의</button></div>
           </div>
@@ -615,7 +617,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
           <div class="ci">
             <div class="cname">박상담</div>
             <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
-            <div class="cspec"><dl><dt>담당지명</dt><dd>충청권</dd></dl><dl><dt>경력</dt><dd>10년 · 103건</dd></dl><dl><dt>담당현장</dt><dd>천안 동일하이빌 파크레인</dd></dl></div>
+            <div class="cspec"><dl><dt>담당현장</dt><dd>천안 동일하이빌 파크레인</dd></dl><dl><dt>경력</dt><dd>10년 · 103건</dd></dl><dl><dt>전문분야</dt><dd>신규분양 · 충청권</dd></dl></div>
             <div class="ctags"><span class="ctag">천안·아산·세종</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
             <div class="cbtns"><a href="consultant-park-profile.html" class="l-btn det">프로필 보기</a><button class="l-btn con" onclick="openConModal('박','박상담','천안 동일하이빌 파크레인 담당')">상담 문의</button></div>
           </div>
@@ -636,42 +638,42 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
         <div class="con-card con-card-sm">
           <div class="con-sm-top">
             <div class="cp"><div class="shot ph"><img src="assets/img/consultants/lee/profile.jpg" alt="정상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div></div>
-            <div class="ci"><div class="cheader"><div class="cname">정상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span></div><div class="cspec"><dl><dt>담당단지</dt><dd>오산 헤리티지 자이</dd></dl><dl><dt>경력</dt><dd>9년 · 112건</dd></dl></div></div>
+            <div class="ci"><div class="cheader"><div class="cname">정상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span></div><div class="cspec"><dl><dt>담당현장</dt><dd>오산 헤리티지 자이</dd></dl><dl><dt>경력</dt><dd>9년 · 112건</dd></dl></div></div>
           </div>
           <div class="cbtns"><a href="consultant-lee-profile.html" class="l-btn det">프로필 보기</a></div>
         </div>
         <div class="con-card con-card-sm">
           <div class="con-sm-top">
             <div class="cp"><div class="shot ph"><img src="assets/img/consultants/park/profile.jpg" alt="한상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div></div>
-            <div class="ci"><div class="cheader"><div class="cname">한상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span></div><div class="cspec"><dl><dt>담당단지</dt><dd>천안 동일하이빌 파크레인</dd></dl><dl><dt>경력</dt><dd>6년 · 64건</dd></dl></div></div>
+            <div class="ci"><div class="cheader"><div class="cname">한상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span></div><div class="cspec"><dl><dt>담당현장</dt><dd>천안 동일하이빌 파크레인</dd></dl><dl><dt>경력</dt><dd>6년 · 64건</dd></dl></div></div>
           </div>
           <div class="cbtns"><a href="consultant-park-profile.html" class="l-btn det">프로필 보기</a></div>
         </div>
         <div class="con-card con-card-sm">
           <div class="con-sm-top">
             <div class="cp"><div class="shot ph"><img src="assets/img/consultants/lee/profile.jpg" alt="윤상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div></div>
-            <div class="ci"><div class="cheader"><div class="cname">윤상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span></div><div class="cspec"><dl><dt>담당단지</dt><dd>오산 헤리티지 자이</dd></dl><dl><dt>경력</dt><dd>11년 · 98건</dd></dl></div></div>
+            <div class="ci"><div class="cheader"><div class="cname">윤상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span></div><div class="cspec"><dl><dt>담당현장</dt><dd>오산 헤리티지 자이</dd></dl><dl><dt>경력</dt><dd>11년 · 98건</dd></dl></div></div>
           </div>
           <div class="cbtns"><a href="consultant-lee-profile.html" class="l-btn det">프로필 보기</a></div>
         </div>
         <div class="con-card con-card-sm">
           <div class="con-sm-top">
             <div class="cp"><div class="shot ph"><img src="assets/img/consultants/park/profile.jpg" alt="강상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div></div>
-            <div class="ci"><div class="cheader"><div class="cname">강상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span></div><div class="cspec"><dl><dt>담당단지</dt><dd>천안 동일하이빌 파크레인</dd></dl><dl><dt>경력</dt><dd>8년 · 87건</dd></dl></div></div>
+            <div class="ci"><div class="cheader"><div class="cname">강상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span></div><div class="cspec"><dl><dt>담당현장</dt><dd>천안 동일하이빌 파크레인</dd></dl><dl><dt>경력</dt><dd>8년 · 87건</dd></dl></div></div>
           </div>
           <div class="cbtns"><a href="consultant-park-profile.html" class="l-btn det">프로필 보기</a></div>
         </div>
         <div class="con-card con-card-sm">
           <div class="con-sm-top">
             <div class="cp"><div class="shot ph"><img src="assets/img/consultants/lee/profile.jpg" alt="오상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div></div>
-            <div class="ci"><div class="cheader"><div class="cname">오상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span></div><div class="cspec"><dl><dt>담당단지</dt><dd>오산 헤리티지 자이</dd></dl><dl><dt>경력</dt><dd>5년 · 52건</dd></dl></div></div>
+            <div class="ci"><div class="cheader"><div class="cname">오상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span></div><div class="cspec"><dl><dt>담당현장</dt><dd>오산 헤리티지 자이</dd></dl><dl><dt>경력</dt><dd>5년 · 52건</dd></dl></div></div>
           </div>
           <div class="cbtns"><a href="consultant-lee-profile.html" class="l-btn det">프로필 보기</a></div>
         </div>
         <div class="con-card con-card-sm">
           <div class="con-sm-top">
             <div class="cp"><div class="shot ph"><img src="assets/img/consultants/park/profile.jpg" alt="류상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div></div>
-            <div class="ci"><div class="cheader"><div class="cname">류상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span></div><div class="cspec"><dl><dt>담당단지</dt><dd>천안 동일하이빌 파크레인</dd></dl><dl><dt>경력</dt><dd>7년 · 73건</dd></dl></div></div>
+            <div class="ci"><div class="cheader"><div class="cname">류상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED</span></div><div class="cspec"><dl><dt>담당현장</dt><dd>천안 동일하이빌 파크레인</dd></dl><dl><dt>경력</dt><dd>7년 · 73건</dd></dl></div></div>
           </div>
           <div class="cbtns"><a href="consultant-park-profile.html" class="l-btn det">프로필 보기</a></div>
         </div>
