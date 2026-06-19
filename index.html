@@ -275,6 +275,31 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
   footer{padding-bottom:80px}
 }
 @media(max-width:420px){.why-grid{grid-template-columns:1fr}}
+/* ── 하이스트 2열 그리드 ── */
+.listing-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.con-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:700px){.listing-grid-2{grid-template-columns:1fr}.con-grid-2{grid-template-columns:1fr}}
+/* ── HIT 단지 카드 lspecs 보정 ── */
+.lcard-hit .lspecs{display:flex;gap:0;border-top:1px solid var(--soft);border-bottom:1px solid var(--soft);margin-bottom:16px}
+.lcard-hit .lsp{flex:1;padding:10px 0;text-align:center}
+.lcard-hit .lsp:not(:last-child){border-right:1px solid var(--soft)}
+.lcard-hit .lsp .k{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:4px}
+.lcard-hit .lsp .v{font-size:14px;font-weight:800;color:var(--ink)}
+.lcard-hit .lbody .lname{font-weight:800}
+/* ── HIT 상담사 카드 보정 ── */
+.con-card-hit .cspec{border-top:1px solid var(--line);margin-top:6px}
+.con-card-hit .cspec dl{display:flex;padding:9px 0;border-bottom:1px solid var(--soft);font-size:13px}
+.con-card-hit .cspec dt{flex:0 0 72px;color:var(--muted);font-weight:600}
+.con-card-hit .cspec dd{flex:1;color:#333;font-weight:600}
+.con-card-hit .ci .cname{font-size:26px;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:4px}
+.con-card-hit .ci .cpart{font-size:11px;font-weight:700;color:var(--gold-d);letter-spacing:.12em;background:#fbf6ea;border:1px solid #f0e3c4;border-radius:20px;display:inline-flex;align-items:center;padding:4px 11px;margin-bottom:12px}
+.con-card-hit .ci .cbtns{display:flex;gap:10px;padding-top:18px;border-top:1px solid var(--line);margin-top:14px}
+.con-card-hit .ci .cbtns .l-btn{flex:1;height:50px;font-size:14px;font-weight:800}
+/* ── 스마트 단지 카드 보정 ── */
+.lcard-sm .lbtns{margin-top:10px}
+/* ── 스마트 상담사 카드 보정 ── */
+.con-card-sm .ci .cbtns{padding-top:8px;border-top:1px solid var(--soft)}
+.con-card-sm .ci .cbtns .l-btn{height:42px;font-size:13px;font-weight:700;width:100%}
 </style>
 </head>
 <body>
@@ -385,10 +410,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
     </div>
   </section>
 
-  <!-- 가로 광고 배너 728×90 -->
-  <div class="h-ad-wrap"><div class="h-ad-ph"><!-- ▼ 광고 태그 삽입 (728×90) --><span style="font-size:18px">📢</span> 광고 영역 728×90</div></div>
-
-  <!-- ② 실시간 인기단지 (하이스트) -->
+  <!-- ② 실시간 인기단지 (하이스트) — 2열 -->
   <section class="section tier-sec">
     <div class="wrap">
       <div class="tier-head">
@@ -396,7 +418,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
         <h3>실시간 인기단지</h3>
         <span class="tier-plan">하이스트</span>
       </div>
-      <div class="listing-grid">
+      <div class="listing-grid-2">
         <!-- 오산 헤리티지 자이 -->
         <div class="lcard">
           <div class="limg">
@@ -441,34 +463,9 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
             </div>
           </div>
         </div>
-        <!-- 세종 나성 힐스테이트 (샘플) -->
-        <div class="lcard">
-          <div class="limg">
-            <div class="shot ph"><img src="" alt="" onerror="this.style.display='none'"></div>
-            <span class="lstag promo">사전홍보</span>
-          </div>
-          <div class="lbody">
-            <div class="lname">세종 나성 힐스테이트</div>
-            <div class="lloc">세종특별자치시 나성동 · 현대건설</div>
-            <div class="lspecs">
-              <div class="lsp"><div class="k">전용</div><div class="v">84~116㎡</div></div>
-              <div class="lsp"><div class="k">세대</div><div class="v">1,250</div></div>
-              <div class="lsp"><div class="k">입주</div><div class="v">2028</div></div>
-            </div>
-            <div class="lprice">분양가 상담</div>
-            <div class="lnote">세종 행정중심복합도시 · BRT역 도보권 · 대형 평형 중심</div>
-            <div class="lbtns">
-              <a href="#" class="l-btn det">현장 상세 보기</a>
-              <a href="#" class="l-btn con">상담사 연결</a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
-
-  <!-- 가로 광고 배너 728×90 -->
-  <div class="h-ad-wrap"><div class="h-ad-ph"><!-- ▼ 광고 태그 삽입 (728×90) --><span style="font-size:18px">📢</span> 광고 영역 728×90</div></div>
 
   <!-- ③ 시선집중 분양단지 (스마트) -->
   <section class="section tier-sec">
@@ -580,10 +577,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
     </div>
   </section>
 
-  <!-- 가로 광고 배너 728×90 -->
-  <div class="h-ad-wrap" style="background:var(--soft)"><div class="h-ad-ph"><!-- ▼ 광고 태그 삽입 (728×90) --><span style="font-size:18px">📢</span> 광고 영역 728×90</div></div>
-
-  <!-- ② 실시간 인기상담사 (하이스트) -->
+  <!-- ② 실시간 인기상담사 (하이스트) — 2열 -->
   <section class="section tier-sec" style="background:var(--soft)">
     <div class="wrap">
       <div class="tier-head">
@@ -591,7 +585,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
         <h3>실시간 인기상담사</h3>
         <span class="tier-plan">하이스트</span>
       </div>
-      <div class="con-grid">
+      <div class="con-grid-2">
         <!-- 이상담 -->
         <div class="con-card">
           <div class="cp"><div class="shot ph"><img src="assets/img/consultants/lee/profile.jpg" alt="이상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div><div class="cbadge">호갱노노 공인 파트너</div></div>
@@ -614,23 +608,9 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
             <div class="cbtns"><a href="consultant-park-profile.html" class="l-btn det">프로필 보기</a><button class="l-btn con" onclick="openConModal('박','박상담','천안 동일하이빌 파크레인 담당')">상담 문의</button></div>
           </div>
         </div>
-        <!-- 최상담 (샘플) -->
-        <div class="con-card">
-          <div class="cp"><div class="shot ph"><img src="" alt="최상담 프로필" onerror="this.style.display='none'"></div><div class="cbadge">호갱노노 공인 파트너</div></div>
-          <div class="ci">
-            <div class="cname">최상담</div>
-            <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
-            <div class="cspec"><dl><dt>전문분야</dt><dd>수도권 북부</dd></dl><dl><dt>경력</dt><dd>7년 · 78건</dd></dl><dl><dt>담당현장</dt><dd>세종 나성 힐스테이트</dd></dl></div>
-            <div class="ctags"><span class="ctag">파주·양주·의정부</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
-            <div class="cbtns"><a href="#" class="l-btn det">프로필 보기</a><button class="l-btn con" onclick="openConModal('최','최상담','세종 나성 힐스테이트 담당')">상담 문의</button></div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
-
-  <!-- 가로 광고 배너 728×90 -->
-  <div class="h-ad-wrap" style="background:var(--soft)"><div class="h-ad-ph"><!-- ▼ 광고 태그 삽입 (728×90) --><span style="font-size:18px">📢</span> 광고 영역 728×90</div></div>
 
   <!-- ③ 시선집중 분양상담사 (스마트) -->
   <section class="section tier-sec" style="background:var(--soft)">
