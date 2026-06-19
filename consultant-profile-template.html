@@ -116,6 +116,9 @@ nav.menu a:hover{color:var(--ink)}
 .about-tag{font-size:13px;font-weight:700;background:var(--soft);color:var(--ink);border-radius:20px;padding:6px 14px;border:1px solid var(--line)}
 
 /* career carousel */
+.cj-img{width:100%;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(150deg,#1b2945 0%,#2d4a7a 100%);flex-shrink:0}
+.cj-img img{width:100%;height:100%;object-fit:cover;display:block}
+.cj-img.ph{background:linear-gradient(150deg,#edf0f5 0%,#d4d9e4 100%)}
 .career-carousel-wrap{position:relative}
 .career-carousel{overflow:hidden}
 .career-track{display:flex;gap:16px;transition:transform .4s cubic-bezier(.25,0,.25,1)}
@@ -427,82 +430,39 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
       <div class="career-carousel" id="careerCarousel">
         <div class="career-track" id="careerTrack">
           <div class="cj cj-active">
-            <div class="cj-head">
-              <div class="cj-yr-block"><div class="cj-yr">NOW</div><div class="cj-yr-sub">담당 현장</div></div>
-              <span class="cj-badge cj-badge-now">담당 중</span>
-            </div>
-            <div class="cj-body">
-              <div class="cj-loc">부산 수영구 광안동</div>
-              <div class="cj-name">광안 센텀 비스타동원</div>
-              <div class="cj-detail">전용 59·84㎡ · 총 525세대 · 분양가 5.1~8.4억</div>
-              <a href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html" class="cj-link">현장 상세 보기 →</a>
-            </div>
+            <div class="cj-img"><img src="단지상세홈페이지/컬리스타일-광안센텀비스타동원/assets/img/aerial.jpg" alt="광안 센텀 비스타동원" onerror="this.parentElement.classList.add('ph');this.remove()"></div>
+            <div class="cj-head"><div class="cj-yr-block"><div class="cj-yr">NOW</div><div class="cj-yr-sub">담당 현장</div></div><span class="cj-badge cj-badge-now">담당 중</span></div>
+            <div class="cj-body"><div class="cj-loc">부산 수영구 광안동</div><div class="cj-name">광안 센텀 비스타동원</div><div class="cj-detail">전용 59·84㎡ · 총 525세대 · 분양가 5.1~8.4억</div><a href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html" class="cj-link">현장 상세 보기 →</a></div>
           </div>
           <div class="cj">
-            <div class="cj-head">
-              <div class="cj-yr-block"><div class="cj-yr">2023</div><div class="cj-yr-sub">분양 완료</div></div>
-              <span class="cj-badge">분양 완료</span>
-            </div>
-            <div class="cj-body">
-              <div class="cj-loc">부산 해운대구 우동</div>
-              <div class="cj-name">해운대 센텀 더샵</div>
-              <div class="cj-detail">전용 84~115㎡ · 총 482세대 · 분양가 9~14억</div>
-            </div>
+            <div class="cj-img"><img src="assets/img/consultants/kim/gallery1.jpg" alt="" onerror="this.parentElement.classList.add('ph');this.remove()"></div>
+            <div class="cj-head"><div class="cj-yr-block"><div class="cj-yr">2023</div><div class="cj-yr-sub">분양 완료</div></div><span class="cj-badge">분양 완료</span></div>
+            <div class="cj-body"><div class="cj-loc">부산 해운대구 우동</div><div class="cj-name">해운대 센텀 더샵</div><div class="cj-detail">전용 84~115㎡ · 총 482세대 · 분양가 9~14억</div></div>
           </div>
           <div class="cj">
-            <div class="cj-head">
-              <div class="cj-yr-block"><div class="cj-yr">2022</div><div class="cj-yr-sub">분양 완료</div></div>
-              <span class="cj-badge">분양 완료</span>
-            </div>
-            <div class="cj-body">
-              <div class="cj-loc">부산 부산진구 서면</div>
-              <div class="cj-name">서면 반도유보라 아이파크</div>
-              <div class="cj-detail">전용 59~84㎡ · 총 310세대 · 분양가 5~8억</div>
-            </div>
+            <div class="cj-img"><img src="assets/img/consultants/kim/gallery2.jpg" alt="" onerror="this.parentElement.classList.add('ph');this.remove()"></div>
+            <div class="cj-head"><div class="cj-yr-block"><div class="cj-yr">2022</div><div class="cj-yr-sub">분양 완료</div></div><span class="cj-badge">분양 완료</span></div>
+            <div class="cj-body"><div class="cj-loc">부산 부산진구 서면</div><div class="cj-name">서면 반도유보라 아이파크</div><div class="cj-detail">전용 59~84㎡ · 총 310세대 · 분양가 5~8억</div></div>
           </div>
           <div class="cj">
-            <div class="cj-head">
-              <div class="cj-yr-block"><div class="cj-yr">2022</div><div class="cj-yr-sub">분양 완료</div></div>
-              <span class="cj-badge">분양 완료</span>
-            </div>
-            <div class="cj-body">
-              <div class="cj-loc">부산 기장군 정관읍</div>
-              <div class="cj-name">기장 정관 힐스테이트</div>
-              <div class="cj-detail">전용 74~99㎡ · 총 654세대 · 분양가 4~7억</div>
-            </div>
+            <div class="cj-img"><img src="assets/img/consultants/kim/gallery3.jpg" alt="" onerror="this.parentElement.classList.add('ph');this.remove()"></div>
+            <div class="cj-head"><div class="cj-yr-block"><div class="cj-yr">2022</div><div class="cj-yr-sub">분양 완료</div></div><span class="cj-badge">분양 완료</span></div>
+            <div class="cj-body"><div class="cj-loc">부산 기장군 정관읍</div><div class="cj-name">기장 정관 힐스테이트</div><div class="cj-detail">전용 74~99㎡ · 총 654세대 · 분양가 4~7억</div></div>
           </div>
           <div class="cj">
-            <div class="cj-head">
-              <div class="cj-yr-block"><div class="cj-yr">2021</div><div class="cj-yr-sub">분양 완료</div></div>
-              <span class="cj-badge">분양 완료</span>
-            </div>
-            <div class="cj-body">
-              <div class="cj-loc">부산 남구 대연동</div>
-              <div class="cj-name">대연 e편한세상 파크</div>
-              <div class="cj-detail">전용 59~84㎡ · 총 398세대 · 분양가 5~8억</div>
-            </div>
+            <div class="cj-img ph"></div>
+            <div class="cj-head"><div class="cj-yr-block"><div class="cj-yr">2021</div><div class="cj-yr-sub">분양 완료</div></div><span class="cj-badge">분양 완료</span></div>
+            <div class="cj-body"><div class="cj-loc">부산 남구 대연동</div><div class="cj-name">대연 e편한세상 파크</div><div class="cj-detail">전용 59~84㎡ · 총 398세대 · 분양가 5~8억</div></div>
           </div>
           <div class="cj">
-            <div class="cj-head">
-              <div class="cj-yr-block"><div class="cj-yr">2020</div><div class="cj-yr-sub">분양 완료</div></div>
-              <span class="cj-badge">분양 완료</span>
-            </div>
-            <div class="cj-body">
-              <div class="cj-loc">경남 창원시 의창구</div>
-              <div class="cj-name">창원 센텀 두산위브</div>
-              <div class="cj-detail">전용 84~115㎡ · 총 572세대 · 분양가 4~6억</div>
-            </div>
+            <div class="cj-img ph"></div>
+            <div class="cj-head"><div class="cj-yr-block"><div class="cj-yr">2020</div><div class="cj-yr-sub">분양 완료</div></div><span class="cj-badge">분양 완료</span></div>
+            <div class="cj-body"><div class="cj-loc">경남 창원시 의창구</div><div class="cj-name">창원 센텀 두산위브</div><div class="cj-detail">전용 84~115㎡ · 총 572세대 · 분양가 4~6억</div></div>
           </div>
           <div class="cj">
-            <div class="cj-head">
-              <div class="cj-yr-block"><div class="cj-yr">2019</div><div class="cj-yr-sub">분양 완료</div></div>
-              <span class="cj-badge">분양 완료</span>
-            </div>
-            <div class="cj-body">
-              <div class="cj-loc">부산 연제구 연산동</div>
-              <div class="cj-name">연산 롯데캐슬 골드포레</div>
-              <div class="cj-detail">전용 59~84㎡ · 총 436세대 · 분양가 4~7억</div>
-            </div>
+            <div class="cj-img ph"></div>
+            <div class="cj-head"><div class="cj-yr-block"><div class="cj-yr">2019</div><div class="cj-yr-sub">분양 완료</div></div><span class="cj-badge">분양 완료</span></div>
+            <div class="cj-body"><div class="cj-loc">부산 연제구 연산동</div><div class="cj-name">연산 롯데캐슬 골드포레</div><div class="cj-detail">전용 59~84㎡ · 총 436세대 · 분양가 4~7억</div></div>
           </div>
         </div>
       </div>
