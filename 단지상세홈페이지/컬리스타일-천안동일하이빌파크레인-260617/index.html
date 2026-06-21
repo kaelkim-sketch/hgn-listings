@@ -607,18 +607,17 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
         <span class="t-r"><b id="pickCnt">0</b> 개 타입</span>
       </div>
 
+      <!-- 액션 (찜 → 관심고객, 구매 → 상담신청) -->
+      <div class="actions">
+        <button class="btn-heart" id="heart" onclick="toggleHeart()" aria-label="관심고객 등록">♡</button>
+        <button class="btn-buy" onclick="openRegModal()">전화상담 · 방문예약 신청</button>
+      </div>
       <!-- 쿠폰/혜택 바 (마켓컬리 스타일) -->
       <a class="coupon-bar" href="javascript:void(0)" onclick="openRegModal()">
         <span class="cpn-badge">🎁 혜택</span>
         <span class="cpn-text">관심고객 등록 시 <strong>스타벅스 상품권 1만원</strong> 증정</span>
         <span class="cpn-arrow">›</span>
       </a>
-
-      <!-- 액션 (찜 → 관심고객, 구매 → 상담신청) -->
-      <div class="actions">
-        <button class="btn-heart" id="heart" onclick="toggleHeart()" aria-label="관심고객 등록">♡</button>
-        <button class="btn-buy" onclick="openRegModal()">전화상담 · 방문예약 신청</button>
-      </div>
       <div class="trust">
         <span>당일 상담 가능</span>
         <span>모델하우스 운영중</span>

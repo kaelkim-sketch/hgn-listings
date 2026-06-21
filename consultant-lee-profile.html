@@ -69,7 +69,7 @@ nav.menu a:hover{color:var(--ink)}
 .total .t-l{font-size:14px;color:#555;font-weight:600}
 .total .t-r{font-size:14px;color:var(--ink);font-weight:800}
 .total .t-r b{font-size:22px}
-.coupon-bar{display:flex;align-items:center;gap:10px;background:#f0f4ff;border:1.5px solid #c5d5fb;border-radius:8px;padding:13px 16px;margin:18px 0 6px;cursor:pointer;text-decoration:none;transition:background .15s}
+.coupon-bar{display:flex;align-items:center;gap:10px;background:#f0f4ff;border:1.5px solid #c5d5fb;border-radius:8px;padding:13px 16px;margin:12px 0 0;cursor:pointer;text-decoration:none;transition:background .15s}
 .coupon-bar:hover{background:#e4ebff}
 .cpn-badge{background:#1d72f3;color:#fff;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:4px;white-space:nowrap;flex-shrink:0}
 .cpn-text{flex:1;font-size:13.5px;color:#222;line-height:1.45}
@@ -244,16 +244,16 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
         <dl><dt>상담 비용</dt><dd>무료 (수수료 없음)</dd></dl>
       </div>
       <div class="total"><div class="t-l">상담 비용</div><div class="t-r"><b>무료</b></div></div>
-      <a class="coupon-bar" href="javascript:void(0)" onclick="openContact()">
-        <span class="cpn-badge">🎁 혜택</span>
-        <span class="cpn-text">첫 상담 신청 시 <strong>스타벅스 기프티콘 1만원</strong> 증정</span>
-        <span class="cpn-arrow">›</span>
-      </a>
       <div class="actions">
         <button class="btn-heart" id="heartBtn" onclick="toggleHeart(this)">♡</button>
         <button class="btn-buy" onclick="openContact()">📞 상담사 연결하기</button>
         <button class="btn-note" onclick="openIq()">문의 남기기</button>
       </div>
+      <a class="coupon-bar" href="javascript:void(0)" onclick="openContact()">
+        <span class="cpn-badge">🎁 혜택</span>
+        <span class="cpn-text">첫 상담 신청 시 <strong>스타벅스 기프티콘 1만원</strong> 증정</span>
+        <span class="cpn-arrow">›</span>
+      </a>
       <div class="trust"><span>상담비 없음</span><span>수수료 없음</span><span>계약까지 함께</span><span>호갱노노 공인</span></div>
     </div>
   </div>
