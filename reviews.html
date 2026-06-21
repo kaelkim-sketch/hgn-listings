@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>상담후기 | 호갱노노 분양 파트너</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{--ink:#16213a;--ink2:#27395c;--gold:#b5985a;--gold-d:#9a7e44;--muted:#8a8f99;--line:#ececec;--soft:#f7f8fa;--radius:10px;--maxw:1050px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Pretendard",-apple-system,sans-serif;color:#222;background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+/* GNB */
+.gnb{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+.gnb .wrap{display:flex;align-items:center;height:64px;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-img{height:32px;width:auto}
+.logo-txt b{font-size:16px;font-weight:800;color:var(--ink)}
+.logo-txt small{font-size:9.5px;letter-spacing:.2em;color:var(--gold);font-weight:700;display:block;margin-top:1px}
+.gnb-back{margin-left:auto;font-size:13.5px;font-weight:600;color:var(--muted)}
+.gnb-back:hover{color:var(--ink)}
+
+/* 페이지 헤더 */
+.page-hero{background:#fff;padding:52px 0 40px;border-bottom:1px solid var(--line)}
+.page-hero .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.hero-txt .eyebrow{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.2em;margin-bottom:10px}
+.hero-txt h1{font-size:34px;font-weight:800;color:var(--ink);letter-spacing:-.03em;margin-bottom:8px}
+.hero-txt p{font-size:15px;color:#666;line-height:1.7}
+.hero-stats{display:flex;gap:32px;flex-shrink:0}
+.hstat{text-align:center}
+.hstat .sv{font-size:32px;font-weight:900;color:var(--ink);letter-spacing:-.03em;line-height:1}
+.hstat .sk{font-size:12px;color:var(--muted);margin-top:4px;font-weight:600}
+.hstat .sv em{font-style:normal;color:var(--gold)}
+.divider-v{width:1px;background:var(--line);align-self:stretch}
+@media(max-width:640px){.page-hero .wrap{flex-direction:column;align-items:flex-start}.hero-stats{gap:20px}.hstat .sv{font-size:26px}.page-hero{padding:36px 0 28px}.hero-txt h1{font-size:26px}}
+
+/* 필터 바 */
+.filter-bar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:64px;z-index:39}
+.filter-inner{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.filter-inner::-webkit-scrollbar{display:none}
+.filter-tabs{display:flex;white-space:nowrap}
+.ftab{display:inline-flex;align-items:center;padding:14px 20px;font-size:13.5px;font-weight:600;color:#777;border-bottom:3px solid transparent;cursor:pointer;transition:all .15s}
+.ftab.active,.ftab:hover{color:var(--ink)}
+.ftab.active{border-bottom-color:var(--ink);font-weight:800}
+
+/* 별점 평균 배너 */
+.score-banner{background:var(--soft);padding:28px 0;border-bottom:1px solid var(--line)}
+.score-inner{display:flex;align-items:center;gap:40px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.score-inner::-webkit-scrollbar{display:none}
+.score-main{display:flex;align-items:center;gap:20px;flex-shrink:0}
+.score-num{font-size:56px;font-weight:900;color:var(--ink);letter-spacing:-.04em;line-height:1}
+.score-meta{}
+.score-stars{font-size:22px;color:var(--gold);letter-spacing:1px;margin-bottom:4px}
+.score-count{font-size:12.5px;color:var(--muted);font-weight:600}
+.score-divider{width:1px;height:60px;background:var(--line);flex-shrink:0}
+.score-bars{flex:1;min-width:200px}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:5px}
+.bar-label{font-size:12px;font-weight:600;color:var(--muted);width:28px;text-align:right;flex-shrink:0}
+.bar-track{flex:1;height:6px;background:#e0e2ea;border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px;background:var(--gold)}
+.bar-pct{font-size:11.5px;color:var(--muted);width:30px;flex-shrink:0}
+.con-scores{display:flex;gap:24px;flex-shrink:0}
+.cscore-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:border-color .15s;text-decoration:none}
+.cscore-card:hover{border-color:var(--ink)}
+.cscore-photo{width:48px;height:48px;border-radius:50%;overflow:hidden;background:#eef0f4;flex-shrink:0}
+.cscore-photo img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.cscore-info .cname{font-size:14px;font-weight:800;color:var(--ink)}
+.cscore-info .cstars{font-size:13px;color:var(--gold);letter-spacing:1px}
+.cscore-info .ccount{font-size:11px;color:var(--muted);font-weight:600}
+@media(max-width:640px){.score-num{font-size:44px}.score-banner{padding:22px 0}.con-scores{gap:12px}.cscore-card{padding:12px 14px}}
+
+/* 리뷰 그리드 */
+.rv-section{padding:52px 0}
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.sec-head h2{font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.sec-head .sort{font-size:13px;color:var(--muted);font-weight:600;cursor:pointer}
+
+/* 상담사 리뷰 블록 */
+.con-rv-block{margin-bottom:56px}
+.con-rv-header{display:flex;align-items:center;gap:16px;padding:20px 24px;background:var(--soft);border-radius:14px;margin-bottom:16px;border:1px solid var(--line)}
+.con-rv-photo{width:60px;height:60px;border-radius:50%;overflow:hidden;background:#e4e6ea;flex-shrink:0}
+.con-rv-photo img{width:100%;height:100%;object-fit:cover;object-position:top}
+.con-rv-info{flex:1}
+.con-rv-name{font-size:18px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.con-rv-sub{font-size:13px;color:var(--muted);margin-top:2px}
+.con-rv-score{display:flex;align-items:center;gap:8px;margin-top:6px}
+.con-rv-score .stars{font-size:16px;color:var(--gold);letter-spacing:1px}
+.con-rv-score .avg{font-size:16px;font-weight:800;color:var(--ink)}
+.con-rv-score .cnt{font-size:12px;color:var(--muted);font-weight:600}
+.con-rv-cta{flex-shrink:0}
+.btn-outline{display:inline-flex;align-items:center;height:40px;padding:0 20px;border:1.5px solid var(--ink);border-radius:30px;font-size:13px;font-weight:700;color:var(--ink);transition:all .15s}
+.btn-outline:hover{background:var(--ink);color:#fff}
+@media(max-width:560px){.con-rv-header{flex-wrap:wrap}.con-rv-cta{width:100%}.btn-outline{width:100%;justify-content:center}}
+
+/* 리뷰 카드 */
+.rv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:580px){.rv-grid{grid-template-columns:1fr}}
+.rv-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;transition:box-shadow .15s}
+.rv-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.07)}
+.rv-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.rv-stars{font-size:14px;color:var(--gold);letter-spacing:1px}
+.rv-date{font-size:11.5px;color:var(--muted);font-weight:600}
+.rv-type{font-size:10.5px;font-weight:700;color:var(--gold-d);background:#fbf6ea;border:1px solid #f0e3c4;border-radius:20px;padding:2px 9px;display:inline-block;margin-bottom:10px}
+.rv-text{font-size:14px;color:#444;line-height:1.8;margin-bottom:14px}
+.rv-author{display:flex;align-items:center;gap:8px;border-top:1px solid var(--soft);padding-top:12px}
+.rv-avatar{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#e0e4f0,#c4cadf);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#6070a0;flex-shrink:0}
+.rv-author-info .rv-name{font-size:13px;font-weight:700;color:var(--ink)}
+.rv-author-info .rv-loc{font-size:11px;color:var(--muted)}
+.rv-helpful{display:flex;align-items:center;gap:6px;margin-left:auto;font-size:12px;color:var(--muted);cursor:pointer}
+.rv-helpful:hover{color:var(--ink)}
+.rv-more-btn{display:flex;align-items:center;justify-content:center;height:48px;width:100%;border:1.5px solid var(--line);border-radius:12px;font-size:14px;font-weight:700;color:var(--muted);background:#fff;cursor:pointer;transition:all .15s;margin-top:14px;font-family:inherit}
+.rv-more-btn:hover{border-color:var(--ink);color:var(--ink)}
+
+/* 바텀 CTA */
+.bottom-cta{background:var(--ink);padding:56px 0;text-align:center}
+.bottom-cta h3{font-size:22px;font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-.02em}
+.bottom-cta p{font-size:14px;color:rgba(255,255,255,.55);margin-bottom:24px}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 32px;background:var(--gold);color:#fff;border-radius:30px;font-size:15px;font-weight:800;border:none;cursor:pointer;font-family:inherit;transition:background .15s}
+.btn-gold:hover{background:var(--gold-d)}
+
+/* 모바일 바 */
+.mbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px 16px;gap:10px}
+.mbar a{flex:1;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800}
+.mbar .m-home{background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+.mbar .m-con{background:var(--ink);color:#fff}
+@media(max-width:640px){.mbar{display:flex}body{padding-bottom:72px}}
+</style>
+</head>
+<body>
+
+<!-- GNB -->
+<header class="gnb">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo.png" alt="호갱노노 분양" class="logo-img" onerror="this.style.display='none'">
+      <div class="logo-txt"><b>호갱노노 분양</b><small>OFFICIAL PARTNER</small></div>
+    </a>
+    <a href="index.html" class="gnb-back">← 메인으로</a>
+  </div>
+</header>
+
+<!-- 페이지 헤더 -->
+<div class="page-hero">
+  <div class="wrap">
+    <div class="hero-txt">
+      <div class="eyebrow">REVIEW</div>
+      <h1>실제 고객 상담후기</h1>
+      <p>호갱노노 인증 파트너 상담사와 함께한 실제 고객 후기입니다.<br>거래 완료 고객의 진짜 경험을 확인하세요.</p>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="sv"><em>4.9</em></div>
+        <div class="sk">평균 별점</div>
+      </div>
+      <div class="divider-v"></div>
+      <div class="hstat">
+        <div class="sv">312<em>+</em></div>
+        <div class="sk">전체 후기</div>
+      </div>
+      <div class="divider-v"></div>
+      <div class="hstat">
+        <div class="sv">98<em>%</em></div>
+        <div class="sk">만족도</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 필터 바 -->
+<div class="filter-bar">
+  <div class="wrap" style="padding:0 20px">
+    <div class="filter-inner">
+      <nav class="filter-tabs">
+        <a class="ftab active" href="#">전체</a>
+        <a class="ftab" href="#">김상담</a>
+        <a class="ftab" href="#">이상담</a>
+        <a class="ftab" href="#">박상담</a>
+        <a class="ftab" href="#">별점 5점</a>
+        <a class="ftab" href="#">최신순</a>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<!-- 별점 배너 -->
+<div class="score-banner">
+  <div class="wrap">
+    <div class="score-inner">
+      <!-- 종합 별점 -->
+      <div class="score-main">
+        <div class="score-num">4.9</div>
+        <div class="score-meta">
+          <div class="score-stars">★★★★★</div>
+          <div class="score-count">312개 후기 기준</div>
+        </div>
+      </div>
+      <div class="score-divider"></div>
+      <!-- 별점 분포 -->
+      <div class="score-bars">
+        <div class="bar-row"><span class="bar-label">5점</span><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div><span class="bar-pct">88%</span></div>
+        <div class="bar-row"><span class="bar-label">4점</span><div class="bar-track"><div class="bar-fill" style="width:9%"></div></div><span class="bar-pct">9%</span></div>
+        <div class="bar-row"><span class="bar-label">3점</span><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><span class="bar-pct">2%</span></div>
+        <div class="bar-row"><span class="bar-label">2점</span><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><span class="bar-pct">1%</span></div>
+        <div class="bar-row"><span class="bar-label">1점</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span class="bar-pct">0%</span></div>
+      </div>
+      <div class="score-divider"></div>
+      <!-- 상담사별 점수 -->
+      <div class="con-scores">
+        <a href="consultant-profile-template.html" class="cscore-card">
+          <div class="cscore-photo">
+            <img src="assets/img/consultants/kim/profile.jpg" alt="김상담" onerror="this.parentElement.style.background='#d0d4e0'">
+          </div>
+          <div class="cscore-info">
+            <div class="cname">김상담</div>
+            <div class="cstars">★★★★★</div>
+            <div class="ccount">4.9 · 127건</div>
+          </div>
+        </a>
+        <a href="consultant-lee-profile.html" class="cscore-card">
+          <div class="cscore-photo">
+            <img src="assets/img/consultants/lee/profile.jpg" alt="이상담" onerror="this.parentElement.style.background='#d0d4e0'">
+          </div>
+          <div class="cscore-info">
+            <div class="cname">이상담</div>
+            <div class="cstars">★★★★★</div>
+            <div class="ccount">4.8 · 89건</div>
+          </div>
+        </a>
+        <a href="consultant-park-profile.html" class="cscore-card">
+          <div class="cscore-photo">
+            <img src="assets/img/consultants/park/profile.jpg" alt="박상담" onerror="this.parentElement.style.background='#d0d4e0'">
+          </div>
+          <div class="cscore-info">
+            <div class="cname">박상담</div>
+            <div class="cstars">★★★★★</div>
+            <div class="ccount">4.9 · 96건</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 리뷰 섹션 -->
+<div class="rv-section">
+  <div class="wrap">
+
+    <!-- 김상담 리뷰 블록 -->
+    <div class="con-rv-block">
+      <div class="con-rv-header">
+        <div class="con-rv-photo">
+          <img src="assets/img/consultants/kim/profile.jpg" alt="김상담" onerror="this.parentElement.style.background='#c8ccd8'">
+        </div>
+        <div class="con-rv-info">
+          <div class="con-rv-name">김상담</div>
+          <div class="con-rv-sub">부산·경남 신규분양 전담 · 12년 경력</div>
+          <div class="con-rv-score">
+            <span class="stars">★★★★★</span>
+            <span class="avg">4.9</span>
+            <span class="cnt">후기 127건</span>
+          </div>
+        </div>
+        <div class="con-rv-cta">
+          <a href="consultant-profile-template.html" class="btn-outline">프로필 보기</a>
+        </div>
+      </div>
+      <div class="rv-grid">
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <span class="rv-stars">★★★★★</span>
+            <span class="rv-date">2026.05.18</span>
+          </div>
+          <span class="rv-type">광안 센텀 비스타동원</span>
+          <div class="rv-text">처음엔 분양이 생소했는데 김상담 파트너님이 A부터 Z까지 친절하게 안내해주셨어요. 청약 일정부터 대출 계획, 현장 방문까지 정말 든든하게 함께해주셔서 계약까지 순탄하게 마무리됐습니다. 수수료 없이 이렇게까지 도움받을 수 있다니 놀랐어요.</div>
+          <div class="rv-author">
+            <div class="rv-avatar">박</div>
+            <div class="rv-author-info">
+              <div class="rv-name">박*미</div>
+              <div class="rv-loc">부산 수영구 · 거래완료</div>
+            </div>
+            <span class="rv-helpful">👍 도움됐어요 12</span>
+          </div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <span class="rv-stars">★★★★★</span>
+            <span class="rv-date">2026.04.30</span>
+          </div>
+          <span class="rv-type">광안 센텀 비스타동원</span>
+          <div class="rv-text">부산 이주를 앞두고 현장 정보를 찾다가 연결됐는데, 타지에서 알아보는 거라 막막했는데 현장 영상도 찍어 보내주시고 필요한 서류까지 직접 안내해주셨어요. 덕분에 직접 내려가지 않고도 계약을 마칠 수 있었습니다. 강추!</div>
+          <div class="rv-author">
+            <div class="rv-avatar">최</div>
+            <div class="rv-author-info">
+              <div class="rv-name">최*훈</div>
+              <div class="rv-loc">서울 강동구 → 부산 이주</div>
+            </div>
+            <span class="rv-helpful">👍 도움됐어요 8</span>
+          </div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <span class="rv-stars">★★★★★</span>
+            <span class="rv-date">2026.04.11</span>
+          </div>
+          <span class="rv-type">광안 센텀 비스타동원</span>
+          <div class="rv-text">분양 상담사분이 이렇게 믿음직스러운 분이 계신다는 게 신기했어요. 인터넷으로 알아볼 때 너무 정보가 뒤죽박죽이었는데 한 번의 상담으로 정리가 됐고, 계약 이후에도 진행 상황을 꼼꼼히 알려주셔서 안심이 됐어요.</div>
+          <div class="rv-author">
+            <div class="rv-avatar">이</div>
+            <div class="rv-author-info">
+              <div class="rv-name">이*진</div>
+              <div class="rv-loc">경남 김해시 · 거래완료</div>
+            </div>
+            <span class="rv-helpful">👍 도움됐어요 5</span>
+          </div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <span class="rv-stars">★★★★☆</span>
+            <span class="rv-date">2026.03.22</span>
+          </div>
+          <span class="rv-type">광안 센텀 비스타동원</span>
+          <div class="rv-text">응답이 빠르고 현장 정보를 자세하게 알려주셔서 좋았습니다. 다음에 추가 투자를 고려하면 다시 연락드릴 것 같아요.</div>
+          <div class="rv-author">
+            <div class="rv-avatar">정</div>
+            <div class="rv-author-info">
+              <div class="rv-name">정*수</div>
+              <div class="rv-loc">부산 해운대구</div>
+            </div>
+            <span class="rv-helpful">👍 도움됐어요 3</span>
+          </div>
+        </div>
+
+      </div>
+      <button class="rv-more-btn">김상담 후기 더 보기 (123건 더)</button>
+    </div>
+
+    <!-- 이상담 리뷰 블록 -->
+    <div class="con-rv-block">
+      <div class="con-rv-header">
+        <div class="con-rv-photo">
+          <img src="assets/img/consultants/lee/profile.jpg" alt="이상담" onerror="this.parentElement.style.background='#c8ccd8'">
+        </div>
+        <div class="con-rv-info">
+          <div class="con-rv-name">이상담</div>
+          <div class="con-rv-sub">수도권 신규분양 전담 · 8년 경력</div>
+          <div class="con-rv-score">
+            <span class="stars">★★★★★</span>
+            <span class="avg">4.8</span>
+            <span class="cnt">후기 89건</span>
+          </div>
+        </div>
+        <div class="con-rv-cta">
+          <a href="consultant-lee-profile.html" class="btn-outline">프로필 보기</a>
+        </div>
+      </div>
+      <div class="rv-grid">
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <span class="rv-stars">★★★★★</span>
+            <span class="rv-date">2026.06.02</span>
+          </div>
+          <span class="rv-type">오산 헤리티지 자이</span>
+          <div class="rv-text">수도권 분양을 알아보다가 오산 헤리티지 자이를 추천받았는데, 학군·교통·입주 시기까지 꼼꼼하게 비교 분석해주셨어요. 막연하게 아파트를 알아보던 게 구체적인 계획이 생겼고 결국 계약도 성공했습니다!</div>
+          <div class="rv-author">
+            <div class="rv-avatar">김</div>
+            <div class="rv-author-info">
+              <div class="rv-name">김*현</div>
+              <div class="rv-loc">경기 수원시 · 거래완료</div>
+            </div>
+            <span class="rv-helpful">👍 도움됐어요 14</span>
+          </div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <span class="rv-stars">★★★★★</span>
+            <span class="rv-date">2026.05.14</span>
+          </div>
+          <span class="rv-type">오산 헤리티지 자이</span>
+          <div class="rv-text">육아휴직 중에 내 집 마련을 준비했는데, 바쁜 와중에도 카카오톡으로 모든 절차를 안내해주셔서 정말 편하게 진행했어요. 청약 일정도 알림 주시고 서류도 같이 준비해주셔서 감사했습니다.</div>
+          <div class="rv-author">
+            <div class="rv-avatar">한</div>
+            <div class="rv-author-info">
+              <div class="rv-name">한*영</div>
+              <div class="rv-loc">경기 성남시 · 거래완료</div>
+            </div>
+            <span class="rv-helpful">👍 도움됐어요 9</span>
+          </div>
+        </div>
+
+      </div>
+      <button class="rv-more-btn">이상담 후기 더 보기 (87건 더)</button>
+    </div>
+
+    <!-- 박상담 리뷰 블록 -->
+    <div class="con-rv-block">
+      <div class="con-rv-header">
+        <div class="con-rv-photo">
+          <img src="assets/img/consultants/park/profile.jpg" alt="박상담" onerror="this.parentElement.style.background='#c8ccd8'">
+        </div>
+        <div class="con-rv-info">
+          <div class="con-rv-name">박상담</div>
+          <div class="con-rv-sub">충청권 신규분양 전담 · 7년 경력</div>
+          <div class="con-rv-score">
+            <span class="stars">★★★★★</span>
+            <span class="avg">4.9</span>
+            <span class="cnt">후기 96건</span>
+          </div>
+        </div>
+        <div class="con-rv-cta">
+          <a href="consultant-park-profile.html" class="btn-outline">프로필 보기</a>
+        </div>
+      </div>
+      <div class="rv-grid">
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <span class="rv-stars">★★★★★</span>
+            <span class="rv-date">2026.06.08</span>
+          </div>
+          <span class="rv-type">천안 동일하이빌 파크레인</span>
+          <div class="rv-text">충청권 현장을 알아보는 중에 박상담 파트너님을 만났는데, 단지 정보는 물론 주변 인프라·개발 호재까지 꿰고 계셔서 믿음이 갔어요. 주변에 분양 알아보는 지인한테 적극 추천했습니다.</div>
+          <div class="rv-author">
+            <div class="rv-avatar">오</div>
+            <div class="rv-author-info">
+              <div class="rv-name">오*준</div>
+              <div class="rv-loc">충남 천안시 · 거래완료</div>
+            </div>
+            <span class="rv-helpful">👍 도움됐어요 17</span>
+          </div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <span class="rv-stars">★★★★★</span>
+            <span class="rv-date">2026.05.26</span>
+          </div>
+          <span class="rv-type">천안 동일하이빌 파크레인</span>
+          <div class="rv-text">처음 분양을 경험하는 신혼부부인데 박상담님이 너무 친절하게 처음부터 끝까지 설명해 주셨어요. 비교 현장도 같이 알려주시고 솔직한 의견도 주셔서 더 신뢰가 갔습니다. 덕분에 좋은 집 마련했어요!</div>
+          <div class="rv-author">
+            <div class="rv-avatar">신</div>
+            <div class="rv-author-info">
+              <div class="rv-name">신*부부</div>
+              <div class="rv-loc">충북 청주시 → 천안 이주</div>
+            </div>
+            <span class="rv-helpful">👍 도움됐어요 11</span>
+          </div>
+        </div>
+
+      </div>
+      <button class="rv-more-btn">박상담 후기 더 보기 (94건 더)</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- 바텀 CTA -->
+<div class="bottom-cta">
+  <div class="wrap">
+    <h3>나도 이런 후기를 남기고 싶다면?</h3>
+    <p>수수료 없는 인증 파트너 상담사와 내 집 마련을 시작해보세요</p>
+    <a href="consultant-profile-template.html" class="btn-gold">무료 상담 신청하기 →</a>
+  </div>
+</div>
+
+<div class="mbar">
+  <a href="index.html" class="m-home">← 홈으로</a>
+  <a href="consultant-profile-template.html" class="m-con">상담 신청</a>
+</div>
+
+</body>
+</html>
