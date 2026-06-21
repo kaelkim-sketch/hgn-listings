@@ -359,29 +359,41 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 /* ── 상담사 카드 프로필 사진 얼굴 상단 기준 ── */
 .cp .shot img{object-position:top center}
 
+/* ── HIT 카드 뱃지 절대위치 ── */
+.lcard-hit .limg{position:relative}
+.lcard-hit .lstag{position:absolute;top:14px;right:14px;z-index:2;font-size:11px;font-weight:800;letter-spacing:.06em;padding:5px 12px;border-radius:20px}
+
 /* ── 세로 광고 사이드바 (데스크톱 1380px+) ── */
-.v-sidebar{display:none;position:fixed;top:160px;left:calc(50% - 525px - 170px);width:154px;z-index:30}
+.v-sidebar{display:none;position:fixed;top:130px;left:calc(50% - 525px - 178px);width:160px;z-index:30}
 @media(min-width:1380px){.v-sidebar{display:block}}
 .vsb-inner{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.08)}
-.vsb-banner{background:linear-gradient(180deg,#1a3966 0%,#2d5598 55%,#1a3966 100%);padding:22px 14px 18px;text-align:center;color:#fff}
-.vsb-tag{font-size:9px;letter-spacing:.18em;color:rgba(255,255,255,.5);font-weight:700;margin-bottom:8px;display:block}
-.vsb-banner h4{font-size:14px;font-weight:800;line-height:1.45;margin-bottom:14px}
+.vsb-banner{background:linear-gradient(180deg,#1a3966 0%,#2d5598 55%,#1a3966 100%);padding:30px 16px 26px;text-align:center;color:#fff;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.vsb-tag{font-size:9px;letter-spacing:.18em;color:rgba(255,255,255,.5);font-weight:700;margin-bottom:12px;display:block}
+.vsb-banner h4{font-size:15px;font-weight:800;line-height:1.5;margin-bottom:18px}
 .vsb-banner h4 em{font-style:normal;color:var(--gold)}
-.vsb-btn{display:block;background:var(--gold);color:#fff;border-radius:6px;padding:9px 12px;font-size:12px;font-weight:800;text-align:center;text-decoration:none;transition:background .15s}
+.vsb-btn{display:block;background:var(--gold);color:#fff;border-radius:6px;padding:11px 14px;font-size:12.5px;font-weight:800;text-align:center;text-decoration:none;transition:background .15s}
 .vsb-btn:hover{background:var(--gold-d)}
-.vsb-stat{padding:12px 12px 14px;text-align:center}
-.vsb-stat p{font-size:10.5px;color:var(--muted);line-height:1.65}
-.vsb-stat strong{color:var(--ink);font-weight:800}
+.vsb-stat{padding:16px 14px 18px;text-align:center}
+.vsb-stat-row{margin-bottom:10px}
+.vsb-stat-row:last-child{margin-bottom:0}
+.vsb-stat-row .vsb-n{font-size:18px;font-weight:800;color:var(--ink);display:block}
+.vsb-stat-row .vsb-l{font-size:10px;color:var(--muted);margin-top:1px;display:block}
 .vsb-divider{height:1px;background:var(--line);margin:0 12px}
+
+/* ── 상담사 쿠폰 바 ── */
+.con-coupon-bar{display:flex;align-items:center;gap:8px;background:#f0f4ff;border:1.5px solid #c5d5fb;border-radius:8px;padding:11px 14px;margin:14px 0 0;cursor:pointer;text-decoration:none;transition:background .15s}
+.con-coupon-bar:hover{background:#e4ebff}
+.con-coupon-bar .cpn-badge{background:#1d72f3;color:#fff;font-size:10px;font-weight:800;padding:2px 8px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.con-coupon-bar .cpn-text{flex:1;font-size:13px;color:#222;line-height:1.4}
+.con-coupon-bar .cpn-text strong{color:#1d72f3;font-weight:800}
+.con-coupon-bar .cpn-arrow{font-size:18px;color:#1d72f3;font-weight:700;flex-shrink:0;line-height:1}
 
 /* ── 모바일 cbadge 숨김 ── */
 @media(max-width:640px){.cbadge{display:none!important}}
-/* ── 모바일 스마트 상담사 그리드 조정 ── */
-@media(max-width:640px){.con-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:420px){.con-grid{grid-template-columns:1fr}}
-/* ── 모바일 스마트 카드 cspec 텍스트 줄바꿈 허용 ── */
+/* ── 모바일 스마트 상담사: 1열 (깨짐 방지 핫픽스) ── */
+@media(max-width:640px){.con-grid{grid-template-columns:1fr}}
+/* ── 모바일 ctags 가로 스크롤 ── */
 @media(max-width:640px){
-  .con-card-sm .cspec dd{white-space:normal;overflow:visible;text-overflow:clip}
   .ctags{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .ctags::-webkit-scrollbar{display:none}
 }
@@ -683,6 +695,11 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
           </div>
           <div>
             <div class="ctags"><span class="ctag">부산경남</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span><span class="ctag">잔여세대 전문</span></div>
+            <a class="con-coupon-bar" href="javascript:void(0)" onclick="openConModal('김','김상담','광안 센텀 비스타동원 담당')">
+              <span class="cpn-badge">🎁 혜택</span>
+              <span class="cpn-text">첫 상담 신청 시 <strong>스타벅스 기프티콘</strong> 증정</span>
+              <span class="cpn-arrow">›</span>
+            </a>
             <div class="cbtns">
               <a href="consultant-profile-template.html" class="l-btn det">프로필 보기</a>
               <button class="l-btn con" onclick="openConModal('김','김상담','광안 센텀 비스타동원 담당')">상담 문의</button>
@@ -708,6 +725,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
             <div class="namerow"><div class="cname">이상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span></div>
             <div class="cspec"><dl><dt>담당현장</dt><dd>오산 헤리티지 자이</dd></dl><dl><dt>경력</dt><dd>8년 · 89건</dd></dl><dl><dt>전문분야</dt><dd>신규분양 · 수도권</dd></dl></div>
             <div class="ctags"><span class="ctag">경기 오산·화성</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
+            <a class="con-coupon-bar" href="javascript:void(0)" onclick="openConModal('이','이상담','오산 헤리티지 자이 담당')"><span class="cpn-badge">🎁 혜택</span><span class="cpn-text">첫 상담 시 <strong>스타벅스 기프티콘</strong> 증정</span><span class="cpn-arrow">›</span></a>
             <div class="cbtns"><a href="consultant-lee-profile.html" class="l-btn det">프로필 보기</a><button class="l-btn con" onclick="openConModal('이','이상담','오산 헤리티지 자이 담당')">상담 문의</button></div>
           </div>
         </div>
@@ -718,6 +736,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
             <div class="namerow"><div class="cname">박상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span></div>
             <div class="cspec"><dl><dt>담당현장</dt><dd>천안 동일하이빌 파크레인</dd></dl><dl><dt>경력</dt><dd>10년 · 103건</dd></dl><dl><dt>전문분야</dt><dd>신규분양 · 충청권</dd></dl></div>
             <div class="ctags"><span class="ctag">천안·아산·세종</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
+            <a class="con-coupon-bar" href="javascript:void(0)" onclick="openConModal('박','박상담','천안 동일하이빌 파크레인 담당')"><span class="cpn-badge">🎁 혜택</span><span class="cpn-text">첫 상담 시 <strong>스타벅스 기프티콘</strong> 증정</span><span class="cpn-arrow">›</span></a>
             <div class="cbtns"><a href="consultant-park-profile.html" class="l-btn det">프로필 보기</a><button class="l-btn con" onclick="openConModal('박','박상담','천안 동일하이빌 파크레인 담당')">상담 문의</button></div>
           </div>
         </div>
@@ -826,7 +845,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
         <div class="n">02</div>
         <span class="tag">FREE</span>
         <h4>상담비 · 수수료 없음</h4>
-        <p>계약 성사 시 건설사로부터 수수료를 받습니다. 고객분께는 단 1원도 청구하지 않습니다.</p>
+        <p>상담비 없음 · 수수료 없음 · 계약까지 무료. 고객에게 어떠한 비용도 청구하지 않습니다.</p>
       </div>
       <div class="wi">
         <div class="n">03</div>
@@ -872,7 +891,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
     </div>
     <div class="ft-info">
       본 사이트는 호갱노노 공인 분양 파트너가 운영합니다. 분양 현장 정보는 입주자 모집공고를 기준으로 하며, 변경될 수 있습니다.<br>
-      분양 성사 시 건설사로부터 수수료를 받는 구조로, 고객에게는 별도 비용을 청구하지 않습니다.
+      무료 상담 · 수수료 없음 — 고객에게는 어떠한 비용도 청구하지 않습니다.
     </div>
   </div>
 </footer>
@@ -883,11 +902,24 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
     <div class="vsb-banner">
       <span class="vsb-tag">ADVERTISEMENT</span>
       <h4>분양 광고<br><em>효과적으로</em><br>집행하세요</h4>
-      <a href="mailto:partner@hogangnono.com" class="vsb-btn">광고 문의</a>
+      <a href="mailto:partner@hogangnono.com" class="vsb-btn">광고 문의하기 →</a>
     </div>
     <div class="vsb-divider"></div>
     <div class="vsb-stat">
-      <p>월 방문자<br><strong>50만+</strong><br>분양 관심 고객</p>
+      <div class="vsb-stat-row">
+        <span class="vsb-n">50만+</span>
+        <span class="vsb-l">월 분양 관심 방문자</span>
+      </div>
+      <div class="vsb-divider" style="margin:12px 0"></div>
+      <div class="vsb-stat-row">
+        <span class="vsb-n">3개</span>
+        <span class="vsb-l">인증 분양 현장</span>
+      </div>
+      <div class="vsb-divider" style="margin:12px 0"></div>
+      <div class="vsb-stat-row">
+        <span class="vsb-n">무료</span>
+        <span class="vsb-l">상담 · 수수료 없음</span>
+      </div>
     </div>
   </div>
 </aside>
