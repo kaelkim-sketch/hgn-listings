@@ -320,6 +320,19 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 .con-card-royal .cbtns{display:flex;gap:8px;margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
 .con-card-royal .cbtns .l-btn{flex:1;height:46px;font-size:13px;font-weight:800}
 @media(max-width:580px){.con-card-royal{grid-template-columns:1fr}.con-card-royal .cp{width:100%}.con-card-royal .cp .shot{min-height:160px;border-radius:0}}
+/* ── 인증 뱃지: 인스타그램 스타일 파란 ✓ ── */
+.cpart{display:inline-flex!important;align-items:center;justify-content:center;width:20px;height:20px;background:#1877f2;border-radius:50%;font-size:0!important;padding:0!important;border:0!important;letter-spacing:0!important;margin:0 0 0 6px!important;flex-shrink:0;vertical-align:middle;position:relative;top:-1px}
+.cpart::after{content:"✓";font-size:11px;font-weight:900;color:#fff;line-height:1}
+.cpart-check{display:none!important}
+/* ── 이름 + 뱃지 가로 배치 래퍼 ── */
+.namerow{display:flex;align-items:center;margin-bottom:8px}
+.namerow .cname{margin-bottom:0!important}
+/* ── listing 카드 제목 1줄 ellipsis ── */
+.lcard .lname{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* ── 전용·세대·입주 수치 줄바꿈 방지 ── */
+.lsp .v{white-space:nowrap}
+/* ── 상담사 카드 프로필 사진 얼굴 상단 기준 ── */
+.cp .shot img{object-position:top center}
 </style>
 </head>
 <body>
@@ -571,8 +584,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
         </div>
         <div class="ci">
           <div>
-            <div class="cname">김상담</div>
-            <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
+            <div class="namerow"><div class="cname">김상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span></div>
             <div class="cspec">
               <dl><dt>담당현장</dt><dd>광안 센텀 비스타동원</dd></dl>
               <dl><dt>경력</dt><dd>12년 · 127건</dd></dl>
@@ -604,8 +616,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
         <div class="con-card-royal">
           <div class="cp"><div class="shot ph"><img src="assets/img/consultants/lee/profile.jpg" alt="이상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div><div class="cbadge">호갱노노 공인 파트너</div></div>
           <div class="ci">
-            <div class="cname">이상담</div>
-            <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
+            <div class="namerow"><div class="cname">이상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span></div>
             <div class="cspec"><dl><dt>담당현장</dt><dd>오산 헤리티지 자이</dd></dl><dl><dt>경력</dt><dd>8년 · 89건</dd></dl><dl><dt>전문분야</dt><dd>신규분양 · 수도권</dd></dl></div>
             <div class="ctags"><span class="ctag">경기 오산·화성</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
             <div class="cbtns"><a href="consultant-lee-profile.html" class="l-btn det">프로필 보기</a><button class="l-btn con" onclick="openConModal('이','이상담','오산 헤리티지 자이 담당')">상담 문의</button></div>
@@ -615,8 +626,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
         <div class="con-card-royal">
           <div class="cp"><div class="shot ph"><img src="assets/img/consultants/park/profile.jpg" alt="박상담 프로필" onload="this.parentElement.classList.remove('ph')" onerror="this.style.display='none'"></div><div class="cbadge">호갱노노 공인 파트너</div></div>
           <div class="ci">
-            <div class="cname">박상담</div>
-            <span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span>
+            <div class="namerow"><div class="cname">박상담</div><span class="cpart"><span class="cpart-check">✓</span>CERTIFIED PARTNER</span></div>
             <div class="cspec"><dl><dt>담당현장</dt><dd>천안 동일하이빌 파크레인</dd></dl><dl><dt>경력</dt><dd>10년 · 103건</dd></dl><dl><dt>전문분야</dt><dd>신규분양 · 충청권</dd></dl></div>
             <div class="ctags"><span class="ctag">천안·아산·세종</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span></div>
             <div class="cbtns"><a href="consultant-park-profile.html" class="l-btn det">프로필 보기</a><button class="l-btn con" onclick="openConModal('박','박상담','천안 동일하이빌 파크레인 담당')">상담 문의</button></div>

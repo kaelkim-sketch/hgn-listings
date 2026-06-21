@@ -60,12 +60,13 @@ nav.menu a:hover{color:var(--ink)}
 /* ── product top ── */
 .product{display:grid;grid-template-columns:400px 1fr;gap:52px;padding:14px 0 60px;align-items:start}
 .gallery .main{aspect-ratio:1/1}
+.gallery .shot img{object-position:top center}
 .gallery .thumbs{display:flex;gap:10px;margin-top:12px}
 .gallery .thumbs .shot{aspect-ratio:1/1;flex:1;cursor:pointer;border:2px solid transparent;transition:border-color .15s}
 .gallery .thumbs .shot.active{border-color:var(--ink)}
 
 /* info panel */
-.info .badge{display:inline-flex;align-items:center;gap:6px;background:#fbf6ea;color:var(--gold-d);border:1px solid #ead9b8;font-size:11px;font-weight:700;letter-spacing:.12em;padding:5px 12px;border-radius:30px}
+.info .badge{display:inline-flex;align-items:center;gap:6px;background:#fbf6ea;color:var(--gold-d);border:1px solid #ead9b8;font-size:11px;font-weight:700;letter-spacing:.12em;padding:5px 12px;border-radius:30px;white-space:nowrap}
 .info h1{font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1.15;color:var(--ink);margin:12px 0 2px}
 .info .sub-title{font-size:15px;color:#666;margin-bottom:18px}
 .score-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:6px}
@@ -289,7 +290,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
   .rv{padding:28px 24px}
   .mbar{display:flex}
   footer{padding-bottom:80px}
-  .hgn-badge{bottom:76px;left:10px}
+  .hgn-badge{display:none}
   .actions{flex-wrap:wrap}
   .btn-note{flex:1 0 100%}
 }
