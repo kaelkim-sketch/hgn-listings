@@ -25,10 +25,14 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{fon
 .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:34px}
 .topbar a{color:#cdd4e0;opacity:.8;transition:opacity .15s}.topbar a:hover{opacity:1}
 .topbar .tb-r a{margin-left:16px}
+.back-bar{background:#f7f8fa;border-bottom:1px solid var(--line)}
+.back-bar .wrap{height:38px;display:flex;align-items:center}
+.back-link{font-size:12.5px;color:var(--muted);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.back-link:hover{color:var(--ink)}
 header.gnb{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
 .gnb .wrap{display:flex;align-items:center;height:64px;gap:24px}
 .logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.logo-img{height:34px;width:auto;display:block}
+.logo-img{height:32px;width:auto;display:block}
 .logo-txt b{font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.01em;display:block}
 .logo-txt small{font-size:10px;letter-spacing:.2em;color:var(--gold);font-weight:700;display:block;margin-top:1px}
 nav.menu{display:flex;gap:18px}
@@ -190,10 +194,13 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
     <div class="tb-r"><a href="#about">소개</a><a href="#listing">분양이력</a><a href="#contact">상담신청</a></div>
   </div>
 </div>
+<div class="back-bar">
+  <div class="wrap"><a href="index.html" class="back-link">← 현장 목록으로</a></div>
+</div>
 <header class="gnb">
   <div class="wrap">
     <a href="index.html" class="logo">
-      <img src="assets/img/logo.png" alt="호갱노노" class="logo-img" onerror="this.style.display='none'">
+      <img src="assets/img/hogangnono_icon.png" alt="호갱노노" class="logo-img" onerror="this.style.display='none'">
       <div class="logo-txt"><b>이상담 분양상담사</b><small>HOGANGNONO OFFICIAL</small></div>
     </a>
     <nav class="menu">

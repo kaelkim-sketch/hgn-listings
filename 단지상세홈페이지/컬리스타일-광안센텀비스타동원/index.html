@@ -61,6 +61,10 @@ button{font-family:inherit;cursor:pointer}
 .topbar a:hover{opacity:1}
 .topbar .tb-r span{margin-left:14px}
 
+.back-bar{background:#f7f8fa;border-bottom:1px solid var(--line)}
+.back-bar .wrap{height:38px;display:flex;align-items:center}
+.back-link{font-size:12.5px;color:var(--muted);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.back-link:hover{color:var(--ink)}
 header.gnb{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
 .gnb .wrap{display:flex;align-items:center;height:64px;gap:28px}
 .logo{display:flex;align-items:center;gap:10px;line-height:1.05}
@@ -464,13 +468,16 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
 </div>
 
 <!-- ===== 헤더 GNB ===== -->
+<div class="back-bar">
+  <div class="wrap"><a href="../../index.html" class="back-link">← 현장 목록으로</a></div>
+</div>
 <header class="gnb">
   <div class="wrap">
     <a href="../../index.html" class="logo">
-      <img src="assets/img/hogangnono_icon.png" class="logo-img" alt="호갱노노 분양" onerror="this.style.display='none'">
+      <img src="assets/img/hogangnono_icon.png" class="logo-img" alt="호갱노노" onerror="this.style.display='none'">
       <div class="logo-txt">
-        <b>호갱노노 분양</b>
-        <small>OFFICIAL PARTNER</small>
+        <b>광안 센텀 비스타동원</b>
+        <small>HOGANGNONO OFFICIAL</small>
       </div>
     </a>
     <nav class="menu">
@@ -602,7 +609,7 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
       <!-- 액션 (찜 → 관심고객, 구매 → 상담신청) -->
       <div class="actions">
         <button class="btn-heart" id="heart" onclick="toggleHeart()" aria-label="관심고객 등록">♡</button>
-        <button class="btn-buy" onclick="openRegModal()">전화상담 · 방문예약 신청</button>
+        <button class="btn-buy" onclick="openRegModal()">관심고객 등록</button>
       </div>
       <!-- 쿠폰/혜택 바 (마켓컬리 스타일) -->
       <a class="coupon-bar" href="javascript:void(0)" onclick="openRegModal()">
@@ -844,32 +851,6 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
   </div>
 </div>
 
-<!-- ===== 담당 분양상담사 ===== -->
-<section class="section consultant-section" id="consultant">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="ey">CERTIFIED PARTNER</div>
-      <h2>담당 분양상담사</h2>
-      <p>이 현장 전담 호갱노노 공인 파트너입니다</p>
-    </div>
-    <div class="consultant-card">
-      <div class="cc-photo" style="position:relative;overflow:hidden;padding:0">
-        <img src="../../assets/img/consultants/kim/profile.jpg" alt="김상담" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 15%;border-radius:50%" onerror="this.style.display='none'">
-      </div>
-      <div class="cc-info">
-        <div class="cc-name">김상담</div>
-        <span class="cc-badge">🏆 호갱노노 공인 파트너</span>
-        <div class="cc-spec">부산·경남 신규 분양 전문 · 12년 경력 · 127건 거래 완료<br>상담비 무료 · 수수료 없음</div>
-      </div>
-      <div class="cc-actions">
-        <button class="cc-btn-call" onclick="location.href='tel:010-0000-0000'">📞 전화 상담</button>
-        <button class="cc-btn-note" onclick="openRegModal()">관심고객 등록</button>
-        <a href="../../consultant-profile-template.html" class="cc-btn-note" style="display:flex;align-items:center;justify-content:center;text-decoration:none">프로필 보기</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== 관심고객 등록 (인라인 폼) ===== -->
 <section class="section" id="register">
   <div class="wrap">
@@ -904,6 +885,32 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
         <div class="agree"><input type="checkbox" id="ragree" required><label for="ragree">개인정보 수집·이용 및 마케팅 활용에 동의합니다 (필수)</label></div>
         <button class="submit" onclick="alert('관심고객 등록이 완료되었습니다. 김상담 상담사가 연락드리겠습니다.')">관심고객 등록하기</button>
         <div class="sub-tel">바로 상담을 원하시면<b>📞 010-0000-0000</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 담당 분양상담사 ===== -->
+<section class="section consultant-section" id="consultant">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="ey">CERTIFIED PARTNER</div>
+      <h2>담당 분양상담사</h2>
+      <p>이 현장 전담 호갱노노 공인 파트너입니다</p>
+    </div>
+    <div class="consultant-card">
+      <div class="cc-photo" style="position:relative;overflow:hidden;padding:0">
+        <img src="../../assets/img/consultants/kim/profile.jpg" alt="김상담" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 15%;border-radius:50%" onerror="this.style.display='none'">
+      </div>
+      <div class="cc-info">
+        <div class="cc-name">김상담</div>
+        <span class="cc-badge">🏆 호갱노노 공인 파트너</span>
+        <div class="cc-spec">부산·경남 신규 분양 전문 · 12년 경력 · 127건 거래 완료<br>상담비 무료 · 수수료 없음</div>
+      </div>
+      <div class="cc-actions">
+        <button class="cc-btn-call" onclick="location.href='tel:010-0000-0000'">📞 전화 상담</button>
+        <button class="cc-btn-note" onclick="openRegModal()">관심고객 등록</button>
+        <a href="../../consultant-profile-template.html" class="cc-btn-note" style="display:flex;align-items:center;justify-content:center;text-decoration:none">프로필 보기</a>
       </div>
     </div>
   </div>
@@ -964,9 +971,9 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
 <!-- 맨위로 -->
 <button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<!-- 직방 공식 로고 (분양 광고 제휴) -->
+<!-- 호갱노노 고정 뱃지 -->
 <a class="zb-badge" href="https://www.hogangnono.com" target="_blank" rel="noopener" aria-label="호갱노노">
-  <span style="font-size:28px;line-height:1">🏠</span>
+  <img src="assets/img/hogangnono_icon.png" alt="호갱노노">
   <span>호갱노노</span>
 </a>
 
