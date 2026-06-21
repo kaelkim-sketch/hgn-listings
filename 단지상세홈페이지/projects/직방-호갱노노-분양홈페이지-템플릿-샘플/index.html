@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>북수원이목지구 디에트르 더 리체Ⅱ | 호갱노노 분양</title>
+<meta name="description" content="서울에서 가장 가까운 북수원, 1,744세대 브랜드 대단지. 경기 수원시 장안구 이목동 일원. 관심고객등록·방문예약 안내." />
+<!--
+  ============================================================
+  직방·호갱노노 분양 랜딩페이지 표준 템플릿 (샘플)
+  - 대상 레퍼런스: http://detre2.urr.kr (북수원이목지구 디에트르 더 리체Ⅱ)
+  - 양식: 호갱노노 브랜드 톤 + 호갱노노 분양 상세식 정보 카드 + 전환(관심고객등록) 구조
+  - 모든 데이터는 예시이며 실제와 다를 수 있음. 이미지는 CSS 플레이스홀더로 대체.
+  - 외부 의존성 없음(단일 파일). 더블클릭으로 바로 열람 가능.
+  ============================================================
+-->
+<style>
+  :root{
+    /* 호갱노노 포인트 컬러 */
+    --hgn:#ff4365;
+    --hgn-dark:#e02e50;
+    --ink:#16181d;
+    --sub:#5b626e;
+    --line:#e7e9ee;
+    --bg:#ffffff;
+    --bg-soft:#f6f7f9;
+    --navy:#141b2e;
+    --gold:#c8a96a;
+    --radius:16px;
+    --maxw:1080px;
+    --shadow:0 6px 24px rgba(20,24,32,.08);
+    --font:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic","맑은 고딕",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+  .sec{padding:72px 0;}
+  .sec-soft{background:var(--bg-soft);}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--hgn);background:rgba(255,67,101,.08);padding:6px 12px;border-radius:999px;margin-bottom:14px;}
+  .sec-title{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.25;}
+  .sec-title small{display:block;font-size:15px;font-weight:600;color:var(--sub);margin-top:10px;}
+  .center{text-align:center;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;border:none;cursor:pointer;border-radius:12px;transition:.15s;font-family:inherit;}
+  .btn-primary{background:var(--hgn);color:#fff;padding:15px 26px;font-size:16px;}
+  .btn-primary:hover{background:var(--hgn-dark);}
+  .btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line);padding:15px 26px;font-size:16px;}
+  .btn-ghost:hover{border-color:var(--hgn);color:var(--hgn);}
+
+  /* ===== Header / GNB ===== */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .gnb{display:flex;align-items:center;justify-content:space-between;height:64px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:-.02em;}
+  .brand .dot{width:26px;height:26px;border-radius:8px;background:var(--hgn);color:#fff;display:grid;place-items:center;font-size:14px;font-weight:900;}
+  .brand .by{font-size:11px;color:var(--sub);font-weight:600;}
+  .nav{display:flex;gap:26px;}
+  .nav a{font-size:15px;font-weight:600;color:var(--sub);}
+  .nav a:hover{color:var(--ink);}
+  .gnb-cta{display:flex;align-items:center;gap:12px;}
+  .tel{font-weight:800;font-size:16px;color:var(--ink);white-space:nowrap;}
+  .tel small{display:block;font-size:11px;color:var(--sub);font-weight:600;}
+  .btn-sm{padding:10px 18px;font-size:14px;border-radius:10px;}
+  .hamb{display:none;font-size:24px;background:none;border:none;cursor:pointer;}
+
+  /* ===== Hero ===== */
+  .hero{position:relative;color:#fff;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;background:
+      linear-gradient(180deg,rgba(10,14,24,.55),rgba(10,14,24,.78)),
+      linear-gradient(135deg,#2a3656,#141b2e 70%);}
+  .hero-bg::after{content:"";position:absolute;inset:0;opacity:.18;background:
+      radial-gradient(circle at 20% 30%,#ff4365,transparent 40%),
+      radial-gradient(circle at 80% 70%,#3a7bd5,transparent 45%);}
+  .hero-inner{position:relative;padding:96px 0 84px;}
+  .hero .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+  .hero .badge{font-size:13px;font-weight:700;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 13px;border-radius:999px;}
+  .hero h1{font-size:46px;line-height:1.18;font-weight:800;letter-spacing:-.03em;}
+  .hero h1 .pt{color:#ffd0d9;}
+  .hero .lead{margin-top:18px;font-size:18px;color:rgba(255,255,255,.86);max-width:560px;}
+  .hero .cta-row{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;}
+  .hero .notice{margin-top:26px;font-size:13px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:8px;}
+  .hero-spec{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.16);border-radius:16px;overflow:hidden;margin-top:44px;}
+  .hero-spec div{background:rgba(20,27,46,.55);padding:20px 16px;text-align:center;}
+  .hero-spec .k{font-size:12px;color:rgba(255,255,255,.7);font-weight:600;}
+  .hero-spec .v{font-size:22px;font-weight:800;margin-top:6px;letter-spacing:-.02em;}
+
+  /* ===== 호갱노노 분양 요약 카드 ===== */
+  .offer-card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:26px;margin-top:-56px;position:relative;z-index:5;}
+  .offer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:18px;}
+  .offer-top .tag{font-size:12px;font-weight:800;color:#fff;background:var(--hgn);padding:6px 12px;border-radius:8px;}
+  .offer-top .name{font-size:20px;font-weight:800;letter-spacing:-.02em;}
+  .offer-top .stage{font-size:13px;color:var(--sub);font-weight:600;}
+  .offer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .offer-grid .cell .k{font-size:13px;color:var(--sub);font-weight:600;}
+  .offer-grid .cell .v{font-size:18px;font-weight:800;margin-top:4px;letter-spacing:-.02em;}
+  .offer-grid .cell .v small{font-size:12px;font-weight:600;color:var(--sub);}
+
+  /* ===== generic cards ===== */
+  .cards{display:grid;gap:18px;margin-top:34px;}
+  .c3{grid-template-columns:repeat(3,1fr);}
+  .c4{grid-template-columns:repeat(4,1fr);}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:.15s;}
+  .card:hover{box-shadow:var(--shadow);transform:translateY(-2px);}
+  .card .ic{width:44px;height:44px;border-radius:12px;background:rgba(255,67,101,.1);color:var(--hgn);display:grid;place-items:center;font-size:20px;font-weight:900;margin-bottom:14px;}
+  .card h3{font-size:18px;font-weight:800;letter-spacing:-.02em;}
+  .card p{font-size:14px;color:var(--sub);margin-top:8px;}
+
+  /* image placeholder */
+  .ph{border-radius:var(--radius);background:linear-gradient(135deg,#e9edf3,#dfe4ec);display:grid;place-items:center;color:#9aa3b2;font-size:13px;font-weight:600;border:1px dashed #c7cedb;}
+
+  /* ===== 사업개요 table ===== */
+  .table{width:100%;border-collapse:collapse;margin-top:30px;font-size:15px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+  .table th,.table td{padding:16px 20px;text-align:left;border-bottom:1px solid var(--line);}
+  .table th{background:var(--bg-soft);width:170px;font-weight:700;color:var(--sub);}
+  .table tr:last-child th,.table tr:last-child td{border-bottom:none;}
+
+  /* ===== 입지 split ===== */
+  .split{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;margin-top:34px;}
+  .split .ph{aspect-ratio:4/3;}
+  .loc-list{list-style:none;display:flex;flex-direction:column;gap:14px;}
+  .loc-list li{display:flex;gap:12px;align-items:flex-start;}
+  .loc-list .n{flex:none;width:26px;height:26px;border-radius:8px;background:var(--navy);color:#fff;font-size:13px;font-weight:800;display:grid;place-items:center;}
+  .loc-list b{font-size:16px;}
+  .loc-list span{display:block;font-size:14px;color:var(--sub);margin-top:2px;}
+
+  /* ===== 평형 tabs ===== */
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px;justify-content:center;}
+  .tab{padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font-weight:700;font-size:14px;cursor:pointer;color:var(--sub);transition:.15s;}
+  .tab.on{background:var(--hgn);color:#fff;border-color:var(--hgn);}
+  .unit{display:none;margin-top:28px;}
+  .unit.on{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;}
+  .unit .ph{aspect-ratio:1/1;}
+  .unit .meta h3{font-size:26px;font-weight:800;}
+  .unit .meta .sub{color:var(--sub);font-size:14px;margin-top:4px;}
+  .unit .spec{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .unit .spec .b{background:var(--bg-soft);border-radius:12px;padding:14px 16px;}
+  .unit .spec .b .k{font-size:12px;color:var(--sub);font-weight:600;}
+  .unit .spec .b .v{font-size:17px;font-weight:800;margin-top:3px;}
+
+  /* ===== premium dark ===== */
+  .prem{background:var(--navy);color:#fff;}
+  .prem .sec-title{color:#fff;}
+  .prem .eyebrow{color:#ffd0d9;background:rgba(255,67,101,.16);}
+  .prem .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);}
+  .prem .card h3{color:#fff;}
+  .prem .card p{color:rgba(255,255,255,.66);}
+  .prem .card .ic{background:rgba(200,169,106,.18);color:var(--gold);}
+
+  /* ===== form ===== */
+  .form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:34px;align-items:start;}
+  .form-side h2{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.25;}
+  .form-side p{color:var(--sub);margin-top:14px;font-size:15px;}
+  .form-side .telbox{margin-top:26px;background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .form-side .telbox .k{font-size:13px;color:var(--sub);font-weight:600;}
+  .form-side .telbox .v{font-size:28px;font-weight:900;color:var(--hgn);letter-spacing:-.02em;margin-top:4px;}
+  form{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow);}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px;}
+  .field label .req{color:var(--hgn);}
+  .field label .opt{color:var(--sub);font-weight:600;font-size:12px;}
+  .field input,.field select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;font-family:inherit;background:#fff;}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--hgn);box-shadow:0 0 0 3px rgba(255,67,101,.12);}
+  .agree{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--sub);background:var(--bg-soft);padding:14px;border-radius:10px;margin-bottom:8px;}
+  .agree input{margin-top:3px;flex:none;}
+  .agree a{color:var(--hgn);font-weight:700;text-decoration:underline;}
+  .form .btn-primary{width:100%;margin-top:10px;padding:16px;font-size:17px;}
+  .privacy-note{font-size:12px;color:var(--sub);margin-top:14px;line-height:1.6;}
+
+  /* ===== footer ===== */
+  footer{background:#0e1016;color:rgba(255,255,255,.6);font-size:13px;padding:46px 0 110px;}
+  footer .disc{border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px 20px;line-height:1.7;font-size:12.5px;color:rgba(255,255,255,.55);}
+  footer .meta{margin-top:22px;display:flex;flex-wrap:wrap;gap:6px 20px;}
+  footer .meta b{color:rgba(255,255,255,.85);font-weight:700;}
+  footer .copy{margin-top:18px;font-size:12px;color:rgba(255,255,255,.4);}
+
+  /* ===== mobile sticky CTA ===== */
+  .mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px 14px;gap:10px;box-shadow:0 -4px 18px rgba(0,0,0,.08);}
+  .mobile-bar a{flex:1;text-align:center;padding:14px;border-radius:12px;font-weight:800;font-size:15px;}
+  .mobile-bar .call{background:var(--bg-soft);color:var(--ink);border:1px solid var(--line);}
+  .mobile-bar .reg{background:var(--hgn);color:#fff;}
+
+  /* ===== responsive ===== */
+  @media (max-width:860px){
+    .nav,.gnb-cta .tel{display:none;}
+    .hamb{display:block;}
+    .hero h1{font-size:32px;}
+    .hero-spec{grid-template-columns:repeat(2,1fr);}
+    .offer-grid{grid-template-columns:repeat(2,1fr);}
+    .c3,.c4{grid-template-columns:1fr 1fr;}
+    .split,.unit.on,.form-wrap{grid-template-columns:1fr;}
+    .sec{padding:54px 0;}
+    .sec-title{font-size:24px;}
+    .mobile-bar{display:flex;}
+  }
+  @media (max-width:520px){
+    .c3,.c4,.offer-grid,.hero-spec,.unit .spec{grid-template-columns:1fr;}
+    .hero h1{font-size:28px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header>
+  <div class="wrap gnb">
+    <a class="brand" href="#top">
+      <span class="dot">디</span>
+      <span>디에트르 더 리체Ⅱ<span class="by"> · 호갱노노 분양</span></span>
+    </a>
+    <nav class="nav">
+      <a href="#offer">분양정보</a>
+      <a href="#overview">사업개요</a>
+      <a href="#location">입지환경</a>
+      <a href="#premium">프리미엄</a>
+      <a href="#units">세대안내</a>
+      <a href="#complex">단지안내</a>
+    </nav>
+    <div class="gnb-cta">
+      <div class="tel">1666-1640<small>대표상담 (사전예약제)</small></div>
+      <a href="#register" class="btn btn-primary btn-sm">관심고객등록</a>
+      <button class="hamb" aria-label="메뉴" onclick="document.querySelector('.nav').classList.toggle('mopen')">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-inner">
+    <div class="badge-row">
+      <span class="badge">경기 수원시 장안구 이목동</span>
+      <span class="badge">지하 3층 ~ 지상 29층 · 17개동</span>
+      <span class="badge">대우건설 디에트르</span>
+    </div>
+    <h1>서울에서 가장 가까운 북수원,<br /><span class="pt">1,744세대</span> 브랜드 대단지</h1>
+    <p class="lead">북수원 이목지구 택지개발지구에 들어서는 디에트르 더 리체Ⅱ.
+       광역 교통·미래산업·교육 인프라를 두루 갖춘 대단지 신축 아파트입니다.</p>
+    <div class="cta-row">
+      <a href="#register" class="btn btn-primary">관심고객등록하고 분양정보 받기</a>
+      <a href="tel:1666-1640" class="btn btn-ghost">📞 1666-1640 전화상담</a>
+    </div>
+    <div class="notice">ℹ️ 방문객 증가로 방문·상담은 사전 예약제로 운영됩니다. 관심고객등록 시 일정 안내드립니다.</div>
+
+    <div class="hero-spec">
+      <div><div class="k">총 세대수</div><div class="v">1,744세대</div></div>
+      <div><div class="k">규모</div><div class="v">17개동</div></div>
+      <div><div class="k">최고 층수</div><div class="v">지상 29층</div></div>
+      <div><div class="k">전용면적</div><div class="v">84~141㎡</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 호갱노노식 분양 요약 카드 ===== -->
+<div class="wrap" id="offer">
+  <div class="offer-card">
+    <div class="offer-top">
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span class="tag">분양중</span>
+        <span class="name">북수원이목지구 디에트르 더 리체Ⅱ</span>
+      </div>
+      <span class="stage">민영 · 일반공급 / 잔여세대 상담 가능</span>
+    </div>
+    <div class="offer-grid">
+      <div class="cell"><div class="k">분양가</div><div class="v">상담 시 안내 <small>(입주자모집공고 기준)</small></div></div>
+      <div class="cell"><div class="k">공급 면적</div><div class="v">전용 84~141㎡</div></div>
+      <div class="cell"><div class="k">총 세대수</div><div class="v">1,744<small> 세대</small></div></div>
+      <div class="cell"><div class="k">입주 예정</div><div class="v">상담 시 안내</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 입지환경 ===== -->
+<section class="sec" id="location">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">LOCATION</span>
+      <h2 class="sec-title">서울 접근성과 미래가치를 모두 갖춘 입지
+        <small>광역 교통의 중심 · 첨단 미래산업 · 도보권 교육 인프라</small></h2>
+    </div>
+    <div class="split">
+      <div class="ph">단지 위치도 / 광역 입지도 이미지 영역</div>
+      <ul class="loc-list">
+        <li><span class="n">01</span><div><b>광역 교통의 중심</b>
+          <span>서울과 가장 가까운 북수원 권역, 주요 간선도로·광역 교통망 이용이 편리한 입지.</span></div></li>
+        <li><span class="n">02</span><div><b>첨단 미래산업의 중심</b>
+          <span>북수원 테크노밸리, R&amp;D 사이언스파크 등 미래산업 인프라 인접.</span></div></li>
+        <li><span class="n">03</span><div><b>에듀 특화단지</b>
+          <span>도보권 교육 인프라를 갖춘 교육특구 생활권.</span></div></li>
+        <li><span class="n">04</span><div><b>미니신도시급 택지지구</b>
+          <span>수원 이목지구 택지개발지구의 계획된 정주 환경.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 사업개요 ===== -->
+<section class="sec sec-soft" id="overview">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">OVERVIEW</span>
+      <h2 class="sec-title">사업개요</h2>
+    </div>
+    <table class="table">
+      <tr><th>단지명</th><td>북수원이목지구 디에트르 더 리체Ⅱ</td></tr>
+      <tr><th>대지위치</th><td>경기도 수원시 장안구 이목동 910번지 일원</td></tr>
+      <tr><th>규모</th><td>지하 3층 ~ 지상 최고 29층, 17개동</td></tr>
+      <tr><th>총 세대수</th><td>1,744세대</td></tr>
+      <tr><th>전용면적</th><td>84㎡ · 115㎡ · 116㎡ · 139㎡ · 141㎡ (타입별 상이)</td></tr>
+      <tr><th>대표문의</th><td>1666-1640 (사전 예약제 운영)</td></tr>
+    </table>
+    <p style="font-size:12px;color:var(--sub);margin-top:14px;">※ 상기 내용은 인허가 및 사업 추진 과정에서 변경될 수 있으며, 자세한 사항은 입주자 모집공고를 확인하시기 바랍니다.</p>
+  </div>
+</section>
+
+<!-- ===== 프리미엄 ===== -->
+<section class="sec prem" id="premium">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">PREMIUM</span>
+      <h2 class="sec-title">디에트르 더 리체Ⅱ만의 프리미엄</h2>
+    </div>
+    <div class="cards c3">
+      <div class="card"><div class="ic">🏙</div><h3>대단지 브랜드 가치</h3><p>1,744세대 규모의 대우건설 디에트르 브랜드 대단지.</p></div>
+      <div class="card"><div class="ic">🚍</div><h3>광역 교통망</h3><p>서울 접근성이 우수한 북수원 권역의 광역 교통 입지.</p></div>
+      <div class="card"><div class="ic">🔬</div><h3>미래산업 배후수요</h3><p>테크노밸리·R&amp;D 사이언스파크 등 양질의 배후 수요.</p></div>
+      <div class="card"><div class="ic">📚</div><h3>교육특구 생활권</h3><p>도보권 교육 인프라를 갖춘 에듀 특화 생활환경.</p></div>
+      <div class="card"><div class="ic">🌳</div><h3>택지지구 정주환경</h3><p>계획적으로 조성된 미니신도시급 택지지구.</p></div>
+      <div class="card"><div class="ic">🏡</div><h3>특화 평면·커뮤니티</h3><p>84C 다락 등 공간 활용 특화 평면 및 커뮤니티 설계.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 세대안내 (평형) ===== -->
+<section class="sec" id="units">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">UNIT</span>
+      <h2 class="sec-title">세대안내
+        <small>실수요 중심의 다양한 평형 구성 (전용면적 기준)</small></h2>
+    </div>
+    <div class="tabs">
+      <button class="tab on" onclick="selUnit(0,this)">84A</button>
+      <button class="tab" onclick="selUnit(1,this)">84B</button>
+      <button class="tab" onclick="selUnit(2,this)">84C</button>
+      <button class="tab" onclick="selUnit(3,this)">115A</button>
+      <button class="tab" onclick="selUnit(4,this)">116B</button>
+      <button class="tab" onclick="selUnit(5,this)">139A</button>
+      <button class="tab" onclick="selUnit(6,this)">141B</button>
+    </div>
+
+    <div class="unit on">
+      <div class="ph">84A 타입 평면도 영역</div>
+      <div class="meta"><h3>84A 타입</h3><div class="sub">전용 84㎡ · 실수요 대표 평형</div>
+        <div class="spec">
+          <div class="b"><div class="k">전용면적</div><div class="v">약 84㎡</div></div>
+          <div class="b"><div class="k">공급유형</div><div class="v">민영 일반공급</div></div>
+          <div class="b"><div class="k">방/욕실</div><div class="v">3룸 / 2욕실</div></div>
+          <div class="b"><div class="k">세대수</div><div class="v">상담 시 안내</div></div>
+        </div></div>
+    </div>
+    <div class="unit">
+      <div class="ph">84B 타입 평면도 영역</div>
+      <div class="meta"><h3>84B 타입</h3><div class="sub">전용 84㎡ · 채광·환기 특화</div>
+        <div class="spec">
+          <div class="b"><div class="k">전용면적</div><div class="v">약 84㎡</div></div>
+          <div class="b"><div class="k">공급유형</div><div class="v">민영 일반공급</div></div>
+          <div class="b"><div class="k">방/욕실</div><div class="v">3룸 / 2욕실</div></div>
+          <div class="b"><div class="k">세대수</div><div class="v">상담 시 안내</div></div>
+        </div></div>
+    </div>
+    <div class="unit">
+      <div class="ph">84C(다락) 타입 평면도 영역</div>
+      <div class="meta"><h3>84C 타입 (다락 특화)</h3><div class="sub">전용 84㎡ · 다락 공간 활용 특화 평면</div>
+        <div class="spec">
+          <div class="b"><div class="k">전용면적</div><div class="v">약 84㎡ +다락</div></div>
+          <div class="b"><div class="k">특화</div><div class="v">다락 서비스 공간</div></div>
+          <div class="b"><div class="k">방/욕실</div><div class="v">3룸 / 2욕실</div></div>
+          <div class="b"><div class="k">세대수</div><div class="v">상담 시 안내</div></div>
+        </div></div>
+    </div>
+    <div class="unit">
+      <div class="ph">115A 타입 평면도 영역</div>
+      <div class="meta"><h3>115A 타입</h3><div class="sub">전용 115㎡ · 중대형 와이드 평면</div>
+        <div class="spec">
+          <div class="b"><div class="k">전용면적</div><div class="v">약 115㎡</div></div>
+          <div class="b"><div class="k">공급유형</div><div class="v">민영 일반공급</div></div>
+          <div class="b"><div class="k">방/욕실</div><div class="v">4룸 / 2욕실</div></div>
+          <div class="b"><div class="k">세대수</div><div class="v">상담 시 안내</div></div>
+        </div></div>
+    </div>
+    <div class="unit">
+      <div class="ph">116B 타입 평면도 영역</div>
+      <div class="meta"><h3>116B 타입</h3><div class="sub">전용 116㎡ · 중대형 4Bay 평면</div>
+        <div class="spec">
+          <div class="b"><div class="k">전용면적</div><div class="v">약 116㎡</div></div>
+          <div class="b"><div class="k">공급유형</div><div class="v">민영 일반공급</div></div>
+          <div class="b"><div class="k">방/욕실</div><div class="v">4룸 / 2욕실</div></div>
+          <div class="b"><div class="k">세대수</div><div class="v">상담 시 안내</div></div>
+        </div></div>
+    </div>
+    <div class="unit">
+      <div class="ph">139A 타입 평면도 영역</div>
+      <div class="meta"><h3>139A 타입</h3><div class="sub">전용 139㎡ · 대형 프리미엄 평면</div>
+        <div class="spec">
+          <div class="b"><div class="k">전용면적</div><div class="v">약 139㎡</div></div>
+          <div class="b"><div class="k">공급유형</div><div class="v">민영 일반공급</div></div>
+          <div class="b"><div class="k">방/욕실</div><div class="v">4룸 / 2욕실</div></div>
+          <div class="b"><div class="k">세대수</div><div class="v">상담 시 안내</div></div>
+        </div></div>
+    </div>
+    <div class="unit">
+      <div class="ph">141B 타입 평면도 영역</div>
+      <div class="meta"><h3>141B 타입</h3><div class="sub">전용 141㎡ · 최상위 펜트형 평면</div>
+        <div class="spec">
+          <div class="b"><div class="k">전용면적</div><div class="v">약 141㎡</div></div>
+          <div class="b"><div class="k">공급유형</div><div class="v">민영 일반공급</div></div>
+          <div class="b"><div class="k">방/욕실</div><div class="v">4룸 / 2욕실</div></div>
+          <div class="b"><div class="k">세대수</div><div class="v">상담 시 안내</div></div>
+        </div></div>
+    </div>
+    <p style="font-size:12px;color:var(--sub);margin-top:24px;text-align:center;">※ 평형·세대수·평면 구성은 예시이며 실제 공급 내용은 입주자 모집공고를 기준으로 합니다.</p>
+  </div>
+</section>
+
+<!-- ===== 단지안내 ===== -->
+<section class="sec sec-soft" id="complex">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">COMPLEX</span>
+      <h2 class="sec-title">단지안내</h2>
+    </div>
+    <div class="cards c3">
+      <div class="card" style="padding:0;overflow:hidden;">
+        <div class="ph" style="aspect-ratio:16/10;border:none;border-radius:0;">단지 배치도 영역</div>
+        <div style="padding:22px;"><h3>단지설계</h3><p>동 간 거리와 조경을 고려한 단지 배치 설계.</p></div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden;">
+        <div class="ph" style="aspect-ratio:16/10;border:none;border-radius:0;">커뮤니티 시설 영역</div>
+        <div style="padding:22px;"><h3>커뮤니티</h3><p>입주민 생활 편의를 위한 커뮤니티 시설 구성.</p></div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden;">
+        <div class="ph" style="aspect-ratio:16/10;border:none;border-radius:0;">스마트 시스템 영역</div>
+        <div style="padding:22px;"><h3>시스템</h3><p>주거 편의를 높이는 스마트·보안 시스템 적용.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 관심고객등록 폼 ===== -->
+<section class="sec" id="register">
+  <div class="wrap">
+    <div class="form-wrap">
+      <div class="form-side">
+        <span class="eyebrow">REGISTER</span>
+        <h2>관심고객등록하고<br />분양 일정을 가장 먼저 받아보세요</h2>
+        <p>등록해 주신 정보로 분양 일정·방문 예약·잔여세대 등 주요 사항을 안내해 드립니다.
+           방문·상담은 사전 예약제로 운영됩니다.</p>
+        <div class="telbox">
+          <div class="k">대표 상담 전화</div>
+          <div class="v">1666-1640</div>
+        </div>
+      </div>
+
+      <form onsubmit="onSubmit(event)">
+        <div class="field">
+          <label>이름 <span class="req">*</span></label>
+          <input type="text" name="name" placeholder="성함을 입력해 주세요" required />
+        </div>
+        <div class="field">
+          <label>연락처 <span class="req">*</span></label>
+          <input type="tel" name="phone" placeholder="010-0000-0000" pattern="[0-9\-]{9,13}" required />
+        </div>
+        <div class="field">
+          <label>관심 평형 <span class="opt">(선택)</span></label>
+          <select name="type">
+            <option value="">선택 안 함</option>
+            <option>84㎡ (84A/84B/84C)</option>
+            <option>115㎡ / 116㎡</option>
+            <option>139㎡ / 141㎡</option>
+          </select>
+        </div>
+        <div class="agree">
+          <input type="checkbox" id="ag" required />
+          <label for="ag" style="font-weight:600;margin:0;">[필수] 개인정보 수집·이용 및 분양대행사 제3자 제공에 동의합니다.
+            <a href="#privacy">전문보기</a></label>
+        </div>
+        <button type="submit" class="btn btn-primary">관심고객등록 신청</button>
+        <p class="privacy-note">수집항목(필수): 이름, 연락처 / 이용목적: 분양 상담·일정 안내, 광고성 정보 전달 /
+          보유기간: 정당 계약 완료 후 또는 동의 철회 시 파기. 자세한 내용은 개인정보 처리방침을 따릅니다.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer id="privacy">
+  <div class="wrap">
+    <div class="disc">
+      ※ 본 홍보물은 소비자의 이해를 돕기 위해 제작된 참고용 자료로, 실제와 차이가 있을 수 있습니다.
+      본 이미지·평면도·조감도 등은 연출·예시이며 실제 시공 결과와 다를 수 있습니다.
+      분양가·공급 세대수·일정 등 모든 사항은 사업 추진 과정에서 변경될 수 있으며,
+      정확한 내용은 <b>입주자 모집공고</b>를 확인하시기 바랍니다.
+      본 페이지는 표준 템플릿 시연용 샘플이며, 실제 청약·계약의 근거가 되지 않습니다.
+    </div>
+    <div class="meta">
+      <span><b>단지명</b> 북수원이목지구 디에트르 더 리체Ⅱ</span>
+      <span><b>위치</b> 경기 수원시 장안구 이목동 910번지 일원</span>
+      <span><b>대표문의</b> 1666-1640</span>
+    </div>
+    <div class="copy">본 페이지는 직방·호갱노노 분양 랜딩 표준 템플릿(샘플)입니다. 레퍼런스 구조 출처: detre2.urr.kr</div>
+  </div>
+</footer>
+
+<!-- ===== Mobile sticky CTA ===== -->
+<div class="mobile-bar">
+  <a class="call" href="tel:1666-1640">📞 전화상담</a>
+  <a class="reg" href="#register">관심고객등록</a>
+</div>
+
+<script>
+  // 평형 탭 전환
+  function selUnit(i, el){
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+    el.classList.add('on');
+    document.querySelectorAll('.unit').forEach((u,idx)=>u.classList.toggle('on', idx===i));
+  }
+  // 폼 제출 (샘플: 실제 전송 없이 동작 시연)
+  function onSubmit(e){
+    e.preventDefault();
+    const f = e.target;
+    if(!f.name.value.trim() || !f.phone.value.trim()){ alert('이름과 연락처를 입력해 주세요.'); return; }
+    alert('[샘플] 관심고객등록이 접수되었습니다.\n실제 운영 시 분양대행사 DB/CRM으로 연동됩니다.');
+    f.reset();
+  }
+</script>
+<style>.nav.mopen{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);padding:8px 20px;}
+.nav.mopen a{padding:12px 0;border-bottom:1px solid var(--line);}</style>
+</body>
+</html>

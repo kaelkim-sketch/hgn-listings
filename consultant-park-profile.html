@@ -30,7 +30,8 @@ nav.menu{display:flex;gap:18px}nav.menu a{font-size:14px;font-weight:600;color:#
 .score-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:6px}.score-row .stars{font-size:20px;color:var(--gold);letter-spacing:2px}.score-row .sn{font-size:22px;font-weight:800;color:var(--ink)}.score-row .sc{font-size:13px;color:var(--muted)}
 .spec{width:100%;border-top:1px solid var(--line);margin-top:6px;font-size:14px}.spec dl{display:flex;padding:11px 0;border-bottom:1px solid var(--soft)}.spec dt{flex:0 0 96px;color:var(--muted);font-weight:600}.spec dd{flex:1;color:#333}
 .total{display:flex;justify-content:space-between;align-items:flex-end;border-top:2px solid var(--ink);margin-top:18px;padding-top:16px}.total .t-l{font-size:14px;color:#555;font-weight:600}.total .t-r{font-size:14px;color:var(--ink);font-weight:800}.total .t-r b{font-size:22px}
-.actions{display:flex;gap:10px;margin-top:18px}.btn-heart{flex:0 0 56px;height:56px;border:1px solid #d6dae1;border-radius:6px;background:#fff;font-size:22px;color:#c2c7cf;display:flex;align-items:center;justify-content:center}.btn-heart.on{color:var(--sale);border-color:#f3c7c7;background:#fdf3f3}.btn-buy{flex:1;height:56px;border:none;border-radius:6px;background:var(--ink);color:#fff;font-size:17px;font-weight:800;transition:background .15s}.btn-buy:hover{background:var(--ink2)}.btn-note{flex:1;height:56px;border:1.5px solid var(--ink);border-radius:6px;background:#fff;color:var(--ink);font-size:15px;font-weight:800;transition:all .15s}.btn-note:hover{background:var(--soft)}
+.coupon-bar{display:flex;align-items:center;gap:10px;background:#f0f4ff;border:1.5px solid #c5d5fb;border-radius:8px;padding:13px 16px;margin:18px 0 6px;cursor:pointer;text-decoration:none;transition:background .15s}.coupon-bar:hover{background:#e4ebff}.cpn-badge{background:#1d72f3;color:#fff;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:4px;white-space:nowrap;flex-shrink:0}.cpn-text{flex:1;font-size:13.5px;color:#222;line-height:1.45}.cpn-text strong{color:#1d72f3;font-weight:800}.cpn-arrow{font-size:20px;color:#1d72f3;font-weight:700;flex-shrink:0;line-height:1}
+.actions{display:flex;gap:10px;margin-top:6px}.btn-heart{flex:0 0 56px;height:56px;border:1px solid #d6dae1;border-radius:6px;background:#fff;font-size:22px;color:#c2c7cf;display:flex;align-items:center;justify-content:center}.btn-heart.on{color:var(--sale);border-color:#f3c7c7;background:#fdf3f3}.btn-buy{flex:1;height:56px;border:none;border-radius:6px;background:var(--ink);color:#fff;font-size:17px;font-weight:800;transition:background .15s}.btn-buy:hover{background:var(--ink2)}.btn-note{flex:1;height:56px;border:1.5px solid var(--ink);border-radius:6px;background:#fff;color:var(--ink);font-size:15px;font-weight:800;transition:all .15s}.btn-note:hover{background:var(--soft)}
 .trust{display:flex;gap:16px;margin-top:16px;font-size:12px;color:var(--muted);flex-wrap:wrap}.trust span::before{content:"✓ ";color:var(--gold)}
 .tabs{position:sticky;top:64px;z-index:40;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.tabs .wrap{display:flex}.tabs a{flex:1;text-align:center;padding:17px 0;font-size:15px;font-weight:700;color:#9aa0ab;position:relative;transition:color .15s}.tabs a.active{color:var(--ink)}.tabs a.active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--ink)}
 .section{padding:64px 0;scroll-margin-top:130px}.section:nth-child(even){background:var(--soft)}
@@ -102,6 +103,11 @@ footer{background:var(--ink);color:#aeb6c4;font-size:13px;padding:46px 0 110px}f
         <dl><dt>상담 비용</dt><dd>무료 (수수료 없음)</dd></dl>
       </div>
       <div class="total"><div class="t-l">상담 비용</div><div class="t-r"><b>무료</b></div></div>
+      <a class="coupon-bar" href="javascript:void(0)" onclick="openContact()">
+        <span class="cpn-badge">🎁 혜택</span>
+        <span class="cpn-text">첫 상담 신청 시 <strong>스타벅스 기프티콘 1만원</strong> 증정</span>
+        <span class="cpn-arrow">›</span>
+      </a>
       <div class="actions">
         <button class="btn-heart" id="heartBtn" onclick="toggleHeart(this)">♡</button>
         <button class="btn-buy" onclick="openContact()">📞 상담사 연결하기</button>

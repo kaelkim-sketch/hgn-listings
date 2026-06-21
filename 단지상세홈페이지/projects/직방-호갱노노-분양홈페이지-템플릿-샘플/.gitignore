@@ -1,0 +1,5 @@
+# 배포 결과물 — 별도 git 저장소(buksuwon-dietre-riche)라 product-docs에서는 추적 제외
+deploy/
+
+# 컬리스타일 현장별 배포본 — 각각 별도 git 저장소(gwangan-vista/osan-heritage/cheonan 등)라 추적 제외
+컬리스타일-*/
