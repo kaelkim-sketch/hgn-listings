@@ -115,6 +115,14 @@ nav.menu a:hover{color:var(--ink)}
 .price-box .was s{margin-right:6px}
 .price-box .note{margin-top:10px;font-size:12.5px;color:#8a6b2e;background:#fbf6ea;border:1px solid #f0e3c4;padding:8px 11px;border-radius:6px}
 
+/* ── 쿠폰/혜택 바 (마켓컬리 스타일) ── */
+.coupon-bar{display:flex;align-items:center;gap:10px;background:#f0f4ff;border:1.5px solid #c5d5fb;border-radius:8px;padding:13px 16px;margin:18px 0 6px;cursor:pointer;text-decoration:none;transition:background .15s}
+.coupon-bar:hover{background:#e4ebff}
+.cpn-badge{background:#1d72f3;color:#fff;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.cpn-text{flex:1;font-size:13.5px;color:#222;line-height:1.45}
+.cpn-text strong{color:#1d72f3;font-weight:800}
+.cpn-arrow{font-size:20px;color:#1d72f3;font-weight:700;flex-shrink:0;line-height:1}
+
 /* 정보 테이블 (Kurly 배송/판매자/포장… 구조) */
 .spec{width:100%;border-top:1px solid var(--line);margin-top:6px;font-size:14px}
 .spec dl{display:flex;padding:11px 0;border-bottom:1px solid var(--soft)}
@@ -590,6 +598,13 @@ footer .ft-info .disc{color:#6f7889;max-width:none;margin:14px 0 0;font-size:11.
         <span class="t-l">선택한 관심 타입</span>
         <span class="t-r"><b id="pickCnt">0</b> 개 타입</span>
       </div>
+
+      <!-- 쿠폰/혜택 바 (마켓컬리 스타일) -->
+      <a class="coupon-bar" href="javascript:void(0)" onclick="openRegModal()">
+        <span class="cpn-badge">🎁 혜택</span>
+        <span class="cpn-text">관심고객 등록 시 <strong>스타벅스 아메리카노 증정</strong>, 무료배송까지</span>
+        <span class="cpn-arrow">›</span>
+      </a>
 
       <!-- 액션 (찜 → 관심고객, 구매 → 상담신청) -->
       <div class="actions">
