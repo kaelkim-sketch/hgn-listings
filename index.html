@@ -100,14 +100,21 @@ nav.menu a:hover{color:var(--ink)}
 
 /* ── 지역 아이콘 바 (아정당 카테고리 스타일) ── */
 .region-icons-sec{background:#eef0f4;padding:18px 0 22px;border-bottom:1px solid var(--line)}
-.ri-scroll{display:flex;justify-content:space-between;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:0;padding-bottom:2px}
-.ri-scroll::-webkit-scrollbar{display:none}
-.ri-item{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0;flex:1;padding:10px 6px 8px;cursor:pointer;border-radius:10px;transition:background .12s;text-decoration:none;color:inherit;flex-shrink:0}
+/* 데스크톱: 한 줄 flex */
+.ri-scroll{display:flex;justify-content:space-between;gap:0;padding-bottom:2px}
+.ri-item{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0;flex:1;padding:10px 6px 8px;cursor:pointer;border-radius:10px;transition:background .12s;text-decoration:none;color:inherit}
 .ri-item:hover{background:rgba(0,0,0,.05)}
 .ri-icon{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;background:#fff;border:1.5px solid #e0e2e8;box-shadow:0 2px 10px rgba(0,0,0,.07)}
 .ri-item span{font-size:12px;font-weight:700;color:#444;white-space:nowrap;text-align:center}
 .ri-item.ri-active .ri-icon{background:var(--ink);border-color:var(--ink);box-shadow:0 4px 14px rgba(22,33,58,.25)}
 .ri-item.ri-active span{color:var(--ink)}
+/* 모바일: 아정당처럼 4열 그리드, 스크롤 없이 한 화면 배치 */
+@media(max-width:640px){
+  .ri-scroll{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .ri-item{flex:none;width:100%}
+  .ri-icon{width:46px;height:46px;font-size:19px}
+  .ri-item span{font-size:11px}
+}
 
 /* ── 섹션 공통 ── */
 .section{padding:72px 0;scroll-margin-top:70px}
@@ -306,7 +313,9 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 /* ── 하이스트 2열 그리드 ── */
 .listing-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .con-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:420px){.listing-grid-2{grid-template-columns:1fr}.con-grid-2{grid-template-columns:1fr}}
+/* 모바일에서 로얄 2열 → 1열 (버튼 깨짐 방지) */
+@media(max-width:580px){.listing-grid-2{grid-template-columns:1fr}}
+@media(max-width:420px){.con-grid-2{grid-template-columns:1fr}}
 /* ── HIT 단지 카드 lspecs 보정 ── */
 .lcard-hit .lspecs{display:flex;gap:0;border-top:1px solid var(--soft);border-bottom:1px solid var(--soft);margin-bottom:16px}
 .lcard-hit .lsp{flex:1;padding:10px 0;text-align:center}
@@ -347,7 +356,7 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 .con-card-royal .cbtns .l-btn{flex:1;height:46px;font-size:13px;font-weight:800}
 @media(max-width:580px){.con-card-royal{grid-template-columns:1fr}.con-card-royal .cp{width:100%}.con-card-royal .cp .shot{min-height:160px;border-radius:0}}
 /* ── 인증 뱃지: 인스타그램 스타일 파란 ✓ ── */
-.cpart{display:inline-flex!important;align-items:center;justify-content:center;width:20px;height:20px;background:#1877f2;border-radius:50%;font-size:0!important;padding:0!important;border:0!important;letter-spacing:0!important;margin:0 0 0 6px!important;flex-shrink:0;vertical-align:middle;position:relative;top:-1px}
+.cpart{display:inline-flex!important;align-items:center;justify-content:center;width:20px;height:20px;background:var(--gold);border-radius:50%;font-size:0!important;padding:0!important;border:0!important;letter-spacing:0!important;margin:0 0 0 6px!important;flex-shrink:0;vertical-align:middle;position:relative;top:-1px}
 .cpart::after{content:"✓";font-size:11px;font-weight:900;color:#fff;line-height:1}
 .cpart-check{display:none!important}
 /* ── 이름 + 뱃지 가로 배치 래퍼 ── */
@@ -425,10 +434,12 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
         <a class="rtab" href="#">서울</a>
         <a class="rtab" href="#">경기</a>
         <a class="rtab" href="#">인천</a>
+        <a class="rtab" href="#">강원</a>
         <a class="rtab" href="#">충청·대전</a>
         <a class="rtab" href="#">대구·경북</a>
         <a class="rtab" href="#">부산·경남</a>
-        <a class="rtab" href="#">전라</a>
+        <a class="rtab" href="#">울산</a>
+        <a class="rtab" href="#">광주·전라</a>
         <a class="rtab" href="#">제주</a>
       </nav>
     </div>
@@ -469,10 +480,12 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
       <a class="ri-item" href="#"><div class="ri-icon">🏙️</div><span>서울</span></a>
       <a class="ri-item" href="#"><div class="ri-icon">🏗️</div><span>경기</span></a>
       <a class="ri-item" href="#"><div class="ri-icon">🌊</div><span>인천</span></a>
+      <a class="ri-item" href="#"><div class="ri-icon">🌲</div><span>강원</span></a>
       <a class="ri-item" href="#"><div class="ri-icon">🌆</div><span>충청·대전</span></a>
       <a class="ri-item" href="#"><div class="ri-icon">⛰️</div><span>대구·경북</span></a>
       <a class="ri-item" href="#"><div class="ri-icon">🌁</div><span>부산·경남</span></a>
-      <a class="ri-item" href="#"><div class="ri-icon">🌾</div><span>전라</span></a>
+      <a class="ri-item" href="#"><div class="ri-icon">🏭</div><span>울산</span></a>
+      <a class="ri-item" href="#"><div class="ri-icon">🌾</div><span>광주·전라</span></a>
       <a class="ri-item" href="#"><div class="ri-icon">🌿</div><span>제주</span></a>
     </div>
   </div>
