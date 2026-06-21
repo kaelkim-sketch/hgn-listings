@@ -31,12 +31,14 @@ button{font-family:inherit;cursor:pointer}
 .shot img{width:100%;height:100%;object-fit:cover;display:block}
 .shot.ph{background:linear-gradient(135deg,#1b2945 0%,#33486f 45%,#7c8aa3 100%)}
 
-/* ── 상단바 ── */
-.topbar{background:var(--ink);color:#cdd4e0;font-size:12px}
-.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:34px}
-.topbar a{color:#cdd4e0;opacity:.8;transition:opacity .15s}
-.topbar a:hover{opacity:1}
-.topbar .tb-r a{margin-left:16px}
+/* ── 상단바 (아정당 스타일 라이트) ── */
+.topbar{background:#f5f6f8;color:#666;font-size:12.5px;border-bottom:1px solid #e8e9ec}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px}
+.topbar .tb-l{display:flex;gap:18px}
+.topbar a{color:#666;font-weight:500;transition:color .15s}
+.topbar a:hover{color:var(--ink)}
+.topbar .tb-r{display:flex;align-items:center;gap:14px}
+.topbar .tb-cta{background:var(--ink);color:#fff!important;padding:5px 14px;border-radius:20px;font-size:11.5px;font-weight:700}
 
 /* ── GNB ── */
 header.gnb{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
@@ -64,24 +66,48 @@ nav.menu a:hover{color:var(--ink)}
 .drawer-panel a{display:block;padding:15px 4px;font-size:17px;font-weight:600;border-bottom:1px solid var(--line)}
 .drawer-close{position:absolute;top:16px;right:18px;font-size:26px;background:none;border:none;cursor:pointer}
 
-/* ── 히어로 ── */
-.hero{background:linear-gradient(162deg,#0e1729 0%,#162240 60%,#1e2f58 100%);padding:80px 0 72px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(50% 50% at 90% 10%,rgba(181,152,90,.16),transparent 60%),radial-gradient(40% 40% at 5% 90%,rgba(87,83,196,.12),transparent 60%)}
-.hero .wrap{position:relative;z-index:1;text-align:center}
-.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(181,152,90,.12);border:1px solid rgba(181,152,90,.3);border-radius:30px;padding:7px 18px;margin-bottom:24px}
-.hero .eyebrow img{height:20px;width:auto}
-.hero .eyebrow span{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:.16em}
-.hero h1{font-size:48px;font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1.15;margin-bottom:16px}
-.hero h1 em{font-style:normal;color:var(--gold)}
-.hero .lead{font-size:16px;color:#7080a0;margin-bottom:40px;line-height:1.7}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.hero-btn-main{height:54px;padding:0 32px;border-radius:30px;background:var(--ink2);color:#fff;border:none;font-size:15px;font-weight:800;font-family:inherit;cursor:pointer;transition:background .15s}
-.hero-btn-main:hover{background:#1e3060}
-.hero-btn-sub{height:54px;padding:0 32px;border-radius:30px;background:transparent;color:var(--gold);border:1.5px solid rgba(181,152,90,.5);font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:all .15s;text-decoration:none;display:flex;align-items:center}
-.hero-btn-sub:hover{background:rgba(181,152,90,.08)}
-.hero-stats{display:flex;justify-content:center;gap:48px;margin-top:56px;padding-top:40px;border-top:1px solid rgba(255,255,255,.07)}
-.hs .hv{font-size:28px;font-weight:800;color:#fff;letter-spacing:-.03em}
-.hs .hk{font-size:12px;color:#445060;margin-top:4px;font-weight:600}
+/* ── 지역 탭 바 ── */
+.region-bar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:64px;z-index:39}
+.region-bar-inner{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.region-bar-inner::-webkit-scrollbar{display:none}
+.region-tabs{display:flex;white-space:nowrap;min-width:max-content}
+.rtab{display:inline-flex;align-items:center;padding:14px 20px;font-size:13.5px;font-weight:600;color:#777;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;transition:all .15s;text-decoration:none}
+.rtab:hover{color:var(--ink)}
+.rtab.active{color:var(--ink);border-bottom-color:var(--ink);font-weight:800}
+@media(max-width:720px){.rtab{padding:12px 14px;font-size:13px}}
+
+/* ── 히어로 배너 섹션 ── */
+.hero-area{background:#f0f2f5;padding:20px 0 0}
+.hero-banner-wrap{display:grid;grid-template-columns:1fr 200px;gap:12px;align-items:stretch}
+.main-banner{background:linear-gradient(118deg,#192d58 0%,#2b4a8a 100%);border-radius:14px;padding:36px 44px 36px 40px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;min-height:190px}
+.main-banner::after{content:"";position:absolute;right:0;top:0;width:260px;height:100%;background:url('') no-repeat right center;background-size:contain;opacity:.08;pointer-events:none}
+.mb-eye{font-size:11px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.2em;margin-bottom:10px}
+.main-banner h2{font-size:26px;font-weight:800;color:#fff;line-height:1.3;letter-spacing:-.03em;margin-bottom:8px}
+.main-banner h2 em{font-style:normal;color:var(--gold)}
+.main-banner p{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:22px;line-height:1.65}
+.mb-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);font-size:13px;font-weight:800;padding:10px 22px;border-radius:30px;width:fit-content;transition:all .15s;text-decoration:none}
+.mb-cta:hover{background:#eef1ff;color:var(--ink)}
+.mb-cta::after{content:"→";font-size:14px}
+.side-banners{display:flex;flex-direction:column;gap:10px}
+.sb-card{border-radius:12px;padding:16px 18px;flex:1;display:flex;flex-direction:column;justify-content:center;cursor:pointer;transition:transform .12s,box-shadow .12s;text-decoration:none}
+.sb-card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
+.sb-card.sb1{background:linear-gradient(135deg,#1a6b42,#25934f)}
+.sb-card.sb2{background:linear-gradient(135deg,#4a2e8a,#6b46c1)}
+.sb-label{font-size:9.5px;color:rgba(255,255,255,.55);font-weight:700;letter-spacing:.18em;margin-bottom:5px}
+.sb-title{font-size:15px;font-weight:800;color:#fff;line-height:1.35}
+@media(max-width:680px){.hero-banner-wrap{grid-template-columns:1fr}.side-banners{flex-direction:row}.sb-card{flex:1}.main-banner{padding:26px 24px;min-height:160px}.main-banner h2{font-size:22px}}
+@media(max-width:420px){.side-banners{flex-direction:column}}
+
+/* ── 지역 아이콘 바 (아정당 카테고리 스타일) ── */
+.region-icons-sec{background:#f0f2f5;padding:16px 0 20px}
+.ri-scroll{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:0;padding-bottom:2px}
+.ri-scroll::-webkit-scrollbar{display:none}
+.ri-item{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:80px;padding:10px 6px 8px;cursor:pointer;border-radius:10px;transition:background .12s;text-decoration:none;color:inherit;flex-shrink:0}
+.ri-item:hover{background:rgba(0,0,0,.05)}
+.ri-icon{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:21px;background:#fff;border:1.5px solid #e4e6ea;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.ri-item span{font-size:11.5px;font-weight:700;color:#444;white-space:nowrap}
+.ri-item.active .ri-icon{background:var(--ink);border-color:var(--ink)}
+.ri-item.active span{color:var(--ink)}
 
 /* ── 섹션 공통 ── */
 .section{padding:72px 0;scroll-margin-top:70px}
@@ -264,17 +290,17 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
   .con-card{grid-template-columns:1fr;max-width:480px}
 }
 @media(max-width:640px){
-  nav.menu,.gnb-cta,.topbar .tb-r{display:none}
+  nav.menu,.gnb-cta,.topbar .tb-r,.topbar .tb-l a:nth-child(n+3){display:none}
   .hamb{display:block}
   .gnb .wrap{height:56px}
-  .hero{padding:52px 0 48px}
-  .hero h1{font-size:28px}
-  .hero-stats{gap:20px}
-  .hs .hv{font-size:22px}
+  .region-bar{top:56px}
   .listing-grid{grid-template-columns:1fr 1fr}
   .why-grid{grid-template-columns:1fr 1fr}
   .mbar{display:flex}
   footer{padding-bottom:80px}
+}
+@media(max-width:480px){
+  .topbar .tb-l{display:none}
 }
 @media(max-width:420px){.why-grid{grid-template-columns:1fr}}
 /* ── 하이스트 2열 그리드 ── */
@@ -337,14 +363,19 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 </head>
 <body>
 
-<!-- ── 상단바 ── -->
+<!-- ── 상단바 (아정당 스타일) ── -->
 <div class="topbar">
   <div class="wrap">
-    <span>호갱노노 공식 분양 파트너 안내센터</span>
-    <div class="tb-r">
+    <div class="tb-l">
       <a href="#listings">분양현장</a>
-      <a href="#consultant">상담사</a>
-      <a href="consultant-profile-template.html">상담 문의</a>
+      <a href="#consultant">인증상담사</a>
+      <a href="#">분양뉴스</a>
+      <a href="#">이벤트</a>
+      <a href="#">상담후기</a>
+    </div>
+    <div class="tb-r">
+      <a href="consultant-profile-template.html">공지사항</a>
+      <a href="consultant-profile-template.html" class="tb-cta">상담 문의</a>
     </div>
   </div>
 </div>
@@ -385,21 +416,67 @@ footer .ft-info{padding-top:22px;line-height:1.9;font-size:12px;color:#8b93a3}
 </div>
 
 
-<!-- ── 히어로 ── -->
-<section class="hero">
-  <div class="wrap">
-    <div class="eyebrow">
-      <img src="assets/img/logo.png" alt="" onerror="this.style.display='none'">
-      <span>호갱노노 공인 분양 파트너</span>
-    </div>
-    <h1>검증된 현장, 믿을 수 있는 상담<br><em>분양은 파트너와 함께</em></h1>
-    <p class="lead">호갱노노 공인 파트너가 현장부터 계약까지 직접 안내합니다.<br>상담비 없음 · 수수료 없음 · 끝까지 함께합니다.</p>
-    <div class="hero-btns">
-      <button class="hero-btn-main" onclick="document.getElementById('listings').scrollIntoView({behavior:'smooth'})">지금 현장 보기 →</button>
-      <a href="consultant-profile-template.html" class="hero-btn-sub">상담사 연결하기</a>
+<!-- ── 지역 탭 바 ── -->
+<div class="region-bar">
+  <div class="wrap" style="padding:0 20px">
+    <div class="region-bar-inner">
+      <nav class="region-tabs">
+        <a class="rtab active" href="#">전체</a>
+        <a class="rtab" href="#">서울</a>
+        <a class="rtab" href="#">경기</a>
+        <a class="rtab" href="#">인천</a>
+        <a class="rtab" href="#">충청·대전</a>
+        <a class="rtab" href="#">대구·경북</a>
+        <a class="rtab" href="#">부산·경남</a>
+        <a class="rtab" href="#">전라</a>
+        <a class="rtab" href="#">제주</a>
+      </nav>
     </div>
   </div>
-</section>
+</div>
+
+<!-- ── 히어로 배너 ── -->
+<div class="hero-area">
+  <div class="wrap">
+    <div class="hero-banner-wrap">
+      <!-- 메인 배너 -->
+      <div class="main-banner">
+        <div class="mb-eye">HOGANGNONO OFFICIAL PARTNER</div>
+        <h2>분양은 <em>호갱노노</em><br>파트너와 함께</h2>
+        <p>검증된 현장 · 수수료 없음 · 상담비 없음<br>현장부터 계약까지 전담 파트너가 함께합니다</p>
+        <a href="#listings" class="mb-cta">현장 보러가기</a>
+      </div>
+      <!-- 사이드 배너 2개 -->
+      <div class="side-banners">
+        <a href="#consultant" class="sb-card sb1">
+          <div class="sb-label">CERTIFIED</div>
+          <div class="sb-title">인증 상담사<br>연결하기</div>
+        </a>
+        <a href="consultant-profile-template.html" class="sb-card sb2">
+          <div class="sb-label">FREE CONSULT</div>
+          <div class="sb-title">무료 상담<br>신청하기</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 지역 아이콘 바 ── -->
+<div class="region-icons-sec">
+  <div class="wrap">
+    <div class="ri-scroll">
+      <a class="ri-item active" href="#"><div class="ri-icon">🏠</div><span>전체</span></a>
+      <a class="ri-item" href="#"><div class="ri-icon">🏙️</div><span>서울</span></a>
+      <a class="ri-item" href="#"><div class="ri-icon">🏗️</div><span>경기</span></a>
+      <a class="ri-item" href="#"><div class="ri-icon">🌊</div><span>인천</span></a>
+      <a class="ri-item" href="#"><div class="ri-icon">🌆</div><span>충청·대전</span></a>
+      <a class="ri-item" href="#"><div class="ri-icon">⛰️</div><span>대구·경북</span></a>
+      <a class="ri-item" href="#"><div class="ri-icon">🌁</div><span>부산·경남</span></a>
+      <a class="ri-item" href="#"><div class="ri-icon">🌾</div><span>전라</span></a>
+      <a class="ri-item" href="#"><div class="ri-icon">🌿</div><span>제주</span></a>
+    </div>
+  </div>
+</div>
 
 
 <!-- ══════════════════════════════════════════
