@@ -57,7 +57,7 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 .pib-company{font-weight:600;color:var(--txt)}
 .pib-dot{width:3px;height:3px;border-radius:50%;background:var(--muted);flex-shrink:0}
 .pib-bio{font-size:13.5px;color:var(--muted);margin-top:8px;padding-top:8px;border-top:1px solid var(--line);line-height:1.5;font-style:italic}
-.hnp-bio{font-size:13px;color:rgba(255,255,255,.72);margin-top:6px;font-style:italic;line-height:1.5}
+.hnp-bio{font-size:13px;color:var(--muted);margin-top:6px;font-style:italic;line-height:1.5}
 
 /* ── TABS (모바일, sticky) ── */
 .profile-tabs{background:#fff;border-bottom:2px solid var(--line);position:sticky;top:60px;z-index:40;overflow-x:auto;scrollbar-width:none}
@@ -131,8 +131,32 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 .hnp-right{text-align:right;flex-shrink:0;padding-top:2px}
 .hnp-rating{font-size:14px;font-weight:800;color:var(--brand);white-space:nowrap}
 
-/* profile summary card (경력+전문분야+배지 통합) */
+/* profile summary card (홈용 통합 컴팩트) */
 .ps-card{padding:18px 22px}
+
+/* 상담사 정보 탭 전용 — 상세 카드 */
+.bio-card{padding:20px 24px}
+.bio-quote{font-size:16px;font-weight:800;color:var(--ink);line-height:1.5;border-left:3px solid var(--brand);padding-left:14px;margin-bottom:12px}
+.bio-detail{font-size:14px;color:#555;line-height:1.75}
+
+.badge-detail-card{padding:20px 22px}
+.badge-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.badge-item{text-align:center;padding:10px 4px}
+.badge-circle{width:56px;height:56px;border-radius:50%;background:linear-gradient(145deg,#FFFDF5,#FFF8DC);border:2.5px solid #F59E0B;box-shadow:0 0 0 4px rgba(245,158,11,.12);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:22px}
+.badge-name{font-size:12px;font-weight:800;color:var(--ink);margin-bottom:3px;word-break:keep-all}
+.badge-desc{font-size:11px;color:var(--muted);line-height:1.55;word-break:keep-all}
+
+.career-detail-card{padding:20px 24px}
+.career-row{display:flex;align-items:center}
+.career-main{flex:1;min-width:0;padding:6px 14px 6px 0;border-right:1px solid var(--line)}
+.career-yrs{font-size:22px;font-weight:900;color:var(--brand);line-height:1;letter-spacing:-.02em;white-space:nowrap}
+.career-yrs-sub{font-size:12px;color:var(--muted);font-weight:600;margin-top:5px}
+.career-stat{flex:1;min-width:0;padding:6px 0 6px 14px}
+.career-stat+.career-stat{border-left:1px solid var(--line)}
+.career-stat-val{font-size:22px;font-weight:800;color:var(--brand);line-height:1.1;margin-bottom:3px;letter-spacing:-.02em;white-space:nowrap}
+.career-stat-label{font-size:12px;color:var(--muted);font-weight:600}
+
+.spec-detail-card{padding:20px 24px}
 .ps-stats{display:flex;align-items:stretch;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line)}
 .ps-stat{flex:1;text-align:center;padding:4px 0}
 .ps-stat+.ps-stat{border-left:1px solid var(--line)}
@@ -360,7 +384,13 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
   .apt-grid::-webkit-scrollbar{display:none}
   .apt-grid .apt-link{flex:0 0 62%;max-width:240px}
   .activity-vids{grid-template-columns:repeat(2,1fr)}
-  .activity-card,.ps-card,.reviews-card,.apts-card{padding:16px}
+  .activity-card,.ps-card,.reviews-card,.apts-card,.bio-card,.badge-detail-card,.career-detail-card,.spec-detail-card{padding:16px}
+  .career-main{padding-right:10px}
+  .career-stat{padding-left:10px}
+  .badge-grid{grid-template-columns:repeat(5,1fr)}
+  .badge-circle{width:44px;height:44px;font-size:18px}
+  .badge-name{font-size:11px}
+  .badge-desc{display:none}
   .contact-card{padding:20px 16px 18px}
   .cc-btns{flex-direction:row}
   .gnb-cta-btn,.gnb-icons{display:none}
@@ -373,6 +403,9 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
   .hero-mobile{height:270px}
   .hero-slogan{font-size:20px}
   .ps-val{font-size:17px}
+  .career-yrs,.career-stat-val{font-size:17px}
+  .career-main{padding-right:8px}
+  .career-stat{padding-left:8px}
   .activity-vids{grid-template-columns:1fr 1fr}
 }
 </style>
@@ -508,8 +541,9 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
       <nav class="profile-tabs" id="profileTabs">
         <div class="tabs-inner">
           <div class="tab-item active" onclick="switchTab('home',this)">홈</div>
-          <div class="tab-item" onclick="switchTab('career',this)">상담사 정보</div>
+          <div class="tab-item" onclick="switchTab('info',this)">상담사 정보</div>
           <div class="tab-item" onclick="switchTab('apts',this)">담당 단지</div>
+          <div class="tab-item" onclick="switchTab('posts',this)">포스트</div>
           <div class="tab-item" onclick="switchTab('reviews',this)">후기 <span style="color:var(--brand);font-weight:800">128</span></div>
           <div class="tab-item" onclick="switchTab('contact',this)">문의</div>
         </div>
@@ -540,8 +574,8 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
         </div>
       </div>
 
-      <!-- 경력·전문분야·배지 (통합) -->
-      <div class="c-card ps-card tab-visible" data-tab="home career">
+      <!-- 경력·전문분야·배지 (홈 요약) -->
+      <div class="c-card ps-card tab-visible" data-tab="home">
         <div class="sec-label">👤 상담사 요약</div>
         <div class="ps-stats">
           <div class="ps-stat"><div class="ps-val">6년 3개월</div><div class="ps-lbl">업력</div></div>
@@ -563,8 +597,17 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
         </div>
       </div>
 
-      <!-- 상담사 소개 영상 -->
-      <div class="c-card youtube-card tab-visible" data-tab="home career">
+      <!-- ── 상담사 정보 탭 전용 카드 ── -->
+
+      <!-- 상담사 소개 -->
+      <div class="c-card bio-card" data-tab="info">
+        <div class="sec-label">💬 상담사 소개</div>
+        <div class="bio-quote">"처음부터 끝까지, 내 집 마련의 모든 과정을 함께 합니다."</div>
+        <p class="bio-detail">2020년부터 부산·경남 지역 분양시장에서 활동하며 1,000건 이상의 상담을 진행했습니다. 하이엔드 주거 상품부터 실수요자 중심 단지까지, 고객 한 분 한 분의 상황에 맞는 최적 단지를 안내해 드립니다.</p>
+      </div>
+
+      <!-- 소개 영상 (상담사 정보 탭 전용) -->
+      <div class="c-card youtube-card" data-tab="info">
         <div class="sec-label">▶ 소개 영상</div>
         <div class="yt-wrap">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/0vXGy_PKpgs?si=GObL3wjYLX957jvQ"
@@ -575,6 +618,50 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
           </iframe>
         </div>
       </div>
+
+      <!-- 획득 배지 상세 (상담사 정보 탭 전용) -->
+      <div class="c-card badge-detail-card" data-tab="info">
+        <div class="sec-label">🏅 획득 배지</div>
+        <div class="badge-grid">
+          <div class="badge-item"><div class="badge-circle">👑</div><div class="badge-name">우수 상담사</div><div class="badge-desc">완료율 90%<br>이상 달성</div></div>
+          <div class="badge-item"><div class="badge-circle">⚡</div><div class="badge-name">빠른 응답</div><div class="badge-desc">평균 응답<br>10분 이내</div></div>
+          <div class="badge-item"><div class="badge-circle">🎖</div><div class="badge-name">높은 완료율</div><div class="badge-desc">상위 10%<br>꾸준히 유지</div></div>
+          <div class="badge-item"><div class="badge-circle">⭐</div><div class="badge-name">이용자 추천</div><div class="badge-desc">10명 이상<br>추천 받았어요</div></div>
+          <div class="badge-item"><div class="badge-circle">🛡</div><div class="badge-name">공식 인증</div><div class="badge-desc">호갱노노<br>공식 파트너</div></div>
+        </div>
+      </div>
+
+      <!-- 상담 경력 상세 (상담사 정보 탭 전용) -->
+      <div class="c-card career-detail-card" data-tab="info">
+        <div class="sec-label">👤 상담 경력</div>
+        <div class="career-row">
+          <div class="career-main">
+            <div class="career-yrs">6년 3개월</div>
+            <div class="career-yrs-sub">업력</div>
+          </div>
+          <div class="career-stat">
+            <div class="career-stat-val">1,248건</div>
+            <div class="career-stat-label">상담건수</div>
+          </div>
+          <div class="career-stat">
+            <div class="career-stat-val">1,094건</div>
+            <div class="career-stat-label">누적완료</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 전문 분야 상세 (상담사 정보 탭 전용) -->
+      <div class="c-card spec-detail-card" data-tab="info">
+        <div class="sec-label">🎯 전문 분야</div>
+        <div class="spec-chips">
+          <span class="spec-chip">#하이엔드주거</span>
+          <span class="spec-chip">#오피스텔</span>
+          <span class="spec-chip">#투자상담</span>
+          <span class="spec-chip">#계약금융</span>
+        </div>
+      </div>
+
+      <!-- ── 홈 / 담당 단지 탭 ── -->
 
       <!-- 진행 중인 단지 -->
       <div class="c-card apts-card tab-visible" id="secApts" data-tab="home apts">
@@ -593,8 +680,8 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
         <p class="apts-disc">※ 현재 담당 중이거나 최근 완료한 단지입니다.</p>
       </div>
 
-      <!-- 포스트 -->
-      <div class="c-card activity-card tab-visible" data-tab="home career">
+      <!-- 포스트 탭 -->
+      <div class="c-card activity-card" data-tab="posts">
         <div class="sec-label">📝 포스트</div>
         <div class="activity-sec">
           <div class="asec-hd"><span class="asec-label">영상</span><span class="asec-count">3</span><a href="#" class="asec-more">›</a></div>
