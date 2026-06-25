@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>김민준 분양상담사 | 호갱노노 비즈프로필</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --brand:#5C3AFF;--brand-light:#F0EEFF;--brand-dark:#3D20DB;
+  --ink:#111827;--txt:#374151;--muted:#9CA3AF;--line:#E5E7EB;
+  --soft:#F9FAFB;--gold:#F59E0B;--kakao:#FEE500;--orange:#FF5C26;
+  --radius:12px;--maxw:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Pretendard",-apple-system,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--txt);background:var(--soft);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+
+/* ── GNB ── */
+header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:60px;background:transparent;transition:background .2s,box-shadow .2s}
+header.gnb.solid{background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 8px rgba(0,0,0,.06)}
+.gnb-inner{max-width:var(--maxw);margin:0 auto;padding:0 20px;display:flex;align-items:center;height:100%;gap:12px}
+.gnb-logo{display:flex;align-items:center;flex-shrink:0;text-decoration:none}
+.gnb-logo-text{font-size:17px;font-weight:900;color:#fff;letter-spacing:-.02em;transition:color .2s;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+header.gnb.solid .gnb-logo-text{color:var(--ink);text-shadow:none}
+.gnb-logo-img{width:30px;height:30px;border-radius:8px;display:block;flex-shrink:0}
+.gnb-back{font-size:13px;color:rgba(255,255,255,.9);font-weight:600;transition:color .2s;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+header.gnb.solid .gnb-back{color:var(--muted);text-shadow:none}
+.gnb-spacer{flex:1}
+.gnb-icon-btn{background:rgba(0,0,0,.28);border:none;width:34px;height:34px;border-radius:50%;color:#fff;font-size:15px;display:flex;align-items:center;justify-content:center;transition:background .2s}
+header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
+/* gnb-icons removed */
+.gnb-cta-btn{background:var(--brand);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:13.5px;font-weight:700;flex-shrink:0;transition:background .15s}
+.gnb-cta-btn:hover{background:var(--brand-dark)}
+
+/* ── MOBILE HERO ── */
+.hero-mobile{position:relative;width:100%;height:300px;overflow:hidden;background:#1a1a2e}
+.hero-mobile-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.42) 0%,rgba(0,0,0,.08) 35%,rgba(0,0,0,.65) 100%)}
+.hero-text{position:absolute;bottom:28px;left:20px;right:72px}
+.hero-complex{font-size:11.5px;font-weight:700;color:rgba(255,255,255,.72);letter-spacing:.05em;margin-bottom:6px}
+.hero-slogan{font-size:22px;font-weight:800;color:#fff;line-height:1.3;letter-spacing:-.03em}
+.hero-slogan em{color:#FF8C5A;font-style:normal}
+.hero-pager{position:absolute;bottom:16px;right:16px;background:rgba(0,0,0,.38);color:rgba(255,255,255,.9);font-size:11px;font-weight:700;padding:3px 9px;border-radius:10px;backdrop-filter:blur(4px)}
+
+/* ── PROFILE INFO BAR (모바일) ── */
+.profile-info-bar{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px}
+.pib-name-row{display:flex;align-items:center;gap:7px;margin-bottom:4px}
+.pib-name{font-size:18px;font-weight:800;color:var(--ink);letter-spacing:-.025em}
+.pib-verified{font-size:15px}
+.pib-rate{margin-left:auto;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;border-radius:20px;padding:3px 10px;font-size:12px;font-weight:700;white-space:nowrap}
+.pib-sub{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.pib-company{font-weight:600;color:var(--txt)}
+.pib-dot{width:3px;height:3px;border-radius:50%;background:var(--muted);flex-shrink:0}
+
+/* ── TABS (모바일, sticky) ── */
+.profile-tabs{background:#fff;border-bottom:2px solid var(--line);position:sticky;top:60px;z-index:40;overflow-x:auto;scrollbar-width:none}
+.profile-tabs::-webkit-scrollbar{display:none}
+.tabs-inner{max-width:var(--maxw);margin:0 auto;padding:0 20px;display:flex}
+.tab-item{padding:13px 18px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;white-space:nowrap;border-bottom:2.5px solid transparent;margin-bottom:-2px;transition:color .15s,border-color .15s;user-select:none}
+.tab-item.active{color:var(--ink);font-weight:800;border-bottom-color:var(--ink)}
+[data-tab]{display:none}
+[data-tab].tab-visible{display:block}
+
+/* ── PAGE LAYOUT ── */
+.page-wrap{max-width:var(--maxw);margin:0 auto;padding:16px 20px 100px}
+.page-grid{display:grid;grid-template-columns:210px 1fr 210px;gap:18px;align-items:start}
+
+/* ── SHARED ── */
+.c-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
+.sec-label{display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:800;color:var(--txt);letter-spacing:-.01em;margin-bottom:14px}
+
+/* ── LEFT COL: 청약 소식 (PC 전용) ── */
+.col-left{display:flex;flex-direction:column;gap:12px;position:sticky;top:76px}
+
+.left-news-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 12px}
+.left-news-list{display:flex;flex-direction:column}
+.left-news-item{display:block;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:opacity .15s}
+.left-news-item:last-child{border-bottom:none}
+.left-news-item:hover{opacity:.75}
+.ln-row{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.ln-tag{font-size:10px;font-weight:700;color:var(--brand);background:var(--brand-light);padding:2px 6px;border-radius:4px;flex-shrink:0}
+.ln-date{font-size:10.5px;color:var(--muted);margin-left:auto;flex-shrink:0}
+.ln-title{font-size:12.5px;font-weight:600;color:var(--ink);line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.left-news-more{display:block;text-align:center;font-size:12px;color:var(--brand);font-weight:600;padding-top:10px;margin-top:2px;border-top:1px solid var(--line)}
+
+.left-cal-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 14px}
+.cal-list{display:flex;flex-direction:column;gap:9px}
+.cal-item{display:flex;align-items:flex-start;gap:10px}
+.cal-date-box{flex-shrink:0;width:38px;text-align:center;background:var(--brand-light);border-radius:8px;padding:5px 4px}
+.cal-month{font-size:9.5px;font-weight:700;color:var(--brand)}
+.cal-day{font-size:16px;font-weight:900;color:var(--brand);line-height:1}
+.cal-info{flex:1;min-width:0}
+.cal-name{font-size:12.5px;font-weight:700;color:var(--ink);margin-bottom:2px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cal-area{font-size:11px;color:var(--muted)}
+
+/* ── CENTER COL ── */
+.col-center{display:flex;flex-direction:column;gap:14px;min-width:0}
+
+/* PC hero (PC 전용) */
+.hero-pc{position:relative;height:360px;overflow:hidden;background:#1a1a2e;border-radius:var(--radius)}
+.hero-pc-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center}
+.hero-pc-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.06) 0%,rgba(0,0,0,.18) 40%,rgba(0,0,0,.7) 100%)}
+.hero-pc-consultant{position:absolute;top:16px;left:16px;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,.32);border-radius:20px;padding:5px 12px 5px 6px;backdrop-filter:blur(6px)}
+.hpc-photo{width:28px;height:28px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1.5px solid rgba(255,255,255,.5)}
+.hpc-name{font-size:12.5px;font-weight:700;color:#fff}
+.hpc-badge{font-size:11px;color:rgba(255,255,255,.75)}
+.hpc-rank{font-size:10.5px;font-weight:800;color:#FFD166;background:rgba(0,0,0,.3);border-radius:10px;padding:2px 7px;margin-left:2px}
+.hero-pc-fav{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;border:none;background:rgba(0,0,0,.32);backdrop-filter:blur(6px);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.hero-pc-fav:hover{background:rgba(0,0,0,.55)}
+.hero-pc-fav.active{color:#FF5C78;background:rgba(255,92,120,.2)}
+.hero-pc-text{position:absolute;bottom:26px;left:24px;right:80px}
+.hero-pc-complex{font-size:11.5px;font-weight:700;color:rgba(255,255,255,.72);letter-spacing:.05em;margin-bottom:6px}
+.hero-pc-slogan{font-size:26px;font-weight:800;color:#fff;line-height:1.3;letter-spacing:-.03em}
+.hero-pc-slogan em{color:#FF8C5A;font-style:normal}
+.hero-pc-pager{position:absolute;bottom:16px;right:16px;background:rgba(0,0,0,.38);color:rgba(255,255,255,.9);font-size:11px;font-weight:700;padding:3px 9px;border-radius:10px}
+
+/* badge */
+.badge-card{padding:20px 22px}
+.badge-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.badge-item{text-align:center;padding:10px 4px}
+.badge-circle{width:56px;height:56px;border-radius:50%;background:linear-gradient(145deg,#FFFDF5,#FFF8DC);border:2.5px solid #F59E0B;box-shadow:0 0 0 4px rgba(245,158,11,.12);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:22px}
+.badge-name{font-size:12px;font-weight:800;color:var(--ink);margin-bottom:3px;word-break:keep-all}
+.badge-desc{font-size:11px;color:var(--muted);line-height:1.55;word-break:keep-all}
+
+/* career */
+.career-card{padding:20px 24px}
+.career-row{display:flex;align-items:center}
+.career-main{flex:1;min-width:0;padding:6px 14px 6px 0;border-right:1px solid var(--line)}
+.career-yrs{font-size:22px;font-weight:900;color:var(--brand);line-height:1;letter-spacing:-.02em;white-space:nowrap}
+.career-yrs-sub{font-size:12px;color:var(--muted);font-weight:600;margin-top:5px}
+.career-stat{flex:1;min-width:0;padding:6px 0 6px 14px}
+.career-stat+.career-stat{border-left:1px solid var(--line)}
+.career-stat-val{font-size:22px;font-weight:800;color:var(--brand);line-height:1.1;margin-bottom:3px;letter-spacing:-.02em;white-space:nowrap}
+.career-stat-label{font-size:12px;color:var(--muted);font-weight:600}
+
+/* specialty */
+.spec-card{padding:20px 24px}
+.spec-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.spec-chip{font-size:13px;font-weight:700;color:var(--brand);background:var(--brand-light);border:1px solid rgba(92,58,255,.18);border-radius:20px;padding:6px 14px}
+
+/* reviews */
+.reviews-card{padding:20px 24px}
+.reviews-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
+.r-title{font-size:16px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:6px}
+.r-more{font-size:12.5px;color:var(--brand);font-weight:600}
+.rv-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rv-card{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px 14px 12px}
+.rv-stars{color:var(--gold);font-size:13px;letter-spacing:1px;margin-bottom:7px}
+.rv-txt{font-size:14px;color:#444;line-height:1.65;margin-bottom:9px}
+.rv-meta{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:5px}
+.rv-dot{width:2px;height:2px;border-radius:50%;background:var(--muted);display:inline-block}
+
+/* apartments */
+.apts-card{padding:20px 24px}
+.apt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
+.apt-item{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;transition:box-shadow .18s}
+.apt-item:hover{box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.apt-img{aspect-ratio:16/9;background:linear-gradient(135deg,#dde2ed,#c8d0e0);overflow:hidden}
+.apt-img img{width:100%;height:100%;object-fit:cover}
+.apt-body{padding:10px 12px 11px}
+.apt-name{font-size:12.5px;font-weight:800;color:var(--ink);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.apt-loc{font-size:11px;color:var(--muted);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.apt-price{font-size:12.5px;font-weight:700;color:var(--brand)}
+.apt-more{font-size:11px;font-weight:600;color:var(--brand);margin-top:4px}
+.apts-disc{font-size:11.5px;color:var(--muted);margin-top:11px}
+.apt-link{display:block;color:inherit}
+.apt-link:hover .apt-item{box-shadow:0 6px 20px rgba(0,0,0,.12)}
+
+/* activity */
+.activity-card{padding:24px}
+.activity-title{font-size:18px;font-weight:800;color:var(--ink);line-height:1.45;margin-bottom:22px}
+.activity-sec{margin-bottom:24px}
+.activity-sec:last-child{margin-bottom:0}
+.asec-hd{display:flex;align-items:center;gap:6px;margin-bottom:13px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.asec-label{font-size:14px;font-weight:800;color:var(--ink)}
+.asec-count{font-size:13px;font-weight:700;color:var(--brand)}
+.asec-more{margin-left:auto;font-size:15px;color:var(--muted)}
+.activity-vids{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.avid{cursor:pointer}
+.avid-thumb{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#eee;margin-bottom:7px}
+.avid-thumb img{width:100%;height:100%;object-fit:cover}
+.avid-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.28);color:#fff;font-size:22px}
+.avid-title{font-size:13px;font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.avid-meta{font-size:11px;color:var(--muted)}
+.activity-posts{display:flex;flex-direction:column}
+.apost{padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.apost:last-child{border-bottom:none}
+.apost-body{flex:1;min-width:0}
+.apost-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--brand);background:var(--brand-light);padding:2px 8px;border-radius:4px;margin-bottom:5px}
+.apost-title{font-size:14px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.apost-meta{font-size:11.5px;color:var(--muted)}
+.apost-arrow{color:var(--muted);font-size:14px;flex-shrink:0;padding-top:2px}
+.activity-viewall{display:block;text-align:center;font-size:13px;color:var(--muted);padding-top:14px;border-top:1px solid var(--line);margin-top:4px}
+
+/* contact card */
+.contact-card{padding:28px 28px 26px}
+.contact-card-title{font-size:21px;font-weight:800;color:var(--ink);line-height:1.3;letter-spacing:-.025em;margin-bottom:5px}
+.contact-card-sub{font-size:13.5px;color:var(--muted);margin-bottom:20px}
+.contact-event-row{display:flex;align-items:center;gap:9px;background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:9px;padding:11px 14px;margin-bottom:18px}
+.cer-icon{font-size:20px;flex-shrink:0}
+.cer-text{font-size:13px;color:var(--ink);line-height:1.45;word-break:keep-all}
+.cer-text strong{color:#C2410C;font-weight:800}
+.cf-fld{margin-bottom:11px}
+.cf-fld label{display:block;font-size:12px;font-weight:700;color:var(--txt);margin-bottom:5px}
+.cf-fld input,.cf-fld textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:8px;font-size:14px;font-family:inherit;color:var(--ink);background:#fff;resize:none;transition:border-color .15s;line-height:1.5}
+.cf-fld input:focus,.cf-fld textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(92,58,255,.08)}
+.cf-fld input::placeholder,.cf-fld textarea::placeholder{color:var(--muted)}
+.cf-fld textarea{height:100px}
+.cc-btns{display:flex;gap:9px;margin-top:4px}
+.cf-btn{flex:1;height:52px;border-radius:10px;border:none;font-size:15px;font-weight:800;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:all .15s}
+.cf-btn-primary{background:var(--brand);color:#fff}
+.cf-btn-primary:hover{background:var(--brand-dark)}
+.cf-btn-ghost{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
+.cf-btn-ghost:hover{background:var(--brand-light)}
+.cc-disc{font-size:11.5px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.6;word-break:keep-all}
+
+/* ── RIGHT COL: 간편 문의 (PC 전용) ── */
+.col-right{display:flex;flex-direction:column;gap:12px;position:sticky;top:76px}
+
+/* 간편 문의 카드 */
+.qi-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.qi-header{background:var(--ink);color:#fff;padding:11px 14px;font-size:13px;font-weight:800;letter-spacing:-.01em}
+.qi-btn-row{display:flex;padding:14px;gap:8px}
+.qi-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 6px;border:1.5px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;transition:all .15s}
+.qi-btn:hover{background:var(--soft);border-color:var(--brand)}
+.qi-btn:hover .qi-label{color:var(--brand)}
+.qi-icon{font-size:20px;line-height:1}
+.qi-label{font-size:11px;font-weight:700;color:var(--txt)}
+.qi-kakao-btn{background:var(--kakao);border-color:var(--kakao)}
+.qi-kakao-btn:hover{background:#e6ce00;border-color:#e6ce00}
+
+/* 바로가기 카드 */
+.quick-links-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.ql-item{display:flex;align-items:center;justify-content:space-between;padding:13px 14px;font-size:13px;font-weight:600;color:var(--txt);border-bottom:1px solid var(--line);cursor:pointer;transition:background .15s;text-decoration:none}
+.ql-item:last-child{border-bottom:none}
+.ql-item:hover{background:var(--soft);color:var(--brand)}
+.ql-arrow{color:var(--muted);font-size:14px}
+
+/* 이 지역 다른 상담사 */
+.sim-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px 14px 12px}
+.sim-title{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:11px}
+.sim-list{display:flex;flex-direction:column;gap:6px}
+.sim-item{display:flex;align-items:center;gap:8px;padding:6px;border-radius:8px;cursor:pointer;transition:background .15s}
+.sim-item:hover{background:var(--soft)}
+.sim-photo{width:32px;height:32px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#c8d0e0,#e2e6f0)}
+.sim-info{flex:1;min-width:0}
+.sim-meta{font-size:11px;color:var(--muted)}
+.sim-more{display:block;text-align:center;font-size:12.5px;color:var(--brand);font-weight:600;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+
+/* ── MODALS ── */
+.cmodal{position:fixed;inset:0;z-index:120;display:none;align-items:flex-end;justify-content:center;background:rgba(10,16,30,.55)}
+.cmodal.open{display:flex}
+@media(min-width:640px){.cmodal{align-items:center}}
+.cmodal-card{position:relative;width:100%;max-width:400px;background:#fff;border-radius:20px 20px 0 0;padding:28px 24px 36px;animation:slideUp .28s ease}
+@media(min-width:640px){.cmodal-card{border-radius:18px;padding:32px}}
+@keyframes slideUp{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+.cmodal-close{position:absolute;top:14px;right:16px;width:30px;height:30px;border-radius:50%;border:none;background:var(--soft);color:var(--muted);font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cmodal h3{font-size:19px;font-weight:800;color:var(--ink);margin-bottom:5px}
+.cmodal .cm-sub{font-size:13px;color:var(--muted);margin-bottom:22px}
+.cmodal-btns{display:flex;flex-direction:column;gap:9px}
+.cm-btn{height:52px;border-radius:10px;border:none;font-size:15px;font-weight:800;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;transition:all .15s}
+.cm-btn.tel{background:var(--brand);color:#fff}
+.cm-btn.sms{background:var(--soft);color:var(--ink);border:1.5px solid var(--line)}
+.cm-btn.kakao{background:var(--kakao);color:#191919}
+
+.ism{position:fixed;inset:0;z-index:130;display:none;align-items:center;justify-content:center;background:rgba(10,16,30,.55)}
+.ism.open{display:flex}
+.ism-card{background:#fff;border-radius:18px;padding:36px 28px 28px;text-align:center;max-width:320px;width:calc(100% - 40px);animation:slideUp .25s ease}
+.ism-icon{font-size:44px;margin-bottom:14px}
+.ism-title{font-size:18px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.ism-desc{font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:24px;word-break:keep-all}
+.ism-btn{width:100%;height:48px;border-radius:9px;border:none;background:var(--brand);color:#fff;font-size:15px;font-weight:800;font-family:inherit;cursor:pointer}
+
+/* ── MOBILE BOTTOM BAR ── */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);display:none;padding:10px 14px;gap:8px;box-shadow:0 -2px 10px rgba(0,0,0,.07)}
+.mbar-call{flex:1;height:48px;border-radius:9px;border:none;background:var(--brand);color:#fff;font-size:13px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.mbar-inquiry{flex:1;height:48px;border-radius:9px;border:1.5px solid var(--brand);background:#fff;color:var(--brand);font-size:13px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+
+/* ── YOUTUBE ── */
+.youtube-card{padding:20px 22px}
+.yt-link-wrap{display:block;text-decoration:none;margin-top:4px}
+.yt-wrap{position:relative;width:100%;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#111}
+.yt-thumb{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
+.yt-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,.88);display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;transition:transform .15s,background .15s;padding-left:4px}
+.yt-link-wrap:hover .yt-play-btn{transform:translate(-50%,-50%) scale(1.1);background:#c00}
+.yt-label{position:absolute;bottom:10px;right:12px;font-size:11px;font-weight:700;color:rgba(255,255,255,.8);background:rgba(0,0,0,.45);padding:3px 8px;border-radius:6px;backdrop-filter:blur(4px)}
+
+/* ── SIM NAME ROW ── */
+.sim-name-row{display:flex;align-items:center;gap:4px;margin-bottom:1px}
+.sim-name{flex:1;min-width:0;font-size:13px;font-weight:700;color:var(--ink)}
+.sim-rating{font-size:11.5px;font-weight:700;color:#D97706;flex-shrink:0;white-space:nowrap}
+
+/* ── EVENT BACKDROP ── */
+.event-backdrop{position:fixed;inset:0;z-index:58;background:rgba(0,0,0,.55);display:none}
+.event-backdrop.show{display:block}
+
+/* ── EVENT BANNER (모바일: 하단 고정 오버레이, PC: 우하단 플로팅) ── */
+.event-banner{
+  position:fixed;left:0;right:0;bottom:68px;z-index:59;
+  display:none;
+}
+.event-banner.show{display:block}
+.eb-inner{
+  margin:0 10px;
+  background:linear-gradient(135deg,#1A3A5C 0%,#0D2137 100%);
+  border-radius:16px 16px 0 0;
+  box-shadow:0 -6px 32px rgba(0,0,0,.35);
+  overflow:hidden;
+}
+.eb-body{display:flex;align-items:center;gap:14px;padding:16px 18px 14px}
+.eb-icon{font-size:36px;flex-shrink:0;line-height:1}
+.eb-text{flex:1}
+.eb-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.08em;margin-bottom:3px}
+.eb-title{font-size:18px;font-weight:800;color:#fff;line-height:1.3}
+.eb-title em{color:#FFD166;font-style:normal}
+.eb-cta{padding:0 18px 14px}
+.eb-btn{display:block;width:100%;height:46px;border-radius:10px;border:none;background:var(--orange);color:#fff;font-size:15px;font-weight:800;font-family:inherit;cursor:pointer;transition:background .15s}
+.eb-btn:hover{background:#e0501e}
+.eb-footer{display:flex;justify-content:space-between;padding:8px 18px 12px;border-top:1px solid rgba(255,255,255,.1)}
+.eb-skip,.eb-close{font-size:12.5px;color:rgba(255,255,255,.4);background:none;border:none;cursor:pointer;font-family:inherit;transition:color .15s;padding:2px 0}
+.eb-skip:hover,.eb-close:hover{color:rgba(255,255,255,.8)}
+.eb-x-btn{display:none;position:absolute;top:10px;right:12px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.15);border:none;color:rgba(255,255,255,.85);font-size:18px;line-height:1;cursor:pointer;align-items:center;justify-content:center;transition:background .15s;z-index:2}
+.eb-x-btn:hover{background:rgba(255,255,255,.3)}
+
+/* PC: 이벤트 배너 → 화면 정중앙 모달 */
+@media(min-width:821px){
+  .event-banner{left:50%;right:auto;bottom:auto;top:50%;transform:translate(-50%,-50%);width:420px;z-index:120}
+  .eb-inner{border-radius:16px;margin:0;position:relative}
+  .eb-x-btn{display:flex}
+  .eb-body{padding:24px 22px 18px}
+  .eb-icon{font-size:48px}
+  .eb-title{font-size:22px}
+  .eb-cta{padding:0 22px 18px}
+  .eb-footer{padding:10px 22px 16px}
+}
+
+/* top btn */
+.top-btn{position:fixed;right:18px;bottom:82px;z-index:55;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:16px;color:var(--ink);box-shadow:0 2px 10px rgba(0,0,0,.1);display:none;cursor:pointer}
+.top-btn.show{display:flex;align-items:center;justify-content:center}
+
+/* ── RESPONSIVE ── */
+@media(min-width:821px){
+  .hero-mobile,.profile-info-bar{display:none}
+  .page-wrap{margin-top:60px;padding-top:16px}
+  header.gnb{background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 8px rgba(0,0,0,.06)}
+  header.gnb .gnb-logo-text{color:var(--ink)}
+  header.gnb .gnb-back{color:var(--muted)}
+  .hero-pc{display:block}
+  .profile-tabs{border-top:none;border-left:1px solid var(--line);border-right:1px solid var(--line);border-radius:var(--radius) var(--radius) 0 0;overflow:hidden;margin:0}
+  .col-center>.profile-tabs{position:sticky;top:60px;z-index:40}
+}
+@media(max-width:820px){
+  header.gnb{background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 4px rgba(0,0,0,.06)}
+  .gnb-logo-text{color:var(--ink);text-shadow:none}
+  .gnb-back{color:var(--muted);text-shadow:none}
+  .hero-mobile{margin-top:60px}
+  .hero-pc{display:none}
+  .col-left,.col-right{display:none}
+  .page-grid{grid-template-columns:1fr}
+  .mbar{display:flex}
+  .badge-grid{grid-template-columns:repeat(5,1fr)}
+  .badge-circle{width:44px;height:44px;font-size:18px}
+  .badge-name{font-size:11px}
+  .badge-desc{display:none}
+  .rv-grid{grid-template-columns:1fr}
+  .apt-grid{grid-template-columns:1fr}
+  .activity-vids{grid-template-columns:repeat(2,1fr)}
+  .activity-card,.career-card,.spec-card,.reviews-card,.apts-card,.badge-card{padding:16px}
+  .career-main{padding-right:10px}
+  .career-stat{padding-left:10px}
+  .contact-card{padding:20px 16px 18px}
+  .cc-btns{flex-direction:column}
+  .gnb-cta-btn,.gnb-icons{display:none}
+}
+@media(min-width:821px) and (max-width:1020px){
+  .page-grid{grid-template-columns:190px 1fr 190px;gap:14px}
+}
+@media(max-width:480px){
+  .page-wrap{padding:14px 12px 90px}
+  .hero-mobile{height:260px}
+  .hero-slogan{font-size:20px}
+  .career-yrs,.career-stat-val{font-size:15px}
+  .career-main{padding-right:8px}
+  .career-stat{padding-left:8px}
+  .activity-vids{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- GNB -->
+<header class="gnb" id="gnb">
+  <div class="gnb-inner">
+    <a href="index.html" class="gnb-logo">
+      <img src="assets/img/logo.png" alt="호갱노노" class="gnb-logo-img">
+    </a>
+    <a href="index.html" class="gnb-back">← 목록</a>
+    <div class="gnb-spacer"></div>
+    <button class="gnb-cta-btn" onclick="openContact()">📞 상담 연결</button>
+  </div>
+</header>
+
+<!-- 모바일 히어로 -->
+<div class="hero-mobile" id="heroMobile">
+  <img src="assets/img/about/1.jpg" alt="김민준 분양상담사" class="hero-mobile-img"
+    onerror="this.style.display='none'">
+  <div class="hero-overlay"></div>
+  <div class="hero-pc-consultant">
+    <img src="assets/img/about/1.jpg" alt="" class="hpc-photo" onerror="this.style.display='none'">
+    <span class="hpc-name">김민준 상담사</span>
+    <span class="hpc-badge">✅ ★ 4.8</span>
+    <span class="hpc-rank">🏆 상위 5%</span>
+  </div>
+  <button class="hero-pc-fav hero-fav-btn" onclick="toggleFav(this)" title="관심 상담사 등록">♡</button>
+  <div class="hero-text">
+    <div class="hero-complex">광안 센텀 비스타동원</div>
+    <div class="hero-slogan">이 단지, 저만큼<br><em>발로 뛴 사람</em> 없습니다.</div>
+  </div>
+  <div class="hero-pager">1 / 3</div>
+</div>
+
+<!-- 모바일 프로필 인포바 (회사·지역 정보만) -->
+<div class="profile-info-bar">
+  <div class="pib-sub" style="margin:0">
+    <span class="pib-company">호갱노노 공인 파트너</span>
+    <span class="pib-dot"></span>
+    <span>📍 부산·경남 전문</span>
+  </div>
+</div>
+
+<!-- 페이지 콘텐츠 -->
+<div class="page-wrap">
+  <div class="page-grid">
+
+    <!-- ① LEFT: 청약 소식 (PC 전용) -->
+    <aside class="col-left">
+
+      <!-- 이 지역 청약 소식 -->
+      <div class="left-news-card">
+        <div class="sec-label">📢 이 지역 청약 소식</div>
+        <div class="left-news-list">
+          <a class="left-news-item">
+            <div class="ln-row">
+              <span class="ln-tag">분양</span>
+              <span class="ln-date">6.24</span>
+            </div>
+            <div class="ln-title">광안 센텀 비스타동원 1순위 청약 일정 확정</div>
+          </a>
+          <a class="left-news-item">
+            <div class="ln-row">
+              <span class="ln-tag">청약</span>
+              <span class="ln-date">6.22</span>
+            </div>
+            <div class="ln-title">부산 수영구 전용 84㎡ 청약 당첨 커트라인 분석</div>
+          </a>
+          <a class="left-news-item">
+            <div class="ln-row">
+              <span class="ln-tag">시세</span>
+              <span class="ln-date">6.20</span>
+            </div>
+            <div class="ln-title">광안리 인근 분양가 비교 — 2026년 상반기 결산</div>
+          </a>
+          <a class="left-news-item">
+            <div class="ln-row">
+              <span class="ln-tag">정책</span>
+              <span class="ln-date">6.18</span>
+            </div>
+            <div class="ln-title">무순위 청약 신청 자격 완화 — 부산 적용 범위는?</div>
+          </a>
+        </div>
+        <a class="left-news-more">청약 소식 전체보기 ›</a>
+      </div>
+
+      <!-- 이달 분양 일정 -->
+      <div class="left-cal-card">
+        <div class="sec-label">📅 이달 분양 일정</div>
+        <div class="cal-list">
+          <div class="cal-item">
+            <div class="cal-date-box">
+              <div class="cal-month">JUL</div>
+              <div class="cal-day">3</div>
+            </div>
+            <div class="cal-info">
+              <div class="cal-name">광안 센텀 비스타동원 1순위 청약</div>
+              <div class="cal-area">부산 수영구</div>
+            </div>
+          </div>
+          <div class="cal-item">
+            <div class="cal-date-box">
+              <div class="cal-month">JUL</div>
+              <div class="cal-day">11</div>
+            </div>
+            <div class="cal-info">
+              <div class="cal-name">오산 헤리티지 자이 계약 시작</div>
+              <div class="cal-area">경기 오산시</div>
+            </div>
+          </div>
+          <div class="cal-item">
+            <div class="cal-date-box">
+              <div class="cal-month">JUL</div>
+              <div class="cal-day">18</div>
+            </div>
+            <div class="cal-info">
+              <div class="cal-name">천안 동일하이빌 파크레인 무순위</div>
+              <div class="cal-area">충남 천안시</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ② CENTER (모바일·PC 동일) -->
+    <section class="col-center">
+
+      <!-- 탭 네비게이션 (모바일·PC 공통, PC는 center column 내 sticky) -->
+      <nav class="profile-tabs" id="profileTabs">
+        <div class="tabs-inner">
+          <div class="tab-item active" onclick="switchTab('home',this)">홈</div>
+          <div class="tab-item" onclick="switchTab('career',this)">경력</div>
+          <div class="tab-item" onclick="switchTab('apts',this)">상담 단지</div>
+          <div class="tab-item" onclick="switchTab('reviews',this)">후기 <span style="color:var(--brand);font-weight:800">128</span></div>
+          <div class="tab-item" onclick="switchTab('contact',this)">문의</div>
+        </div>
+      </nav>
+
+      <!-- PC 히어로 카드 (PC 전용) -->
+      <div class="hero-pc" id="heroPc">
+        <img src="assets/img/about/1.jpg" alt="김민준 분양상담사" class="hero-pc-img"
+          onerror="this.style.display='none'">
+        <div class="hero-pc-overlay"></div>
+        <div class="hero-pc-consultant">
+          <img src="assets/img/about/1.jpg" alt="" class="hpc-photo" onerror="this.style.display='none'">
+          <span class="hpc-name">김민준 상담사</span>
+          <span class="hpc-badge">✅ ★ 4.8</span>
+          <span class="hpc-rank">🏆 상위 5%</span>
+        </div>
+        <button class="hero-pc-fav hero-fav-btn" onclick="toggleFav(this)" title="관심 상담사 등록">♡</button>
+        <div class="hero-pc-text">
+          <div class="hero-pc-complex">광안 센텀 비스타동원</div>
+          <div class="hero-pc-slogan">이 단지, 저만큼<br><em>발로 뛴 사람</em> 없습니다.</div>
+        </div>
+        <div class="hero-pc-pager">1 / 3</div>
+      </div>
+
+      <!-- 배지 -->
+      <div class="c-card badge-card tab-visible" id="secBadge" data-tab="home">
+        <div class="sec-label">🏅 획득 배지</div>
+        <div class="badge-grid">
+          <div class="badge-item"><div class="badge-circle">👑</div><div class="badge-name">우수 상담사</div><div class="badge-desc">완료율 90%<br>이상 달성</div></div>
+          <div class="badge-item"><div class="badge-circle">⚡</div><div class="badge-name">빠른 응답</div><div class="badge-desc">평균 응답<br>10분 이내</div></div>
+          <div class="badge-item"><div class="badge-circle">🎖</div><div class="badge-name">높은 완료율</div><div class="badge-desc">상위 10%<br>꾸준히 유지</div></div>
+          <div class="badge-item"><div class="badge-circle">⭐</div><div class="badge-name">이용자 추천</div><div class="badge-desc">10명 이상<br>추천 받았어요</div></div>
+          <div class="badge-item"><div class="badge-circle">🛡</div><div class="badge-name">공식 인증</div><div class="badge-desc">호갱노노<br>공식 파트너</div></div>
+        </div>
+      </div>
+
+      <!-- 상담 경력 -->
+      <div class="c-card career-card tab-visible" id="secCareer" data-tab="home career">
+        <div class="sec-label">👤 상담 경력</div>
+        <div class="career-row">
+          <div class="career-main">
+            <div class="career-yrs">6년 3개월</div>
+            <div class="career-yrs-sub">업력</div>
+          </div>
+          <div class="career-stat">
+            <div class="career-stat-val">1,248건</div>
+            <div class="career-stat-label">상담건수</div>
+          </div>
+          <div class="career-stat">
+            <div class="career-stat-val">1,094건</div>
+            <div class="career-stat-label">누적완료</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 전문 분야 -->
+      <div class="c-card spec-card tab-visible" data-tab="home career">
+        <div class="sec-label">🏅 전문 분야</div>
+        <div class="spec-chips">
+          <span class="spec-chip">#하이엔드주거</span>
+          <span class="spec-chip">#오피스텔</span>
+          <span class="spec-chip">#투자상담</span>
+          <span class="spec-chip">#계약금융</span>
+        </div>
+      </div>
+
+      <!-- 고객 후기 -->
+      <div class="c-card reviews-card tab-visible" id="secReviews" data-tab="home reviews">
+        <div class="reviews-header">
+          <span class="r-title">💬 고객 후기</span>
+          <a href="#" class="r-more">전체 보기 ›</a>
+        </div>
+        <div class="rv-grid">
+          <div class="rv-card">
+            <div class="rv-stars">★★★★★</div>
+            <p class="rv-txt">상담이 정말 친절하고 전문적이었어요. 덕분에 좋은 매물을 계약할 수 있었습니다.</p>
+            <div class="rv-meta">구매자A 님<span class="rv-dot"></span>2024.04.18</div>
+          </div>
+          <div class="rv-card">
+            <div class="rv-stars">★★★★★</div>
+            <p class="rv-txt">빠른 응답과 정확한 정보 제공으로 신뢰가 가는 상담이었습니다.</p>
+            <div class="rv-meta">투자자B 님<span class="rv-dot"></span>2024.03.27</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 상담사 소개 영상 -->
+      <div class="c-card youtube-card tab-visible" data-tab="home reviews">
+        <div class="sec-label">▶ 상담사 소개 영상</div>
+        <div class="yt-wrap">
+          <iframe src="https://www.youtube.com/embed/ugbXN-wBuXg"
+            title="상담사 소개 영상" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:0">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 최근 상담 단지 -->
+      <div class="c-card apts-card tab-visible" id="secApts" data-tab="home apts">
+        <div class="sec-label">🏢 최근 상담한 단지</div>
+        <div class="apt-grid">
+          <a class="apt-link" href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html">
+            <div class="apt-item"><div class="apt-img"><img src="단지상세홈페이지/컬리스타일-광안센텀비스타동원/assets/img/aerial.jpg" alt=""></div><div class="apt-body"><div class="apt-name">광안 센텀 비스타동원</div><div class="apt-loc">부산 수영구 광안동</div><div class="apt-price">5.1억 ~ 8.4억</div><div class="apt-more">홈페이지 보기 →</div></div></div>
+          </a>
+          <a class="apt-link" href="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/index.html">
+            <div class="apt-item"><div class="apt-img"><img src="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/assets/img/aerial.jpg" alt=""></div><div class="apt-body"><div class="apt-name">오산 헤리티지 자이</div><div class="apt-loc">경기 오산시</div><div class="apt-price">4억 ~ 6억</div><div class="apt-more">홈페이지 보기 →</div></div></div>
+          </a>
+          <a class="apt-link" href="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/index.html">
+            <div class="apt-item"><div class="apt-img"><img src="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/assets/img/aerial.jpg" alt=""></div><div class="apt-body"><div class="apt-name">천안 동일하이빌 파크레인</div><div class="apt-loc">충남 천안시</div><div class="apt-price">2억 ~ 4억</div><div class="apt-more">홈페이지 보기 →</div></div></div>
+          </a>
+        </div>
+        <p class="apts-disc">※ 최근 3개월 내 상담 진행 단지 기준입니다.</p>
+      </div>
+
+      <!-- 활동 내역 -->
+      <div class="c-card activity-card tab-visible" data-tab="home career">
+        <div class="activity-title">김민준 상담사의<br>분양 활동을 확인하세요.</div>
+        <div class="activity-sec">
+          <div class="asec-hd"><span class="asec-label">단지 소개 영상</span><span class="asec-count">3</span><a href="#" class="asec-more">›</a></div>
+          <div class="activity-vids">
+            <div class="avid"><div class="avid-thumb"><img src="단지상세홈페이지/컬리스타일-광안센텀비스타동원/assets/img/aerial.jpg" alt=""><div class="avid-play">▶</div></div><div class="avid-title">광안 센텀 비스타동원 현장 방문 솔직 후기</div><div class="avid-meta">12일 전</div></div>
+            <div class="avid"><div class="avid-thumb"><img src="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/assets/img/aerial.jpg" alt=""><div class="avid-play">▶</div></div><div class="avid-title">오산 헤리티지 자이 1순위 청약 완벽 가이드</div><div class="avid-meta">19일 전</div></div>
+            <div class="avid"><div class="avid-thumb"><img src="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/assets/img/aerial.jpg" alt=""><div class="avid-play">▶</div></div><div class="avid-title">천안 동일하이빌 실거주 vs 투자 분석</div><div class="avid-meta">25일 전</div></div>
+          </div>
+        </div>
+        <div class="activity-sec">
+          <div class="asec-hd"><span class="asec-label">청약·분양 정보</span><span class="asec-count">11</span><a href="#" class="asec-more">›</a></div>
+          <div class="activity-posts">
+            <div class="apost"><div class="apost-body"><span class="apost-tag">청약 정보</span><div class="apost-title">2026년 부산 청약 시장 전망 — 광안·수영구 중심으로 짚어봤습니다</div><div class="apost-meta">5일 전</div></div><span class="apost-arrow">›</span></div>
+            <div class="apost"><div class="apost-body"><span class="apost-tag">단지 소개</span><div class="apost-title">비스타동원 vs 센텀시티 인근 단지 비교 — 실투자자 관점 분석</div><div class="apost-meta">12일 전</div></div><span class="apost-arrow">›</span></div>
+            <div class="apost"><div class="apost-body"><span class="apost-tag">청약 정보</span><div class="apost-title">무순위·줍줍 청약 완벽 정리 — 조건·일정·신청 방법까지</div><div class="apost-meta">21일 전</div></div><span class="apost-arrow">›</span></div>
+          </div>
+          <a href="#" class="activity-viewall">분양 정보 전체보기 ›</a>
+        </div>
+      </div>
+
+      <!-- 상담 문의 (center 하단) -->
+      <div class="c-card contact-card tab-visible" id="secContact" data-tab="home contact">
+        <div class="contact-card-title">김민준 상담사에게<br>문의하기</div>
+        <div class="contact-card-sub">상담 무료 · 평균 응답 5분 이내</div>
+        <div class="contact-event-row">
+          <span class="cer-icon">☕</span>
+          <div class="cer-text">첫 상담 시 <strong>스타벅스 기프티콘</strong> 무료 증정</div>
+        </div>
+        <div class="cf-fld"><label>이름</label><input type="text" placeholder="이름을 입력해 주세요"></div>
+        <div class="cf-fld"><label>연락처</label><input type="tel" placeholder="휴대폰 번호를 입력해 주세요"></div>
+        <div class="cf-fld"><label>문의내용</label><textarea placeholder="문의 내용을 입력해 주세요&#10;(선호 지역, 예산, 입주 시기 등)"></textarea></div>
+        <div class="cc-btns">
+          <button class="cf-btn cf-btn-primary" onclick="submitInquiry()">✉️ 문의 남기기</button>
+          <button class="cf-btn cf-btn-ghost" onclick="openContact()">📞 상담사 연결</button>
+        </div>
+        <p class="cc-disc">상담 목적 외 사용 없음 · 완료 후 안전 폐기</p>
+      </div>
+
+    </section>
+
+    <!-- ③ RIGHT: 이 지역 다른 상담사 + 바로가기 + 간편 문의 (PC 전용) -->
+    <aside class="col-right">
+
+      <!-- 이 지역 다른 상담사 -->
+      <div class="sim-card">
+        <div class="sim-title">이 지역 다른 상담사</div>
+        <div class="sim-list">
+          <div class="sim-item">
+            <div class="sim-photo" style="background:linear-gradient(135deg,#c8d0e0,#e2e6f0)"></div>
+            <div class="sim-info">
+              <div class="sim-name-row"><span class="sim-name">박수진 상담사</span><span class="sim-rating">★4.7</span></div>
+              <div class="sim-meta">부산·경남 · 5년</div>
+            </div>
+          </div>
+          <div class="sim-item">
+            <div class="sim-photo" style="background:linear-gradient(135deg,#d0c8e0,#e6e2f0)"></div>
+            <div class="sim-info">
+              <div class="sim-name-row"><span class="sim-name">이재원 상담사</span><span class="sim-rating">★4.6</span></div>
+              <div class="sim-meta">부산 전문 · 8년</div>
+            </div>
+          </div>
+        </div>
+        <a href="index.html" class="sim-more">전체보기 ›</a>
+      </div>
+
+      <!-- 바로가기 -->
+      <div class="quick-links-card">
+        <a class="ql-item" href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html">
+          🏢 단지 홈페이지 바로가기
+          <span class="ql-arrow">›</span>
+        </a>
+        <a class="ql-item" href="index.html">
+          👥 이 지역 다른 상담사
+          <span class="ql-arrow">›</span>
+        </a>
+      </div>
+
+      <!-- 간편 문의 (하단) -->
+      <div class="qi-card">
+        <div class="qi-header">간편 문의</div>
+        <div class="qi-btn-row">
+          <button class="qi-btn" onclick="openContact()">
+            <span class="qi-icon">📞</span>
+            <span class="qi-label">전화</span>
+          </button>
+          <button class="qi-btn qi-kakao-btn" onclick="openContact()">
+            <span class="qi-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none"><path d="M14.5012 3.05859C8.14925 3.05859 3 7.73383 3 13.5027C3 17.7633 4.81767 19.7978 7.3071 21.6504L7.31945 21.6553V26.6554C7.31945 26.8931 7.59358 27.0264 7.78621 26.8858L12.1476 23.7067L12.2415 23.7455C12.9725 23.8789 13.7282 23.9468 14.5012 23.9468C20.8532 23.9468 26 19.2716 26 13.5027C26 7.73383 20.8507 3.05859 14.5012 3.05859Z" fill="#191919"/></svg>
+            </span>
+            <span class="qi-label">카카오</span>
+          </button>
+          <button class="qi-btn" onclick="openContact()">
+            <span class="qi-icon">💬</span>
+            <span class="qi-label">SMS</span>
+          </button>
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+</div>
+
+<!-- CONTACT MODAL -->
+<div class="cmodal" id="contactModal" onclick="if(event.target===this)closeContact()">
+  <div class="cmodal-card">
+    <button class="cmodal-close" onclick="closeContact()">×</button>
+    <h3>상담사 연결</h3>
+    <p class="cm-sub">편하신 방법으로 연락주세요.</p>
+    <div class="cmodal-btns">
+      <a href="tel:010-0000-0000" class="cm-btn tel">📞 전화 상담</a>
+      <a href="sms:010-0000-0000?body=안녕하세요, 분양 상담 문의드립니다." class="cm-btn sms">💬 문자 보내기</a>
+      <a href="#" class="cm-btn kakao">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none" style="flex-shrink:0"><path d="M14.5012 3.05859C8.14925 3.05859 3 7.73383 3 13.5027C3 17.7633 4.81767 19.7978 7.3071 21.6504L7.31945 21.6553V26.6554C7.31945 26.8931 7.59358 27.0264 7.78621 26.8858L12.1476 23.7067L12.2415 23.7455C12.9725 23.8789 13.7282 23.9468 14.5012 23.9468C20.8532 23.9468 26 19.2716 26 13.5027C26 7.73383 20.8507 3.05859 14.5012 3.05859Z" fill="#191919"/></svg>
+        카카오톡 채널 상담
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- INQUIRY SUCCESS MODAL -->
+<div class="ism" id="ismModal" onclick="if(event.target===this)closeInquiry()">
+  <div class="ism-card">
+    <div class="ism-icon">✅</div>
+    <div class="ism-title">문의가 접수되었습니다!</div>
+    <div class="ism-desc">빠른 시간 내에 연락드리겠습니다.<br>평균 응답 시간 <strong style="color:var(--brand)">5분 이내</strong></div>
+    <button class="ism-btn" onclick="closeInquiry()">확인</button>
+  </div>
+</div>
+
+<!-- MOBILE BOTTOM BAR -->
+<div class="mbar" id="mbar">
+  <button class="mbar-call" onclick="openContact()">📞 상담사 연결하기</button>
+  <button class="mbar-inquiry" onclick="submitInquiry()">✉️ 문의 남기기</button>
+</div>
+
+<!-- EVENT BACKDROP -->
+<div class="event-backdrop" id="eventBackdrop"></div>
+
+<!-- EVENT BANNER (즉시 표시, 하단 고정 오버레이 / PC: 정중앙 모달) -->
+<div class="event-banner" id="eventBanner">
+  <div class="eb-inner">
+    <button class="eb-x-btn" onclick="closeBanner()">×</button>
+    <div class="eb-body">
+      <div class="eb-icon">☕</div>
+      <div class="eb-text">
+        <div class="eb-label">EVENT</div>
+        <div class="eb-title">상담 신청 시<br><em>스타벅스 기프티콘</em> 증정!</div>
+      </div>
+    </div>
+    <div class="eb-cta">
+      <button class="eb-btn" onclick="openContact()">상담 신청하기 →</button>
+    </div>
+    <div class="eb-footer">
+      <button class="eb-skip" onclick="skipBannerToday()">오늘 하루 안보기</button>
+      <button class="eb-close" onclick="closeBanner()">닫기</button>
+    </div>
+  </div>
+</div>
+
+<button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+const gnb = document.getElementById('gnb');
+const heroMobile = document.getElementById('heroMobile');
+const topBtn = document.getElementById('topBtn');
+
+window.addEventListener('scroll', function() {
+  if (window.innerWidth <= 820 && heroMobile) {
+    gnb.classList.toggle('solid', window.scrollY > heroMobile.offsetHeight - 60);
+  }
+  topBtn.classList.toggle('show', window.scrollY > 300);
+}, { passive: true });
+
+function switchTab(tabName, el) {
+  document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('[data-tab]').forEach(card => {
+    const tabs = card.dataset.tab.split(' ');
+    card.classList.toggle('tab-visible', tabs.includes(tabName));
+  });
+  const gnbH = document.getElementById('gnb').offsetHeight;
+  const tabsH = document.getElementById('profileTabs').offsetHeight;
+  const colCenter = document.querySelector('.col-center');
+  if (colCenter) {
+    window.scrollTo({ top: colCenter.getBoundingClientRect().top + window.scrollY - gnbH - tabsH, behavior: 'smooth' });
+  }
+}
+
+function openContact() {
+  document.getElementById('contactModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeContact() {
+  document.getElementById('contactModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function submitInquiry() {
+  document.getElementById('ismModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeInquiry() {
+  document.getElementById('ismModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// 이벤트 배너: 즉시 표시 (하루 안보기 체크 후), backdrop으로 페이지 클릭 차단
+function initBanner() {
+  const stored = localStorage.getItem('hgnBannerSkip');
+  if (stored && new Date(parseInt(stored)).toDateString() === new Date().toDateString()) return;
+  document.getElementById('eventBanner').classList.add('show');
+  document.getElementById('eventBackdrop').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeBanner() {
+  document.getElementById('eventBanner').classList.remove('show');
+  document.getElementById('eventBackdrop').classList.remove('show');
+  document.body.style.overflow = '';
+}
+function skipBannerToday() {
+  localStorage.setItem('hgnBannerSkip', Date.now().toString());
+  closeBanner();
+}
+
+// 관심 상담사 토글 (클릭한 버튼 기준, 모바일/PC 모두 동기화)
+function toggleFav(btn) {
+  const allBtns = document.querySelectorAll('.hero-fav-btn');
+  const isActive = !btn.classList.contains('active');
+  allBtns.forEach(b => {
+    b.classList.toggle('active', isActive);
+    b.textContent = isActive ? '♥' : '♡';
+  });
+}
+
+initBanner();
+</script>
+</body>
+</html>
