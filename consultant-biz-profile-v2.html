@@ -140,12 +140,14 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 
 .left-news-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 12px}
 .left-news-list{display:flex;flex-direction:column}
-.left-news-item{display:block;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:opacity .15s}
+.left-news-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:opacity .15s;text-decoration:none}
 .left-news-item:last-child{border-bottom:none}
 .left-news-item:hover{opacity:.75}
+.ln-content{flex:1;min-width:0}
 .ln-row{display:flex;align-items:center;gap:6px;margin-bottom:4px}
 .ln-tag{font-size:10px;font-weight:700;color:var(--brand);background:var(--brand-light);padding:2px 6px;border-radius:4px;flex-shrink:0}
 .ln-date{font-size:10.5px;color:var(--muted);margin-left:auto;flex-shrink:0}
+.ln-thumb{flex-shrink:0;width:54px;height:40px;border-radius:6px;overflow:hidden;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:18px}
 .ln-title{font-size:12.5px;font-weight:600;color:var(--ink);line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .left-news-more{display:block;text-align:center;font-size:12px;color:var(--brand);font-weight:600;padding-top:10px;margin-top:2px;border-top:1px solid var(--line)}
 
@@ -315,13 +317,20 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 .avid-title{font-size:13px;font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .avid-meta{font-size:11px;color:var(--muted)}
 .activity-posts{display:flex;flex-direction:column}
-.apost{padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.apost{padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer;display:flex;align-items:flex-start;gap:10px;text-decoration:none}
 .apost:last-child{border-bottom:none}
+.apost:hover .apost-title{color:var(--brand)}
+.apost-rank{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:22px;flex-shrink:0;padding-top:2px}
+.apost-num{font-size:15px;font-weight:900;color:var(--ink);line-height:1}
+.apost-new{font-size:8.5px;font-weight:800;color:var(--brand);background:var(--brand-light);border-radius:3px;padding:1px 3px;letter-spacing:.02em}
 .apost-body{flex:1;min-width:0}
+.apost-src{font-size:11px;color:#999;margin-bottom:4px;display:flex;align-items:center;gap:3px}
+.apost-src-dot{width:10px;height:10px;border-radius:2px;display:inline-block;flex-shrink:0}
 .apost-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--brand);background:var(--brand-light);padding:2px 8px;border-radius:4px;margin-bottom:5px}
-.apost-title{font-size:14px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.apost-meta{font-size:11.5px;color:var(--muted)}
-.apost-arrow{color:var(--muted);font-size:14px;flex-shrink:0;padding-top:2px}
+.apost-title{font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:color .15s}
+.apost-meta{font-size:11px;color:var(--muted)}
+.apost-thumb{flex-shrink:0;width:72px;height:54px;border-radius:7px;overflow:hidden;background:#eee;display:flex;align-items:center;justify-content:center;font-size:24px}
+.apost-thumb img{width:100%;height:100%;object-fit:cover}
 .activity-viewall{display:block;text-align:center;font-size:13px;color:var(--muted);padding-top:14px;border-top:1px solid var(--line);margin-top:4px}
 
 /* contact card */
@@ -607,33 +616,33 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
       <div class="left-news-card">
         <div class="sec-label">📢 이 지역 청약 소식</div>
         <div class="left-news-list">
-          <a class="left-news-item">
-            <div class="ln-row">
-              <span class="ln-tag">분양</span>
-              <span class="ln-date">6.24</span>
+          <a class="left-news-item" href="#">
+            <div class="ln-content">
+              <div class="ln-row"><span class="ln-tag">분양</span><span class="ln-date">6.24</span></div>
+              <div class="ln-title">광안 센텀 비스타동원 1순위 청약 일정 확정</div>
             </div>
-            <div class="ln-title">광안 센텀 비스타동원 1순위 청약 일정 확정</div>
+            <div class="ln-thumb" style="background:linear-gradient(135deg,#e0e7ff,#c7d2fe)">🏢</div>
           </a>
-          <a class="left-news-item">
-            <div class="ln-row">
-              <span class="ln-tag">청약</span>
-              <span class="ln-date">6.22</span>
+          <a class="left-news-item" href="#">
+            <div class="ln-content">
+              <div class="ln-row"><span class="ln-tag">청약</span><span class="ln-date">6.22</span></div>
+              <div class="ln-title">부산 수영구 전용 84㎡ 청약 당첨 커트라인 분석</div>
             </div>
-            <div class="ln-title">부산 수영구 전용 84㎡ 청약 당첨 커트라인 분석</div>
+            <div class="ln-thumb" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0)">📊</div>
           </a>
-          <a class="left-news-item">
-            <div class="ln-row">
-              <span class="ln-tag">시세</span>
-              <span class="ln-date">6.20</span>
+          <a class="left-news-item" href="#">
+            <div class="ln-content">
+              <div class="ln-row"><span class="ln-tag">시세</span><span class="ln-date">6.20</span></div>
+              <div class="ln-title">광안리 인근 분양가 비교 — 2026년 상반기 결산</div>
             </div>
-            <div class="ln-title">광안리 인근 분양가 비교 — 2026년 상반기 결산</div>
+            <div class="ln-thumb" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">📈</div>
           </a>
-          <a class="left-news-item">
-            <div class="ln-row">
-              <span class="ln-tag">정책</span>
-              <span class="ln-date">6.18</span>
+          <a class="left-news-item" href="#">
+            <div class="ln-content">
+              <div class="ln-row"><span class="ln-tag">정책</span><span class="ln-date">6.18</span></div>
+              <div class="ln-title">무순위 청약 신청 자격 완화 — 부산 적용 범위는?</div>
             </div>
-            <div class="ln-title">무순위 청약 신청 자격 완화 — 부산 적용 범위는?</div>
+            <div class="ln-thumb" style="background:linear-gradient(135deg,#fee2e2,#fecaca)">📋</div>
           </a>
         </div>
         <a class="left-news-more">청약 소식 전체보기 ›</a>
@@ -908,9 +917,33 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
         <div class="activity-sec">
           <div class="asec-hd"><span class="asec-label">글</span><span class="asec-count">11</span><a href="#" class="asec-more">›</a></div>
           <div class="activity-posts">
-            <div class="apost"><div class="apost-body"><span class="apost-tag">청약 정보</span><div class="apost-title">2026년 부산 청약 시장 전망 — 광안·수영구 중심으로 짚어봤습니다</div><div class="apost-meta">5일 전</div></div><span class="apost-arrow">›</span></div>
-            <div class="apost"><div class="apost-body"><span class="apost-tag">단지 소개</span><div class="apost-title">비스타동원 vs 센텀시티 인근 단지 비교 — 실투자자 관점 분석</div><div class="apost-meta">12일 전</div></div><span class="apost-arrow">›</span></div>
-            <div class="apost"><div class="apost-body"><span class="apost-tag">청약 정보</span><div class="apost-title">무순위·줍줍 청약 완벽 정리 — 조건·일정·신청 방법까지</div><div class="apost-meta">21일 전</div></div><span class="apost-arrow">›</span></div>
+            <a class="apost" href="#">
+              <div class="apost-rank"><span class="apost-num">1</span><span class="apost-new">NEW</span></div>
+              <div class="apost-body">
+                <div class="apost-src"><span class="apost-src-dot" style="background:#4285f4"></span>뉴스</div>
+                <div class="apost-title">2026년 부산 청약 시장 전망 — 광안·수영구 중심으로 짚어봤습니다</div>
+                <div class="apost-meta">5일 전</div>
+              </div>
+              <div class="apost-thumb" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe)">🏙️</div>
+            </a>
+            <a class="apost" href="#">
+              <div class="apost-rank"><span class="apost-num">2</span><span class="apost-new">NEW</span></div>
+              <div class="apost-body">
+                <div class="apost-src"><span class="apost-src-dot" style="background:#4285f4"></span>뉴스</div>
+                <div class="apost-title">비스타동원 vs 센텀시티 인근 단지 비교 — 실투자자 관점 분석</div>
+                <div class="apost-meta">12일 전</div>
+              </div>
+              <div class="apost-thumb" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0)">🏗️</div>
+            </a>
+            <a class="apost" href="#">
+              <div class="apost-rank"><span class="apost-num">3</span></div>
+              <div class="apost-body">
+                <div class="apost-src"><span class="apost-src-dot" style="background:#4285f4"></span>뉴스</div>
+                <div class="apost-title">무순위·줍줍 청약 완벽 정리 — 조건·일정·신청 방법까지</div>
+                <div class="apost-meta">21일 전</div>
+              </div>
+              <div class="apost-thumb" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">📋</div>
+            </a>
           </div>
           <a href="#" class="activity-viewall">분양 정보 전체보기 ›</a>
         </div>
