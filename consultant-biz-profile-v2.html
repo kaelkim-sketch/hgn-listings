@@ -64,7 +64,7 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 .pib-dot{width:3px;height:3px;border-radius:50%;background:var(--muted);flex-shrink:0}
 .pib-bio{font-size:13.5px;color:var(--muted);margin-top:8px;padding-top:8px;border-top:1px solid var(--line);line-height:1.5;font-style:italic}
 /* expandable bio */
-.bio-expand-text{font-size:13.5px;color:#555;line-height:1.65;margin-top:8px;overflow:hidden;max-height:3.3em;transition:max-height .4s ease;word-break:keep-all}
+.bio-expand-text{font-size:13.5px;color:#555;line-height:1.65;margin-top:10px;overflow:hidden;max-height:3.3em;transition:max-height .4s ease;border-top:1px solid var(--line);padding-top:10px}
 .bio-expand-text.open{max-height:1000px}
 .bio-expand-btn{display:block;text-align:right;font-size:12.5px;color:var(--brand);font-weight:700;background:none;border:none;padding:4px 0 0;cursor:pointer;width:100%}
 /* ── 뱃지 아이콘 + 호버 툴팁 ── */
@@ -72,44 +72,47 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 .badge-chip-sm{position:relative;display:inline-flex;align-items:center}
 .badge-icon-btn{width:26px;height:26px;border-radius:50%;background:linear-gradient(145deg,#FFFDF5,#FFF8DC);border:1.5px solid #F59E0B;box-shadow:0 0 0 2px rgba(245,158,11,.12);font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:default;transition:box-shadow .15s}
 .badge-chip-sm:hover .badge-icon-btn{box-shadow:0 0 0 4px rgba(245,158,11,.22),0 2px 8px rgba(245,158,11,.3)}
-.badge-tooltip{position:absolute;bottom:calc(100%+9px);left:50%;transform:translateX(-50%) translateY(4px);background:#1a1a2e;color:#fff;padding:8px 13px;border-radius:9px;font-size:12px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;box-shadow:0 4px 18px rgba(0,0,0,.28)}
-.badge-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#1a1a2e}
+.badge-tooltip{position:absolute;bottom:calc(100%+22px);left:50%;transform:translateX(-50%) translateY(6px);background:#1a1a2e;color:#fff;padding:9px 14px;border-radius:9px;font-size:12px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:400;box-shadow:0 4px 18px rgba(0,0,0,.28)}
+.badge-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#1a1a2e}
 .badge-tooltip-name{font-weight:800;margin-bottom:3px}
 .badge-tooltip-desc{color:rgba(255,255,255,.72);font-size:11px;line-height:1.4}
 .badge-chip-sm:hover .badge-tooltip{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* ── 신뢰 지표 hover reveal ── */
-.trust-hover-wrap{position:relative;display:inline-block;margin-top:10px}
-.trust-trigger-pill{font-size:12.5px;font-weight:700;color:var(--brand);background:var(--brand-light);border:1px solid rgba(92,58,255,.2);border-radius:20px;padding:5px 13px;cursor:pointer;user-select:none;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;transition:background .15s}
+/* ── 신뢰 지표 인라인 아코디언 ── */
+.trust-accordion{margin-top:10px}
+.trust-trigger-pill{font-size:12.5px;font-weight:700;color:var(--brand);background:var(--brand-light);border:1px solid rgba(92,58,255,.2);border-radius:20px;padding:5px 14px;cursor:pointer;user-select:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;transition:background .15s}
 .trust-trigger-pill:hover{background:rgba(92,58,255,.1)}
-.trust-trigger-pill::after{content:'↗';font-size:11px;opacity:.65}
-.trust-hover-card{position:absolute;bottom:calc(100%+10px);left:0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;box-shadow:0 8px 28px rgba(0,0,0,.12);min-width:190px;opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;transform:translateY(6px);z-index:200}
-.trust-hover-card::before{content:'';position:absolute;top:100%;left:18px;border:7px solid transparent;border-top-color:var(--line)}
-.trust-hover-card::after{content:'';position:absolute;top:calc(100% - 1px);left:19px;border:6px solid transparent;border-top-color:#fff}
-.trust-hover-wrap:hover .trust-hover-card,.trust-hover-wrap.open .trust-hover-card{opacity:1;pointer-events:auto;transform:translateY(0)}
-.thc-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}
-.thc-row:last-child{border-bottom:none;padding-bottom:0}
-.thc-row:first-child{padding-top:0}
+.trust-arr{display:inline-block;font-size:11px;opacity:.6;transition:transform .25s;line-height:1}
+.trust-trigger-pill.open .trust-arr{transform:rotate(180deg)}
+.trust-accordion-body{max-height:0;overflow:hidden;transition:max-height .32s ease}
+.trust-accordion-body.open{max-height:200px}
+.thc-card{border:1px solid var(--line);border-radius:12px;padding:4px 16px;margin-top:8px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.thc-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}
+.thc-row:last-child{border-bottom:none}
 .thc-val{font-size:16px;font-weight:800;color:var(--brand);letter-spacing:-.02em}
 .thc-lbl{font-size:12px;color:var(--muted);font-weight:600}
 
-/* ── 평점 시각화 블록 ── */
-.hnp-rating-block{display:flex;flex-direction:column;align-items:flex-end;gap:9px}
-.hnp-score-badge{background:linear-gradient(135deg,#5C3AFF,#8B6EFF);border-radius:14px;padding:10px 16px;text-align:center;min-width:66px;box-shadow:0 4px 14px rgba(92,58,255,.35)}
+/* ── 평점 배지 + 호버 툴팁 ── */
+.hnp-rating-block{display:flex;flex-direction:column;align-items:flex-end}
+.hnp-score-badge-wrap{position:relative;display:inline-block;cursor:default}
+.hnp-score-badge{background:linear-gradient(135deg,#5C3AFF,#8B6EFF);border-radius:14px;padding:10px 16px;text-align:center;min-width:66px;box-shadow:0 4px 14px rgba(92,58,255,.35);transition:box-shadow .2s}
+.hnp-score-badge-wrap:hover .hnp-score-badge{box-shadow:0 6px 20px rgba(92,58,255,.5)}
 .hnp-score-num{font-size:24px;font-weight:900;color:#fff;line-height:1;letter-spacing:-.02em}
 .hnp-score-stars{font-size:10px;color:rgba(255,255,255,.85);margin-top:4px;letter-spacing:.5px}
-.hnp-pct-wrap{text-align:right}
-.hnp-pct-label{font-size:11.5px;font-weight:800;color:var(--brand)}
-.hnp-pct-bar-wrap{width:72px;height:5px;background:var(--line);border-radius:3px;margin:5px 0 3px auto;overflow:hidden}
-.hnp-pct-bar-fill{height:100%;background:linear-gradient(to right,#5C3AFF,#8B6EFF);border-radius:3px;width:0;transition:width .9s cubic-bezier(.25,.46,.45,.94)}
-.hnp-pct-sub{font-size:10.5px;color:var(--muted)}
+.rating-tooltip{position:absolute;top:calc(100%+10px);right:0;background:#1a1a2e;color:#fff;padding:12px 16px;border-radius:12px;min-width:130px;text-align:center;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;transform:translateY(-4px);z-index:400;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.rating-tooltip::before{content:'';position:absolute;bottom:100%;right:22px;border:7px solid transparent;border-bottom-color:#1a1a2e}
+.hnp-score-badge-wrap:hover .rating-tooltip{opacity:1;transform:translateY(0);pointer-events:auto}
+.rt-label{font-size:13px;font-weight:800;color:rgba(255,255,255,.95);margin-bottom:8px}
+.rt-bar-wrap{width:90px;height:4px;background:rgba(255,255,255,.2);border-radius:2px;margin:0 auto 7px;overflow:hidden}
+.rt-bar-fill{height:100%;background:rgba(255,255,255,.85);border-radius:2px;width:0;transition:width .9s ease}
+.rt-reviews{font-size:11px;color:rgba(255,255,255,.65)}
 
-/* mobile rating mini */
-.pib-rating-block{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
-.pib-score-badge{background:linear-gradient(135deg,#5C3AFF,#8B6EFF);border-radius:10px;padding:5px 11px;text-align:center;box-shadow:0 3px 10px rgba(92,58,255,.3)}
+/* mobile rating */
+.pib-rating-block{display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin-left:auto;flex-shrink:0}
+.pib-score-badge{background:linear-gradient(135deg,#5C3AFF,#8B6EFF);border-radius:10px;padding:5px 11px;text-align:center;box-shadow:0 3px 10px rgba(92,58,255,.3);cursor:pointer}
 .pib-score-num{font-size:17px;font-weight:900;color:#fff;line-height:1;letter-spacing:-.02em}
 .pib-score-stars{font-size:8.5px;color:rgba(255,255,255,.85);margin-top:2px;letter-spacing:.4px}
-.pib-pct-label{font-size:11px;font-weight:700;color:var(--brand);white-space:nowrap}
+.pib-pct-label{font-size:11px;font-weight:700;color:var(--brand);white-space:nowrap;text-align:right}
 
 /* ── TABS (모바일, sticky) ── */
 .profile-tabs{background:#fff;border-bottom:2px solid var(--line);position:sticky;top:60px;z-index:40;overflow-x:auto;scrollbar-width:none}
@@ -530,23 +533,26 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
       <div class="pib-pct-label">상위 5%</div>
     </div>
   </div>
-  <div class="trust-hover-wrap" id="trustWrapMob" onclick="toggleTrustMob('trustWrapMob')">
-    <div class="trust-trigger-pill">경력 · 상담 이력</div>
-    <div class="trust-hover-card">
-      <div class="thc-row"><span class="thc-lbl">업력</span><span class="thc-val">6년 3개월</span></div>
-      <div class="thc-row"><span class="thc-lbl">상담건수</span><span class="thc-val">1,248건</span></div>
-      <div class="thc-row"><span class="thc-lbl">누적완료</span><span class="thc-val">1,094건</span></div>
+  <div class="trust-accordion">
+    <button class="trust-trigger-pill" id="trustBtnMob" onclick="toggleTrustAcc('trustBodyMob','trustBtnMob')">
+      경력 · 상담 이력 <span class="trust-arr">▾</span>
+    </button>
+    <div class="trust-accordion-body" id="trustBodyMob">
+      <div class="thc-card">
+        <div class="thc-row"><span class="thc-lbl">업력</span><span class="thc-val">6년 3개월</span></div>
+        <div class="thc-row"><span class="thc-lbl">상담건수</span><span class="thc-val">1,248건</span></div>
+        <div class="thc-row"><span class="thc-lbl">누적완료</span><span class="thc-val">1,094건</span></div>
+      </div>
     </div>
   </div>
-  <div class="bio-expand-text" id="mobBioText">
-    분양 시장 6년, 1,248건 상담의 경험을 바탕으로 고객 한 분 한 분께 최적의 결과를 드리고 있습니다.<br><br>
+  <div class="bio-expand-text" id="mobBioText">분양 시장 6년, 1,248건 상담의 경험을 바탕으로 고객 한 분 한 분께 최적의 결과를 드리고 있습니다.<br>
     1. 고객님의 조건에 맞는 단지를 꼼꼼히 분석해 최대한 구해드립니다.<br>
     2. 등기부등본·건축물대장 등 서류 검토는 기본, 상세 설명은 필수입니다.<br>
     3. 임대인·임차인 계약서 작성 시 직접 동석해 안전한 거래를 보장합니다.<br>
     4. 근저당·대출 전액 상환 후 등기소 접수까지 책임지고 처리합니다.<br>
     5. 계약서 특약 사항까지 완벽하게 지키며 끝까지 책임지는 중개를 합니다.<br>
     6. 입주 시 각종 공과금 정산 및 등기 사항 확인까지 함께합니다.<br>
-    7. 투자 목적이든 실수요든, 고객님 상황에 맞는 최선의 방향을 제시합니다.<br><br>
+    7. 투자 목적이든 실수요든, 고객님 상황에 맞는 최선의 방향을 제시합니다.<br>
     #광안센텀비스타동원 #오산헤리티지자이 #천안동일하이빌파크레인 #하이엔드주거 #투자상담 #계약금융
   </div>
   <button class="bio-expand-btn" onclick="toggleBio('mobBioText', this)">더보기 ↓</button>
@@ -680,39 +686,42 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
             </div>
             <div class="hnp-line">광안 센텀 비스타동원</div>
             <div class="hnp-line">📍 부산 수영구 광안2동 567 모델하우스</div>
-            <div class="trust-hover-wrap" id="trustWrapPc" onclick="toggleTrustMob('trustWrapPc')">
-              <div class="trust-trigger-pill">경력 · 상담 이력</div>
-              <div class="trust-hover-card">
-                <div class="thc-row"><span class="thc-lbl">업력</span><span class="thc-val">6년 3개월</span></div>
-                <div class="thc-row"><span class="thc-lbl">상담건수</span><span class="thc-val">1,248건</span></div>
-                <div class="thc-row"><span class="thc-lbl">누적완료</span><span class="thc-val">1,094건</span></div>
+            <div class="trust-accordion">
+              <button class="trust-trigger-pill" id="trustBtnPc" onclick="toggleTrustAcc('trustBodyPc','trustBtnPc')">
+                경력 · 상담 이력 <span class="trust-arr">▾</span>
+              </button>
+              <div class="trust-accordion-body" id="trustBodyPc">
+                <div class="thc-card">
+                  <div class="thc-row"><span class="thc-lbl">업력</span><span class="thc-val">6년 3개월</span></div>
+                  <div class="thc-row"><span class="thc-lbl">상담건수</span><span class="thc-val">1,248건</span></div>
+                  <div class="thc-row"><span class="thc-lbl">누적완료</span><span class="thc-val">1,094건</span></div>
+                </div>
               </div>
             </div>
-            <div class="bio-expand-text" id="pcBioText">
-              분양 시장 6년, 1,248건 상담의 경험을 바탕으로 고객 한 분 한 분께 최적의 결과를 드리고 있습니다.<br><br>
+            <div class="bio-expand-text" id="pcBioText">분양 시장 6년, 1,248건 상담의 경험을 바탕으로 고객 한 분 한 분께 최적의 결과를 드리고 있습니다.<br>
               1. 고객님의 조건에 맞는 단지를 꼼꼼히 분석해 최대한 구해드립니다.<br>
               2. 등기부등본·건축물대장 등 서류 검토는 기본, 상세 설명은 필수입니다.<br>
               3. 임대인·임차인 계약서 작성 시 직접 동석해 안전한 거래를 보장합니다.<br>
               4. 근저당·대출 전액 상환 후 등기소 접수까지 책임지고 처리합니다.<br>
               5. 계약서 특약 사항까지 완벽하게 지키며 끝까지 책임지는 중개를 합니다.<br>
               6. 입주 시 각종 공과금 정산 및 등기 사항 확인까지 함께합니다.<br>
-              7. 투자 목적이든 실수요든, 고객님 상황에 맞는 최선의 방향을 제시합니다.<br><br>
+              7. 투자 목적이든 실수요든, 고객님 상황에 맞는 최선의 방향을 제시합니다.<br>
               #광안센텀비스타동원 #오산헤리티지자이 #천안동일하이빌파크레인 #하이엔드주거 #투자상담 #계약금융
             </div>
             <button class="bio-expand-btn" onclick="toggleBio('pcBioText', this)">더보기 ↓</button>
           </div>
           <div class="hnp-right">
             <div class="hnp-rating-block">
-              <div class="hnp-score-badge">
-                <div class="hnp-score-num">4.8</div>
-                <div class="hnp-score-stars">★★★★★</div>
-              </div>
-              <div class="hnp-pct-wrap">
-                <div class="hnp-pct-label">상위 5%</div>
-                <div class="hnp-pct-bar-wrap">
-                  <div class="hnp-pct-bar-fill" id="pctBar"></div>
+              <div class="hnp-score-badge-wrap">
+                <div class="hnp-score-badge">
+                  <div class="hnp-score-num">4.8</div>
+                  <div class="hnp-score-stars">★★★★★</div>
                 </div>
-                <div class="hnp-pct-sub">후기 128건</div>
+                <div class="rating-tooltip">
+                  <div class="rt-label">상위 5%</div>
+                  <div class="rt-bar-wrap"><div class="rt-bar-fill" id="rtBar"></div></div>
+                  <div class="rt-reviews">후기 128건</div>
+                </div>
               </div>
             </div>
           </div>
@@ -1052,28 +1061,19 @@ function closeInquiry() {
   document.body.style.overflow = '';
 }
 
-// 신뢰지표 팝업 토글 (모바일 클릭 / PC는 CSS hover로 처리)
-function toggleTrustMob(id) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  // PC: hover 처리하므로 클릭 이벤트만 모바일에서 동작
-  if (window.innerWidth > 820) return;
-  el.classList.toggle('open');
-  // 외부 클릭 시 닫기
-  if (el.classList.contains('open')) {
-    setTimeout(function() {
-      function closeHandler(e) {
-        if (!el.contains(e.target)) { el.classList.remove('open'); document.removeEventListener('click', closeHandler); }
-      }
-      document.addEventListener('click', closeHandler);
-    }, 0);
-  }
+// 신뢰지표 아코디언 토글
+function toggleTrustAcc(bodyId, btnId) {
+  const body = document.getElementById(bodyId);
+  const btn  = document.getElementById(btnId);
+  if (!body || !btn) return;
+  const isOpen = body.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
 }
 
-// 평점 게이지 바 애니메이션
+// 평점 툴팁 바 애니메이션 (hover 시 이미 width:95% 이므로 초기 1회 세팅)
 function animatePctBar() {
-  const bar = document.getElementById('pctBar');
-  if (bar) setTimeout(function() { bar.style.width = '95%'; }, 150);
+  const bar = document.getElementById('rtBar');
+  if (bar) setTimeout(function() { bar.style.width = '95%'; }, 200);
 }
 
 // 소개글 더보기 토글
