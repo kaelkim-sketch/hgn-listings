@@ -72,7 +72,7 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 .badge-chip-sm{position:relative;display:inline-flex;align-items:center}
 .badge-icon-btn{width:26px;height:26px;border-radius:50%;background:linear-gradient(145deg,#FFFDF5,#FFF8DC);border:1.5px solid #F59E0B;box-shadow:0 0 0 2px rgba(245,158,11,.12);font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:default;transition:box-shadow .15s}
 .badge-chip-sm:hover .badge-icon-btn{box-shadow:0 0 0 4px rgba(245,158,11,.22),0 2px 8px rgba(245,158,11,.3)}
-.badge-tooltip{position:absolute;top:calc(100%+12px);left:50%;transform:translateX(-50%) translateY(-6px);background:#1a1a2e;color:#fff;padding:9px 14px;border-radius:9px;font-size:12px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:400;box-shadow:0 4px 18px rgba(0,0,0,.28)}
+.badge-tooltip{position:absolute;top:calc(100%-8px);left:50%;transform:translateX(-50%) translateY(-6px);background:#1a1a2e;color:#fff;padding:9px 14px;border-radius:9px;font-size:12px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:400;box-shadow:0 4px 18px rgba(0,0,0,.28)}
 .badge-tooltip::after{content:'';position:absolute;bottom:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-bottom-color:#1a1a2e}
 .badge-tooltip-name{font-weight:800;margin-bottom:3px}
 .badge-tooltip-desc{color:rgba(255,255,255,.72);font-size:11px;line-height:1.4}
@@ -112,7 +112,11 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 .pib-score-badge{background:linear-gradient(135deg,#5C3AFF,#8B6EFF);border-radius:10px;padding:5px 11px;text-align:center;box-shadow:0 3px 10px rgba(92,58,255,.3);cursor:pointer}
 .pib-score-num{font-size:17px;font-weight:900;color:#fff;line-height:1;letter-spacing:-.02em}
 .pib-score-stars{font-size:8.5px;color:rgba(255,255,255,.85);margin-top:2px;letter-spacing:.4px}
-.pib-pct-label{font-size:11px;font-weight:700;color:var(--brand);white-space:nowrap;text-align:right}
+.pib-pct-label{display:none}
+.pib-score-wrap-mob{position:relative;display:inline-block;cursor:pointer}
+.pib-rating-popup{position:absolute;top:calc(100%+8px);right:0;background:#1a1a2e;color:#fff;padding:10px 14px;border-radius:10px;font-size:12px;white-space:nowrap;z-index:400;box-shadow:0 4px 16px rgba(0,0,0,.28);display:none}
+.pib-rating-popup.visible{display:block}
+.pib-rating-popup::before{content:'';position:absolute;bottom:100%;right:18px;transform:translateX(50%);border:6px solid transparent;border-bottom-color:#1a1a2e}
 
 /* ── TABS (모바일, sticky) ── */
 .profile-tabs{background:#fff;border-bottom:2px solid var(--line);position:sticky;top:60px;z-index:40;overflow-x:auto;scrollbar-width:none}
@@ -179,9 +183,9 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 /* hero nameplate (사진 아래 이름·정보 바) */
 .hero-wrap{border-radius:var(--radius);overflow:hidden}
 .hero-nameplate{background:#fff;border:1px solid var(--line);border-top:none;padding:14px 18px 16px}
-.hnp-top-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:2px}
+.hnp-top-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px}
 .hnp-left{flex:1;min-width:0}
-.hnp-name{font-size:26px;font-weight:900;color:var(--ink);letter-spacing:-.03em;display:flex;align-items:center;gap:6px;margin-bottom:5px;line-height:1.2}
+.hnp-name{font-size:26px;font-weight:900;color:var(--ink);letter-spacing:-.03em;display:flex;align-items:center;gap:6px;margin-bottom:0;line-height:1.2}
 .hnp-verified{font-size:16px;color:var(--brand)}
 .hnp-line{font-size:16px;color:var(--ink);line-height:1.8}
 .hnp-right{text-align:right;flex-shrink:0;padding-top:2px}
@@ -527,11 +531,17 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
       <div class="pib-sub" style="margin-top:1px">📍 부산 수영구 광안2동 567 모델하우스</div>
     </div>
     <div class="pib-rating-block">
-      <div class="pib-score-badge">
-        <div class="pib-score-num">4.8</div>
-        <div class="pib-score-stars">★★★★★</div>
+      <div class="pib-score-wrap-mob" onclick="toggleMobRating(this)">
+        <div class="pib-score-badge">
+          <div class="pib-score-num">4.8</div>
+          <div class="pib-score-stars">★★★★★</div>
+        </div>
+        <div class="pib-rating-popup" id="mobRatingPopup">
+          <div class="rt-label">상위 5%</div>
+          <div class="rt-bar-wrap"><div class="rt-bar-fill" id="rtBarMob"></div></div>
+          <div class="rt-reviews">후기 128건</div>
+        </div>
       </div>
-      <div class="pib-pct-label">상위 5%</div>
     </div>
   </div>
   <div class="trust-accordion">
@@ -1106,6 +1116,23 @@ function toggleTrustAcc(bodyId, btnId) {
 function animatePctBar() {
   const bar = document.getElementById('rtBar');
   if (bar) setTimeout(function() { bar.style.width = '95%'; }, 200);
+}
+
+// 모바일 평점 팝업 토글
+function toggleMobRating(el) {
+  const popup = el.querySelector('.pib-rating-popup');
+  if (!popup) return;
+  const isVisible = popup.classList.toggle('visible');
+  if (isVisible) {
+    const bar = el.querySelector('.rt-bar-fill');
+    if (bar) setTimeout(function() { bar.style.width = '95%'; }, 80);
+  }
+  document.addEventListener('click', function closeMobRating(e) {
+    if (!el.contains(e.target)) {
+      popup.classList.remove('visible');
+      document.removeEventListener('click', closeMobRating);
+    }
+  }, { once: false, capture: true });
 }
 
 // 소개글 더보기 토글
