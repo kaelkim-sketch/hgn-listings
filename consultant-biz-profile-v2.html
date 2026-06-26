@@ -38,7 +38,7 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 .gnb-cta-btn:hover{background:var(--brand-dark)}
 
 /* ── MOBILE HERO ── */
-.hero-mobile{position:relative;width:100%;height:310px;overflow:hidden;background:#1a1a2e}
+.hero-mobile{position:relative;width:100%;height:372px;overflow:hidden;background:#1a1a2e}
 .hero-mobile-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
 .slide-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0;transition:opacity .4s ease}
 .slide-img.active{opacity:1}
@@ -64,15 +64,52 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 .pib-dot{width:3px;height:3px;border-radius:50%;background:var(--muted);flex-shrink:0}
 .pib-bio{font-size:13.5px;color:var(--muted);margin-top:8px;padding-top:8px;border-top:1px solid var(--line);line-height:1.5;font-style:italic}
 /* expandable bio */
-.bio-expand-text{font-size:13.5px;color:#555;line-height:1.65;margin-top:8px;overflow:hidden;max-height:2.8em;transition:max-height .4s ease}
-.bio-expand-text.open{max-height:800px}
-.bio-expand-btn{display:inline-block;font-size:12.5px;color:var(--brand);font-weight:700;background:none;border:none;padding:4px 0 0;cursor:pointer}
-/* trust strip (nameplate + mobile bar 공용) */
-.hnp-trust-stats{font-size:12.5px;color:var(--txt);margin-top:9px;display:flex;flex-wrap:wrap;align-items:center;gap:3px;font-weight:600}
-.hnp-trust-sep{color:var(--muted);margin:0 3px}
-.hnp-trust-badges{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:6px;margin-top:7px;padding-bottom:2px;scrollbar-width:none}
-.hnp-trust-badges::-webkit-scrollbar{display:none}
-.hnp-tbadge{flex-shrink:0;display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;color:#92690A;background:#FFFBEB;border:1px solid #F59E0B;border-radius:20px;padding:3px 10px;white-space:nowrap}
+.bio-expand-text{font-size:13.5px;color:#555;line-height:1.65;margin-top:8px;overflow:hidden;max-height:3.3em;transition:max-height .4s ease;word-break:keep-all}
+.bio-expand-text.open{max-height:1000px}
+.bio-expand-btn{display:block;text-align:right;font-size:12.5px;color:var(--brand);font-weight:700;background:none;border:none;padding:4px 0 0;cursor:pointer;width:100%}
+/* ── 뱃지 아이콘 + 호버 툴팁 ── */
+.badge-chips-row{display:flex;flex-wrap:nowrap;gap:4px;align-items:center;margin-left:4px;flex-shrink:0}
+.badge-chip-sm{position:relative;display:inline-flex;align-items:center}
+.badge-icon-btn{width:26px;height:26px;border-radius:50%;background:linear-gradient(145deg,#FFFDF5,#FFF8DC);border:1.5px solid #F59E0B;box-shadow:0 0 0 2px rgba(245,158,11,.12);font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:default;transition:box-shadow .15s}
+.badge-chip-sm:hover .badge-icon-btn{box-shadow:0 0 0 4px rgba(245,158,11,.22),0 2px 8px rgba(245,158,11,.3)}
+.badge-tooltip{position:absolute;bottom:calc(100%+9px);left:50%;transform:translateX(-50%) translateY(4px);background:#1a1a2e;color:#fff;padding:8px 13px;border-radius:9px;font-size:12px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:300;box-shadow:0 4px 18px rgba(0,0,0,.28)}
+.badge-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#1a1a2e}
+.badge-tooltip-name{font-weight:800;margin-bottom:3px}
+.badge-tooltip-desc{color:rgba(255,255,255,.72);font-size:11px;line-height:1.4}
+.badge-chip-sm:hover .badge-tooltip{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── 신뢰 지표 hover reveal ── */
+.trust-hover-wrap{position:relative;display:inline-block;margin-top:10px}
+.trust-trigger-pill{font-size:12.5px;font-weight:700;color:var(--brand);background:var(--brand-light);border:1px solid rgba(92,58,255,.2);border-radius:20px;padding:5px 13px;cursor:pointer;user-select:none;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;transition:background .15s}
+.trust-trigger-pill:hover{background:rgba(92,58,255,.1)}
+.trust-trigger-pill::after{content:'↗';font-size:11px;opacity:.65}
+.trust-hover-card{position:absolute;bottom:calc(100%+10px);left:0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;box-shadow:0 8px 28px rgba(0,0,0,.12);min-width:190px;opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;transform:translateY(6px);z-index:200}
+.trust-hover-card::before{content:'';position:absolute;top:100%;left:18px;border:7px solid transparent;border-top-color:var(--line)}
+.trust-hover-card::after{content:'';position:absolute;top:calc(100% - 1px);left:19px;border:6px solid transparent;border-top-color:#fff}
+.trust-hover-wrap:hover .trust-hover-card,.trust-hover-wrap.open .trust-hover-card{opacity:1;pointer-events:auto;transform:translateY(0)}
+.thc-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}
+.thc-row:last-child{border-bottom:none;padding-bottom:0}
+.thc-row:first-child{padding-top:0}
+.thc-val{font-size:16px;font-weight:800;color:var(--brand);letter-spacing:-.02em}
+.thc-lbl{font-size:12px;color:var(--muted);font-weight:600}
+
+/* ── 평점 시각화 블록 ── */
+.hnp-rating-block{display:flex;flex-direction:column;align-items:flex-end;gap:9px}
+.hnp-score-badge{background:linear-gradient(135deg,#5C3AFF,#8B6EFF);border-radius:14px;padding:10px 16px;text-align:center;min-width:66px;box-shadow:0 4px 14px rgba(92,58,255,.35)}
+.hnp-score-num{font-size:24px;font-weight:900;color:#fff;line-height:1;letter-spacing:-.02em}
+.hnp-score-stars{font-size:10px;color:rgba(255,255,255,.85);margin-top:4px;letter-spacing:.5px}
+.hnp-pct-wrap{text-align:right}
+.hnp-pct-label{font-size:11.5px;font-weight:800;color:var(--brand)}
+.hnp-pct-bar-wrap{width:72px;height:5px;background:var(--line);border-radius:3px;margin:5px 0 3px auto;overflow:hidden}
+.hnp-pct-bar-fill{height:100%;background:linear-gradient(to right,#5C3AFF,#8B6EFF);border-radius:3px;width:0;transition:width .9s cubic-bezier(.25,.46,.45,.94)}
+.hnp-pct-sub{font-size:10.5px;color:var(--muted)}
+
+/* mobile rating mini */
+.pib-rating-block{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
+.pib-score-badge{background:linear-gradient(135deg,#5C3AFF,#8B6EFF);border-radius:10px;padding:5px 11px;text-align:center;box-shadow:0 3px 10px rgba(92,58,255,.3)}
+.pib-score-num{font-size:17px;font-weight:900;color:#fff;line-height:1;letter-spacing:-.02em}
+.pib-score-stars{font-size:8.5px;color:rgba(255,255,255,.85);margin-top:2px;letter-spacing:.4px}
+.pib-pct-label{font-size:11px;font-weight:700;color:var(--brand);white-space:nowrap}
 
 /* ── TABS (모바일, sticky) ── */
 .profile-tabs{background:#fff;border-bottom:2px solid var(--line);position:sticky;top:60px;z-index:40;overflow-x:auto;scrollbar-width:none}
@@ -142,7 +179,7 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 .hnp-left{flex:1;min-width:0}
 .hnp-name{font-size:26px;font-weight:900;color:var(--ink);letter-spacing:-.03em;display:flex;align-items:center;gap:6px;margin-bottom:5px;line-height:1.2}
 .hnp-verified{font-size:16px;color:var(--brand)}
-.hnp-line{font-size:14px;color:var(--ink);line-height:1.8}
+.hnp-line{font-size:16px;color:var(--ink);line-height:1.8}
 .hnp-right{text-align:right;flex-shrink:0;padding-top:2px}
 .hnp-rating{font-size:14px;font-weight:800;color:var(--brand);white-space:nowrap}
 
@@ -427,7 +464,7 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 }
 @media(max-width:480px){
   .page-wrap{padding:14px 12px 90px}
-  .hero-mobile{height:270px}
+  .hero-mobile{height:324px}
   .hero-slogan{font-size:20px}
   .ps-val{font-size:17px}
   .career-yrs,.career-stat-val{font-size:17px}
@@ -470,26 +507,36 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 
 <!-- 모바일 프로필 인포바 -->
 <div class="profile-info-bar">
-  <div class="pib-name-row">
-    <span class="pib-name">김민준 상담사</span>
-    <span class="pib-verified">✓</span>
-    <div class="pib-rate">★ 4.8 &nbsp;·&nbsp; 상위 5%</div>
+  <div class="pib-name-row" style="align-items:flex-start">
+    <div style="flex:1;min-width:0">
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin-bottom:3px">
+        <span class="pib-name">김민준 상담사</span>
+        <div class="badge-chips-row">
+          <span class="badge-chip-sm"><span class="badge-icon-btn">👑</span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
+          <span class="badge-chip-sm"><span class="badge-icon-btn">⚡</span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
+          <span class="badge-chip-sm"><span class="badge-icon-btn">🎖</span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
+          <span class="badge-chip-sm"><span class="badge-icon-btn">⭐</span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
+          <span class="badge-chip-sm"><span class="badge-icon-btn">🛡</span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
+        </div>
+      </div>
+      <div class="pib-sub">광안 센텀 비스타동원</div>
+      <div class="pib-sub" style="margin-top:1px">📍 부산 수영구 광안2동 567 모델하우스</div>
+    </div>
+    <div class="pib-rating-block">
+      <div class="pib-score-badge">
+        <div class="pib-score-num">4.8</div>
+        <div class="pib-score-stars">★★★★★</div>
+      </div>
+      <div class="pib-pct-label">상위 5%</div>
+    </div>
   </div>
-  <div class="pib-sub"><span>광안 센텀 비스타동원</span></div>
-  <div class="pib-sub" style="margin-top:1px"><span>📍 부산 수영구 광안2동 567 모델하우스</span></div>
-  <div class="hnp-trust-stats">
-    <span>6년 3개월 업력</span>
-    <span class="hnp-trust-sep">·</span>
-    <span>상담 1,248건</span>
-    <span class="hnp-trust-sep">·</span>
-    <span>완료 1,094건</span>
-  </div>
-  <div class="hnp-trust-badges">
-    <span class="hnp-tbadge">👑 우수 상담사</span>
-    <span class="hnp-tbadge">⚡ 빠른 응답</span>
-    <span class="hnp-tbadge">🎖 높은 완료율</span>
-    <span class="hnp-tbadge">⭐ 이용자 추천</span>
-    <span class="hnp-tbadge">🛡 공식 인증</span>
+  <div class="trust-hover-wrap" id="trustWrapMob" onclick="toggleTrustMob('trustWrapMob')">
+    <div class="trust-trigger-pill">경력 · 상담 이력</div>
+    <div class="trust-hover-card">
+      <div class="thc-row"><span class="thc-lbl">업력</span><span class="thc-val">6년 3개월</span></div>
+      <div class="thc-row"><span class="thc-lbl">상담건수</span><span class="thc-val">1,248건</span></div>
+      <div class="thc-row"><span class="thc-lbl">누적완료</span><span class="thc-val">1,094건</span></div>
+    </div>
   </div>
   <div class="bio-expand-text" id="mobBioText">
     분양 시장 6년, 1,248건 상담의 경험을 바탕으로 고객 한 분 한 분께 최적의 결과를 드리고 있습니다.<br><br>
@@ -621,22 +668,25 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
         </div>
         <div class="hero-nameplate">
           <div class="hnp-left">
-            <div class="hnp-name">김민준 상담사 <span class="hnp-verified">✓</span></div>
+            <div class="hnp-name">
+              김민준 상담사
+              <div class="badge-chips-row">
+                <span class="badge-chip-sm"><span class="badge-icon-btn">👑</span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
+                <span class="badge-chip-sm"><span class="badge-icon-btn">⚡</span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
+                <span class="badge-chip-sm"><span class="badge-icon-btn">🎖</span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
+                <span class="badge-chip-sm"><span class="badge-icon-btn">⭐</span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
+                <span class="badge-chip-sm"><span class="badge-icon-btn">🛡</span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
+              </div>
+            </div>
             <div class="hnp-line">광안 센텀 비스타동원</div>
             <div class="hnp-line">📍 부산 수영구 광안2동 567 모델하우스</div>
-            <div class="hnp-trust-stats">
-              <span>6년 3개월 업력</span>
-              <span class="hnp-trust-sep">·</span>
-              <span>상담 1,248건</span>
-              <span class="hnp-trust-sep">·</span>
-              <span>완료 1,094건</span>
-            </div>
-            <div class="hnp-trust-badges">
-              <span class="hnp-tbadge">👑 우수 상담사</span>
-              <span class="hnp-tbadge">⚡ 빠른 응답</span>
-              <span class="hnp-tbadge">🎖 높은 완료율</span>
-              <span class="hnp-tbadge">⭐ 이용자 추천</span>
-              <span class="hnp-tbadge">🛡 공식 인증</span>
+            <div class="trust-hover-wrap" id="trustWrapPc" onclick="toggleTrustMob('trustWrapPc')">
+              <div class="trust-trigger-pill">경력 · 상담 이력</div>
+              <div class="trust-hover-card">
+                <div class="thc-row"><span class="thc-lbl">업력</span><span class="thc-val">6년 3개월</span></div>
+                <div class="thc-row"><span class="thc-lbl">상담건수</span><span class="thc-val">1,248건</span></div>
+                <div class="thc-row"><span class="thc-lbl">누적완료</span><span class="thc-val">1,094건</span></div>
+              </div>
             </div>
             <div class="bio-expand-text" id="pcBioText">
               분양 시장 6년, 1,248건 상담의 경험을 바탕으로 고객 한 분 한 분께 최적의 결과를 드리고 있습니다.<br><br>
@@ -652,7 +702,19 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
             <button class="bio-expand-btn" onclick="toggleBio('pcBioText', this)">더보기 ↓</button>
           </div>
           <div class="hnp-right">
-            <div class="hnp-rating">★ 4.8 &nbsp;·&nbsp; 상위 5%</div>
+            <div class="hnp-rating-block">
+              <div class="hnp-score-badge">
+                <div class="hnp-score-num">4.8</div>
+                <div class="hnp-score-stars">★★★★★</div>
+              </div>
+              <div class="hnp-pct-wrap">
+                <div class="hnp-pct-label">상위 5%</div>
+                <div class="hnp-pct-bar-wrap">
+                  <div class="hnp-pct-bar-fill" id="pctBar"></div>
+                </div>
+                <div class="hnp-pct-sub">후기 128건</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -990,6 +1052,30 @@ function closeInquiry() {
   document.body.style.overflow = '';
 }
 
+// 신뢰지표 팝업 토글 (모바일 클릭 / PC는 CSS hover로 처리)
+function toggleTrustMob(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  // PC: hover 처리하므로 클릭 이벤트만 모바일에서 동작
+  if (window.innerWidth > 820) return;
+  el.classList.toggle('open');
+  // 외부 클릭 시 닫기
+  if (el.classList.contains('open')) {
+    setTimeout(function() {
+      function closeHandler(e) {
+        if (!el.contains(e.target)) { el.classList.remove('open'); document.removeEventListener('click', closeHandler); }
+      }
+      document.addEventListener('click', closeHandler);
+    }, 0);
+  }
+}
+
+// 평점 게이지 바 애니메이션
+function animatePctBar() {
+  const bar = document.getElementById('pctBar');
+  if (bar) setTimeout(function() { bar.style.width = '95%'; }, 150);
+}
+
 // 소개글 더보기 토글
 function toggleBio(id, btn) {
   const el = document.getElementById(id);
@@ -1090,6 +1176,7 @@ function toggleFav(btn) {
 
 initBanner();
 initAptSlider();
+animatePctBar();
 </script>
 </body>
 </html>
