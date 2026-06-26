@@ -1071,12 +1071,18 @@ window.addEventListener('scroll', function() {
 }, { passive: true });
 
 function switchTab(tabName, el) {
+  const gnbH = (document.getElementById('gnb') || {offsetHeight:0}).offsetHeight;
+  const profileTabs = document.getElementById('profileTabs');
+  const targetY = profileTabs ? profileTabs.offsetTop - gnbH : 0;
+
   document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
   document.querySelectorAll('[data-tab]').forEach(card => {
     const tabs = card.dataset.tab.split(' ');
     card.classList.toggle('tab-visible', tabs.includes(tabName));
   });
+
+  window.scrollTo({ top: targetY, behavior: 'smooth' });
 }
 
 function openContact() {
