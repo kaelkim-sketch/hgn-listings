@@ -438,7 +438,7 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
   header.gnb .gnb-logo-text{color:var(--ink);text-shadow:none}
   header.gnb .gnb-back{color:var(--muted);text-shadow:none}
   .hero-pc{display:block}
-  .profile-tabs{border-top:none;border-left:1px solid var(--line);border-right:1px solid var(--line);border-radius:var(--radius) var(--radius) 0 0;overflow:hidden;margin:0}
+  .profile-tabs{border-top:1px solid var(--line);border-left:none;border-right:none;border-radius:0;overflow:hidden;margin:0}
   .col-center>.profile-tabs{position:sticky;top:60px;z-index:40}
 }
 @media(max-width:820px){
@@ -655,18 +655,6 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
     <!-- ② CENTER (모바일·PC 동일) -->
     <section class="col-center">
 
-      <!-- 탭 네비게이션 (모바일·PC 공통, PC는 center column 내 sticky) -->
-      <nav class="profile-tabs" id="profileTabs">
-        <div class="tabs-inner">
-          <div class="tab-item active" onclick="switchTab('home',this)">홈</div>
-          <div class="tab-item" onclick="switchTab('info',this)">상담사 정보</div>
-          <div class="tab-item" onclick="switchTab('apts',this)">담당 단지</div>
-          <div class="tab-item" onclick="switchTab('posts',this)">포스트</div>
-          <div class="tab-item" onclick="switchTab('reviews',this)">후기 <span style="color:var(--brand);font-weight:800">128</span></div>
-          <div class="tab-item" onclick="switchTab('contact',this)">문의</div>
-        </div>
-      </nav>
-
       <!-- PC 히어로 카드 (PC 전용) -->
       <div class="hero-wrap">
         <div class="hero-pc" id="heroPc">
@@ -743,6 +731,17 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
         </div>
       </div>
 
+      <!-- 탭 네비게이션 (PC: 프로필 아래 / 모바일: 모바일 프로필 아래 공통) -->
+      <nav class="profile-tabs" id="profileTabs">
+        <div class="tabs-inner">
+          <div class="tab-item active" onclick="switchTab('home',this)">홈</div>
+          <div class="tab-item" onclick="switchTab('info',this)">상담사 정보</div>
+          <div class="tab-item" onclick="switchTab('apts',this)">담당 단지</div>
+          <div class="tab-item" onclick="switchTab('posts',this)">포스트</div>
+          <div class="tab-item" onclick="switchTab('reviews',this)">후기 <span style="color:var(--brand);font-weight:800">128</span></div>
+          <div class="tab-item" onclick="switchTab('contact',this)">문의</div>
+        </div>
+      </nav>
 
       <!-- ── 상담사 정보 탭 전용 카드 ── -->
 
