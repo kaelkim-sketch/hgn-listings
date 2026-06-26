@@ -11,11 +11,11 @@
   --brand:#5C3AFF;--brand-light:#F0EEFF;--brand-dark:#3D20DB;
   --ink:#111827;--txt:#374151;--muted:#9CA3AF;--line:#E5E7EB;
   --soft:#F9FAFB;--gold:#F59E0B;--kakao:#FEE500;--orange:#FF5C26;
-  --radius:12px;--maxw:1160px;
+  --radius:12px;--maxw:1240px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:"Pretendard",-apple-system,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--txt);background:var(--soft);line-height:1.55;-webkit-font-smoothing:antialiased}
+body{font-family:"Pretendard",-apple-system,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--txt);background:#E8EAF0;line-height:1.55;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer}
@@ -128,17 +128,17 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 [data-tab].tab-visible{display:block}
 
 /* ── PAGE LAYOUT ── */
-.page-wrap{max-width:var(--maxw);margin:0 auto;padding:16px 20px 100px}
-.page-grid{display:grid;grid-template-columns:210px 1fr 210px;gap:18px;align-items:start}
+.page-wrap{max-width:var(--maxw);margin:0 auto;padding:20px 20px 100px}
+.page-grid{display:grid;grid-template-columns:270px 1fr 250px;gap:20px;align-items:start}
 
 /* ── SHARED ── */
-.c-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
+.c-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 1px 4px rgba(0,0,0,.06)}
 .sec-label{display:flex;align-items:center;gap:6px;font-size:20px;font-weight:800;color:var(--txt);letter-spacing:-.01em;margin-bottom:14px}
 
 /* ── LEFT COL: 청약 소식 (PC 전용) ── */
 .col-left{display:flex;flex-direction:column;gap:12px;position:sticky;top:76px}
 
-.left-news-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 12px}
+.left-news-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 12px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
 .left-news-list{display:flex;flex-direction:column}
 .left-news-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:opacity .15s;text-decoration:none}
 .left-news-item:last-child{border-bottom:none}
@@ -151,7 +151,7 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 .ln-title{font-size:12.5px;font-weight:600;color:var(--ink);line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .left-news-more{display:block;text-align:center;font-size:12px;color:var(--brand);font-weight:600;padding-top:10px;margin-top:2px;border-top:1px solid var(--line)}
 
-.left-cal-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 14px}
+.left-cal-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 14px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
 .cal-list{display:flex;flex-direction:column;gap:9px}
 .cal-item{display:flex;align-items:flex-start;gap:10px}
 .cal-date-box{flex-shrink:0;width:38px;text-align:center;background:var(--brand-light);border-radius:8px;padding:5px 4px}
@@ -378,7 +378,7 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 .ql-arrow{color:var(--muted);font-size:14px}
 
 /* 이 지역 다른 상담사 */
-.sim-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px 14px 12px}
+.sim-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px 14px 12px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
 .sim-title{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:11px}
 .sim-list{display:flex;flex-direction:column;gap:6px}
 .sim-item{display:flex;align-items:center;gap:8px;padding:6px;border-radius:8px;cursor:pointer;transition:background .15s}
