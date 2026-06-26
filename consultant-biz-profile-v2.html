@@ -1077,11 +1077,6 @@ function switchTab(tabName, el) {
     const tabs = card.dataset.tab.split(' ');
     card.classList.toggle('tab-visible', tabs.includes(tabName));
   });
-  const gnbH = document.getElementById('gnb').offsetHeight;
-  const profileTabs = document.getElementById('profileTabs');
-  if (profileTabs) {
-    window.scrollTo({ top: profileTabs.getBoundingClientRect().top + window.scrollY - gnbH, behavior: 'smooth' });
-  }
 }
 
 function openContact() {
