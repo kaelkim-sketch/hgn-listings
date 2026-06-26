@@ -15,7 +15,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:"Pretendard",-apple-system,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--txt);background:#E8EAF0;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{font-family:"Pretendard",-apple-system,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--txt);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer}
@@ -23,13 +23,16 @@ button{font-family:inherit;cursor:pointer}
 /* ── GNB ── */
 header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 4px rgba(0,0,0,.05)}
 .gnb-grid{max-width:var(--maxw);margin:0 auto;padding:0 20px;display:grid;grid-template-columns:270px 1fr 250px;gap:20px;height:100%;align-items:center}
-.gnb-util{display:flex;align-items:center;justify-content:flex-end;gap:14px}
+.gnb-util{display:flex;align-items:center;justify-content:flex-end;gap:8px}
 .gnb-util-search{font-size:17px;cursor:pointer;color:var(--muted);line-height:1;background:none;border:none;padding:4px}
 .gnb-util-login{font-size:13px;font-weight:700;color:var(--muted);text-decoration:none;padding:5px 13px;border:1.5px solid var(--line);border-radius:8px;transition:background .15s;white-space:nowrap}
 .gnb-util-login:hover{background:var(--soft)}
 /* hero 뒤로가기 버튼 */
 .hero-pc-back{position:absolute;top:16px;left:16px;z-index:10;background:rgba(0,0,0,.32);backdrop-filter:blur(6px);border:none;border-radius:20px;padding:6px 14px 6px 10px;font-size:13px;font-weight:700;color:#fff;text-decoration:none;display:flex;align-items:center;gap:5px;cursor:pointer;transition:background .15s}
 .hero-pc-back:hover{background:rgba(0,0,0,.52)}
+/* 호갱노노 플로팅 버튼 */
+.hgn-float{position:fixed;bottom:28px;right:28px;z-index:60;background:var(--brand);color:#fff;border-radius:50px;padding:11px 20px;font-size:13.5px;font-weight:800;text-decoration:none;display:flex;align-items:center;gap:7px;box-shadow:0 4px 18px rgba(124,92,255,.38);transition:background .15s,transform .15s,box-shadow .15s;white-space:nowrap}
+.hgn-float:hover{background:#6645ff;transform:translateY(-2px);box-shadow:0 6px 22px rgba(124,92,255,.48)}
 .gnb-cta-btn:hover{background:var(--brand-dark)}
 
 /* ── MOBILE HERO ── */
@@ -463,7 +466,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 /* ── RESPONSIVE ── */
 @media(min-width:821px){
   .hero-mobile,.profile-info-bar{display:none}
-  .page-wrap{margin-top:52px;padding-top:16px}
+  .page-wrap{margin-top:52px;padding-top:0}
   .hero-pc{display:block}
   .profile-tabs{border-top:1px solid var(--line);border-left:none;border-right:none;border-radius:0;overflow:hidden;margin:0}
   .col-center>.profile-tabs{position:sticky;top:52px;z-index:40}
@@ -513,11 +516,11 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 <header class="gnb" id="gnb">
   <div class="gnb-grid">
     <div></div>
+    <div></div>
     <div class="gnb-util">
       <button class="gnb-util-search" title="검색">🔍</button>
       <a href="#" class="gnb-util-login">로그인</a>
     </div>
-    <div></div>
   </div>
 </header>
 
@@ -690,7 +693,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
           <div class="hero-pc-overlay"></div>
           <button class="slide-btn prev" onclick="heroNav('pc',-1)" aria-label="이전">‹</button>
           <button class="slide-btn next" onclick="heroNav('pc',1)" aria-label="다음">›</button>
-          <a href="https://hogangnono.com/offer/commercial?regionCode=all" class="hero-pc-back" title="목록으로">← 목록</a>
+          <a href="https://hogangnono.com/offer/commercial?regionCode=all" class="hero-pc-back" title="목록으로">←</a>
           <button class="hero-pc-fav hero-fav-btn" onclick="toggleFav(this)" title="관심 상담사 등록">♡</button>
           <div class="hero-pc-text">
             <div class="hero-pc-slogan">이 단지, 저만큼<br><em>발로 뛴 사람</em> 없습니다.</div>
@@ -1102,10 +1105,6 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
       <!-- 바로가기 -->
       <div class="quick-links-card">
-        <a class="ql-item" href="https://hogangnono.com/offer/commercial?regionCode=all" target="_blank">
-          🏠 호갱노노 상담사 전체보기
-          <span class="ql-arrow">›</span>
-        </a>
         <a class="ql-item" href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html">
           🏢 단지 홈페이지 바로가기
           <span class="ql-arrow">›</span>
@@ -1379,5 +1378,10 @@ initBanner();
 initAptSlider();
 animatePctBar();
 </script>
+
+<!-- 호갱노노 플로팅 버튼 -->
+<a class="hgn-float" href="https://hogangnono.com/offer/commercial?regionCode=all" target="_blank">
+  🏠 호갱노노 상담사 전체보기
+</a>
 </body>
 </html>
