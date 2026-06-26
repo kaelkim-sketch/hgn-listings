@@ -1078,10 +1078,9 @@ function switchTab(tabName, el) {
     card.classList.toggle('tab-visible', tabs.includes(tabName));
   });
   const gnbH = document.getElementById('gnb').offsetHeight;
-  const tabsH = document.getElementById('profileTabs').offsetHeight;
-  const colCenter = document.querySelector('.col-center');
-  if (colCenter) {
-    window.scrollTo({ top: colCenter.getBoundingClientRect().top + window.scrollY - gnbH - tabsH, behavior: 'smooth' });
+  const profileTabs = document.getElementById('profileTabs');
+  if (profileTabs) {
+    window.scrollTo({ top: profileTabs.getBoundingClientRect().top + window.scrollY - gnbH, behavior: 'smooth' });
   }
 }
 
