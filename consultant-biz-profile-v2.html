@@ -72,8 +72,8 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 .badge-chip-sm{position:relative;display:inline-flex;align-items:center}
 .badge-icon-btn{width:26px;height:26px;border-radius:50%;background:linear-gradient(145deg,#FFFDF5,#FFF8DC);border:1.5px solid #F59E0B;box-shadow:0 0 0 2px rgba(245,158,11,.12);font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:default;transition:box-shadow .15s}
 .badge-chip-sm:hover .badge-icon-btn{box-shadow:0 0 0 4px rgba(245,158,11,.22),0 2px 8px rgba(245,158,11,.3)}
-.badge-tooltip{position:absolute;bottom:calc(100%+22px);left:50%;transform:translateX(-50%) translateY(6px);background:#1a1a2e;color:#fff;padding:9px 14px;border-radius:9px;font-size:12px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:400;box-shadow:0 4px 18px rgba(0,0,0,.28)}
-.badge-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#1a1a2e}
+.badge-tooltip{position:absolute;top:calc(100%+10px);left:50%;transform:translateX(-50%) translateY(-6px);background:#1a1a2e;color:#fff;padding:9px 14px;border-radius:9px;font-size:12px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:400;box-shadow:0 4px 18px rgba(0,0,0,.28)}
+.badge-tooltip::after{content:'';position:absolute;bottom:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-bottom-color:#1a1a2e}
 .badge-tooltip-name{font-weight:800;margin-bottom:3px}
 .badge-tooltip-desc{color:rgba(255,255,255,.72);font-size:11px;line-height:1.4}
 .badge-chip-sm:hover .badge-tooltip{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -178,7 +178,8 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 
 /* hero nameplate (사진 아래 이름·정보 바) */
 .hero-wrap{border-radius:var(--radius);overflow:hidden}
-.hero-nameplate{background:#fff;border:1px solid var(--line);border-top:none;padding:14px 18px 16px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.hero-nameplate{background:#fff;border:1px solid var(--line);border-top:none;padding:14px 18px 16px}
+.hnp-top-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:2px}
 .hnp-left{flex:1;min-width:0}
 .hnp-name{font-size:26px;font-weight:900;color:var(--ink);letter-spacing:-.03em;display:flex;align-items:center;gap:6px;margin-bottom:5px;line-height:1.2}
 .hnp-verified{font-size:16px;color:var(--brand)}
@@ -673,58 +674,62 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
           <div class="hero-pc-pager" id="heroPagerPc">1 / 3</div>
         </div>
         <div class="hero-nameplate">
-          <div class="hnp-left">
-            <div class="hnp-name">
-              김민준 상담사
-              <div class="badge-chips-row">
-                <span class="badge-chip-sm"><span class="badge-icon-btn">👑</span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
-                <span class="badge-chip-sm"><span class="badge-icon-btn">⚡</span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
-                <span class="badge-chip-sm"><span class="badge-icon-btn">🎖</span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
-                <span class="badge-chip-sm"><span class="badge-icon-btn">⭐</span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
-                <span class="badge-chip-sm"><span class="badge-icon-btn">🛡</span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
-              </div>
-            </div>
-            <div class="hnp-line">광안 센텀 비스타동원</div>
-            <div class="hnp-line">📍 부산 수영구 광안2동 567 모델하우스</div>
-            <div class="trust-accordion">
-              <button class="trust-trigger-pill" id="trustBtnPc" onclick="toggleTrustAcc('trustBodyPc','trustBtnPc')">
-                경력 · 상담 이력 <span class="trust-arr">▾</span>
-              </button>
-              <div class="trust-accordion-body" id="trustBodyPc">
-                <div class="thc-card">
-                  <div class="thc-row"><span class="thc-lbl">업력</span><span class="thc-val">6년 3개월</span></div>
-                  <div class="thc-row"><span class="thc-lbl">상담건수</span><span class="thc-val">1,248건</span></div>
-                  <div class="thc-row"><span class="thc-lbl">누적완료</span><span class="thc-val">1,094건</span></div>
+          <!-- 상단 행: 이름+뱃지 / 평점배지 -->
+          <div class="hnp-top-row">
+            <div class="hnp-left">
+              <div class="hnp-name">
+                김민준 상담사
+                <div class="badge-chips-row">
+                  <span class="badge-chip-sm"><span class="badge-icon-btn">👑</span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
+                  <span class="badge-chip-sm"><span class="badge-icon-btn">⚡</span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
+                  <span class="badge-chip-sm"><span class="badge-icon-btn">🎖</span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
+                  <span class="badge-chip-sm"><span class="badge-icon-btn">⭐</span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
+                  <span class="badge-chip-sm"><span class="badge-icon-btn">🛡</span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
                 </div>
               </div>
             </div>
-            <div class="bio-expand-text" id="pcBioText">분양 시장 6년, 1,248건 상담의 경험을 바탕으로 고객 한 분 한 분께 최적의 결과를 드리고 있습니다.<br>
-              1. 고객님의 조건에 맞는 단지를 꼼꼼히 분석해 최대한 구해드립니다.<br>
-              2. 등기부등본·건축물대장 등 서류 검토는 기본, 상세 설명은 필수입니다.<br>
-              3. 임대인·임차인 계약서 작성 시 직접 동석해 안전한 거래를 보장합니다.<br>
-              4. 근저당·대출 전액 상환 후 등기소 접수까지 책임지고 처리합니다.<br>
-              5. 계약서 특약 사항까지 완벽하게 지키며 끝까지 책임지는 중개를 합니다.<br>
-              6. 입주 시 각종 공과금 정산 및 등기 사항 확인까지 함께합니다.<br>
-              7. 투자 목적이든 실수요든, 고객님 상황에 맞는 최선의 방향을 제시합니다.<br>
-              #광안센텀비스타동원 #오산헤리티지자이 #천안동일하이빌파크레인 #하이엔드주거 #투자상담 #계약금융
-            </div>
-            <button class="bio-expand-btn" onclick="toggleBio('pcBioText', this)">더보기 ↓</button>
-          </div>
-          <div class="hnp-right">
-            <div class="hnp-rating-block">
-              <div class="hnp-score-badge-wrap">
-                <div class="hnp-score-badge">
-                  <div class="hnp-score-num">4.8</div>
-                  <div class="hnp-score-stars">★★★★★</div>
-                </div>
-                <div class="rating-tooltip">
-                  <div class="rt-label">상위 5%</div>
-                  <div class="rt-bar-wrap"><div class="rt-bar-fill" id="rtBar"></div></div>
-                  <div class="rt-reviews">후기 128건</div>
+            <div class="hnp-right">
+              <div class="hnp-rating-block">
+                <div class="hnp-score-badge-wrap">
+                  <div class="hnp-score-badge">
+                    <div class="hnp-score-num">4.8</div>
+                    <div class="hnp-score-stars">★★★★★</div>
+                  </div>
+                  <div class="rating-tooltip">
+                    <div class="rt-label">상위 5%</div>
+                    <div class="rt-bar-wrap"><div class="rt-bar-fill" id="rtBar"></div></div>
+                    <div class="rt-reviews">후기 128건</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <!-- 하단: 풀 너비 -->
+          <div class="hnp-line">광안 센텀 비스타동원</div>
+          <div class="hnp-line">📍 부산 수영구 광안2동 567 모델하우스</div>
+          <div class="trust-accordion">
+            <button class="trust-trigger-pill" id="trustBtnPc" onclick="toggleTrustAcc('trustBodyPc','trustBtnPc')">
+              경력 · 상담 이력 <span class="trust-arr">▾</span>
+            </button>
+            <div class="trust-accordion-body" id="trustBodyPc">
+              <div class="thc-card">
+                <div class="thc-row"><span class="thc-lbl">업력</span><span class="thc-val">6년 3개월</span></div>
+                <div class="thc-row"><span class="thc-lbl">상담건수</span><span class="thc-val">1,248건</span></div>
+                <div class="thc-row"><span class="thc-lbl">누적완료</span><span class="thc-val">1,094건</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="bio-expand-text" id="pcBioText">분양 시장 6년, 1,248건 상담의 경험을 바탕으로 고객 한 분 한 분께 최적의 결과를 드리고 있습니다.<br>
+            1. 고객님의 조건에 맞는 단지를 꼼꼼히 분석해 최대한 구해드립니다.<br>
+            2. 등기부등본·건축물대장 등 서류 검토는 기본, 상세 설명은 필수입니다.<br>
+            3. 임대인·임차인 계약서 작성 시 직접 동석해 안전한 거래를 보장합니다.<br>
+            4. 근저당·대출 전액 상환 후 등기소 접수까지 책임지고 처리합니다.<br>
+            5. 계약서 특약 사항까지 완벽하게 지키며 끝까지 책임지는 중개를 합니다.<br>
+            6. 입주 시 각종 공과금 정산 및 등기 사항 확인까지 함께합니다.<br>
+            7. 투자 목적이든 실수요든, 고객님 상황에 맞는 최선의 방향을 제시합니다.<br>
+            #광안센텀비스타동원 #오산헤리티지자이 #천안동일하이빌파크레인 #하이엔드주거 #투자상담 #계약금융
+          </div>
+          <button class="bio-expand-btn" onclick="toggleBio('pcBioText', this)">더보기 ↓</button>
         </div>
       </div>
 
@@ -833,9 +838,27 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
         <div class="activity-sec">
           <div class="asec-hd"><span class="asec-label">영상</span><span class="asec-count">3</span><a href="#" class="asec-more">›</a></div>
           <div class="activity-vids">
-            <div class="avid"><div class="avid-thumb"><img src="단지상세홈페이지/컬리스타일-광안센텀비스타동원/assets/img/aerial.jpg" alt=""><div class="avid-play">▶</div></div><div class="avid-title">광안 센텀 비스타동원 현장 방문 솔직 후기</div><div class="avid-meta">12일 전</div></div>
-            <div class="avid"><div class="avid-thumb"><img src="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/assets/img/aerial.jpg" alt=""><div class="avid-play">▶</div></div><div class="avid-title">오산 헤리티지 자이 1순위 청약 완벽 가이드</div><div class="avid-meta">19일 전</div></div>
-            <div class="avid"><div class="avid-thumb"><img src="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/assets/img/aerial.jpg" alt=""><div class="avid-play">▶</div></div><div class="avid-title">천안 동일하이빌 실거주 vs 투자 분석</div><div class="avid-meta">25일 전</div></div>
+            <div class="avid">
+              <div style="position:relative;width:100%;padding-top:56.25%;border-radius:8px;overflow:hidden;background:#111;margin-bottom:7px">
+                <iframe src="https://www.youtube.com/embed/xQFD-SchOVY?si=nGy7v553F3Ek9v7g" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="avid-title">광안 센텀 비스타동원 현장 방문 솔직 후기</div>
+              <div class="avid-meta">12일 전</div>
+            </div>
+            <div class="avid">
+              <div style="position:relative;width:100%;padding-top:56.25%;border-radius:8px;overflow:hidden;background:#111;margin-bottom:7px">
+                <iframe src="https://www.youtube.com/embed/Su45i311oII?si=j57xg1zzz6Hxw9mn&start=5" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="avid-title">오산 헤리티지 자이 1순위 청약 완벽 가이드</div>
+              <div class="avid-meta">19일 전</div>
+            </div>
+            <div class="avid">
+              <div style="position:relative;width:100%;padding-top:56.25%;border-radius:8px;overflow:hidden;background:#111;margin-bottom:7px">
+                <iframe src="https://www.youtube.com/embed/3Aj4lbt6bME?si=h1xwG5DRO2BwxT1c" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="avid-title">천안 동일하이빌 실거주 vs 투자 분석</div>
+              <div class="avid-meta">25일 전</div>
+            </div>
           </div>
         </div>
         <div class="activity-sec">
