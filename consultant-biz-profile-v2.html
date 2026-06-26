@@ -240,6 +240,32 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
 .rv-meta{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:5px}
 .rv-dot{width:2px;height:2px;border-radius:50%;background:var(--muted);display:inline-block}
 
+/* 후기 탭 상세 */
+.kw-section{padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:4px}
+.kw-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.kw-title{font-size:13.5px;color:#444;font-weight:500}
+.kw-update{font-size:11px;color:#bbb}
+.kw-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 28px}
+.kw-row{display:flex;align-items:center;gap:7px;padding:5px 0}
+.kw-emoji{font-size:15px;flex-shrink:0;width:20px;text-align:center}
+.kw-label{font-size:13px;font-weight:600;color:#333;white-space:nowrap;min-width:76px}
+.kw-bar-bg{flex:1;height:7px;background:#f0eeff;border-radius:4px;overflow:hidden}
+.kw-bar-fill{height:100%;background:linear-gradient(90deg,#7C5CFF,#A98EFF);border-radius:4px}
+.rv-detail-header{display:flex;align-items:center;gap:12px;padding:16px 0 4px}
+.rv-detail-count{font-size:15px;font-weight:800;color:var(--ink)}
+.rv-filter-btn{display:flex;align-items:center;gap:4px;font-size:12.5px;color:#555;cursor:pointer;border:1px solid var(--line);border-radius:20px;padding:4px 12px;background:#fff}
+.rv-detail-card{padding:20px 0;border-bottom:1px solid var(--line)}
+.rv-detail-card:last-child{border-bottom:none;padding-bottom:0}
+.rv-detail-stars{font-size:13px;color:var(--gold);letter-spacing:1px;margin-bottom:7px}
+.rv-detail-title{font-size:16px;font-weight:800;color:var(--ink);line-height:1.4;margin-bottom:8px}
+.rv-detail-body{font-size:13.5px;color:#555;line-height:1.7;margin-bottom:12px}
+.rv-pros-label{font-size:12px;font-weight:700;color:var(--brand);margin-bottom:5px}
+.rv-pros-list{list-style:none;padding:0;margin:0 0 12px}
+.rv-pros-list li{font-size:13px;color:#444;padding:2px 0;display:flex;gap:5px}
+.rv-pros-list li::before{content:'·';color:var(--brand);font-weight:900}
+.rv-detail-meta{display:flex;flex-wrap:wrap;gap:6px 10px;font-size:12px;color:#aaa;align-items:center}
+.rv-detail-tag{background:#f5f3ff;border-radius:8px;padding:2px 8px;color:var(--brand);font-weight:700;font-size:11.5px}
+
 /* apartments */
 .apts-card{padding:20px 24px}
 .apt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
@@ -891,7 +917,7 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
       </div>
 
       <!-- 고객 후기 -->
-      <div class="c-card reviews-card tab-visible" id="secReviews" data-tab="home reviews">
+      <div class="c-card reviews-card tab-visible" id="secReviews" data-tab="home">
         <div class="reviews-header">
           <span class="r-title">💬 고객 후기</span>
           <a href="#" class="r-more">전체 보기 ›</a>
@@ -907,6 +933,102 @@ header.gnb.solid .gnb-icon-btn{background:var(--soft);color:var(--ink)}
             <p class="rv-txt">빠른 응답과 정확한 정보 제공으로 신뢰가 가는 상담이었습니다.</p>
             <div class="rv-meta">투자자B 님<span class="rv-dot"></span>2024.03.27</div>
           </div>
+        </div>
+      </div>
+
+      <!-- 후기 탭 상세 후기 -->
+      <div class="c-card reviews-card" data-tab="reviews">
+        <!-- 키워드 빈도 -->
+        <div class="kw-section">
+          <div class="kw-header">
+            <span class="kw-title">후기에서 자주 언급된 키워드에요.</span>
+            <span class="kw-update">업데이트 주기 : 매월 1일, 16일</span>
+          </div>
+          <div class="kw-grid">
+            <div class="kw-row"><span class="kw-emoji">🥇</span><span class="kw-label">빠른 응답</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:90%"></div></div></div>
+            <div class="kw-row"><span class="kw-emoji"></span><span class="kw-label">정확한</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:78%"></div></div></div>
+            <div class="kw-row"><span class="kw-emoji">🏅</span><span class="kw-label">친절한 설명</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:70%"></div></div></div>
+            <div class="kw-row"><span class="kw-emoji"></span><span class="kw-label">꼼꼼한</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:63%"></div></div></div>
+            <div class="kw-row"><span class="kw-emoji">🔑</span><span class="kw-label">믿을 수 있는</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:55%"></div></div></div>
+            <div class="kw-row"><span class="kw-emoji"></span><span class="kw-label">전문적인</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:50%"></div></div></div>
+            <div class="kw-row"><span class="kw-emoji"></span><span class="kw-label">적극적인</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:40%"></div></div></div>
+            <div class="kw-row"><span class="kw-emoji"></span><span class="kw-label">도움</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:33%"></div></div></div>
+          </div>
+        </div>
+        <!-- 후기 리스트 -->
+        <div class="rv-detail-header">
+          <span class="rv-detail-count">후기 128</span>
+          <button class="rv-filter-btn">모든 단지 ▾</button>
+        </div>
+        <div class="rv-detail-card">
+          <div class="rv-detail-stars">★★★★★</div>
+          <div class="rv-detail-title">처음 분양 청약인데 A부터 Z까지 다 챙겨주셨어요</div>
+          <div class="rv-detail-body">청약 신청 방법부터 모델하우스 방문, 계약까지 전 과정을 옆에서 도와주셔서 정말 든든했습니다. 혼자였으면 엄두도 못 냈을 텐데 덕분에 성공적으로 계약할 수 있었어요.</div>
+          <div class="rv-pros-label">이런 점이 좋았어요</div>
+          <ul class="rv-pros-list">
+            <li>궁금한 게 생기면 바로 답변해 주셨어요</li>
+            <li>계약 서류를 꼼꼼하게 검토해 주셨어요</li>
+            <li>입주 후에도 챙겨주셔서 감동이었어요</li>
+          </ul>
+          <div class="rv-detail-meta">
+            <span class="rv-detail-tag">실수요</span>
+            <span>구매자 이****</span>
+            <span>2026년 5월</span>
+            <span>광안 센텀 비스타동원</span>
+          </div>
+        </div>
+        <div class="rv-detail-card">
+          <div class="rv-detail-stars">★★★★★</div>
+          <div class="rv-detail-title">투자 목적으로 갔는데 리스크까지 솔직하게 설명해 주셨어요</div>
+          <div class="rv-detail-body">장점만 이야기하는 상담사가 많은데 김민준 상담사님은 단점과 리스크도 솔직하게 말씀해 주셔서 오히려 신뢰가 갔습니다. 덕분에 더 확신을 갖고 계약할 수 있었어요.</div>
+          <div class="rv-pros-label">이런 점이 좋았어요</div>
+          <ul class="rv-pros-list">
+            <li>단점도 숨기지 않고 말씀해 주셨어요</li>
+            <li>시세 분석 자료를 직접 만들어 공유해 주셨어요</li>
+            <li>계약 후에도 시장 동향을 꾸준히 알려주셨어요</li>
+          </ul>
+          <div class="rv-detail-meta">
+            <span class="rv-detail-tag">투자</span>
+            <span>투자자 박****</span>
+            <span>2026년 4월</span>
+            <span>오산 헤리티지 자이</span>
+          </div>
+        </div>
+        <div class="rv-detail-card">
+          <div class="rv-detail-stars">★★★★★</div>
+          <div class="rv-detail-title">바쁜 직장인인데 일정 조율부터 모든 걸 맞춰주셨어요</div>
+          <div class="rv-detail-body">평일에는 시간을 내기 어려운데 주말 모델하우스 방문부터 서류 준비까지 제 일정에 맞춰 모든 과정을 진행해 주셨어요. 정말 편하게 계약을 마칠 수 있었습니다.</div>
+          <div class="rv-pros-label">이런 점이 좋았어요</div>
+          <ul class="rv-pros-list">
+            <li>주말·저녁 상담도 흔쾌히 응해 주셨어요</li>
+            <li>필요한 서류 목록을 미리 정리해 보내주셨어요</li>
+            <li>대기 없이 빠르게 처리해 주셨어요</li>
+          </ul>
+          <div class="rv-detail-meta">
+            <span class="rv-detail-tag">실수요</span>
+            <span>구매자 최****</span>
+            <span>2026년 3월</span>
+            <span>천안 동일하이빌 파크레인</span>
+          </div>
+        </div>
+        <div class="rv-detail-card">
+          <div class="rv-detail-stars">★★★★☆</div>
+          <div class="rv-detail-title">빠른 응답과 정확한 정보로 신뢰가 갔습니다</div>
+          <div class="rv-detail-body">문자 드리면 항상 10분 이내로 답변이 왔고, 제가 모르는 청약 용어까지 쉽게 설명해 주셔서 처음 청약임에도 불안하지 않았어요.</div>
+          <div class="rv-pros-label">이런 점이 좋았어요</div>
+          <ul class="rv-pros-list">
+            <li>응답이 매우 빠르고 정확했어요</li>
+            <li>어려운 용어를 쉽게 풀어서 설명해 주셨어요</li>
+          </ul>
+          <div class="rv-detail-meta">
+            <span class="rv-detail-tag">실수요</span>
+            <span>구매자 김****</span>
+            <span>2026년 2월</span>
+            <span>광안 센텀 비스타동원</span>
+          </div>
+        </div>
+        <div style="text-align:center;padding:20px 0 4px">
+          <button style="border:1px solid var(--line);border-radius:20px;padding:9px 28px;font-size:13.5px;font-weight:600;color:#555;background:#fff;cursor:pointer">후기 더보기 ›</button>
         </div>
       </div>
 
