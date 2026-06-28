@@ -283,6 +283,8 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .rv-pros-list li::before{content:'·';color:var(--brand);font-weight:900}
 .rv-detail-meta{display:flex;flex-wrap:wrap;gap:6px 10px;font-size:12px;color:#aaa;align-items:center}
 .rv-detail-tag{background:#f5f3ff;border-radius:8px;padding:2px 8px;color:var(--brand);font-weight:700;font-size:11.5px}
+.rv-tag-done{background:#f0fdf4;border-radius:8px;padding:2px 8px;color:#16a34a;font-weight:700;font-size:11.5px}
+.rv-tags-row{display:flex;gap:5px;margin-bottom:7px}
 
 /* apartments */
 .apts-card{padding:20px 24px}
@@ -997,12 +999,14 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
           <div class="rv-card">
             <div class="rv-stars">★★★★★</div>
             <p class="rv-txt">상담이 정말 친절하고 전문적이었어요. 덕분에 좋은 매물을 계약할 수 있었습니다.</p>
-            <div class="rv-meta">구매자A 님<span class="rv-dot"></span>2024.04.18</div>
+            <div class="rv-tags-row"><span class="rv-detail-tag">실수요</span><span class="rv-tag-done">계약완료</span></div>
+            <div class="rv-meta">구매자 이**** <span class="rv-dot"></span> 광안 센텀 비스타동원</div>
           </div>
           <div class="rv-card">
             <div class="rv-stars">★★★★★</div>
             <p class="rv-txt">빠른 응답과 정확한 정보 제공으로 신뢰가 가는 상담이었습니다.</p>
-            <div class="rv-meta">투자자B 님<span class="rv-dot"></span>2024.03.27</div>
+            <div class="rv-tags-row"><span class="rv-detail-tag">투자</span><span class="rv-tag-done">계약완료</span></div>
+            <div class="rv-meta">투자자 박**** <span class="rv-dot"></span> 오산 헤리티지 자이</div>
           </div>
         </div>
       </div>
@@ -1043,6 +1047,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
           </ul>
           <div class="rv-detail-meta">
             <span class="rv-detail-tag">실수요</span>
+            <span class="rv-tag-done">계약완료</span>
             <span>구매자 이****</span>
             <span>2026년 5월</span>
             <span>광안 센텀 비스타동원</span>
@@ -1060,6 +1065,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
           </ul>
           <div class="rv-detail-meta">
             <span class="rv-detail-tag">투자</span>
+            <span class="rv-tag-done">계약완료</span>
             <span>투자자 박****</span>
             <span>2026년 4월</span>
             <span>오산 헤리티지 자이</span>
@@ -1077,6 +1083,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
           </ul>
           <div class="rv-detail-meta">
             <span class="rv-detail-tag">실수요</span>
+            <span class="rv-tag-done">계약완료</span>
             <span>구매자 최****</span>
             <span>2026년 3월</span>
             <span>천안 동일하이빌 파크레인</span>
@@ -1093,6 +1100,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
           </ul>
           <div class="rv-detail-meta">
             <span class="rv-detail-tag">실수요</span>
+            <span class="rv-tag-done">계약완료</span>
             <span>구매자 김****</span>
             <span>2026년 2월</span>
             <span>광안 센텀 비스타동원</span>
@@ -1305,20 +1313,29 @@ function animatePctBar() {
 }
 
 // 모바일 평점 팝업 토글
+let _mobRatingClose = null;
 function toggleMobRating(el) {
   const popup = el.querySelector('.pib-rating-popup');
   if (!popup) return;
+  if (_mobRatingClose) {
+    document.removeEventListener('click', _mobRatingClose);
+    _mobRatingClose = null;
+  }
   const isVisible = popup.classList.toggle('visible');
   if (isVisible) {
     const bar = el.querySelector('.rt-bar-fill');
     if (bar) setTimeout(function() { bar.style.width = '95%'; }, 80);
+    setTimeout(function() {
+      _mobRatingClose = function(e) {
+        if (!el.contains(e.target)) {
+          popup.classList.remove('visible');
+          document.removeEventListener('click', _mobRatingClose);
+          _mobRatingClose = null;
+        }
+      };
+      document.addEventListener('click', _mobRatingClose);
+    }, 0);
   }
-  document.addEventListener('click', function closeMobRating(e) {
-    if (!el.contains(e.target)) {
-      popup.classList.remove('visible');
-      document.removeEventListener('click', closeMobRating);
-    }
-  }, { once: false, capture: true });
 }
 
 // 소개글 더보기 토글
