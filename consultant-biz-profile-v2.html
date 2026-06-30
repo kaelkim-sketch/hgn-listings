@@ -505,22 +505,40 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
   .activity-vids{grid-template-columns:1fr 1fr}
 }
 
-/* ── 배지 타입별 컬러 시스템 ── */
-.badge-crown .badge-icon-btn,.badge-crown .badge-circle{background:linear-gradient(145deg,#FFFDF5,#FFF8DC);border-color:#F59E0B;box-shadow:0 0 0 2px rgba(245,158,11,.12)}
-.badge-bolt .badge-icon-btn,.badge-bolt .badge-circle{background:linear-gradient(145deg,#EFF6FF,#DBEAFE);border-color:#3B82F6;box-shadow:0 0 0 2px rgba(59,130,246,.12)}
-.badge-trophy .badge-icon-btn,.badge-trophy .badge-circle{background:linear-gradient(145deg,#F5F3FF,#EDE9FE);border-color:#7C5CFF;box-shadow:0 0 0 2px rgba(124,92,255,.12)}
-.badge-star-t .badge-icon-btn,.badge-star-t .badge-circle{background:linear-gradient(145deg,#FFF7ED,#FFEDD5);border-color:#F97316;box-shadow:0 0 0 2px rgba(249,115,22,.12)}
-.badge-shield .badge-icon-btn,.badge-shield .badge-circle{background:linear-gradient(145deg,#ECFDF5,#D1FAE5);border-color:#10B981;box-shadow:0 0 0 2px rgba(16,185,129,.12)}
-.badge-crown:hover .badge-icon-btn{box-shadow:0 0 0 4px rgba(245,158,11,.22),0 2px 8px rgba(245,158,11,.3)}
-.badge-bolt:hover .badge-icon-btn{box-shadow:0 0 0 4px rgba(59,130,246,.22),0 2px 8px rgba(59,130,246,.3)}
-.badge-trophy:hover .badge-icon-btn{box-shadow:0 0 0 4px rgba(124,92,255,.22),0 2px 8px rgba(124,92,255,.3)}
-.badge-star-t:hover .badge-icon-btn{box-shadow:0 0 0 4px rgba(249,115,22,.22),0 2px 8px rgba(249,115,22,.3)}
-.badge-shield:hover .badge-icon-btn{box-shadow:0 0 0 4px rgba(16,185,129,.22),0 2px 8px rgba(16,185,129,.3)}
-.badge-crown svg{color:#D97706}
-.badge-bolt svg{color:#2563EB}
-.badge-trophy svg{color:#5C3AFF}
-.badge-star-t svg{color:#EA580C}
-.badge-shield svg{color:#059669}
+/* ── 배지 3D Orb 효과 ── */
+/* badge-circle: 구체(sphere) 그라데이션 + specular highlight */
+.badge-circle{position:relative;overflow:hidden}
+.badge-circle::before{content:'';position:absolute;top:8px;left:11px;width:18px;height:11px;background:rgba(255,255,255,.55);border-radius:50%;filter:blur(3px);pointer-events:none;z-index:1}
+.badge-circle svg{position:relative;z-index:2;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}
+
+/* badge-icon-btn: 소형 버튼도 구체감 */
+.badge-icon-btn{position:relative;overflow:hidden}
+.badge-icon-btn::before{content:'';position:absolute;top:3px;left:5px;width:9px;height:6px;background:rgba(255,255,255,.6);border-radius:50%;filter:blur(2px);pointer-events:none;z-index:1}
+.badge-icon-btn svg{position:relative;z-index:2;filter:drop-shadow(0 1px 1px rgba(0,0,0,.2))}
+
+/* 타입별 sphere 그라데이션 + 컬러 shadow */
+.badge-crown .badge-circle{background:radial-gradient(circle at 38% 32%,#FEF9C3,#FBBF24 44%,#D97706 78%,#92400E);border:none;box-shadow:0 8px 20px rgba(217,119,6,.45),inset 0 -4px 8px rgba(0,0,0,.18),inset 0 2px 5px rgba(255,255,255,.5)}
+.badge-bolt .badge-circle{background:radial-gradient(circle at 38% 32%,#EFF6FF,#60A5FA 44%,#2563EB 78%,#1E3A8A);border:none;box-shadow:0 8px 20px rgba(37,99,235,.45),inset 0 -4px 8px rgba(0,0,0,.18),inset 0 2px 5px rgba(255,255,255,.5)}
+.badge-trophy .badge-circle{background:radial-gradient(circle at 38% 32%,#EDE9FE,#A78BFA 44%,#5C3AFF 78%,#312E81);border:none;box-shadow:0 8px 20px rgba(92,58,255,.45),inset 0 -4px 8px rgba(0,0,0,.18),inset 0 2px 5px rgba(255,255,255,.5)}
+.badge-star-t .badge-circle{background:radial-gradient(circle at 38% 32%,#FFF7ED,#FB923C 44%,#EA580C 78%,#7C2D12);border:none;box-shadow:0 8px 20px rgba(234,88,12,.45),inset 0 -4px 8px rgba(0,0,0,.18),inset 0 2px 5px rgba(255,255,255,.5)}
+.badge-shield .badge-circle{background:radial-gradient(circle at 38% 32%,#ECFDF5,#34D399 44%,#059669 78%,#064E3B);border:none;box-shadow:0 8px 20px rgba(5,150,105,.45),inset 0 -4px 8px rgba(0,0,0,.18),inset 0 2px 5px rgba(255,255,255,.5)}
+
+/* 아이콘 버튼도 동일 sphere */
+.badge-crown .badge-icon-btn{background:radial-gradient(circle at 38% 32%,#FEF9C3,#FBBF24 44%,#D97706 80%);border:none;box-shadow:0 3px 8px rgba(217,119,6,.4),inset 0 -2px 4px rgba(0,0,0,.15)}
+.badge-bolt .badge-icon-btn{background:radial-gradient(circle at 38% 32%,#EFF6FF,#60A5FA 44%,#2563EB 80%);border:none;box-shadow:0 3px 8px rgba(37,99,235,.4),inset 0 -2px 4px rgba(0,0,0,.15)}
+.badge-trophy .badge-icon-btn{background:radial-gradient(circle at 38% 32%,#EDE9FE,#A78BFA 44%,#5C3AFF 80%);border:none;box-shadow:0 3px 8px rgba(92,58,255,.4),inset 0 -2px 4px rgba(0,0,0,.15)}
+.badge-star-t .badge-icon-btn{background:radial-gradient(circle at 38% 32%,#FFF7ED,#FB923C 44%,#EA580C 80%);border:none;box-shadow:0 3px 8px rgba(234,88,12,.4),inset 0 -2px 4px rgba(0,0,0,.15)}
+.badge-shield .badge-icon-btn{background:radial-gradient(circle at 38% 32%,#ECFDF5,#34D399 44%,#059669 80%);border:none;box-shadow:0 3px 8px rgba(5,150,105,.4),inset 0 -2px 4px rgba(0,0,0,.15)}
+
+/* hover glow */
+.badge-crown:hover .badge-icon-btn{box-shadow:0 4px 12px rgba(217,119,6,.55),inset 0 -2px 4px rgba(0,0,0,.15)}
+.badge-bolt:hover .badge-icon-btn{box-shadow:0 4px 12px rgba(37,99,235,.55),inset 0 -2px 4px rgba(0,0,0,.15)}
+.badge-trophy:hover .badge-icon-btn{box-shadow:0 4px 12px rgba(92,58,255,.55),inset 0 -2px 4px rgba(0,0,0,.15)}
+.badge-star-t:hover .badge-icon-btn{box-shadow:0 4px 12px rgba(234,88,12,.55),inset 0 -2px 4px rgba(0,0,0,.15)}
+.badge-shield:hover .badge-icon-btn{box-shadow:0 4px 12px rgba(5,150,105,.55),inset 0 -2px 4px rgba(0,0,0,.15)}
+
+/* 아이콘 색상: 구체 위에서 흰색으로 */
+.badge-crown svg,.badge-bolt svg,.badge-trophy svg,.badge-star-t svg,.badge-shield svg{color:rgba(255,255,255,.95)}
 /* ── SVG 아이콘 크기 유틸 ── */
 .badge-circle svg{width:28px;height:28px;flex-shrink:0}
 .badge-icon-btn svg{width:15px;height:15px;flex-shrink:0}
