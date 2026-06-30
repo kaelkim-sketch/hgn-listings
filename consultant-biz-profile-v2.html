@@ -454,8 +454,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .top-btn.show{display:flex;align-items:center;justify-content:center}
 
 /* ── RESPONSIVE ── */
-@media(min-width:821px){
-  body{min-width:980px}
+@media(min-width:1000px){
   header.gnb{display:none}
   .hero-mobile,.profile-info-bar{display:none}
   .page-wrap{margin-top:0;padding-top:16px}
@@ -467,7 +466,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
   .col-left{top:16px;padding-top:44px}
   .col-right{top:16px;padding-top:44px}
 }
-@media(max-width:820px){
+@media(max-width:999px){
   .hgn-float{display:none}
   .center-util-bar{display:none!important}
   .hero-mobile{margin-top:52px}
@@ -1306,7 +1305,7 @@ const heroMobile = document.getElementById('heroMobile');
 const topBtn = document.getElementById('topBtn');
 
 window.addEventListener('scroll', function() {
-  if (window.innerWidth <= 820 && heroMobile) {
+  if (window.innerWidth <= 999 && heroMobile) {
     gnb.classList.toggle('solid', window.scrollY > heroMobile.offsetHeight - 60);
   }
   topBtn.classList.toggle('show', window.scrollY > 300);
@@ -1408,7 +1407,7 @@ const APT_TOTAL = 3;
 function aptNav(dir) {
   const track = document.getElementById('aptTrack');
   if (!track) return;
-  const isMob = window.innerWidth <= 820;
+  const isMob = window.innerWidth <= 999;
   const visCount = isMob ? 1 : 2;
   const maxIdx = APT_TOTAL - visCount;
   aptIdx = Math.max(0, Math.min(aptIdx + dir, maxIdx));
@@ -1438,7 +1437,7 @@ function initAptSlider() {
   const nextBtn = document.getElementById('aptNext');
   if (prevBtn) prevBtn.disabled = true;
   if (nextBtn) {
-    const isMob = window.innerWidth <= 820;
+    const isMob = window.innerWidth <= 999;
     nextBtn.disabled = APT_TOTAL - (isMob ? 1 : 2) <= 0;
   }
 }
