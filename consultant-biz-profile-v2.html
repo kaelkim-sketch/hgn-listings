@@ -15,7 +15,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:"Pretendard",-apple-system,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--txt);background:#E8EAF0;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{font-family:"Pretendard",-apple-system,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--txt);background:#F0F2F5;line-height:1.55;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer}
@@ -70,9 +70,9 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .hero-pager{position:absolute;bottom:16px;right:16px;background:rgba(0,0,0,.38);color:rgba(255,255,255,.9);font-size:11px;font-weight:700;padding:3px 9px;border-radius:10px;backdrop-filter:blur(4px)}
 
 /* ── PROFILE INFO BAR (모바일) ── */
-.profile-info-bar{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px}
+.profile-info-bar{background:#fff;border-bottom:1px solid var(--line);padding:16px 20px 14px}
 .pib-name-row{display:flex;align-items:center;gap:7px;margin-bottom:4px}
-.pib-name{font-size:18px;font-weight:800;color:var(--ink);letter-spacing:-.025em}
+.pib-name{font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-.03em}
 .pib-verified{font-size:15px}
 .pib-rate{margin-left:auto;font-size:14px;font-weight:800;color:var(--brand);white-space:nowrap}
 .pib-sub{font-size:14px;color:var(--ink);display:flex;align-items:center;gap:6px}
@@ -86,7 +86,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 /* ── 뱃지 아이콘 + 호버 툴팁 ── */
 .badge-chips-row{display:flex;flex-wrap:nowrap;gap:4px;align-items:center;margin-left:4px;flex-shrink:0}
 .badge-chip-sm{position:relative;display:inline-flex;align-items:center}
-.badge-icon-btn{width:26px;height:26px;border-radius:50%;background:linear-gradient(145deg,#FFFDF5,#FFF8DC);border:1.5px solid #F59E0B;box-shadow:0 0 0 2px rgba(245,158,11,.12);font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:default;transition:box-shadow .15s}
+.badge-icon-btn{width:28px;height:28px;border-radius:50%;background:linear-gradient(145deg,#FFFDF5,#FFF8DC);border:1.5px solid #F59E0B;box-shadow:0 0 0 2px rgba(245,158,11,.12);font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:default;transition:box-shadow .15s}
 .badge-chip-sm:hover .badge-icon-btn{box-shadow:0 0 0 4px rgba(245,158,11,.22),0 2px 8px rgba(245,158,11,.3)}
 .badge-tooltip{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-6px);background:#1a1a2e;color:#fff;padding:9px 14px;border-radius:9px;font-size:12px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:400;box-shadow:0 4px 18px rgba(0,0,0,.28)}
 .badge-tooltip::after{content:'';position:absolute;bottom:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-bottom-color:#1a1a2e}
@@ -96,7 +96,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
 /* ── 신뢰 지표 인라인 아코디언 ── */
 .trust-accordion{margin-top:10px}
-.trust-trigger-pill{font-size:12.5px;font-weight:700;color:var(--brand);background:var(--brand-light);border:1px solid rgba(92,58,255,.2);border-radius:20px;padding:5px 14px;cursor:pointer;user-select:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;transition:background .15s}
+.trust-trigger-pill{font-size:13px;font-weight:700;color:var(--brand);background:var(--brand-light);border:1px solid rgba(92,58,255,.2);border-radius:20px;padding:6px 16px;cursor:pointer;user-select:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;transition:background .15s}
 .trust-trigger-pill:hover{background:rgba(92,58,255,.1)}
 .trust-arr{display:inline-block;font-size:11px;opacity:.6;transition:transform .25s;line-height:1}
 .trust-trigger-pill.open .trust-arr{transform:rotate(180deg)}
@@ -138,8 +138,8 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .profile-tabs{background:#fff;border-bottom:2px solid var(--line);position:sticky;top:52px;z-index:40;overflow-x:auto;scrollbar-width:none}
 .profile-tabs::-webkit-scrollbar{display:none}
 .tabs-inner{max-width:var(--maxw);margin:0 auto;padding:0 20px;display:flex}
-.tab-item{padding:13px 18px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;white-space:nowrap;border-bottom:2.5px solid transparent;margin-bottom:-2px;transition:color .15s,border-color .15s;user-select:none}
-.tab-item.active{color:var(--ink);font-weight:800;border-bottom-color:var(--ink)}
+.tab-item{padding:13px 15px;font-size:13.5px;font-weight:600;color:var(--muted);cursor:pointer;white-space:nowrap;border-bottom:2.5px solid transparent;margin-bottom:-2px;transition:color .15s,border-color .15s;user-select:none;letter-spacing:-.01em}
+.tab-item.active{color:var(--brand);font-weight:700;border-bottom-color:var(--brand)}
 [data-tab]{display:none}
 [data-tab].tab-visible{display:block}
 
@@ -149,12 +149,12 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
 /* ── SHARED ── */
 .c-card{background:#fff;border:none;border-top:1px solid var(--line);border-radius:0;box-shadow:none}
-.sec-label{display:flex;align-items:center;gap:6px;font-size:20px;font-weight:800;color:var(--txt);letter-spacing:-.01em;margin-bottom:14px}
+.sec-label{display:flex;align-items:center;gap:7px;font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.025em;margin-bottom:16px}
 
 /* ── LEFT COL: 청약 소식 (PC 전용) ── */
 .col-left{display:flex;flex-direction:column;gap:12px;position:sticky;top:68px}
 
-.left-news-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 12px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.left-news-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 16px 14px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
 .left-news-list{display:flex;flex-direction:column}
 .left-news-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:opacity .15s;text-decoration:none}
 .left-news-item:last-child{border-bottom:none}
@@ -167,7 +167,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .ln-title{font-size:12.5px;font-weight:600;color:var(--ink);line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .left-news-more{display:block;text-align:center;font-size:12px;color:var(--brand);font-weight:600;padding-top:10px;margin-top:2px;border-top:1px solid var(--line)}
 
-.left-cal-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 14px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.left-cal-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 16px 16px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
 .cal-list{display:flex;flex-direction:column;gap:9px}
 .cal-item{display:flex;align-items:flex-start;gap:10px}
 .cal-date-box{flex-shrink:0;width:38px;text-align:center;background:var(--brand-light);border-radius:8px;padding:5px 4px}
@@ -178,7 +178,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .cal-area{font-size:11px;color:var(--muted)}
 
 /* ── CENTER COL ── */
-.col-center{display:flex;flex-direction:column;gap:0;min-width:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 1px 4px rgba(0,0,0,.06);overflow:visible}
+.col-center{display:flex;flex-direction:column;gap:0;min-width:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 4px 24px rgba(0,0,0,.09);overflow:visible}
 
 /* PC hero (PC 전용) */
 .hero-pc{position:relative;height:520px;overflow:hidden;background:#1a1a2e;border-radius:0}
@@ -201,12 +201,12 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 /* hero nameplate (사진 아래 이름·정보 바) */
 .hero-wrap{border-radius:var(--radius);overflow:visible}
 .hero-mobile,.hero-pc{border-radius:var(--radius) var(--radius) 0 0;overflow:hidden}
-.hero-nameplate{background:#fff;border:none;padding:14px 18px 16px}
+.hero-nameplate{background:#fff;border:none;padding:20px 22px 22px}
 .hnp-top-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
 .hnp-left{flex:1;min-width:0}
-.hnp-name{font-size:26px;font-weight:900;color:var(--ink);letter-spacing:-.03em;display:flex;align-items:center;gap:6px;margin-bottom:0;line-height:1.2}
+.hnp-name{font-size:24px;font-weight:900;color:var(--ink);letter-spacing:-.03em;display:flex;align-items:center;gap:6px;margin-bottom:0;line-height:1.2}
 .hnp-verified{font-size:16px;color:var(--brand)}
-.hnp-line{font-size:16px;color:var(--ink);line-height:1.8}
+.hnp-line{font-size:14px;color:var(--txt);line-height:1.8}
 .hnp-right{text-align:right;flex-shrink:0;padding-top:2px}
 .hnp-rating{font-size:14px;font-weight:800;color:var(--brand);white-space:nowrap}
 
@@ -377,8 +377,8 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .col-right{display:flex;flex-direction:column;gap:12px;position:sticky;top:68px}
 
 /* 간편 문의 카드 */
-.qi-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.qi-header{background:var(--ink);color:#fff;padding:11px 14px;font-size:13px;font-weight:800;letter-spacing:-.01em}
+.qi-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.qi-header{background:linear-gradient(135deg,var(--brand),#8B6EFF);color:#fff;padding:12px 16px;font-size:13px;font-weight:800;letter-spacing:-.01em}
 .qi-btn-row{display:flex;padding:14px;gap:8px}
 .qi-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 6px;border:1.5px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;transition:all .15s}
 .qi-btn:hover{background:var(--soft);border-color:var(--brand)}
@@ -389,7 +389,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .qi-kakao-btn:hover{background:#e6ce00;border-color:#e6ce00}
 
 /* 바로가기 카드 */
-.quick-links-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.quick-links-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.07)}
 .ql-item{display:flex;align-items:center;justify-content:space-between;padding:13px 14px;font-size:13px;font-weight:600;color:var(--txt);border-bottom:1px solid var(--line);cursor:pointer;transition:background .15s;text-decoration:none}
 .ql-item:last-child{border-bottom:none}
 .ql-item:hover{background:var(--soft);color:var(--brand)}
@@ -556,6 +556,50 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .kw-r1{background:#F59E0B;color:#fff}
 .kw-r2{background:#9CA3AF;color:#fff}
 .kw-r3{background:#CD7F32;color:#fff}
+
+/* ── 사이드바 섹션 레이블은 더 작게 ── */
+.col-left .sec-label{font-size:13.5px;margin-bottom:12px;color:var(--ink)}
+.col-right .sec-label{font-size:13.5px;margin-bottom:10px}
+
+/* ── 뉴스 썸네일 개선 ── */
+.ln-thumb{flex-shrink:0;width:58px;height:44px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.ln-thumb svg{width:24px;height:24px;opacity:.75}
+.ln-title{font-size:12.5px;font-weight:600;color:var(--ink);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ln-tag{font-size:10px;font-weight:700;color:var(--brand);background:var(--brand-light);padding:2px 7px;border-radius:5px;flex-shrink:0}
+
+/* ── 모바일 하단바 폴리시 ── */
+.mbar{padding:10px 16px max(10px,env(safe-area-inset-bottom));border-top:1px solid rgba(0,0,0,.08)}
+.mbar-call{letter-spacing:-.02em;border-radius:10px;font-size:14px;box-shadow:0 2px 8px rgba(92,58,255,.3)}
+.mbar-inquiry{letter-spacing:-.02em;border-radius:10px;font-size:14px}
+
+/* ── 문의 카드 폴리시 ── */
+.contact-card-title{font-size:18px;letter-spacing:-.025em}
+.cf-btn{border-radius:11px;letter-spacing:-.01em}
+.cf-btn-primary{box-shadow:0 2px 10px rgba(92,58,255,.3)}
+
+/* ── 배지 chip 간격 ── */
+.badge-chips-row{gap:5px}
+
+/* ── 리뷰 카드 ── */
+.rv-card{border-radius:12px;padding:16px}
+.rv-stars{font-size:12px;letter-spacing:1.5px}
+
+/* ── 후기 탭 title ── */
+.r-title{font-size:17px;letter-spacing:-.02em}
+
+/* ── section card padding 통일 ── */
+.ps-card{padding:22px 24px}
+.apts-card{padding:22px 24px}
+.reviews-card{padding:22px 24px}
+.activity-card{padding:22px 24px}
+.contact-card{padding:28px 28px 24px}
+
+/* ── qi-btn 개선 ── */
+.qi-btn{border-radius:12px;padding:14px 6px}
+.qi-label{font-size:11px;font-weight:700;color:var(--txt);letter-spacing:-.01em}
+
+/* ── 바로가기 카드 항목 ── */
+.ql-item{font-size:13px;padding:14px 16px}
 </style>
 </head>
 <body>
@@ -631,18 +675,19 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 <div class="profile-info-bar">
   <div class="pib-name-row" style="align-items:flex-start">
     <div style="flex:1;min-width:0">
-      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin-bottom:3px">
+      <div style="margin-bottom:8px">
         <span class="pib-name">김민준 상담사</span>
-        <div class="badge-chips-row">
-          <span class="badge-chip-sm badge-crown"><span class="badge-icon-btn"><svg><use href="#ic-crown"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
-          <span class="badge-chip-sm badge-bolt"><span class="badge-icon-btn"><svg><use href="#ic-bolt"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
-          <span class="badge-chip-sm badge-trophy"><span class="badge-icon-btn"><svg><use href="#ic-trophy"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
-          <span class="badge-chip-sm badge-star-t"><span class="badge-icon-btn"><svg><use href="#ic-star"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
-          <span class="badge-chip-sm badge-shield"><span class="badge-icon-btn"><svg><use href="#ic-shield"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
-        </div>
       </div>
-      <div class="pib-sub">광안 센텀 비스타동원</div>
-      <div class="pib-sub" style="margin-top:1px"><svg><use href="#ic-pin"/></svg> 부산 수영구 광안2동 567 모델하우스</div>
+      <div class="badge-chips-row" style="margin-bottom:10px;margin-left:0">
+        <span class="badge-chip-sm badge-crown"><span class="badge-icon-btn"><svg><use href="#ic-crown"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
+        <span class="badge-chip-sm badge-bolt"><span class="badge-icon-btn"><svg><use href="#ic-bolt"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
+        <span class="badge-chip-sm badge-trophy"><span class="badge-icon-btn"><svg><use href="#ic-trophy"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
+        <span class="badge-chip-sm badge-star-t"><span class="badge-icon-btn"><svg><use href="#ic-star"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
+        <span class="badge-chip-sm badge-shield"><span class="badge-icon-btn"><svg><use href="#ic-shield"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
+        <span style="font-size:11px;color:var(--muted);font-weight:600;align-self:center;padding-left:2px">배지 5개</span>
+      </div>
+      <div class="pib-sub" style="font-weight:700;color:var(--ink)">광안 센텀 비스타동원</div>
+      <div class="pib-sub" style="margin-top:3px"><svg><use href="#ic-pin"/></svg> 부산 수영구 광안2동 567 모델하우스</div>
     </div>
     <div class="pib-rating-block">
       <div class="pib-score-wrap-mob" onclick="toggleMobRating(this)">
@@ -804,17 +849,16 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
           <!-- 상단 행: 이름+뱃지 / 평점배지 -->
           <div class="hnp-top-row">
             <div class="hnp-left">
-              <div class="hnp-name">
-                김민준 상담사
-                <div class="badge-chips-row">
-                  <span class="badge-chip-sm badge-crown"><span class="badge-icon-btn"><svg><use href="#ic-crown"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
-                  <span class="badge-chip-sm badge-bolt"><span class="badge-icon-btn"><svg><use href="#ic-bolt"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
-                  <span class="badge-chip-sm badge-trophy"><span class="badge-icon-btn"><svg><use href="#ic-trophy"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
-                  <span class="badge-chip-sm badge-star-t"><span class="badge-icon-btn"><svg><use href="#ic-star"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
-                  <span class="badge-chip-sm badge-shield"><span class="badge-icon-btn"><svg><use href="#ic-shield"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
-                </div>
+              <div class="hnp-name" style="margin-bottom:10px">김민준 상담사</div>
+              <div class="badge-chips-row" style="margin-left:0;margin-bottom:12px">
+                <span class="badge-chip-sm badge-crown"><span class="badge-icon-btn"><svg><use href="#ic-crown"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
+                <span class="badge-chip-sm badge-bolt"><span class="badge-icon-btn"><svg><use href="#ic-bolt"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
+                <span class="badge-chip-sm badge-trophy"><span class="badge-icon-btn"><svg><use href="#ic-trophy"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
+                <span class="badge-chip-sm badge-star-t"><span class="badge-icon-btn"><svg><use href="#ic-star"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
+                <span class="badge-chip-sm badge-shield"><span class="badge-icon-btn"><svg><use href="#ic-shield"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
+                <span style="font-size:11px;color:var(--muted);font-weight:600;align-self:center;padding-left:2px">배지 5개</span>
               </div>
-              <div class="hnp-line" style="margin-top:4px">광안 센텀 비스타동원</div>
+              <div class="hnp-line" style="font-weight:700;color:var(--ink)">광안 센텀 비스타동원</div>
               <div class="hnp-line"><svg><use href="#ic-pin"/></svg> 부산 수영구 광안2동 567 모델하우스</div>
             </div>
             <div class="hnp-right">
