@@ -504,9 +504,74 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
   .career-stat{padding-left:8px}
   .activity-vids{grid-template-columns:1fr 1fr}
 }
+
+/* ── 배지 타입별 컬러 시스템 ── */
+.badge-crown .badge-icon-btn,.badge-crown .badge-circle{background:linear-gradient(145deg,#FFFDF5,#FFF8DC);border-color:#F59E0B;box-shadow:0 0 0 2px rgba(245,158,11,.12)}
+.badge-bolt .badge-icon-btn,.badge-bolt .badge-circle{background:linear-gradient(145deg,#EFF6FF,#DBEAFE);border-color:#3B82F6;box-shadow:0 0 0 2px rgba(59,130,246,.12)}
+.badge-trophy .badge-icon-btn,.badge-trophy .badge-circle{background:linear-gradient(145deg,#F5F3FF,#EDE9FE);border-color:#7C5CFF;box-shadow:0 0 0 2px rgba(124,92,255,.12)}
+.badge-star-t .badge-icon-btn,.badge-star-t .badge-circle{background:linear-gradient(145deg,#FFF7ED,#FFEDD5);border-color:#F97316;box-shadow:0 0 0 2px rgba(249,115,22,.12)}
+.badge-shield .badge-icon-btn,.badge-shield .badge-circle{background:linear-gradient(145deg,#ECFDF5,#D1FAE5);border-color:#10B981;box-shadow:0 0 0 2px rgba(16,185,129,.12)}
+.badge-crown:hover .badge-icon-btn{box-shadow:0 0 0 4px rgba(245,158,11,.22),0 2px 8px rgba(245,158,11,.3)}
+.badge-bolt:hover .badge-icon-btn{box-shadow:0 0 0 4px rgba(59,130,246,.22),0 2px 8px rgba(59,130,246,.3)}
+.badge-trophy:hover .badge-icon-btn{box-shadow:0 0 0 4px rgba(124,92,255,.22),0 2px 8px rgba(124,92,255,.3)}
+.badge-star-t:hover .badge-icon-btn{box-shadow:0 0 0 4px rgba(249,115,22,.22),0 2px 8px rgba(249,115,22,.3)}
+.badge-shield:hover .badge-icon-btn{box-shadow:0 0 0 4px rgba(16,185,129,.22),0 2px 8px rgba(16,185,129,.3)}
+.badge-crown svg{color:#D97706}
+.badge-bolt svg{color:#2563EB}
+.badge-trophy svg{color:#5C3AFF}
+.badge-star-t svg{color:#EA580C}
+.badge-shield svg{color:#059669}
+/* ── SVG 아이콘 크기 유틸 ── */
+.badge-circle svg{width:28px;height:28px;flex-shrink:0}
+.badge-icon-btn svg{width:15px;height:15px;flex-shrink:0}
+.sec-label svg{width:20px;height:20px;flex-shrink:0;color:var(--brand)}
+.r-title svg{width:18px;height:18px;flex-shrink:0;color:var(--brand)}
+.qi-icon svg{width:20px;height:20px}
+.cm-btn svg{width:18px;height:18px;flex-shrink:0}
+.mbar-call svg,.mbar-inquiry svg{width:16px;height:16px;flex-shrink:0}
+.ism-icon svg{width:52px;height:52px;color:#10B981}
+.pib-sub svg,.hnp-line svg{width:13px;height:13px;flex-shrink:0;color:var(--muted);vertical-align:middle;margin-top:-2px}
+.ql-item svg{width:16px;height:16px;flex-shrink:0;color:var(--brand)}
+.ln-thumb svg{width:22px;height:22px;opacity:0.65}
+/* ── 후기 키워드 순위 배지 ── */
+.kw-rank{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#F3F4F6;color:#9CA3AF;font-size:10px;font-weight:800;flex-shrink:0}
+.kw-r1{background:#F59E0B;color:#fff}
+.kw-r2{background:#9CA3AF;color:#fff}
+.kw-r3{background:#CD7F32;color:#fff}
 </style>
 </head>
 <body>
+<!-- ═══ SVG ICON SPRITE ═══ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <!-- 배지 아이콘 -->
+    <symbol id="ic-crown" viewBox="0 0 24 24" fill="none"><path d="M3 17H21M12 5L15.5 11.5L20 8L17.5 17H6.5L4 8L8.5 11.5L12 5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="ic-bolt" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 13H12L11 22L20 11H13L13 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="ic-trophy" viewBox="0 0 24 24" fill="none"><path d="M6 3H18L17 10C17 13.31 14.76 16 12 16S7 13.31 7 10L6 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 16V20M8 20H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M3 6H6M18 6H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="ic-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/></symbol>
+    <symbol id="ic-shield" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 6V12C3 17.55 6.84 21.74 12 23C17.16 21.74 21 17.55 21 12V6L12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <!-- 섹션 레이블 아이콘 -->
+    <symbol id="ic-megaphone" viewBox="0 0 24 24" fill="none"><path d="M18 8C18 8 20 9.5 20 12S18 16 18 16M3 15V9H7L14 5V19L7 15H3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-calendar" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 9H21M8 2V6M16 2V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="14" r="1" fill="currentColor"/><circle cx="12" cy="14" r="1" fill="currentColor"/><circle cx="16" cy="14" r="1" fill="currentColor"/></symbol>
+    <symbol id="ic-chat" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-medal" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="15" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M9 4H15L14 9H10L9 4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 9L9.5 12M14 9L14.5 12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="ic-person" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M4 21C4 17.13 7.58 14 12 14S20 17.13 20 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="ic-target" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></symbol>
+    <symbol id="ic-building" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M9 8H10M9 12H10M14 8H15M14 12H15M9 21V17H15V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="ic-document" viewBox="0 0 24 24" fill="none"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9L14 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 3V9H20M9 13H15M9 17H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="ic-mail" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 7L12 13L22 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <!-- 기타 아이콘 -->
+    <symbol id="ic-pin" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22S19 14.25 19 9C19 5.13 15.87 2 12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5" fill="currentColor"/></symbol>
+    <symbol id="ic-phone" viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.28-.28.68-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.36.03.74-.25 1.02l-2.2 2.2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-sms" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 10H16M8 13.5H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="ic-check-done" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M8 12L10.5 14.5L16 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="ic-play" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M10 8.5L16 12L10 15.5V8.5Z" fill="currentColor"/></symbol>
+    <symbol id="ic-link" viewBox="0 0 24 24" fill="none"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="ic-chart" viewBox="0 0 24 24" fill="none"><rect x="3" y="14" width="4" height="7" rx="1" fill="currentColor" opacity="0.6"/><rect x="10" y="9" width="4" height="12" rx="1" fill="currentColor"/><rect x="17" y="11" width="4" height="10" rx="1" fill="currentColor" opacity="0.6"/></symbol>
+    <symbol id="ic-trend" viewBox="0 0 24 24" fill="none"><path d="M3 17L8 12L12 16L17 10L21 14M19 7H21V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-file" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 9H16M8 13H16M8 17H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
 
 <!-- GNB (모바일 전용) -->
 <header class="gnb" id="gnb">
@@ -551,15 +616,15 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
       <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin-bottom:3px">
         <span class="pib-name">김민준 상담사</span>
         <div class="badge-chips-row">
-          <span class="badge-chip-sm"><span class="badge-icon-btn">👑</span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
-          <span class="badge-chip-sm"><span class="badge-icon-btn">⚡</span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
-          <span class="badge-chip-sm"><span class="badge-icon-btn">🎖</span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
-          <span class="badge-chip-sm"><span class="badge-icon-btn">⭐</span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
-          <span class="badge-chip-sm"><span class="badge-icon-btn">🛡</span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
+          <span class="badge-chip-sm badge-crown"><span class="badge-icon-btn"><svg><use href="#ic-crown"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
+          <span class="badge-chip-sm badge-bolt"><span class="badge-icon-btn"><svg><use href="#ic-bolt"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
+          <span class="badge-chip-sm badge-trophy"><span class="badge-icon-btn"><svg><use href="#ic-trophy"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
+          <span class="badge-chip-sm badge-star-t"><span class="badge-icon-btn"><svg><use href="#ic-star"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
+          <span class="badge-chip-sm badge-shield"><span class="badge-icon-btn"><svg><use href="#ic-shield"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
         </div>
       </div>
       <div class="pib-sub">광안 센텀 비스타동원</div>
-      <div class="pib-sub" style="margin-top:1px">📍 부산 수영구 광안2동 567 모델하우스</div>
+      <div class="pib-sub" style="margin-top:1px"><svg><use href="#ic-pin"/></svg> 부산 수영구 광안2동 567 모델하우스</div>
     </div>
     <div class="pib-rating-block">
       <div class="pib-score-wrap-mob" onclick="toggleMobRating(this)">
@@ -609,35 +674,35 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
       <!-- 이 지역 청약 소식 -->
       <div class="left-news-card">
-        <div class="sec-label">📢 이 지역 청약 소식</div>
+        <div class="sec-label"><svg><use href="#ic-megaphone"/></svg> 이 지역 청약 소식</div>
         <div class="left-news-list">
           <a class="left-news-item" href="#">
             <div class="ln-content">
               <div class="ln-row"><span class="ln-tag">분양</span><span class="ln-date">6.24</span></div>
               <div class="ln-title">광안 센텀 비스타동원 1순위 청약 일정 확정</div>
             </div>
-            <div class="ln-thumb" style="background:linear-gradient(135deg,#e0e7ff,#c7d2fe)">🏢</div>
+            <div class="ln-thumb" style="background:linear-gradient(135deg,#e0e7ff,#c7d2fe);color:#6366F1"><svg><use href="#ic-building"/></svg></div>
           </a>
           <a class="left-news-item" href="#">
             <div class="ln-content">
               <div class="ln-row"><span class="ln-tag">청약</span><span class="ln-date">6.22</span></div>
               <div class="ln-title">부산 수영구 전용 84㎡ 청약 당첨 커트라인 분석</div>
             </div>
-            <div class="ln-thumb" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0)">📊</div>
+            <div class="ln-thumb" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0);color:#10B981"><svg><use href="#ic-chart"/></svg></div>
           </a>
           <a class="left-news-item" href="#">
             <div class="ln-content">
               <div class="ln-row"><span class="ln-tag">시세</span><span class="ln-date">6.20</span></div>
               <div class="ln-title">광안리 인근 분양가 비교 — 2026년 상반기 결산</div>
             </div>
-            <div class="ln-thumb" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">📈</div>
+            <div class="ln-thumb" style="background:linear-gradient(135deg,#fef3c7,#fde68a);color:#D97706"><svg><use href="#ic-trend"/></svg></div>
           </a>
           <a class="left-news-item" href="#">
             <div class="ln-content">
               <div class="ln-row"><span class="ln-tag">정책</span><span class="ln-date">6.18</span></div>
               <div class="ln-title">무순위 청약 신청 자격 완화 — 부산 적용 범위는?</div>
             </div>
-            <div class="ln-thumb" style="background:linear-gradient(135deg,#fee2e2,#fecaca)">📋</div>
+            <div class="ln-thumb" style="background:linear-gradient(135deg,#fee2e2,#fecaca);color:#EF4444"><svg><use href="#ic-file"/></svg></div>
           </a>
         </div>
         <a class="left-news-more">청약 소식 전체보기 ›</a>
@@ -645,7 +710,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
       <!-- 이달 분양 일정 -->
       <div class="left-cal-card">
-        <div class="sec-label">📅 이달 분양 일정</div>
+        <div class="sec-label"><svg><use href="#ic-calendar"/></svg> 이달 분양 일정</div>
         <div class="cal-list">
           <div class="cal-item">
             <div class="cal-date-box">
@@ -724,15 +789,15 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
               <div class="hnp-name">
                 김민준 상담사
                 <div class="badge-chips-row">
-                  <span class="badge-chip-sm"><span class="badge-icon-btn">👑</span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
-                  <span class="badge-chip-sm"><span class="badge-icon-btn">⚡</span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
-                  <span class="badge-chip-sm"><span class="badge-icon-btn">🎖</span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
-                  <span class="badge-chip-sm"><span class="badge-icon-btn">⭐</span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
-                  <span class="badge-chip-sm"><span class="badge-icon-btn">🛡</span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
+                  <span class="badge-chip-sm badge-crown"><span class="badge-icon-btn"><svg><use href="#ic-crown"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
+                  <span class="badge-chip-sm badge-bolt"><span class="badge-icon-btn"><svg><use href="#ic-bolt"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
+                  <span class="badge-chip-sm badge-trophy"><span class="badge-icon-btn"><svg><use href="#ic-trophy"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
+                  <span class="badge-chip-sm badge-star-t"><span class="badge-icon-btn"><svg><use href="#ic-star"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
+                  <span class="badge-chip-sm badge-shield"><span class="badge-icon-btn"><svg><use href="#ic-shield"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
                 </div>
               </div>
               <div class="hnp-line" style="margin-top:4px">광안 센텀 비스타동원</div>
-              <div class="hnp-line">📍 부산 수영구 광안2동 567 모델하우스</div>
+              <div class="hnp-line"><svg><use href="#ic-pin"/></svg> 부산 수영구 광안2동 567 모델하우스</div>
             </div>
             <div class="hnp-right">
               <div class="hnp-rating-block">
@@ -792,14 +857,14 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
       <!-- 상담사 소개 -->
       <div class="c-card bio-card" data-tab="info">
-        <div class="sec-label">💬 상담사 소개</div>
+        <div class="sec-label"><svg><use href="#ic-chat"/></svg> 상담사 소개</div>
         <div class="bio-quote">"처음부터 끝까지, 내 집 마련의 모든 과정을 함께 합니다."</div>
         <p class="bio-detail">2020년부터 부산·경남 지역 분양시장에서 활동하며 1,000건 이상의 상담을 진행했습니다. 하이엔드 주거 상품부터 실수요자 중심 단지까지, 고객 한 분 한 분의 상황에 맞는 최적 단지를 안내해 드립니다.</p>
       </div>
 
-      <!-- 소개 영상 (홈 + 상담사 정보 탭) -->
-      <div class="c-card youtube-card tab-visible" data-tab="home info">
-        <div class="sec-label">▶ 소개 영상</div>
+      <!-- 소개 영상 (상담사 정보 탭 전용) -->
+      <div class="c-card youtube-card" data-tab="info">
+        <div class="sec-label"><svg><use href="#ic-play"/></svg> 소개 영상</div>
         <div class="yt-wrap">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/0vXGy_PKpgs?si=GObL3wjYLX957jvQ"
             title="YouTube video player" frameborder="0"
@@ -812,19 +877,19 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
       <!-- 획득 배지 상세 (상담사 정보 탭 전용) -->
       <div class="c-card badge-detail-card" data-tab="info">
-        <div class="sec-label">🏅 획득 배지</div>
+        <div class="sec-label"><svg><use href="#ic-medal"/></svg> 획득 배지</div>
         <div class="badge-grid">
-          <div class="badge-item"><div class="badge-circle">👑</div><div class="badge-name">우수 상담사</div><div class="badge-desc">완료율 90%<br>이상 달성</div></div>
-          <div class="badge-item"><div class="badge-circle">⚡</div><div class="badge-name">빠른 응답</div><div class="badge-desc">평균 응답<br>10분 이내</div></div>
-          <div class="badge-item"><div class="badge-circle">🎖</div><div class="badge-name">높은 완료율</div><div class="badge-desc">상위 10%<br>꾸준히 유지</div></div>
-          <div class="badge-item"><div class="badge-circle">⭐</div><div class="badge-name">이용자 추천</div><div class="badge-desc">10명 이상<br>추천 받았어요</div></div>
-          <div class="badge-item"><div class="badge-circle">🛡</div><div class="badge-name">공식 인증</div><div class="badge-desc">호갱노노<br>공식 파트너</div></div>
+          <div class="badge-item badge-crown"><div class="badge-circle"><svg><use href="#ic-crown"/></svg></div><div class="badge-name">우수 상담사</div><div class="badge-desc">완료율 90%<br>이상 달성</div></div>
+          <div class="badge-item badge-bolt"><div class="badge-circle"><svg><use href="#ic-bolt"/></svg></div><div class="badge-name">빠른 응답</div><div class="badge-desc">평균 응답<br>10분 이내</div></div>
+          <div class="badge-item badge-trophy"><div class="badge-circle"><svg><use href="#ic-trophy"/></svg></div><div class="badge-name">높은 완료율</div><div class="badge-desc">상위 10%<br>꾸준히 유지</div></div>
+          <div class="badge-item badge-star-t"><div class="badge-circle"><svg><use href="#ic-star"/></svg></div><div class="badge-name">이용자 추천</div><div class="badge-desc">10명 이상<br>추천 받았어요</div></div>
+          <div class="badge-item badge-shield"><div class="badge-circle"><svg><use href="#ic-shield"/></svg></div><div class="badge-name">공식 인증</div><div class="badge-desc">호갱노노<br>공식 파트너</div></div>
         </div>
       </div>
 
       <!-- 상담 경력 상세 (상담사 정보 탭 전용) -->
       <div class="c-card career-detail-card" data-tab="info">
-        <div class="sec-label">👤 상담 경력</div>
+        <div class="sec-label"><svg><use href="#ic-person"/></svg> 상담 경력</div>
         <div class="career-row">
           <div class="career-main">
             <div class="career-yrs">6년 3개월</div>
@@ -843,7 +908,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
       <!-- 전문 분야 상세 (상담사 정보 탭 전용) -->
       <div class="c-card spec-detail-card" data-tab="info">
-        <div class="sec-label">🎯 전문 분야</div>
+        <div class="sec-label"><svg><use href="#ic-target"/></svg> 전문 분야</div>
         <div class="spec-chips">
           <span class="spec-chip">#하이엔드주거</span>
           <span class="spec-chip">#오피스텔</span>
@@ -857,7 +922,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
       <!-- 분양 이력 -->
       <div class="c-card apts-card tab-visible" id="secApts" data-tab="home apts">
         <div class="apt-nav-row">
-          <div class="sec-label" style="margin:0">🏗 분양 이력</div>
+          <div class="sec-label" style="margin:0"><svg><use href="#ic-building"/></svg> 분양 이력</div>
           <div class="apt-nav">
             <button class="apt-nav-btn" id="aptPrev" onclick="aptNav(-1)" aria-label="이전">‹</button>
             <div class="apt-nav-dots" id="aptDots"></div>
@@ -888,7 +953,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
       <!-- 포스트 탭 -->
       <div class="c-card activity-card" data-tab="posts">
-        <div class="sec-label">📝 포스트</div>
+        <div class="sec-label"><svg><use href="#ic-document"/></svg> 포스트</div>
         <div class="activity-sec">
           <div class="asec-hd"><span class="asec-label">영상</span><span class="asec-count">3</span><a href="#" class="asec-more">›</a></div>
           <div class="activity-vids">
@@ -962,7 +1027,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
       <!-- 고객 후기 -->
       <div class="c-card reviews-card tab-visible" id="secReviews" data-tab="home">
         <div class="reviews-header">
-          <span class="r-title">💬 고객 후기</span>
+          <span class="r-title"><svg><use href="#ic-chat"/></svg> 고객 후기</span>
           <a href="#" class="r-more">전체 보기 ›</a>
         </div>
         <div class="rv-grid">
@@ -990,14 +1055,14 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
             <span class="kw-update">업데이트 주기 : 매월 1일, 16일</span>
           </div>
           <div class="kw-grid">
-            <div class="kw-row"><span class="kw-emoji">🥇</span><span class="kw-label">빠른 응답</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:90%"></div></div></div>
-            <div class="kw-row"><span class="kw-emoji"></span><span class="kw-label">정확한</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:78%"></div></div></div>
-            <div class="kw-row"><span class="kw-emoji">🏅</span><span class="kw-label">친절한 설명</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:70%"></div></div></div>
-            <div class="kw-row"><span class="kw-emoji"></span><span class="kw-label">꼼꼼한</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:63%"></div></div></div>
-            <div class="kw-row"><span class="kw-emoji">🔑</span><span class="kw-label">믿을 수 있는</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:55%"></div></div></div>
-            <div class="kw-row"><span class="kw-emoji"></span><span class="kw-label">전문적인</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:50%"></div></div></div>
-            <div class="kw-row"><span class="kw-emoji"></span><span class="kw-label">적극적인</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:40%"></div></div></div>
-            <div class="kw-row"><span class="kw-emoji"></span><span class="kw-label">도움</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:33%"></div></div></div>
+            <div class="kw-row"><span class="kw-emoji"><span class="kw-rank kw-r1">1</span></span><span class="kw-label">빠른 응답</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:90%"></div></div></div>
+            <div class="kw-row"><span class="kw-emoji"><span class="kw-rank kw-r2">2</span></span><span class="kw-label">정확한</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:78%"></div></div></div>
+            <div class="kw-row"><span class="kw-emoji"><span class="kw-rank kw-r3">3</span></span><span class="kw-label">친절한 설명</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:70%"></div></div></div>
+            <div class="kw-row"><span class="kw-emoji"><span class="kw-rank">4</span></span><span class="kw-label">꼼꼼한</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:63%"></div></div></div>
+            <div class="kw-row"><span class="kw-emoji"><span class="kw-rank">5</span></span><span class="kw-label">믿을 수 있는</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:55%"></div></div></div>
+            <div class="kw-row"><span class="kw-emoji"><span class="kw-rank">6</span></span><span class="kw-label">전문적인</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:50%"></div></div></div>
+            <div class="kw-row"><span class="kw-emoji"><span class="kw-rank">7</span></span><span class="kw-label">적극적인</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:40%"></div></div></div>
+            <div class="kw-row"><span class="kw-emoji"><span class="kw-rank">8</span></span><span class="kw-label">도움</span><div class="kw-bar-bg"><div class="kw-bar-fill" style="width:33%"></div></div></div>
           </div>
         </div>
         <!-- 후기 리스트 -->
@@ -1083,7 +1148,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
       <!-- 상담 문의 (center 하단) -->
       <div class="c-card contact-card tab-visible" id="secContact" data-tab="home contact">
-        <div class="contact-card-title">✉️ 문의하기</div>
+        <div class="contact-card-title"><svg style="width:18px;height:18px;flex-shrink:0;color:var(--brand);vertical-align:middle;margin-top:-2px"><use href="#ic-mail"/></svg> 문의하기</div>
         <div class="contact-card-sub">상담 무료 · 평균 응답 5분 이내</div>
         <div class="contact-event-row">
           <span class="cer-icon">☕</span>
@@ -1104,36 +1169,10 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
     <!-- ③ RIGHT: 이 지역 다른 상담사 + 바로가기 + 간편 문의 (PC 전용) -->
     <aside class="col-right">
 
-      <!-- 이 지역 다른 상담사 -->
-      <div class="sim-card">
-        <div class="sim-title">이 지역 다른 상담사</div>
-        <div class="sim-list">
-          <div class="sim-item">
-            <div class="sim-photo" style="background:linear-gradient(135deg,#c8d0e0,#e2e6f0)"></div>
-            <div class="sim-info">
-              <div class="sim-name-row"><span class="sim-name">박수진 상담사</span><span class="sim-rating">★4.7</span></div>
-              <div class="sim-meta">부산·경남 · 5년</div>
-            </div>
-          </div>
-          <div class="sim-item">
-            <div class="sim-photo" style="background:linear-gradient(135deg,#d0c8e0,#e6e2f0)"></div>
-            <div class="sim-info">
-              <div class="sim-name-row"><span class="sim-name">이재원 상담사</span><span class="sim-rating">★4.6</span></div>
-              <div class="sim-meta">부산 전문 · 8년</div>
-            </div>
-          </div>
-        </div>
-        <a href="index.html" class="sim-more">전체보기 ›</a>
-      </div>
-
       <!-- 바로가기 -->
       <div class="quick-links-card">
         <a class="ql-item" href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html">
-          🏢 단지 홈페이지 바로가기
-          <span class="ql-arrow">›</span>
-        </a>
-        <a class="ql-item" href="index.html">
-          👥 이 지역 다른 상담사
+          <svg><use href="#ic-building"/></svg> 단지 홈페이지 바로가기
           <span class="ql-arrow">›</span>
         </a>
       </div>
@@ -1143,7 +1182,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
         <div class="qi-header">간편 문의</div>
         <div class="qi-btn-row">
           <button class="qi-btn" onclick="openContact()">
-            <span class="qi-icon">📞</span>
+            <span class="qi-icon"><svg><use href="#ic-phone"/></svg></span>
             <span class="qi-label">전화</span>
           </button>
           <button class="qi-btn qi-kakao-btn" onclick="openContact()">
@@ -1153,7 +1192,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
             <span class="qi-label">카카오</span>
           </button>
           <button class="qi-btn" onclick="openContact()">
-            <span class="qi-icon">💬</span>
+            <span class="qi-icon"><svg><use href="#ic-sms"/></svg></span>
             <span class="qi-label">SMS</span>
           </button>
         </div>
@@ -1171,8 +1210,8 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
     <h3>상담사 연결</h3>
     <p class="cm-sub">편하신 방법으로 연락주세요.</p>
     <div class="cmodal-btns">
-      <a href="tel:010-0000-0000" class="cm-btn tel">📞 전화 상담</a>
-      <a href="sms:010-0000-0000?body=안녕하세요, 분양 상담 문의드립니다." class="cm-btn sms">💬 문자 보내기</a>
+      <a href="tel:010-0000-0000" class="cm-btn tel"><svg><use href="#ic-phone"/></svg> 전화 상담</a>
+      <a href="sms:010-0000-0000?body=안녕하세요, 분양 상담 문의드립니다." class="cm-btn sms"><svg><use href="#ic-sms"/></svg> 문자 보내기</a>
       <a href="#" class="cm-btn kakao">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none" style="flex-shrink:0"><path d="M14.5012 3.05859C8.14925 3.05859 3 7.73383 3 13.5027C3 17.7633 4.81767 19.7978 7.3071 21.6504L7.31945 21.6553V26.6554C7.31945 26.8931 7.59358 27.0264 7.78621 26.8858L12.1476 23.7067L12.2415 23.7455C12.9725 23.8789 13.7282 23.9468 14.5012 23.9468C20.8532 23.9468 26 19.2716 26 13.5027C26 7.73383 20.8507 3.05859 14.5012 3.05859Z" fill="#191919"/></svg>
         카카오톡 채널 상담
@@ -1184,7 +1223,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 <!-- INQUIRY SUCCESS MODAL -->
 <div class="ism" id="ismModal" onclick="if(event.target===this)closeInquiry()">
   <div class="ism-card">
-    <div class="ism-icon">✅</div>
+    <div class="ism-icon"><svg><use href="#ic-check-done"/></svg></div>
     <div class="ism-title">문의가 접수되었습니다!</div>
     <div class="ism-desc">빠른 시간 내에 연락드리겠습니다.<br>평균 응답 시간 <strong style="color:var(--brand)">5분 이내</strong></div>
     <button class="ism-btn" onclick="closeInquiry()">확인</button>
@@ -1193,8 +1232,8 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
 <!-- MOBILE BOTTOM BAR -->
 <div class="mbar" id="mbar">
-  <button class="mbar-call" onclick="openContact()">📞 상담사 연결하기</button>
-  <button class="mbar-inquiry" onclick="submitInquiry()">✉️ 문의 남기기</button>
+  <button class="mbar-call" onclick="openContact()"><svg><use href="#ic-phone"/></svg> 상담사 연결하기</button>
+  <button class="mbar-inquiry" onclick="submitInquiry()"><svg><use href="#ic-mail"/></svg> 문의 남기기</button>
 </div>
 
 
