@@ -455,9 +455,11 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
 /* ── RESPONSIVE ── */
 @media(min-width:821px){
+  body{min-width:980px}
   header.gnb{display:none}
   .hero-mobile,.profile-info-bar{display:none}
   .page-wrap{margin-top:0;padding-top:16px}
+  .page-grid{width:1040px;max-width:100%;margin:0 auto}
   .hero-pc{display:block}
   .profile-tabs{border-top:1px solid var(--line);border-left:none;border-right:none;border-radius:0;overflow:hidden;margin:0}
   .col-center>.profile-tabs{position:sticky;top:44px;z-index:40}
@@ -490,9 +492,6 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
   .contact-card{padding:20px 16px 18px}
   .cc-btns{flex-direction:row}
   .gnb-cta-btn,.gnb-icons{display:none}
-}
-@media(min-width:821px) and (max-width:1020px){
-  .page-grid{grid-template-columns:190px 1fr 190px;gap:14px}
 }
 @media(max-width:480px){
   .page-wrap{padding:14px 12px 90px}
