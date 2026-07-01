@@ -396,38 +396,42 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .ql-arrow{color:var(--muted);font-size:14px}
 
 /* 이 지역 다른 상담사 카드 (left sidebar) */
-.other-cons-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 12px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
-.oc-list{display:flex;flex-direction:column;gap:0}
-.oc-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;cursor:pointer;transition:opacity .15s}
-.oc-item:last-child{border-bottom:none}
-.oc-item:hover{opacity:.72}
-.oc-avatar{width:36px;height:36px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#e0e7ff,#c7d2fe);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#6366f1;overflow:hidden}
-.oc-avatar img{width:100%;height:100%;object-fit:cover}
-.oc-info{flex:1;min-width:0}
-.oc-name{font-size:12.5px;font-weight:700;color:var(--ink);margin-bottom:2px}
-.oc-sub{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.oc-rating{flex-shrink:0;text-align:right}
-.oc-stars{font-size:10px;color:#f59e0b;display:block;line-height:1.2}
-.oc-score{font-size:12px;font-weight:800;color:var(--ink)}
-.oc-more{display:block;text-align:center;font-size:12px;color:var(--brand);font-weight:600;padding-top:10px;margin-top:2px;border-top:1px solid var(--line)}
+/* 인기 단지 TOP 카드 (left sidebar) */
+.trending-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 12px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.trend-list{display:flex;flex-direction:column;gap:0;margin-top:10px}
+.trend-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:opacity .15s}
+.trend-item:last-child{border-bottom:none}
+.trend-item:hover{opacity:.72}
+.trend-rank{width:20px;flex-shrink:0;font-size:13px;font-weight:900;text-align:center;color:var(--muted)}
+.trend-rank.r1{color:#F59E0B}
+.trend-rank.r2{color:#94A3B8}
+.trend-rank.r3{color:#CD7F32}
+.trend-info{flex:1;min-width:0}
+.trend-name{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trend-area{font-size:10.5px;color:var(--muted);font-weight:500}
+.trend-hot{font-size:13px;flex-shrink:0}
 
-/* 단지 바로가기 카드 (right sidebar) */
-.apt-link-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.07)}
-.alc-banner{height:52px;background:linear-gradient(135deg,#1e1b4b,#4338ca 60%,#7c3aed);display:flex;align-items:center;padding:0 14px;gap:8px}
-.alc-banner-ico{width:28px;height:28px;background:rgba(255,255,255,.15);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.alc-banner-ico svg{width:14px;height:14px;color:#fff}
-.alc-banner-txt{font-size:12px;font-weight:700;color:#fff;line-height:1.3}
-.alc-banner-sub{font-size:10px;color:rgba(255,255,255,.65);font-weight:400}
-.alc-link{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;font-size:12.5px;font-weight:700;color:var(--brand);text-decoration:none;transition:background .15s}
-.alc-link:hover{background:var(--soft)}
-.alc-arrow{color:var(--muted);font-size:16px}
+/* 로그인 CTA 카드 (right sidebar) */
+.login-cta-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.lcc-title{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.lcc-sub{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:12px}
+.lcc-btns{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.lcc-login{display:block;text-align:center;background:var(--brand);color:#fff;font-size:12px;font-weight:700;padding:9px 0;border-radius:8px;text-decoration:none;transition:opacity .15s}
+.lcc-login:hover{opacity:.88}
+.lcc-signup{display:block;text-align:center;background:var(--brand-light);color:var(--brand);font-size:12px;font-weight:700;padding:9px 0;border-radius:8px;text-decoration:none;border:1px solid #ddd6fe;transition:background .15s}
+.lcc-signup:hover{background:#ede9fe}
 
-/* 호갱노노 CTA (right sidebar) */
-.hgn-cta-card{background:linear-gradient(135deg,var(--brand),#8B6EFF);border-radius:var(--radius);padding:14px;box-shadow:0 4px 14px rgba(92,58,255,.3)}
-.hgn-cta-title{font-size:13px;font-weight:800;color:#fff;margin-bottom:4px;line-height:1.3}
-.hgn-cta-sub{font-size:11px;color:rgba(255,255,255,.8);margin-bottom:10px;line-height:1.4}
-.hgn-cta-btn{display:block;text-align:center;background:#fff;color:var(--brand);font-size:12px;font-weight:800;padding:9px;border-radius:8px;text-decoration:none;transition:opacity .15s}
-.hgn-cta-btn:hover{opacity:.9}
+/* 최근 본 상담사 (right sidebar) */
+.recent-cons-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 12px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.rc-list{display:flex;flex-direction:column;gap:0}
+.rc-item{display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:opacity .15s}
+.rc-item:last-child{border-bottom:none}
+.rc-item:hover{opacity:.72}
+.rc-avatar{width:32px;height:32px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#e0e7ff,#c7d2fe);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#6366f1}
+.rc-info{flex:1;min-width:0}
+.rc-name{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:1px}
+.rc-sub{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-score{flex-shrink:0;font-size:11.5px;font-weight:800;color:var(--ink)}
 
 /* 이 지역 다른 상담사 */
 .sim-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px 14px 12px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
@@ -768,120 +772,41 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
     <!-- ① LEFT: 청약 소식 (PC 전용) -->
     <aside class="col-left">
 
-      <!-- 이 지역 청약 소식 -->
-      <div class="left-news-card">
-        <div class="sec-label"><svg><use href="#ic-megaphone"/></svg> 이 지역 청약 소식</div>
-        <div class="left-news-list">
-          <a class="left-news-item" href="#">
-            <div class="ln-content">
-              <div class="ln-row"><span class="ln-tag">분양</span><span class="ln-date">6.24</span></div>
-              <div class="ln-title">광안 센텀 비스타동원 1순위 청약 일정 확정</div>
-            </div>
-            <div class="ln-thumb" style="background:linear-gradient(135deg,#e0e7ff,#c7d2fe);color:#6366F1"><svg><use href="#ic-building"/></svg></div>
-          </a>
-          <a class="left-news-item" href="#">
-            <div class="ln-content">
-              <div class="ln-row"><span class="ln-tag">청약</span><span class="ln-date">6.22</span></div>
-              <div class="ln-title">부산 수영구 전용 84㎡ 청약 당첨 커트라인 분석</div>
-            </div>
-            <div class="ln-thumb" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0);color:#10B981"><svg><use href="#ic-chart"/></svg></div>
-          </a>
-          <a class="left-news-item" href="#">
-            <div class="ln-content">
-              <div class="ln-row"><span class="ln-tag">시세</span><span class="ln-date">6.20</span></div>
-              <div class="ln-title">광안리 인근 분양가 비교 — 2026년 상반기 결산</div>
-            </div>
-            <div class="ln-thumb" style="background:linear-gradient(135deg,#fef3c7,#fde68a);color:#D97706"><svg><use href="#ic-trend"/></svg></div>
-          </a>
-          <a class="left-news-item" href="#">
-            <div class="ln-content">
-              <div class="ln-row"><span class="ln-tag">정책</span><span class="ln-date">6.18</span></div>
-              <div class="ln-title">무순위 청약 신청 자격 완화 — 부산 적용 범위는?</div>
-            </div>
-            <div class="ln-thumb" style="background:linear-gradient(135deg,#fee2e2,#fecaca);color:#EF4444"><svg><use href="#ic-file"/></svg></div>
-          </a>
+      <!-- 이번 달 인기 단지 TOP (전국, 플랫폼 고정) -->
+      <div class="trending-card">
+        <div class="sec-label">이번 달 인기 단지 TOP</div>
+        <div class="trend-list">
+          <a class="trend-item" href="#"><span class="trend-rank r1">1</span><div class="trend-info"><div class="trend-name">래미안 원펜타스</div><div class="trend-area">서울 서초구</div></div><span class="trend-hot">🔥</span></a>
+          <a class="trend-item" href="#"><span class="trend-rank r2">2</span><div class="trend-info"><div class="trend-name">동탄 파크뷰 자이</div><div class="trend-area">경기 화성시</div></div></a>
+          <a class="trend-item" href="#"><span class="trend-rank r3">3</span><div class="trend-info"><div class="trend-name">힐스테이트 광교센트럴</div><div class="trend-area">경기 수원시</div></div></a>
+          <a class="trend-item" href="#"><span class="trend-rank">4</span><div class="trend-info"><div class="trend-name">검단 한신더휴 에듀파크</div><div class="trend-area">인천 서구</div></div></a>
+          <a class="trend-item" href="#"><span class="trend-rank">5</span><div class="trend-info"><div class="trend-name">광안 센텀 비스타동원</div><div class="trend-area">부산 수영구</div></div></a>
         </div>
-        <a class="left-news-more">청약 소식 전체보기 ›</a>
+        <a class="left-news-more" href="#">전체 순위 보기 ›</a>
       </div>
 
-      <!-- 이달 분양 일정 -->
+      <!-- 이번 주 청약 일정 (전국, 플랫폼 고정) -->
       <div class="left-cal-card">
-        <div class="sec-label"><svg><use href="#ic-calendar"/></svg> 이달 분양 일정</div>
+        <div class="sec-label"><svg><use href="#ic-calendar"/></svg> 이번 주 청약 일정</div>
         <div class="cal-list">
           <div class="cal-item">
-            <div class="cal-date-box">
-              <div class="cal-month">JUL</div>
-              <div class="cal-day">3</div>
-            </div>
-            <div class="cal-info">
-              <div class="cal-name">광안 센텀 비스타동원 1순위 청약</div>
-              <div class="cal-area">부산 수영구</div>
-            </div>
+            <div class="cal-date-box"><div class="cal-month">JUL</div><div class="cal-day">3</div></div>
+            <div class="cal-info"><div class="cal-name">동탄 파크뷰 자이 1순위 청약</div><div class="cal-area">경기 화성시</div></div>
           </div>
           <div class="cal-item">
-            <div class="cal-date-box">
-              <div class="cal-month">JUL</div>
-              <div class="cal-day">11</div>
-            </div>
-            <div class="cal-info">
-              <div class="cal-name">오산 헤리티지 자이 계약 시작</div>
-              <div class="cal-area">경기 오산시</div>
-            </div>
+            <div class="cal-date-box"><div class="cal-month">JUL</div><div class="cal-day">7</div></div>
+            <div class="cal-info"><div class="cal-name">검단 한신더휴 특별공급</div><div class="cal-area">인천 서구</div></div>
           </div>
           <div class="cal-item">
-            <div class="cal-date-box">
-              <div class="cal-month">JUL</div>
-              <div class="cal-day">18</div>
-            </div>
-            <div class="cal-info">
-              <div class="cal-name">천안 동일하이빌 파크레인 무순위</div>
-              <div class="cal-area">충남 천안시</div>
-            </div>
+            <div class="cal-date-box"><div class="cal-month">JUL</div><div class="cal-day">11</div></div>
+            <div class="cal-info"><div class="cal-name">오산 헤리티지 자이 계약 시작</div><div class="cal-area">경기 오산시</div></div>
           </div>
           <div class="cal-item">
-            <div class="cal-date-box">
-              <div class="cal-month">JUL</div>
-              <div class="cal-day">25</div>
-            </div>
-            <div class="cal-info">
-              <div class="cal-name">광안 센텀 비스타동원 2순위 청약</div>
-              <div class="cal-area">부산 수영구</div>
-            </div>
+            <div class="cal-date-box"><div class="cal-month">JUL</div><div class="cal-day">18</div></div>
+            <div class="cal-info"><div class="cal-name">천안 동일하이빌 파크레인 무순위</div><div class="cal-area">충남 천안시</div></div>
           </div>
         </div>
         <a class="left-news-more" href="#">분양 일정 전체보기 ›</a>
-      </div>
-
-      <!-- 이 지역 다른 상담사 -->
-      <div class="other-cons-card">
-        <div class="sec-label">이 지역 다른 상담사</div>
-        <div class="oc-list">
-          <a class="oc-item" href="#">
-            <div class="oc-avatar">이</div>
-            <div class="oc-info">
-              <div class="oc-name">이수진 상담사</div>
-              <div class="oc-sub">광안 마린시티 전담 · 경력 9년</div>
-            </div>
-            <div class="oc-rating"><span class="oc-stars">★★★★★</span><span class="oc-score">4.9</span></div>
-          </a>
-          <a class="oc-item" href="#">
-            <div class="oc-avatar" style="background:linear-gradient(135deg,#d1fae5,#6ee7b7);color:#059669">박</div>
-            <div class="oc-info">
-              <div class="oc-name">박지훈 상담사</div>
-              <div class="oc-sub">해운대 신규 분양 전담 · 경력 7년</div>
-            </div>
-            <div class="oc-rating"><span class="oc-stars">★★★★★</span><span class="oc-score">4.7</span></div>
-          </a>
-          <a class="oc-item" href="#">
-            <div class="oc-avatar" style="background:linear-gradient(135deg,#fef3c7,#fde68a);color:#d97706">최</div>
-            <div class="oc-info">
-              <div class="oc-name">최미래 상담사</div>
-              <div class="oc-sub">수영구 재개발 전담 · 경력 5년</div>
-            </div>
-            <div class="oc-rating"><span class="oc-stars">★★★★☆</span><span class="oc-score">4.6</span></div>
-          </a>
-        </div>
-        <a class="oc-more" href="#">이 지역 상담사 더보기 ›</a>
       </div>
 
     </aside>
@@ -1328,23 +1253,36 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
         </div>
       </div>
 
-      <!-- 단지 홈페이지 바로가기 -->
-      <div class="apt-link-card">
-        <div class="alc-banner">
-          <div class="alc-banner-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-          <div>
-            <div class="alc-banner-txt">광안 센텀 비스타동원</div>
-            <div class="alc-banner-sub">부산 수영구 · 전용 59~84㎡</div>
-          </div>
+      <!-- 로그인 CTA (플랫폼 유틸리티, 고정) -->
+      <div class="login-cta-card">
+        <div class="lcc-title">로그인하면 더 많은 정보가</div>
+        <div class="lcc-sub">관심 상담사 저장 · 상담 알림 · 맞춤 청약 분석</div>
+        <div class="lcc-btns">
+          <a class="lcc-login" href="#">로그인</a>
+          <a class="lcc-signup" href="#">회원가입</a>
         </div>
-        <a class="alc-link" href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html">단지 홈페이지 바로가기<span class="alc-arrow">›</span></a>
       </div>
 
-      <!-- 호갱노노 CTA -->
-      <div class="hgn-cta-card">
-        <div class="hgn-cta-title">호갱노노 앱에서<br>더 많은 상담사 찾기</div>
-        <div class="hgn-cta-sub">실시간 분양 정보 · 상담사 비교 · 청약 가이드</div>
-        <a class="hgn-cta-btn" href="https://hogangnono.com/offer/commercial?regionCode=all">상담사 전체 목록 보기</a>
+      <!-- 최근 본 상담사 (유저 세션, 고정) -->
+      <div class="recent-cons-card">
+        <div class="sec-label">최근 본 상담사</div>
+        <div class="rc-list">
+          <a class="rc-item" href="#">
+            <div class="rc-avatar">이</div>
+            <div class="rc-info"><div class="rc-name">이수진 상담사</div><div class="rc-sub">광안 마린시티 · 경력 9년</div></div>
+            <span class="rc-score">★ 4.9</span>
+          </a>
+          <a class="rc-item" href="#">
+            <div class="rc-avatar" style="background:linear-gradient(135deg,#d1fae5,#6ee7b7);color:#059669">박</div>
+            <div class="rc-info"><div class="rc-name">박지훈 상담사</div><div class="rc-sub">해운대 신규 분양 · 경력 7년</div></div>
+            <span class="rc-score">★ 4.7</span>
+          </a>
+          <a class="rc-item" href="#">
+            <div class="rc-avatar" style="background:linear-gradient(135deg,#fef9c3,#fde68a);color:#d97706">최</div>
+            <div class="rc-info"><div class="rc-name">최미래 상담사</div><div class="rc-sub">판교 테크노밸리 · 경력 5년</div></div>
+            <span class="rc-score">★ 4.6</span>
+          </a>
+        </div>
       </div>
 
     </aside>
