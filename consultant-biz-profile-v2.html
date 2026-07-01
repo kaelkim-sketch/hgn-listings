@@ -583,6 +583,16 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .sec-label svg{width:20px;height:20px;flex-shrink:0;color:var(--brand)}
 .r-title svg{width:18px;height:18px;flex-shrink:0;color:var(--brand)}
 .qi-icon svg{width:20px;height:20px}
+/* PNG 아이콘 치환 — 컨텍스트별 사이즈 */
+.sec-label img{width:20px;height:20px;object-fit:contain;flex-shrink:0}
+.badge-icon-btn img{width:100%;height:100%;object-fit:contain}
+.badge-circle img{width:58%;height:58%;object-fit:contain}
+.pib-sub img,.hnp-line img{width:13px;height:13px;object-fit:contain;vertical-align:middle;opacity:.6}
+.qi-icon img{width:20px;height:20px;object-fit:contain}
+.cm-btn img{width:18px;height:18px;object-fit:contain;flex-shrink:0}
+.mbar-call img,.mbar-inquiry img{width:20px;height:20px;object-fit:contain}
+.ism-icon img{width:60px;height:60px;object-fit:contain}
+.r-title img{width:18px;height:18px;object-fit:contain;vertical-align:middle;margin-top:-2px}
 .cm-btn svg{width:18px;height:18px;flex-shrink:0}
 .mbar-call svg,.mbar-inquiry svg{width:16px;height:16px;flex-shrink:0}
 .ism-icon svg{width:52px;height:52px;color:#10B981}
@@ -717,15 +727,15 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
         <span class="pib-name">김민준 상담사</span>
       </div>
       <div class="badge-chips-row" style="margin-bottom:10px;margin-left:0">
-        <span class="badge-chip-sm badge-crown"><span class="badge-icon-btn"><svg><use href="#ic-crown"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
-        <span class="badge-chip-sm badge-bolt"><span class="badge-icon-btn"><svg><use href="#ic-bolt"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
-        <span class="badge-chip-sm badge-trophy"><span class="badge-icon-btn"><svg><use href="#ic-trophy"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
-        <span class="badge-chip-sm badge-star-t"><span class="badge-icon-btn"><svg><use href="#ic-star"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
-        <span class="badge-chip-sm badge-shield"><span class="badge-icon-btn"><svg><use href="#ic-shield"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
+        <span class="badge-chip-sm badge-crown"><span class="badge-icon-btn"><img src="assets/img/badges/badge-crown.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
+        <span class="badge-chip-sm badge-bolt"><span class="badge-icon-btn"><img src="assets/img/badges/badge-bolt.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
+        <span class="badge-chip-sm badge-trophy"><span class="badge-icon-btn"><img src="assets/img/badges/badge-trophy.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
+        <span class="badge-chip-sm badge-star-t"><span class="badge-icon-btn"><img src="assets/img/badges/badge-star.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
+        <span class="badge-chip-sm badge-shield"><span class="badge-icon-btn"><img src="assets/img/badges/badge-shield.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
         <span style="font-size:11px;color:var(--muted);font-weight:600;align-self:center;padding-left:2px">배지 5개</span>
       </div>
       <div class="pib-sub" style="font-weight:700;color:var(--ink)">광안 센텀 비스타동원</div>
-      <div class="pib-sub" style="margin-top:3px"><svg><use href="#ic-pin"/></svg> 부산 수영구 광안2동 567 모델하우스</div>
+      <div class="pib-sub" style="margin-top:3px"><img src="assets/img/icons/icon-pin.png" alt=""> 부산 수영구 광안2동 567 모델하우스</div>
     </div>
     <div class="pib-rating-block">
       <div class="pib-score-wrap-mob" onclick="toggleMobRating(this)">
@@ -788,7 +798,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
       <!-- 이번 주 청약 일정 (전국, 플랫폼 고정) -->
       <div class="left-cal-card">
-        <div class="sec-label"><svg><use href="#ic-calendar"/></svg> 이번 주 청약 일정</div>
+        <div class="sec-label"><img src="assets/img/icons/icon-calendar.png" alt=""> 이번 주 청약 일정</div>
         <div class="cal-list">
           <div class="cal-item">
             <div class="cal-date-box"><div class="cal-month">JUL</div><div class="cal-day">3</div></div>
@@ -853,15 +863,15 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
             <div class="hnp-left">
               <div class="hnp-name" style="margin-bottom:10px">김민준 상담사</div>
               <div class="badge-chips-row" style="margin-left:0;margin-bottom:12px">
-                <span class="badge-chip-sm badge-crown"><span class="badge-icon-btn"><svg><use href="#ic-crown"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
-                <span class="badge-chip-sm badge-bolt"><span class="badge-icon-btn"><svg><use href="#ic-bolt"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
-                <span class="badge-chip-sm badge-trophy"><span class="badge-icon-btn"><svg><use href="#ic-trophy"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
-                <span class="badge-chip-sm badge-star-t"><span class="badge-icon-btn"><svg><use href="#ic-star"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
-                <span class="badge-chip-sm badge-shield"><span class="badge-icon-btn"><svg><use href="#ic-shield"/></svg></span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
+                <span class="badge-chip-sm badge-crown"><span class="badge-icon-btn"><img src="assets/img/badges/badge-crown.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
+                <span class="badge-chip-sm badge-bolt"><span class="badge-icon-btn"><img src="assets/img/badges/badge-bolt.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
+                <span class="badge-chip-sm badge-trophy"><span class="badge-icon-btn"><img src="assets/img/badges/badge-trophy.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
+                <span class="badge-chip-sm badge-star-t"><span class="badge-icon-btn"><img src="assets/img/badges/badge-star.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
+                <span class="badge-chip-sm badge-shield"><span class="badge-icon-btn"><img src="assets/img/badges/badge-shield.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
                 <span style="font-size:11px;color:var(--muted);font-weight:600;align-self:center;padding-left:2px">배지 5개</span>
               </div>
               <div class="hnp-line" style="font-weight:700;color:var(--ink)">광안 센텀 비스타동원</div>
-              <div class="hnp-line"><svg><use href="#ic-pin"/></svg> 부산 수영구 광안2동 567 모델하우스</div>
+              <div class="hnp-line"><img src="assets/img/icons/icon-pin.png" alt=""> 부산 수영구 광안2동 567 모델하우스</div>
             </div>
             <div class="hnp-right">
               <div class="hnp-rating-block">
@@ -921,14 +931,14 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
       <!-- 상담사 소개 -->
       <div class="c-card bio-card" data-tab="info">
-        <div class="sec-label"><svg><use href="#ic-chat"/></svg> 상담사 소개</div>
+        <div class="sec-label"><img src="assets/img/icons/icon-chat.png" alt=""> 상담사 소개</div>
         <div class="bio-quote">"처음부터 끝까지, 내 집 마련의 모든 과정을 함께 합니다."</div>
         <p class="bio-detail">2020년부터 부산·경남 지역 분양시장에서 활동하며 1,000건 이상의 상담을 진행했습니다. 하이엔드 주거 상품부터 실수요자 중심 단지까지, 고객 한 분 한 분의 상황에 맞는 최적 단지를 안내해 드립니다.</p>
       </div>
 
       <!-- 소개 영상 (상담사 정보 탭 전용) -->
       <div class="c-card youtube-card" data-tab="info">
-        <div class="sec-label"><svg><use href="#ic-play"/></svg> 소개 영상</div>
+        <div class="sec-label"><img src="assets/img/icons/icon-play.png" alt=""> 소개 영상</div>
         <div class="yt-wrap">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/0vXGy_PKpgs?si=GObL3wjYLX957jvQ"
             title="YouTube video player" frameborder="0"
@@ -941,19 +951,19 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
       <!-- 획득 배지 상세 (상담사 정보 탭 전용) -->
       <div class="c-card badge-detail-card" data-tab="info">
-        <div class="sec-label"><svg><use href="#ic-medal"/></svg> 획득 배지</div>
+        <div class="sec-label"><img src="assets/img/icons/icon-medal.png" alt=""> 획득 배지</div>
         <div class="badge-grid">
-          <div class="badge-item badge-crown"><div class="badge-circle"><svg><use href="#ic-crown"/></svg></div><div class="badge-name">우수 상담사</div><div class="badge-desc">완료율 90%<br>이상 달성</div></div>
-          <div class="badge-item badge-bolt"><div class="badge-circle"><svg><use href="#ic-bolt"/></svg></div><div class="badge-name">빠른 응답</div><div class="badge-desc">평균 응답<br>10분 이내</div></div>
-          <div class="badge-item badge-trophy"><div class="badge-circle"><svg><use href="#ic-trophy"/></svg></div><div class="badge-name">높은 완료율</div><div class="badge-desc">상위 10%<br>꾸준히 유지</div></div>
-          <div class="badge-item badge-star-t"><div class="badge-circle"><svg><use href="#ic-star"/></svg></div><div class="badge-name">이용자 추천</div><div class="badge-desc">10명 이상<br>추천 받았어요</div></div>
-          <div class="badge-item badge-shield"><div class="badge-circle"><svg><use href="#ic-shield"/></svg></div><div class="badge-name">공식 인증</div><div class="badge-desc">호갱노노<br>공식 파트너</div></div>
+          <div class="badge-item badge-crown"><div class="badge-circle"><img src="assets/img/badges/badge-crown.png" alt=""></div><div class="badge-name">우수 상담사</div><div class="badge-desc">완료율 90%<br>이상 달성</div></div>
+          <div class="badge-item badge-bolt"><div class="badge-circle"><img src="assets/img/badges/badge-bolt.png" alt=""></div><div class="badge-name">빠른 응답</div><div class="badge-desc">평균 응답<br>10분 이내</div></div>
+          <div class="badge-item badge-trophy"><div class="badge-circle"><img src="assets/img/badges/badge-trophy.png" alt=""></div><div class="badge-name">높은 완료율</div><div class="badge-desc">상위 10%<br>꾸준히 유지</div></div>
+          <div class="badge-item badge-star-t"><div class="badge-circle"><img src="assets/img/badges/badge-star.png" alt=""></div><div class="badge-name">이용자 추천</div><div class="badge-desc">10명 이상<br>추천 받았어요</div></div>
+          <div class="badge-item badge-shield"><div class="badge-circle"><img src="assets/img/badges/badge-shield.png" alt=""></div><div class="badge-name">공식 인증</div><div class="badge-desc">호갱노노<br>공식 파트너</div></div>
         </div>
       </div>
 
       <!-- 상담 경력 상세 (상담사 정보 탭 전용) -->
       <div class="c-card career-detail-card" data-tab="info">
-        <div class="sec-label"><svg><use href="#ic-person"/></svg> 상담 경력</div>
+        <div class="sec-label"><img src="assets/img/icons/icon-person.png" alt=""> 상담 경력</div>
         <div class="career-row">
           <div class="career-main">
             <div class="career-yrs">6년 3개월</div>
@@ -972,7 +982,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
       <!-- 전문 분야 상세 (상담사 정보 탭 전용) -->
       <div class="c-card spec-detail-card" data-tab="info">
-        <div class="sec-label"><svg><use href="#ic-target"/></svg> 전문 분야</div>
+        <div class="sec-label"><img src="assets/img/icons/icon-target.png" alt=""> 전문 분야</div>
         <div class="spec-chips">
           <span class="spec-chip">#하이엔드주거</span>
           <span class="spec-chip">#오피스텔</span>
@@ -986,7 +996,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
       <!-- 분양 이력 -->
       <div class="c-card apts-card tab-visible" id="secApts" data-tab="home apts">
         <div class="apt-nav-row">
-          <div class="sec-label" style="margin:0"><svg><use href="#ic-building"/></svg> 분양 이력</div>
+          <div class="sec-label" style="margin:0"><img src="assets/img/icons/icon-building.png" alt=""> 분양 이력</div>
           <div class="apt-nav">
             <button class="apt-nav-btn" id="aptPrev" onclick="aptNav(-1)" aria-label="이전">‹</button>
             <div class="apt-nav-dots" id="aptDots"></div>
@@ -1017,7 +1027,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
       <!-- 포스트 탭 -->
       <div class="c-card activity-card" data-tab="posts">
-        <div class="sec-label"><svg><use href="#ic-document"/></svg> 포스트</div>
+        <div class="sec-label"><img src="assets/img/icons/icon-document.png" alt=""> 포스트</div>
         <div class="activity-sec">
           <div class="asec-hd"><span class="asec-label">영상</span><span class="asec-count">3</span><a href="#" class="asec-more">›</a></div>
           <div class="activity-vids">
@@ -1091,7 +1101,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
       <!-- 고객 후기 -->
       <div class="c-card reviews-card tab-visible" id="secReviews" data-tab="home">
         <div class="reviews-header">
-          <span class="r-title"><svg><use href="#ic-chat"/></svg> 고객 후기</span>
+          <span class="r-title"><img src="assets/img/icons/icon-chat.png" alt=""> 고객 후기</span>
           <a href="#" class="r-more">전체 보기 ›</a>
         </div>
         <div class="rv-grid">
@@ -1212,7 +1222,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
       <!-- 상담 문의 (center 하단) -->
       <div class="c-card contact-card tab-visible" id="secContact" data-tab="home contact">
-        <div class="contact-card-title"><svg style="width:18px;height:18px;flex-shrink:0;color:var(--brand);vertical-align:middle;margin-top:-2px"><use href="#ic-mail"/></svg> 문의하기</div>
+        <div class="contact-card-title"><img src="assets/img/icons/icon-mail.png" alt="" style="width:18px;height:18px;flex-shrink:0;vertical-align:middle;margin-top:-2px;object-fit:contain"> 문의하기</div>
         <div class="contact-card-sub">상담 무료 · 평균 응답 5분 이내</div>
         <div class="contact-event-row">
           <span class="cer-icon">☕</span>
@@ -1238,7 +1248,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
         <div class="qi-header">간편 문의</div>
         <div class="qi-btn-row">
           <button class="qi-btn" onclick="openContact()">
-            <span class="qi-icon"><svg><use href="#ic-phone"/></svg></span>
+            <span class="qi-icon"><img src="assets/img/icons/btn-phone.png" alt=""></span>
             <span class="qi-label">전화</span>
           </button>
           <button class="qi-btn qi-kakao-btn" onclick="openContact()">
@@ -1248,7 +1258,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
             <span class="qi-label">카카오</span>
           </button>
           <button class="qi-btn" onclick="openContact()">
-            <span class="qi-icon"><svg><use href="#ic-sms"/></svg></span>
+            <span class="qi-icon"><img src="assets/img/icons/btn-sms.png" alt=""></span>
             <span class="qi-label">SMS</span>
           </button>
         </div>
@@ -1299,8 +1309,8 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
     <h3>상담사 연결</h3>
     <p class="cm-sub">편하신 방법으로 연락주세요.</p>
     <div class="cmodal-btns">
-      <a href="tel:010-0000-0000" class="cm-btn tel"><svg><use href="#ic-phone"/></svg> 전화 상담</a>
-      <a href="sms:010-0000-0000?body=안녕하세요, 분양 상담 문의드립니다." class="cm-btn sms"><svg><use href="#ic-sms"/></svg> 문자 보내기</a>
+      <a href="tel:010-0000-0000" class="cm-btn tel"><img src="assets/img/icons/btn-phone.png" alt=""> 전화 상담</a>
+      <a href="sms:010-0000-0000?body=안녕하세요, 분양 상담 문의드립니다." class="cm-btn sms"><img src="assets/img/icons/btn-sms.png" alt=""> 문자 보내기</a>
       <a href="#" class="cm-btn kakao">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none" style="flex-shrink:0"><path d="M14.5012 3.05859C8.14925 3.05859 3 7.73383 3 13.5027C3 17.7633 4.81767 19.7978 7.3071 21.6504L7.31945 21.6553V26.6554C7.31945 26.8931 7.59358 27.0264 7.78621 26.8858L12.1476 23.7067L12.2415 23.7455C12.9725 23.8789 13.7282 23.9468 14.5012 23.9468C20.8532 23.9468 26 19.2716 26 13.5027C26 7.73383 20.8507 3.05859 14.5012 3.05859Z" fill="#191919"/></svg>
         카카오톡 채널 상담
@@ -1312,7 +1322,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 <!-- INQUIRY SUCCESS MODAL -->
 <div class="ism" id="ismModal" onclick="if(event.target===this)closeInquiry()">
   <div class="ism-card">
-    <div class="ism-icon"><svg><use href="#ic-check-done"/></svg></div>
+    <div class="ism-icon"><img src="assets/img/icons/modal-check.png" alt=""></div>
     <div class="ism-title">문의가 접수되었습니다!</div>
     <div class="ism-desc">빠른 시간 내에 연락드리겠습니다.<br>평균 응답 시간 <strong style="color:var(--brand)">5분 이내</strong></div>
     <button class="ism-btn" onclick="closeInquiry()">확인</button>
@@ -1321,8 +1331,8 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
 <!-- MOBILE BOTTOM BAR -->
 <div class="mbar" id="mbar">
-  <button class="mbar-call" onclick="openContact()"><svg><use href="#ic-phone"/></svg> 상담사 연결하기</button>
-  <button class="mbar-inquiry" onclick="submitInquiry()"><svg><use href="#ic-mail"/></svg> 문의 남기기</button>
+  <button class="mbar-call" onclick="openContact()"><img src="assets/img/icons/btn-phone.png" alt=""> 상담사 연결하기</button>
+  <button class="mbar-inquiry" onclick="submitInquiry()"><img src="assets/img/icons/icon-mail.png" alt=""> 문의 남기기</button>
 </div>
 
 

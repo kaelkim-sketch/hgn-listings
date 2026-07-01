@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#4d55b2">
+<title>호갱노노 분양 파트너</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+:root{
+  --primary:#4d55b2;--primary-light:#eeeeff;
+  --gold:#b5985a;--gold-d:#9a7e44;
+  --ink:#16213a;--gray900:#111827;--gray700:#374151;
+  --gray500:#6b7280;--gray300:#d1d5db;--gray200:#e5e7eb;
+  --gray100:#f3f4f6;--white:#ffffff;--red:#d94f4f;
+  --line:#ececec;--soft:#f7f8fa;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:Pretendard,'Apple SD Gothic Neo',sans-serif;background:#e8e8e8;display:flex;justify-content:center}
+.app{width:375px;min-height:100vh;background:var(--white);display:flex;flex-direction:column;position:relative}
+
+/* HEADER */
+.header{display:flex;align-items:center;height:52px;padding:0 8px 0 14px;background:var(--white);border-bottom:1px solid var(--line);flex-shrink:0}
+.header__logo{display:flex;align-items:center;gap:8px;flex:1}
+.header__logo img{width:28px;height:28px;border-radius:6px;object-fit:cover}
+.logo-txt b{display:block;font-size:15px;font-weight:700;color:var(--ink);line-height:1.2}
+.logo-txt small{font-size:10px;color:var(--gray500);font-weight:600;letter-spacing:.08em}
+.header__icons{display:flex}
+.icon-btn{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:none;background:none;cursor:pointer;border-radius:50%;color:var(--gray700);position:relative}
+.icon-btn svg{width:21px;height:21px}
+.notif-dot{position:absolute;top:8px;right:8px;width:7px;height:7px;background:var(--red);border-radius:50%;border:1.5px solid var(--white)}
+
+/* TABS */
+.tabs{display:flex;border-bottom:1px solid var(--line);background:var(--white);flex-shrink:0}
+.tab{flex:1;height:46px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:var(--gray500);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;position:relative;bottom:-1px;transition:all .15s}
+.tab.active{color:var(--primary);border-bottom-color:var(--primary);font-weight:700}
+
+/* CHIPS */
+.filter-row{padding:8px 0;overflow-x:auto;white-space:nowrap;scrollbar-width:none;background:var(--white);flex-shrink:0}
+.filter-row::-webkit-scrollbar{display:none}
+.filter-inner{display:inline-flex;gap:6px;padding:0 12px}
+.chip{display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:16px;font-size:13px;font-weight:500;border:1px solid var(--gray200);color:var(--gray700);cursor:pointer;background:var(--white);transition:all .15s}
+.chip.active{background:var(--primary);color:var(--white);border-color:var(--primary)}
+
+/* PANELS */
+.tab-panel{display:none;flex:1;overflow-y:auto;background:var(--soft)}
+.tab-panel.active{display:block}
+
+/* GRADE SECTION */
+.grade-section{margin-bottom:4px}
+.grade-header{display:flex;align-items:center;gap:8px;padding:12px 14px 8px;background:var(--soft)}
+.gbadge{font-size:10px;font-weight:800;padding:3px 9px;border-radius:20px;letter-spacing:.08em}
+.gbadge.hit{background:var(--gold);color:var(--white)}
+.gbadge.royal{background:linear-gradient(135deg,#4a6fa5,#2d5082);color:var(--white)}
+.gbadge.smart{background:var(--gray200);color:var(--gray700)}
+.grade-label{font-size:13px;font-weight:700;color:var(--ink)}
+.grade-count{font-size:12px;color:var(--gray500);margin-left:auto}
+
+/* APT CARD */
+.apt-card{position:relative;width:100%;overflow:hidden;cursor:pointer;background:#1a1a2e;display:block;text-decoration:none;color:inherit;margin-bottom:2px}
+.apt-card.wide{height:210px}
+.apt-card.md{height:190px}
+.apt-card.sm{height:160px}
+.apt-card__img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.apt-card:active .apt-card__img{transform:scale(1.02)}
+.apt-card__grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,rgba(0,0,0,.25) 55%,rgba(0,0,0,.05) 100%)}
+.apt-card__bell{position:absolute;top:10px;right:10px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.88);display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.apt-card__bell svg{width:16px;height:16px;color:var(--gray700)}
+.apt-card__body{position:absolute;bottom:0;left:0;right:0;padding:12px 14px}
+.apt-tag{display:inline-flex;align-items:center;height:18px;padding:0 7px;border-radius:9px;font-size:10px;font-weight:800;margin-bottom:5px}
+.apt-tag.hit{background:var(--gold);color:var(--white)}
+.apt-tag.on{background:var(--primary);color:var(--white)}
+.apt-tag.promo{background:rgba(255,255,255,.2);color:var(--white);border:1px solid rgba(255,255,255,.35)}
+.apt-tag.remain{background:var(--red);color:var(--white)}
+.apt-card__name{font-size:17px;font-weight:700;color:var(--white);line-height:1.3}
+.apt-card.sm .apt-card__name{font-size:13px;line-height:1.25}
+.apt-card__loc{font-size:12px;color:rgba(255,255,255,.82);margin-top:2px}
+.apt-card.sm .apt-card__loc{font-size:11px}
+.apt-card__stats{font-size:11px;color:rgba(255,255,255,.7);margin-top:5px}
+.apt-card.sm .apt-card__stats{display:none}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px}
+
+/* CONSULTANT CARD – HIGHST (full-bleed) */
+.con-hit{position:relative;height:220px;overflow:hidden;cursor:pointer;display:block;margin-bottom:2px}
+.con-hit img{width:100%;height:100%;object-fit:cover;object-position:top}
+.con-hit__grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,.2) 60%,transparent 100%)}
+.con-hit__body{position:absolute;bottom:0;left:0;right:0;padding:14px 16px}
+.con-hit__name{font-size:20px;font-weight:800;color:var(--white)}
+.con-hit__cert{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:var(--gold);background:rgba(0,0,0,.35);border-radius:20px;padding:3px 9px;margin-top:3px}
+.con-hit__spec{font-size:12px;color:rgba(255,255,255,.78);margin-top:4px}
+.con-hit__btns{display:flex;border-top:1px solid var(--line);background:var(--white)}
+.con-hit__btns a,.con-hit__btns button{flex:1;height:46px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;text-decoration:none;border:none;cursor:pointer;background:none;color:var(--ink)}
+.con-hit__btns a{color:var(--primary);border-right:1px solid var(--line)}
+
+/* CONSULTANT CARD – ROYAL (horizontal) */
+.con-row{display:grid;grid-template-columns:90px 1fr;background:var(--white);margin:0 12px 10px;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.con-row__img img{width:90px;height:100%;min-height:140px;object-fit:cover;object-position:top;display:block}
+.con-row__info{padding:13px 13px;display:flex;flex-direction:column}
+.con-row__name{font-size:16px;font-weight:800;color:var(--ink)}
+.con-row__cert{display:inline-flex;align-items:center;font-size:10px;font-weight:700;color:var(--gold-d);background:#fbf6ea;border:1px solid #f0e3c4;border-radius:20px;padding:3px 9px;margin-top:4px;align-self:flex-start}
+.con-row__spec{margin-top:8px}
+.con-row__spec dl{display:flex;gap:6px;font-size:12px;margin-bottom:2px}
+.con-row__spec dt{color:var(--gray500);font-weight:600;flex:0 0 52px}
+.con-row__spec dd{color:#333;font-weight:600}
+.ctags{display:flex;flex-wrap:nowrap;gap:4px;margin-top:6px;overflow-x:auto;scrollbar-width:none}
+.ctags::-webkit-scrollbar{display:none}
+.ctag{font-size:11px;padding:3px 8px;border-radius:10px;background:var(--soft);color:var(--gray700);font-weight:600;white-space:nowrap;flex-shrink:0}
+.con-row__btns{display:flex;gap:6px;margin-top:auto;padding-top:8px;border-top:1px solid var(--line)}
+.con-row__btns a,.con-row__btns button{flex:1;height:34px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;border-radius:6px;text-decoration:none;border:1px solid var(--line);cursor:pointer;background:none;color:var(--ink)}
+.con-row__btns a{background:var(--primary);color:var(--white);border-color:var(--primary)}
+
+/* CONSULTANT CARD – SMART (grid) */
+.con-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px 16px}
+.con-sm{background:var(--white);border-radius:10px;border:1px solid var(--line);overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.con-sm__banner{height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
+.con-sm__info{padding:9px 10px 10px}
+.con-sm__name{font-size:14px;font-weight:800;color:var(--ink)}
+.con-sm__spec{font-size:11px;color:var(--gray500);margin-top:3px;line-height:1.5}
+.con-sm__btn{display:block;width:100%;height:30px;font-size:12px;font-weight:700;border:none;border-top:1px solid var(--line);background:none;color:var(--primary);cursor:pointer;font-family:inherit}
+
+/* SCHEDULE */
+.schedule-list{padding:12px}
+.sch-card{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 1px 4px rgba(0,0,0,.06);margin-bottom:12px;overflow:hidden}
+.sch-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 10px}
+.sch-name{font-size:15px;font-weight:800;color:var(--ink)}
+.sch-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
+.sch-badge.on{background:#e8f5e9;color:#2e7d32}
+.sch-badge.remain{background:#fff3e0;color:#e65100}
+.sch-badge.promo{background:var(--primary-light);color:var(--primary)}
+.sch-rows{padding:0 16px 4px}
+.sch-row{display:flex;gap:8px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px}
+.sch-row:last-child{border-bottom:none}
+.sch-row dt{color:var(--gray500);font-weight:600;flex:0 0 66px}
+.sch-row dd{color:var(--ink);font-weight:600}
+.sch-link{display:block;text-align:center;padding:11px;border-top:1px solid var(--line);font-size:13px;font-weight:700;color:var(--primary);text-decoration:none;background:#fafbff}
+
+/* BOTTOM NAV */
+.bottom-nav{display:flex;height:56px;background:var(--white);border-top:1px solid var(--line);flex-shrink:0}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;color:var(--gray500);font-size:10px;font-weight:500;border:none;background:none;font-family:inherit}
+.nav-item.active{color:var(--primary)}
+.nav-item svg{width:22px;height:22px}
+
+/* MODAL */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:flex-end}
+.modal-bg.open{display:flex}
+.modal{background:var(--white);width:375px;border-radius:16px 16px 0 0;padding:20px 20px 32px;position:relative}
+.modal__handle{width:36px;height:4px;background:var(--gray300);border-radius:2px;margin:0 auto 16px}
+.modal__title{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.modal__sub{font-size:13px;color:var(--gray500);margin-bottom:18px}
+.modal input,.modal select{width:100%;height:46px;border:1px solid var(--line);border-radius:8px;padding:0 14px;font-size:15px;font-family:inherit;margin-bottom:10px;color:var(--ink)}
+.modal input:focus,.modal select:focus{outline:none;border-color:var(--primary)}
+.modal__submit{width:100%;height:50px;background:var(--primary);color:var(--white);font-size:16px;font-weight:700;border:none;border-radius:10px;cursor:pointer;font-family:inherit;margin-top:4px}
+.modal__close{position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:none;background:var(--soft);cursor:pointer;font-size:16px;color:var(--gray700)}
+
+/* EMPTY */
+.empty-state{flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;text-align:center;display:none}
+.empty-state svg{width:44px;height:44px;color:var(--gray300);margin-bottom:12px}
+.empty-state p{font-size:14px;color:var(--gray500);line-height:1.7}
+
+/* FILTER UTIL */
+.f-hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header__logo">
+    <img src="단지상세홈페이지/컬리스타일-광안센텀비스타동원/assets/img/hogangnono_icon.png" alt="호갱노노" onerror="this.style.display='none'">
+    <div class="logo-txt"><b>호갱노노 분양</b><small>OFFICIAL PARTNER</small></div>
+  </div>
+  <div class="header__icons">
+    <button class="icon-btn" aria-label="검색">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+    <button class="icon-btn" aria-label="채팅">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
+    <button class="icon-btn" aria-label="알림">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      <span class="notif-dot"></span>
+    </button>
+  </div>
+</header>
+
+<!-- TABS -->
+<nav class="tabs">
+  <button class="tab active" data-tab="단지" onclick="switchTab(this)">분양단지</button>
+  <button class="tab" data-tab="상담사" onclick="switchTab(this)">분양상담사</button>
+  <button class="tab" data-tab="일정" onclick="switchTab(this)">청약일정</button>
+</nav>
+
+<!-- CHIPS -->
+<div class="filter-row">
+  <div class="filter-inner">
+    <button class="chip active" data-r="전국" onclick="setRegion(this)">전국</button>
+    <button class="chip" data-r="부산" onclick="setRegion(this)">부산</button>
+    <button class="chip" data-r="경기" onclick="setRegion(this)">경기</button>
+    <button class="chip" data-r="인천" onclick="setRegion(this)">인천</button>
+    <button class="chip" data-r="충남" onclick="setRegion(this)">충남</button>
+    <button class="chip" data-r="대전" onclick="setRegion(this)">대전</button>
+  </div>
+</div>
+
+<!-- ══════════ 분양단지 탭 ══════════ -->
+<div class="tab-panel active" id="panel-단지">
+
+  <!-- HIGHST -->
+  <div class="grade-section" id="sec-단지-hit">
+    <div class="grade-header">
+      <span class="gbadge hit">HIGHST</span>
+      <span class="grade-label">하이스트</span>
+      <span class="grade-count">1개 현장</span>
+    </div>
+    <a class="apt-card wide" href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html" data-r="부산">
+      <img class="apt-card__img" src="단지상세홈페이지/컬리스타일-광안센텀비스타동원/assets/img/aerial.jpg" alt="광안 센텀 비스타동원" onerror="this.parentElement.style.background='#1a2a4a'">
+      <div class="apt-card__grad"></div>
+      <button class="apt-card__bell" onclick="event.preventDefault();event.stopPropagation()" aria-label="알림설정">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      </button>
+      <div class="apt-card__body">
+        <span class="apt-tag hit">HIT</span>
+        <div class="apt-card__name">광안 센텀 비스타동원</div>
+        <div class="apt-card__loc">부산 수영구 광안동 · 동원개발</div>
+        <div class="apt-card__stats">47,185회 방문 &nbsp;|&nbsp; 737 알림받는 중</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- ROYAL -->
+  <div class="grade-section" id="sec-단지-royal">
+    <div class="grade-header">
+      <span class="gbadge royal">ROYAL</span>
+      <span class="grade-label">로얄</span>
+      <span class="grade-count">2개 현장</span>
+    </div>
+    <a class="apt-card md" href="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/index.html" data-r="경기">
+      <img class="apt-card__img" src="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/assets/img/aerial.jpg" alt="오산 헤리티지 자이" onerror="this.parentElement.style.background='#1a3a2a'">
+      <div class="apt-card__grad"></div>
+      <button class="apt-card__bell" onclick="event.preventDefault();event.stopPropagation()" aria-label="알림설정">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      </button>
+      <div class="apt-card__body">
+        <span class="apt-tag on">모집중</span>
+        <div class="apt-card__name">오산 헤리티지 자이</div>
+        <div class="apt-card__loc">경기 오산시 · GS건설</div>
+        <div class="apt-card__stats">98,238회 방문 &nbsp;|&nbsp; 495 알림받는 중</div>
+      </div>
+    </a>
+    <a class="apt-card md" href="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/index.html" data-r="충남">
+      <img class="apt-card__img" src="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/assets/img/aerial.jpg" alt="천안 동일하이빌 파크레인" onerror="this.parentElement.style.background='#2a1a3a'">
+      <div class="apt-card__grad"></div>
+      <button class="apt-card__bell" onclick="event.preventDefault();event.stopPropagation()" aria-label="알림설정">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      </button>
+      <div class="apt-card__body">
+        <span class="apt-tag promo">사전홍보</span>
+        <div class="apt-card__name">천안 동일하이빌 파크레인</div>
+        <div class="apt-card__loc">충남 천안시 · 동일토건</div>
+        <div class="apt-card__stats">76,102회 방문 &nbsp;|&nbsp; 312 알림받는 중</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- SMART -->
+  <div class="grade-section" id="sec-단지-smart">
+    <div class="grade-header">
+      <span class="gbadge smart">SMART</span>
+      <span class="grade-label">스마트</span>
+      <span class="grade-count">6개 현장</span>
+    </div>
+    <div class="grid-2">
+      <a class="apt-card sm" href="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/index.html" data-r="경기">
+        <img class="apt-card__img" src="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/assets/img/aerial.jpg" alt="김포 고촌 e편한세상" onerror="this.parentElement.style.background='#1a3040'">
+        <div class="apt-card__grad"></div>
+        <div class="apt-card__body">
+          <span class="apt-tag on">모집중</span>
+          <div class="apt-card__name">김포 고촌<br>e편한세상</div>
+          <div class="apt-card__loc">경기 김포시</div>
+        </div>
+      </a>
+      <a class="apt-card sm" href="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/index.html" data-r="경기">
+        <img class="apt-card__img" src="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/assets/img/aerial.jpg" alt="하남 미사 힐스테이트" onerror="this.parentElement.style.background='#2a3020'">
+        <div class="apt-card__grad"></div>
+        <div class="apt-card__body">
+          <span class="apt-tag promo">사전홍보</span>
+          <div class="apt-card__name">하남 미사<br>힐스테이트</div>
+          <div class="apt-card__loc">경기 하남시</div>
+        </div>
+      </a>
+      <a class="apt-card sm" href="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/index.html" data-r="경기">
+        <img class="apt-card__img" src="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/assets/img/aerial.jpg" alt="평택 화양 자이" onerror="this.parentElement.style.background='#302018'">
+        <div class="apt-card__grad"></div>
+        <div class="apt-card__body">
+          <span class="apt-tag promo">사전홍보</span>
+          <div class="apt-card__name">평택 화양<br>자이</div>
+          <div class="apt-card__loc">경기 평택시</div>
+        </div>
+      </a>
+      <a class="apt-card sm" href="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/index.html" data-r="경기">
+        <img class="apt-card__img" src="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/assets/img/aerial.jpg" alt="수원 영통 롯데캐슬" onerror="this.parentElement.style.background='#1a2030'">
+        <div class="apt-card__grad"></div>
+        <div class="apt-card__body">
+          <span class="apt-tag remain">잔여세대</span>
+          <div class="apt-card__name">수원 영통<br>롯데캐슬</div>
+          <div class="apt-card__loc">경기 수원시</div>
+        </div>
+      </a>
+      <a class="apt-card sm" href="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/index.html" data-r="인천">
+        <img class="apt-card__img" src="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/assets/img/aerial.jpg" alt="인천 검단 우미린" onerror="this.parentElement.style.background='#202830'">
+        <div class="apt-card__grad"></div>
+        <div class="apt-card__body">
+          <span class="apt-tag promo">사전홍보</span>
+          <div class="apt-card__name">인천 검단<br>우미린</div>
+          <div class="apt-card__loc">인천 서구</div>
+        </div>
+      </a>
+      <a class="apt-card sm" href="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/index.html" data-r="대전">
+        <img class="apt-card__img" src="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/assets/img/aerial.jpg" alt="대전 도안 더샵" onerror="this.parentElement.style.background='#28201a'">
+        <div class="apt-card__grad"></div>
+        <div class="apt-card__body">
+          <span class="apt-tag on">모집중</span>
+          <div class="apt-card__name">대전 도안<br>더샵</div>
+          <div class="apt-card__loc">대전 서구</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="empty-state" id="empty-단지">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <p>선택한 지역에<br>등록된 분양단지가 없습니다.</p>
+  </div>
+</div>
+
+<!-- ══════════ 분양상담사 탭 ══════════ -->
+<div class="tab-panel" id="panel-상담사">
+
+  <!-- HIGHST -->
+  <div class="grade-section" id="sec-상담사-hit">
+    <div class="grade-header">
+      <span class="gbadge hit">HIGHST</span>
+      <span class="grade-label">하이스트</span>
+    </div>
+    <div data-r="부산">
+      <div class="con-hit">
+        <img src="assets/img/consultants/kim/profile.jpg" alt="김상담" onerror="this.style.opacity=0">
+        <div class="con-hit__grad"></div>
+        <div class="con-hit__body">
+          <div class="con-hit__name">김상담 상담사</div>
+          <div class="con-hit__cert">✓ CERTIFIED</div>
+          <div class="con-hit__spec">광안 센텀 비스타동원 담당 &nbsp;·&nbsp; 경력 12년 · 132건</div>
+        </div>
+      </div>
+      <div class="con-hit__btns">
+        <a href="consultant-profile-template.html">프로필 보기</a>
+        <button onclick="openModal('김상담','광안 센텀 비스타동원')">상담 문의</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROYAL -->
+  <div class="grade-section" id="sec-상담사-royal">
+    <div class="grade-header">
+      <span class="gbadge royal">ROYAL</span>
+      <span class="grade-label">로얄</span>
+    </div>
+    <div class="con-row" data-r="경기">
+      <div class="con-row__img"><img src="assets/img/consultants/lee/profile.jpg" alt="이상담" onerror="this.style.opacity=0"></div>
+      <div class="con-row__info">
+        <div class="con-row__name">이상담 상담사</div>
+        <span class="con-row__cert">✓ CERTIFIED</span>
+        <div class="con-row__spec">
+          <dl><dt>담당현장</dt><dd>오산 헤리티지 자이</dd></dl>
+          <dl><dt>경력</dt><dd>8년 · 89건</dd></dl>
+        </div>
+        <div class="ctags">
+          <span class="ctag">경기 오산·화성</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span>
+        </div>
+        <div class="con-row__btns">
+          <a href="consultant-lee-profile.html">프로필 보기</a>
+          <button onclick="openModal('이상담','오산 헤리티지 자이')">상담 문의</button>
+        </div>
+      </div>
+    </div>
+    <div class="con-row" data-r="충남">
+      <div class="con-row__img"><img src="assets/img/consultants/park/profile.jpg" alt="박상담" onerror="this.style.opacity=0"></div>
+      <div class="con-row__info">
+        <div class="con-row__name">박상담 상담사</div>
+        <span class="con-row__cert">✓ CERTIFIED</span>
+        <div class="con-row__spec">
+          <dl><dt>담당현장</dt><dd>천안 동일하이빌</dd></dl>
+          <dl><dt>경력</dt><dd>10년 · 103건</dd></dl>
+        </div>
+        <div class="ctags">
+          <span class="ctag">천안·아산·세종</span><span class="ctag">청약 컨설팅</span><span class="ctag">상담비 무료</span>
+        </div>
+        <div class="con-row__btns">
+          <a href="consultant-park-profile.html">프로필 보기</a>
+          <button onclick="openModal('박상담','천안 동일하이빌 파크레인')">상담 문의</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SMART -->
+  <div class="grade-section" id="sec-상담사-smart">
+    <div class="grade-header">
+      <span class="gbadge smart">SMART</span>
+      <span class="grade-label">스마트</span>
+    </div>
+    <div class="con-grid">
+      <div class="con-sm" data-r="경기">
+        <div class="con-sm__banner" style="background:linear-gradient(135deg,#2d5082,#4a6fa5)"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.55)" width="28" height="28"><path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v2h20v-2c0-3.33-6.67-5-10-5z"/></svg><span style="font-size:12px;font-weight:800;color:rgba(255,255,255,.9)">정상담</span></div>
+        <div class="con-sm__info"><div class="con-sm__name">정상담</div><div class="con-sm__spec">오산 헤리티지 자이<br>경력 9년 · 112건</div></div>
+        <button class="con-sm__btn" onclick="openModal('정상담','오산 헤리티지 자이')">상담 문의</button>
+      </div>
+      <div class="con-sm" data-r="충남">
+        <div class="con-sm__banner" style="background:linear-gradient(135deg,#3a5a3a,#5a8a5a)"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.55)" width="28" height="28"><path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v2h20v-2c0-3.33-6.67-5-10-5z"/></svg><span style="font-size:12px;font-weight:800;color:rgba(255,255,255,.9)">한상담</span></div>
+        <div class="con-sm__info"><div class="con-sm__name">한상담</div><div class="con-sm__spec">천안 동일하이빌<br>경력 6년 · 64건</div></div>
+        <button class="con-sm__btn" onclick="openModal('한상담','천안 동일하이빌')">상담 문의</button>
+      </div>
+      <div class="con-sm" data-r="경기">
+        <div class="con-sm__banner" style="background:linear-gradient(135deg,#5a3a2a,#8a5a3a)"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.55)" width="28" height="28"><path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v2h20v-2c0-3.33-6.67-5-10-5z"/></svg><span style="font-size:12px;font-weight:800;color:rgba(255,255,255,.9)">윤상담</span></div>
+        <div class="con-sm__info"><div class="con-sm__name">윤상담</div><div class="con-sm__spec">오산 헤리티지 자이<br>경력 11년 · 98건</div></div>
+        <button class="con-sm__btn" onclick="openModal('윤상담','오산 헤리티지 자이')">상담 문의</button>
+      </div>
+      <div class="con-sm" data-r="충남">
+        <div class="con-sm__banner" style="background:linear-gradient(135deg,#4a2a5a,#7a4a8a)"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.55)" width="28" height="28"><path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v2h20v-2c0-3.33-6.67-5-10-5z"/></svg><span style="font-size:12px;font-weight:800;color:rgba(255,255,255,.9)">강상담</span></div>
+        <div class="con-sm__info"><div class="con-sm__name">강상담</div><div class="con-sm__spec">천안 동일하이빌<br>경력 8년 · 87건</div></div>
+        <button class="con-sm__btn" onclick="openModal('강상담','천안 동일하이빌')">상담 문의</button>
+      </div>
+      <div class="con-sm" data-r="경기">
+        <div class="con-sm__banner" style="background:linear-gradient(135deg,#2a4a3a,#4a7a5a)"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.55)" width="28" height="28"><path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v2h20v-2c0-3.33-6.67-5-10-5z"/></svg><span style="font-size:12px;font-weight:800;color:rgba(255,255,255,.9)">오상담</span></div>
+        <div class="con-sm__info"><div class="con-sm__name">오상담</div><div class="con-sm__spec">오산 헤리티지 자이<br>경력 5년 · 52건</div></div>
+        <button class="con-sm__btn" onclick="openModal('오상담','오산 헤리티지 자이')">상담 문의</button>
+      </div>
+      <div class="con-sm" data-r="충남">
+        <div class="con-sm__banner" style="background:linear-gradient(135deg,#3a2a4a,#5a4a7a)"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.55)" width="28" height="28"><path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v2h20v-2c0-3.33-6.67-5-10-5z"/></svg><span style="font-size:12px;font-weight:800;color:rgba(255,255,255,.9)">류상담</span></div>
+        <div class="con-sm__info"><div class="con-sm__name">류상담</div><div class="con-sm__spec">천안 동일하이빌<br>경력 7년 · 73건</div></div>
+        <button class="con-sm__btn" onclick="openModal('류상담','천안 동일하이빌')">상담 문의</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty-state" id="empty-상담사">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    <p>선택한 지역에<br>등록된 상담사가 없습니다.</p>
+  </div>
+</div>
+
+<!-- ══════════ 청약일정 탭 ══════════ -->
+<div class="tab-panel" id="panel-일정">
+  <div class="schedule-list">
+
+    <div class="sch-card" data-r="부산">
+      <div class="sch-head">
+        <div class="sch-name">광안 센텀 비스타동원</div>
+        <span class="sch-badge remain">잔여세대</span>
+      </div>
+      <dl class="sch-rows">
+        <div class="sch-row"><dt>위치</dt><dd>부산 수영구 광안동</dd></div>
+        <div class="sch-row"><dt>모집공고</dt><dd>— (청약 완료)</dd></div>
+        <div class="sch-row"><dt>청약접수</dt><dd>— (청약 완료)</dd></div>
+        <div class="sch-row"><dt>계약</dt><dd>잔여세대 즉시 계약 가능</dd></div>
+      </dl>
+      <a class="sch-link" href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html">현장 상세 보기 →</a>
+    </div>
+
+    <div class="sch-card" data-r="경기">
+      <div class="sch-head">
+        <div class="sch-name">오산 헤리티지 자이</div>
+        <span class="sch-badge on">모집중</span>
+      </div>
+      <dl class="sch-rows">
+        <div class="sch-row"><dt>위치</dt><dd>경기 오산시 · GS건설</dd></div>
+        <div class="sch-row"><dt>모집공고</dt><dd>2026.07.05</dd></div>
+        <div class="sch-row"><dt>청약접수</dt><dd>2026.07.15 ~ 07.16</dd></div>
+        <div class="sch-row"><dt>당첨발표</dt><dd>2026.07.22</dd></div>
+        <div class="sch-row"><dt>계약</dt><dd>2026.07.28 ~ 07.30</dd></div>
+      </dl>
+      <a class="sch-link" href="단지상세홈페이지/컬리스타일-오산헤리티지자이_260617/index.html">현장 상세 보기 →</a>
+    </div>
+
+    <div class="sch-card" data-r="충남">
+      <div class="sch-head">
+        <div class="sch-name">천안 동일하이빌 파크레인</div>
+        <span class="sch-badge promo">사전홍보</span>
+      </div>
+      <dl class="sch-rows">
+        <div class="sch-row"><dt>위치</dt><dd>충남 천안시 · 동일토건</dd></div>
+        <div class="sch-row"><dt>모집공고</dt><dd>2026.07.20 (예정)</dd></div>
+        <div class="sch-row"><dt>청약접수</dt><dd>2026.07.28 ~ 07.29</dd></div>
+        <div class="sch-row"><dt>당첨발표</dt><dd>2026.08.05</dd></div>
+        <div class="sch-row"><dt>계약</dt><dd>2026.08.11 ~ 08.13</dd></div>
+      </dl>
+      <a class="sch-link" href="단지상세홈페이지/컬리스타일-천안동일하이빌파크레인-260617/index.html">현장 상세 보기 →</a>
+    </div>
+
+    <div class="empty-state" id="empty-일정">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <p>선택한 지역에<br>등록된 청약일정이 없습니다.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <button class="nav-item" onclick="setNav(this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+    지도
+  </button>
+  <button class="nav-item" onclick="setNav(this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    이야기
+  </button>
+  <button class="nav-item active" onclick="setNav(this)">
+    <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
+    분양
+  </button>
+  <button class="nav-item" onclick="setNav(this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    우리집
+  </button>
+  <button class="nav-item" onclick="setNav(this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    전체
+  </button>
+</nav>
+</div><!-- .app -->
+
+<!-- MODAL -->
+<div class="modal-bg" id="modalBg" onclick="bgClose(event)">
+  <div class="modal">
+    <div class="modal__handle"></div>
+    <button class="modal__close" onclick="closeModal()">✕</button>
+    <div class="modal__title" id="mTitle">상담 문의</div>
+    <div class="modal__sub" id="mSub">담당 상담사에게 연락드리겠습니다.</div>
+    <input type="text" id="mName" placeholder="이름을 입력해주세요">
+    <input type="tel" id="mPhone" placeholder="연락처 (-없이 입력)">
+    <select id="mTime">
+      <option value="">희망 연락 시간 선택</option>
+      <option>오전 (9:00~12:00)</option>
+      <option>오후 (13:00~18:00)</option>
+      <option>저녁 (18:00~21:00)</option>
+    </select>
+    <button class="modal__submit" onclick="submitModal()">상담 신청하기</button>
+  </div>
+</div>
+
+<script>
+var curTab='단지', curRegion='전국';
+
+function switchTab(el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  curTab=el.dataset.tab;
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+curTab).classList.add('active');
+  applyFilter();
+}
+
+function setRegion(el){
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  curRegion=el.dataset.r;
+  applyFilter();
+}
+
+function applyFilter(){
+  var panel=document.getElementById('panel-'+curTab);
+  if(!panel) return;
+
+  // collect all filterable items in panel
+  panel.querySelectorAll('[data-r]').forEach(function(el){
+    if(el.classList.contains('tab-panel')) return;
+    var show=(curRegion==='전국'||el.dataset.r===curRegion);
+    el.classList.toggle('f-hidden',!show);
+  });
+
+  // hide grade sections if all children hidden
+  panel.querySelectorAll('.grade-section').forEach(function(sec){
+    var items=sec.querySelectorAll('[data-r]:not(.tab-panel)');
+    var anyVis=Array.from(items).some(function(i){return !i.classList.contains('f-hidden');});
+    sec.classList.toggle('f-hidden',!anyVis);
+  });
+
+  // hide grid-2 wrapper if all children hidden (for apt smart section)
+  panel.querySelectorAll('.grid-2').forEach(function(grid){
+    var anyVis=Array.from(grid.children).some(function(c){return !c.classList.contains('f-hidden');});
+    grid.classList.toggle('f-hidden',!anyVis);
+  });
+
+  // empty state
+  var emptyEl=document.getElementById('empty-'+curTab);
+  if(emptyEl){
+    var sections=panel.querySelectorAll('.grade-section:not(.f-hidden)');
+    emptyEl.style.display=(sections.length===0)?'flex':'none';
+  }
+}
+
+function setNav(el){
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  el.classList.add('active');
+}
+
+var mName='',mProp='';
+function openModal(name,prop){
+  mName=name; mProp=prop;
+  document.getElementById('mTitle').textContent=name+' 상담사에게 문의';
+  document.getElementById('mSub').textContent=prop+' 담당 상담사가 빠르게 연락드립니다.';
+  document.getElementById('modalBg').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('modalBg').classList.remove('open');
+  document.body.style.overflow='';
+}
+function bgClose(e){if(e.target===document.getElementById('modalBg'))closeModal();}
+function submitModal(){
+  var n=document.getElementById('mName').value.trim();
+  var p=document.getElementById('mPhone').value.trim();
+  if(!n||!p){alert('이름과 연락처를 입력해주세요.');return;}
+  alert(n+'님 상담 신청 완료!\n'+mName+' 상담사가 곧 연락드리겠습니다.');
+  closeModal();
+  ['mName','mPhone'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('mTime').value='';
+}
+</script>
+</body>
+</html>
