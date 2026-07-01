@@ -395,6 +395,40 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .ql-item:hover{background:var(--soft);color:var(--brand)}
 .ql-arrow{color:var(--muted);font-size:14px}
 
+/* 상담사 한눈에 카드 (left sidebar) */
+.left-stat-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.lst-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.lst-item{text-align:center;padding:10px 6px;background:var(--brand-light);border-radius:10px}
+.lst-val{font-size:17px;font-weight:900;color:var(--brand);letter-spacing:-.03em;line-height:1.1}
+.lst-key{font-size:10px;color:var(--muted);margin-top:3px;font-weight:600;letter-spacing:-.01em}
+
+/* 단지 미니카드 (right sidebar) */
+.apt-mini-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.amc-visual{height:62px;background:linear-gradient(135deg,#1e1b4b 0%,#3730a3 55%,#7c3aed 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.amc-visual::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(255,255,255,.08) 0%,transparent 60%),radial-gradient(circle at 80% 30%,rgba(255,255,255,.05) 0%,transparent 50%)}
+.amc-visual-txt{font-size:12px;font-weight:800;color:#fff;text-align:center;line-height:1.4;position:relative;padding:0 10px}
+.amc-visual-sub{font-size:10px;font-weight:400;color:rgba(255,255,255,.7);margin-top:2px}
+.amc-body{padding:10px 12px 12px}
+.amc-meta{font-size:11px;color:var(--muted);margin-bottom:8px;font-weight:500;display:flex;align-items:center;gap:4px}
+.amc-link{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--brand-light);border-radius:8px;font-size:12px;font-weight:700;color:var(--brand);text-decoration:none;transition:background .15s}
+.amc-link:hover{background:#ede9fe}
+
+/* 응답 가능 상태 카드 (right sidebar) */
+.avail-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.avail-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
+.avail-status{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--ink)}
+.avail-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0;box-shadow:0 0 0 3px rgba(34,197,94,.18)}
+.avail-badge{font-size:10px;font-weight:700;color:#15803d;background:#dcfce7;padding:2px 7px;border-radius:20px}
+.avail-rows{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:10px}
+.avail-row{display:flex;justify-content:space-between;align-items:center}
+.avail-lbl{font-size:11.5px;color:var(--muted);font-weight:500}
+.avail-val{font-size:12px;font-weight:700;color:var(--ink)}
+.avail-rating{display:flex;align-items:center;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.avail-stars{color:#f59e0b;font-size:11px;letter-spacing:.5px;line-height:1}
+.avail-score{font-size:14px;font-weight:900;color:var(--ink);letter-spacing:-.02em}
+.avail-review-link{font-size:11px;color:var(--brand);text-decoration:none;font-weight:600;margin-left:auto}
+.avail-review-link:hover{text-decoration:underline}
+
 /* 이 지역 다른 상담사 */
 .sim-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px 14px 12px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
 .sim-title{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:11px}
@@ -734,6 +768,17 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
     <!-- ① LEFT: 청약 소식 (PC 전용) -->
     <aside class="col-left">
 
+      <!-- 상담사 한눈에 -->
+      <div class="left-stat-card">
+        <div class="sec-label" style="margin-bottom:0">이 상담사 한눈에</div>
+        <div class="lst-grid">
+          <div class="lst-item"><div class="lst-val">6년</div><div class="lst-key">분양 경력</div></div>
+          <div class="lst-item"><div class="lst-val">1,248건</div><div class="lst-key">누적 상담</div></div>
+          <div class="lst-item"><div class="lst-val">13분</div><div class="lst-key">평균 응답</div></div>
+          <div class="lst-item"><div class="lst-val">96%</div><div class="lst-key">상담 완료율</div></div>
+        </div>
+      </div>
+
       <!-- 이 지역 청약 소식 -->
       <div class="left-news-card">
         <div class="sec-label"><svg><use href="#ic-megaphone"/></svg> 이 지역 청약 소식</div>
@@ -804,7 +849,18 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
               <div class="cal-area">충남 천안시</div>
             </div>
           </div>
+          <div class="cal-item">
+            <div class="cal-date-box">
+              <div class="cal-month">JUL</div>
+              <div class="cal-day">25</div>
+            </div>
+            <div class="cal-info">
+              <div class="cal-name">광안 센텀 비스타동원 2순위 청약</div>
+              <div class="cal-area">부산 수영구</div>
+            </div>
+          </div>
         </div>
+        <a class="left-news-more" href="#">분양 일정 전체보기 ›</a>
       </div>
 
     </aside>
@@ -1230,15 +1286,39 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
     <!-- ③ RIGHT: 이 지역 다른 상담사 + 바로가기 + 간편 문의 (PC 전용) -->
     <aside class="col-right">
 
-      <!-- 바로가기 -->
-      <div class="quick-links-card">
-        <a class="ql-item" href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html">
-          <svg><use href="#ic-building"/></svg> 단지 홈페이지 바로가기
-          <span class="ql-arrow">›</span>
-        </a>
+      <!-- 단지 미니카드 -->
+      <div class="apt-mini-card">
+        <div class="amc-visual">
+          <div class="amc-visual-txt">광안 센텀 비스타동원<div class="amc-visual-sub">부산 수영구 · 전용 59~84㎡</div></div>
+        </div>
+        <div class="amc-body">
+          <div class="amc-meta">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--muted)"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+            지하 2층 · 지상 39층 · 420세대
+          </div>
+          <a class="amc-link" href="단지상세홈페이지/컬리스타일-광안센텀비스타동원/index.html">단지 홈페이지 바로가기 <span>›</span></a>
+        </div>
       </div>
 
-      <!-- 간편 문의 (하단) -->
+      <!-- 응답 가능 상태 -->
+      <div class="avail-card">
+        <div class="avail-top">
+          <div class="avail-status"><span class="avail-dot"></span>지금 상담 가능</div>
+          <span class="avail-badge">오늘 7건 완료</span>
+        </div>
+        <div class="avail-rows">
+          <div class="avail-row"><span class="avail-lbl">평균 응답 시간</span><span class="avail-val">약 13분</span></div>
+          <div class="avail-row"><span class="avail-lbl">상담 완료율</span><span class="avail-val">96%</span></div>
+          <div class="avail-row"><span class="avail-lbl">재상담 의향</span><span class="avail-val">91%</span></div>
+        </div>
+        <div class="avail-rating">
+          <span class="avail-stars">★★★★★</span>
+          <span class="avail-score">4.8</span>
+          <a class="avail-review-link" href="#" onclick="switchTab('reviews',null);return false">후기 128건 전체보기</a>
+        </div>
+      </div>
+
+      <!-- 간편 문의 -->
       <div class="qi-card">
         <div class="qi-header">간편 문의</div>
         <div class="qi-btn-row">
