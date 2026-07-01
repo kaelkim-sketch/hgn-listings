@@ -395,7 +395,12 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .ql-item:hover{background:var(--soft);color:var(--brand)}
 .ql-arrow{color:var(--muted);font-size:14px}
 
-/* 이 지역 다른 상담사 카드 (left sidebar) */
+/* 왼쪽 사이드바 브랜드 헤더 */
+.sidebar-brand{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 14px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.sbc-sub{font-size:11.5px;color:var(--muted);font-weight:500;margin-bottom:8px;letter-spacing:-.01em}
+.sbc-logo{height:30px;width:auto;display:block;margin-bottom:14px}
+.sbc-cta{display:flex;align-items:center;justify-content:space-between;background:var(--brand);border-radius:9px;padding:11px 14px;font-size:13px;font-weight:700;color:#fff;text-decoration:none;transition:opacity .15s}
+.sbc-cta:hover{opacity:.88}
 /* 인기 단지 TOP 카드 (left sidebar) */
 .trending-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 12px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
 .trend-list{display:flex;flex-direction:column;gap:0;margin-top:10px}
@@ -785,6 +790,13 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
 
     <!-- ① LEFT: 청약 소식 (PC 전용) -->
     <aside class="col-left">
+
+      <!-- 브랜드 헤더 -->
+      <div class="sidebar-brand">
+        <div class="sbc-sub">분양 상담사를 찾고 있다면</div>
+        <img src="assets/img/logo.png" class="sbc-logo" alt="호갱노노">
+        <a class="sbc-cta" href="https://hogangnono.com/offer/commercial?regionCode=all">상담사 무료 조회하기 <span>›</span></a>
+      </div>
 
       <!-- 이번 달 인기 단지 TOP (전국, 플랫폼 고정) -->
       <div class="trending-card">
