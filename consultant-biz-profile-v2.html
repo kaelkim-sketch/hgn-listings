@@ -145,7 +145,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
 /* ── PAGE LAYOUT ── */
 .page-wrap{max-width:var(--maxw);margin:0 auto;padding:20px 20px 100px}
-.page-grid{display:grid;grid-template-columns:minmax(0,270px) 380px minmax(0,250px);gap:16px;align-items:start}
+.page-grid{display:grid;grid-template-columns:minmax(0,270px) 480px minmax(0,250px);gap:20px;align-items:start}
 
 /* ── SHARED ── */
 .c-card{background:#fff;border:none;border-top:1px solid var(--line);border-radius:0;box-shadow:none}
@@ -458,7 +458,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
   header.gnb{display:none}
   .hero-mobile,.profile-info-bar{display:none}
   .page-wrap{margin-top:0;padding-top:16px}
-  .page-grid{width:932px;max-width:100%;margin:0 auto}
+  .page-grid{width:1040px;max-width:100%;margin:0 auto}
   .hero-pc{display:block}
   .profile-tabs{border-top:1px solid var(--line);border-left:none;border-right:none;border-radius:0;overflow:hidden;margin:0}
   .col-center>.profile-tabs{position:sticky;top:44px;z-index:40}
@@ -469,11 +469,12 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 @media(max-width:759px){
   .hgn-float{display:none}
   .center-util-bar{display:none!important}
-  .hero-mobile{margin-top:52px}
+  .hero-mobile{margin-top:52px;max-width:480px;margin-left:auto;margin-right:auto}
+  .profile-info-bar{max-width:480px;margin-left:auto;margin-right:auto}
   .hero-pc{display:none}
   .hero-wrap{display:none}
   .col-left,.col-right{display:none}
-  .page-grid{grid-template-columns:1fr}
+  .page-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
   .mbar{display:flex}
   .rv-grid{grid-template-columns:1fr}
   .apt-grid{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:10px;padding-bottom:4px}
