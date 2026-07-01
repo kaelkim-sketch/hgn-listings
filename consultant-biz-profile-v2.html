@@ -145,7 +145,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
 /* ── PAGE LAYOUT ── */
 .page-wrap{max-width:var(--maxw);margin:0 auto;padding:20px 20px 100px}
-.page-grid{display:grid;grid-template-columns:270px 1fr 250px;gap:20px;align-items:start}
+.page-grid{display:grid;grid-template-columns:minmax(0,270px) 380px minmax(0,250px);gap:16px;align-items:start}
 
 /* ── SHARED ── */
 .c-card{background:#fff;border:none;border-top:1px solid var(--line);border-radius:0;box-shadow:none}
@@ -454,11 +454,11 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .top-btn.show{display:flex;align-items:center;justify-content:center}
 
 /* ── RESPONSIVE ── */
-@media(min-width:1000px){
+@media(min-width:760px){
   header.gnb{display:none}
   .hero-mobile,.profile-info-bar{display:none}
   .page-wrap{margin-top:0;padding-top:16px}
-  .page-grid{width:1040px;max-width:100%;margin:0 auto}
+  .page-grid{width:932px;max-width:100%;margin:0 auto}
   .hero-pc{display:block}
   .profile-tabs{border-top:1px solid var(--line);border-left:none;border-right:none;border-radius:0;overflow:hidden;margin:0}
   .col-center>.profile-tabs{position:sticky;top:44px;z-index:40}
@@ -466,7 +466,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
   .col-left{top:16px;padding-top:44px}
   .col-right{top:16px;padding-top:44px}
 }
-@media(max-width:999px){
+@media(max-width:759px){
   .hgn-float{display:none}
   .center-util-bar{display:none!important}
   .hero-mobile{margin-top:52px}
@@ -491,9 +491,6 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
   .contact-card{padding:20px 16px 18px}
   .cc-btns{flex-direction:row}
   .gnb-cta-btn,.gnb-icons{display:none}
-}
-@media(min-width:1000px) and (max-width:1039px){
-  .page-grid{grid-template-columns:210px 1fr 190px;gap:16px}
 }
 @media(max-width:480px){
   .page-wrap{padding:14px 12px 90px}
@@ -1308,7 +1305,7 @@ const heroMobile = document.getElementById('heroMobile');
 const topBtn = document.getElementById('topBtn');
 
 window.addEventListener('scroll', function() {
-  if (window.innerWidth <= 999 && heroMobile) {
+  if (window.innerWidth <= 759 && heroMobile) {
     gnb.classList.toggle('solid', window.scrollY > heroMobile.offsetHeight - 60);
   }
   topBtn.classList.toggle('show', window.scrollY > 300);
@@ -1410,7 +1407,7 @@ const APT_TOTAL = 3;
 function aptNav(dir) {
   const track = document.getElementById('aptTrack');
   if (!track) return;
-  const isMob = window.innerWidth <= 999;
+  const isMob = window.innerWidth <= 759;
   const visCount = isMob ? 1 : 2;
   const maxIdx = APT_TOTAL - visCount;
   aptIdx = Math.max(0, Math.min(aptIdx + dir, maxIdx));
@@ -1440,7 +1437,7 @@ function initAptSlider() {
   const nextBtn = document.getElementById('aptNext');
   if (prevBtn) prevBtn.disabled = true;
   if (nextBtn) {
-    const isMob = window.innerWidth <= 999;
+    const isMob = window.innerWidth <= 759;
     nextBtn.disabled = APT_TOTAL - (isMob ? 1 : 2) <= 0;
   }
 }
