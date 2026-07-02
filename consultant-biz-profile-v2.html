@@ -602,7 +602,7 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
 .mbar-call img,.mbar-inquiry img{width:20px;height:20px}
 .ism-icon img{width:60px;height:60px;display:block;margin:auto}
 .r-title img{width:18px;height:18px;margin-top:-2px}
-.contact-card-title img{width:18px;height:18px;margin-top:-2px}
+.contact-card-title img{width:18px;height:18px;margin-top:-2px;flex-shrink:0;vertical-align:middle;object-fit:contain}
 .cm-btn svg{width:18px;height:18px;flex-shrink:0}
 .mbar-call svg,.mbar-inquiry svg{width:16px;height:16px;flex-shrink:0}
 .ism-icon svg{width:52px;height:52px;color:#10B981}
@@ -660,6 +660,26 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
 
 /* ── 바로가기 카드 항목 ── */
 .ql-item{font-size:13px;padding:14px 16px}
+
+/* ── 컴포넌트 보강 (인라인 스타일 제거·간격 스케일 통일) ── */
+.badge-count{font-size:11px;color:var(--muted);font-weight:600;align-self:center;padding-left:2px}
+.line-strong{font-weight:700;color:var(--ink)}
+.tab-count{color:var(--brand);font-weight:800}
+.sec-label--flush{margin:0}
+.avid-link{display:block;text-decoration:none}
+.reviews-more{text-align:center;padding-top:16px}
+.reviews-more-btn{border:1px solid var(--line);border-radius:var(--r-pill);padding:9px 28px;font-size:13.5px;font-weight:600;color:#555;background:#fff;cursor:pointer;transition:background .15s}
+.reviews-more-btn:hover{background:var(--soft)}
+/* 프로필 헤더 세로 리듬 — 인라인 margin 대체 */
+.pib-name-row{align-items:flex-start}
+.pib-name{display:block;margin-bottom:8px}
+.profile-info-bar .badge-chips-row{margin-left:0;margin-bottom:8px}
+.pib-sub+.pib-sub{margin-top:4px}
+.hnp-name{margin-bottom:8px}
+.hnp-left .badge-chips-row{margin-left:0;margin-bottom:8px}
+.hnp-line+.hnp-line{margin-top:4px}
+/* 포스트 썸네일 플레이스홀더 배경 통일 */
+.apost-thumb{background:linear-gradient(135deg,#EEF2FF,#E0E7FF)}
 </style>
 </head>
 <body>
@@ -733,21 +753,19 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
 
 <!-- 모바일 프로필 인포바 -->
 <div class="profile-info-bar">
-  <div class="pib-name-row" style="align-items:flex-start">
+  <div class="pib-name-row">
     <div style="flex:1;min-width:0">
-      <div style="margin-bottom:8px">
-        <span class="pib-name">김민준 상담사</span>
-      </div>
-      <div class="badge-chips-row" style="margin-bottom:10px;margin-left:0">
+      <span class="pib-name">김민준 상담사</span>
+      <div class="badge-chips-row">
         <span class="badge-chip-sm badge-crown"><span class="badge-icon-btn"><img src="assets/img/badges/badge-crown.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
         <span class="badge-chip-sm badge-bolt"><span class="badge-icon-btn"><img src="assets/img/badges/badge-bolt.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
         <span class="badge-chip-sm badge-trophy"><span class="badge-icon-btn"><img src="assets/img/badges/badge-trophy.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
         <span class="badge-chip-sm badge-star-t"><span class="badge-icon-btn"><img src="assets/img/badges/badge-star.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
         <span class="badge-chip-sm badge-shield"><span class="badge-icon-btn"><img src="assets/img/badges/badge-shield.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
-        <span style="font-size:11px;color:var(--muted);font-weight:600;align-self:center;padding-left:2px">배지 5개</span>
+        <span class="badge-count">배지 5개</span>
       </div>
-      <div class="pib-sub" style="font-weight:700;color:var(--ink)">광안 센텀 비스타동원</div>
-      <div class="pib-sub" style="margin-top:3px"><img src="assets/img/icons/icon-pin.png" alt=""> 부산 수영구 광안2동 567 모델하우스</div>
+      <div class="pib-sub line-strong">광안 센텀 비스타동원</div>
+      <div class="pib-sub"><img src="assets/img/icons/icon-pin.png" alt=""> 부산 수영구 광안2동 567 모델하우스</div>
     </div>
     <div class="pib-rating-block">
       <div class="pib-score-wrap-mob" onclick="toggleMobRating(this)">
@@ -885,16 +903,16 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
           <!-- 상단 행: 이름+뱃지 / 평점배지 -->
           <div class="hnp-top-row">
             <div class="hnp-left">
-              <div class="hnp-name" style="margin-bottom:10px">김민준 상담사</div>
-              <div class="badge-chips-row" style="margin-left:0;margin-bottom:12px">
+              <div class="hnp-name">김민준 상담사</div>
+              <div class="badge-chips-row">
                 <span class="badge-chip-sm badge-crown"><span class="badge-icon-btn"><img src="assets/img/badges/badge-crown.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">우수 상담사</div><div class="badge-tooltip-desc">완료율 90% 이상 달성</div></div></span>
                 <span class="badge-chip-sm badge-bolt"><span class="badge-icon-btn"><img src="assets/img/badges/badge-bolt.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">빠른 응답</div><div class="badge-tooltip-desc">평균 응답 10분 이내</div></div></span>
                 <span class="badge-chip-sm badge-trophy"><span class="badge-icon-btn"><img src="assets/img/badges/badge-trophy.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">높은 완료율</div><div class="badge-tooltip-desc">상위 10% 꾸준히 유지</div></div></span>
                 <span class="badge-chip-sm badge-star-t"><span class="badge-icon-btn"><img src="assets/img/badges/badge-star.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">이용자 추천</div><div class="badge-tooltip-desc">10명 이상 추천 받았어요</div></div></span>
                 <span class="badge-chip-sm badge-shield"><span class="badge-icon-btn"><img src="assets/img/badges/badge-shield.png" alt=""></span><div class="badge-tooltip"><div class="badge-tooltip-name">공식 인증</div><div class="badge-tooltip-desc">호갱노노 공식 파트너</div></div></span>
-                <span style="font-size:11px;color:var(--muted);font-weight:600;align-self:center;padding-left:2px">배지 5개</span>
+                <span class="badge-count">배지 5개</span>
               </div>
-              <div class="hnp-line" style="font-weight:700;color:var(--ink)">광안 센텀 비스타동원</div>
+              <div class="hnp-line line-strong">광안 센텀 비스타동원</div>
               <div class="hnp-line"><img src="assets/img/icons/icon-pin.png" alt=""> 부산 수영구 광안2동 567 모델하우스</div>
             </div>
             <div class="hnp-right">
@@ -951,7 +969,7 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
           <div class="tab-item" onclick="switchTab('info',this)">상담사 정보</div>
           <div class="tab-item" onclick="switchTab('apts',this)">담당 단지</div>
           <div class="tab-item" onclick="switchTab('posts',this)">포스트</div>
-          <div class="tab-item" onclick="switchTab('reviews',this)">후기 <span style="color:var(--brand);font-weight:800">128</span></div>
+          <div class="tab-item" onclick="switchTab('reviews',this)">후기 <span class="tab-count">128</span></div>
           <div class="tab-item" onclick="switchTab('contact',this)">문의</div>
         </div>
       </nav>
@@ -1025,7 +1043,7 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
       <!-- 분양 이력 -->
       <div class="c-card apts-card tab-visible" id="secApts" data-tab="home apts">
         <div class="apt-nav-row">
-          <div class="sec-label" style="margin:0"><img src="assets/img/icons/icon-building.png" alt=""> 분양 이력</div>
+          <div class="sec-label sec-label--flush"><img src="assets/img/icons/icon-building.png" alt=""> 분양 이력</div>
           <div class="apt-nav">
             <button class="apt-nav-btn" id="aptPrev" onclick="aptNav(-1)" aria-label="이전">‹</button>
             <div class="apt-nav-dots" id="aptDots"></div>
@@ -1061,7 +1079,7 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
           <div class="asec-hd"><span class="asec-label">영상</span><span class="asec-count">3</span><a href="#" class="asec-more">›</a></div>
           <div class="activity-vids">
             <div class="avid">
-              <a href="https://www.youtube.com/watch?v=xQFD-SchOVY" target="_blank" rel="noopener" style="display:block;text-decoration:none">
+              <a href="https://www.youtube.com/watch?v=xQFD-SchOVY" target="_blank" rel="noopener" class="avid-link">
                 <div class="avid-thumb">
                   <img src="https://img.youtube.com/vi/xQFD-SchOVY/hqdefault.jpg" alt="PH1603, 원조부촌 서초동에 생긴 하이엔드 아파트">
                   <div class="avid-play"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="rgba(0,0,0,.5)" stroke="rgba(255,255,255,.9)" stroke-width="1.5"/><path d="M20 16l13 8-13 8z" fill="#fff"/></svg></div>
@@ -1071,7 +1089,7 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
               <div class="avid-meta">12일 전</div>
             </div>
             <div class="avid">
-              <a href="https://www.youtube.com/watch?v=Su45i311oII&t=5" target="_blank" rel="noopener" style="display:block;text-decoration:none">
+              <a href="https://www.youtube.com/watch?v=Su45i311oII&t=5" target="_blank" rel="noopener" class="avid-link">
                 <div class="avid-thumb">
                   <img src="https://img.youtube.com/vi/Su45i311oII/hqdefault.jpg" alt="최고급 커뮤니티를 가진 하이엔드 한강뷰 신상 아파트">
                   <div class="avid-play"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="rgba(0,0,0,.5)" stroke="rgba(255,255,255,.9)" stroke-width="1.5"/><path d="M20 16l13 8-13 8z" fill="#fff"/></svg></div>
@@ -1081,7 +1099,7 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
               <div class="avid-meta">19일 전</div>
             </div>
             <div class="avid">
-              <a href="https://www.youtube.com/watch?v=3Aj4lbt6bME" target="_blank" rel="noopener" style="display:block;text-decoration:none">
+              <a href="https://www.youtube.com/watch?v=3Aj4lbt6bME" target="_blank" rel="noopener" class="avid-link">
                 <div class="avid-thumb">
                   <img src="https://img.youtube.com/vi/3Aj4lbt6bME/hqdefault.jpg" alt="엄궁역 트라비스 하늘채 5호선 초역세권 신축 브랜드 대단지 아파트">
                   <div class="avid-play"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="rgba(0,0,0,.5)" stroke="rgba(255,255,255,.9)" stroke-width="1.5"/><path d="M20 16l13 8-13 8z" fill="#fff"/></svg></div>
@@ -1102,7 +1120,7 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
                 <div class="apost-title">2026년 부산 청약 시장 전망 — 광안·수영구 중심으로 짚어봤습니다</div>
                 <div class="apost-meta">5일 전</div>
               </div>
-              <div class="apost-thumb" style="background:linear-gradient(135deg,#EEF2FF,#E0E7FF)"><img src="assets/img/news/news-trend.png" alt="" loading="lazy"></div>
+              <div class="apost-thumb"><img src="assets/img/news/news-trend.png" alt="" loading="lazy"></div>
             </a>
             <a class="apost" href="#">
               <div class="apost-rank"><span class="apost-num">2</span><span class="apost-new">NEW</span></div>
@@ -1111,7 +1129,7 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
                 <div class="apost-title">비스타동원 vs 센텀시티 인근 단지 비교 — 실투자자 관점 분석</div>
                 <div class="apost-meta">12일 전</div>
               </div>
-              <div class="apost-thumb" style="background:linear-gradient(135deg,#EEF2FF,#E0E7FF)"><img src="assets/img/news/news-building.png" alt="" loading="lazy"></div>
+              <div class="apost-thumb"><img src="assets/img/news/news-building.png" alt="" loading="lazy"></div>
             </a>
             <a class="apost" href="#">
               <div class="apost-rank"><span class="apost-num">3</span></div>
@@ -1120,7 +1138,7 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
                 <div class="apost-title">무순위·줍줍 청약 완벽 정리 — 조건·일정·신청 방법까지</div>
                 <div class="apost-meta">21일 전</div>
               </div>
-              <div class="apost-thumb" style="background:linear-gradient(135deg,#EEF2FF,#E0E7FF)"><img src="assets/img/news/news-policy.png" alt="" loading="lazy"></div>
+              <div class="apost-thumb"><img src="assets/img/news/news-policy.png" alt="" loading="lazy"></div>
             </a>
           </div>
           <a href="#" class="activity-viewall">분양 정보 전체보기 ›</a>
@@ -1244,14 +1262,14 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
             <span>광안 센텀 비스타동원</span>
           </div>
         </div>
-        <div style="text-align:center;padding:20px 0 4px">
-          <button style="border:1px solid var(--line);border-radius:20px;padding:9px 28px;font-size:13.5px;font-weight:600;color:#555;background:#fff;cursor:pointer">후기 더보기 ›</button>
+        <div class="reviews-more">
+          <button class="reviews-more-btn">후기 더보기 ›</button>
         </div>
       </div>
 
       <!-- 상담 문의 (center 하단) -->
       <div class="c-card contact-card tab-visible" id="secContact" data-tab="home contact">
-        <div class="contact-card-title"><img src="assets/img/icons/icon-mail.png" alt="" style="width:18px;height:18px;flex-shrink:0;vertical-align:middle;margin-top:-2px;object-fit:contain"> 문의하기</div>
+        <div class="contact-card-title"><img src="assets/img/icons/icon-mail.png" alt=""> 문의하기</div>
         <div class="contact-card-sub">상담 무료 · 평균 응답 5분 이내</div>
         <div class="contact-event-row">
           <span class="cer-icon">☕</span>
