@@ -201,6 +201,63 @@ img{max-width:100%;display:block}
 .ben-item h3{font-size:16.5px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.02em}
 .ben-item p{font-size:13.5px;color:var(--n400);line-height:1.6}
 
+/* SHOWCASE (분신식: 최고등급 크게 + 리스트 많이) */
+.showcase{background:var(--n50)}
+.showcase-inner{max-width:var(--maxw);margin:0 auto;padding:88px 24px}
+.showcase .section-head{margin-bottom:32px}
+.live-dot{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:#16a34a;margin-bottom:14px}
+.live-dot i{width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block;box-shadow:0 0 0 3px rgba(34,197,94,.2)}
+/* featured 큰 카드 */
+.sc-feat{
+  position:relative;display:flex;align-items:center;gap:22px;
+  background:#fffaf4;border:1.5px solid rgba(255,107,0,.22);border-radius:22px;
+  padding:26px 28px;margin-bottom:12px;text-decoration:none;transition:box-shadow .2s,border-color .2s;
+}
+.sc-feat:hover{border-color:rgba(255,107,0,.45);box-shadow:0 16px 40px rgba(255,107,0,.08)}
+.sc-feat-rank{position:absolute;top:16px;left:16px;font-size:12px;font-weight:800;color:var(--primary);background:#fff;border:1px solid rgba(255,107,0,.3);border-radius:8px;padding:3px 9px}
+.sc-feat-tag{position:absolute;top:16px;right:18px;font-size:10.5px;font-weight:500;color:var(--n400)}
+.sc-avatar{position:relative;width:96px;height:96px;border-radius:20px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(140deg,#ff9e48,#ff6b00);box-shadow:0 0 0 3px #fffaf4,0 0 0 5px rgba(255,107,0,.4)}
+.sc-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.sc-avatar .fb{font-size:32px;font-weight:800;color:#fff}
+.sc-feat-body{flex:1;min-width:0;padding-top:6px}
+.sc-feat-top{display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap}
+.sc-feat-name{font-size:20px;font-weight:800;color:var(--n900);letter-spacing:-.035em}
+.sc-tier{display:inline-flex;padding:3px 10px;border-radius:6px;font-size:10.5px;font-weight:800;letter-spacing:.04em}
+.sc-tier.premium{background:var(--primary);color:#fff}
+.sc-tier.pro{background:var(--n700);color:#fff}
+.sc-tier.basic{background:var(--n100);color:var(--n500);border:1px solid var(--n200)}
+.sc-feat-sub{font-size:13px;color:var(--n500);margin-bottom:15px}
+.sc-metrics{display:flex;gap:0}
+.sc-metric{padding:0 22px;border-left:1px solid rgba(255,107,0,.15)}
+.sc-metric:first-child{padding-left:0;border-left:none}
+.sc-metric-val{font-size:23px;font-weight:800;color:var(--n900);letter-spacing:-.03em;line-height:1}
+.sc-metric-val.hi{color:var(--primary)}
+.sc-metric-val .u{font-size:12px;font-weight:700;color:var(--n400)}
+.sc-metric-lbl{font-size:11px;color:var(--n500);margin-top:6px}
+/* 리스트 행 */
+.sc-list{display:flex;flex-direction:column;gap:6px}
+.sc-row{display:flex;align-items:center;background:#fff;border:1px solid var(--n150);border-radius:12px;padding:12px 18px;text-decoration:none;transition:border-color .18s}
+.sc-row:hover{border-color:var(--n300)}
+.sc-row-rank{width:34px;flex-shrink:0;font-size:14px;font-weight:800;color:var(--n400)}
+.sc-row-avatar{position:relative;width:40px;height:40px;border-radius:10px;overflow:hidden;flex-shrink:0;margin-right:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(140deg,#8b93a7,#5b647a)}
+.sc-row-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.sc-row-avatar .fb{font-size:15px;font-weight:800;color:#fff}
+.sc-row-idn{flex:1;min-width:0}
+.sc-row-nrow{display:flex;align-items:center;gap:7px}
+.sc-row-name{font-size:14.5px;font-weight:700;color:var(--n900);letter-spacing:-.03em}
+.sc-row-meta{font-size:12px;color:var(--n400);margin-top:1px}
+.sc-row-m{flex-shrink:0;font-size:14px;font-weight:800;color:var(--n800);text-align:right;width:90px}
+.sc-row-m.hi{color:var(--primary)}
+.sc-row-m .u{font-size:11px;font-weight:600;color:var(--n400)}
+.sc-more{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:14px;height:56px;border-radius:14px;
+  background:#fff;border:1px dashed var(--n300);
+  font-size:14.5px;font-weight:700;color:var(--n700);transition:all .18s;
+}
+.sc-more:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-50)}
+.sc-more b{color:var(--primary)}
+
 /* FINAL CTA */
 .final-cta{max-width:var(--maxw);margin:0 auto;padding:0 24px 100px}
 .final-cta-box{
@@ -237,6 +294,12 @@ img{max-width:100%;display:block}
   .final-cta-box{padding:52px 24px}
   .final-cta-box h2{font-size:26px}
   .price-card.featured{order:-1}
+  .showcase-inner{padding:60px 20px}
+  .sc-feat{flex-direction:column;align-items:flex-start;gap:16px;padding:22px 18px}
+  .sc-feat-body{padding-top:18px}
+  .sc-metrics{width:100%}
+  .sc-metric{flex:1;padding:0 10px;text-align:center}
+  .sc-metric:first-child{padding-left:0}
 }
 </style>
 </head>
@@ -450,11 +513,77 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
+<!-- ── SHOWCASE (분신식 입점 상담사 현황) ── -->
+<section class="showcase">
+  <div class="showcase-inner">
+    <div class="section-head center">
+      <span class="live-dot"><i></i>LIVE · 실시간 입점 현황</span>
+      <h2>지금 247명이 입점해 있습니다</h2>
+      <p>상단 노출 상담사일수록 더 많은 관심고객이 몰립니다.</p>
+    </div>
+
+    <!-- 최고등급 큰 카드 -->
+    <a href="consultant-listing.html" class="sc-feat">
+      <span class="sc-feat-rank">🥇 노출 1위</span>
+      <span class="sc-feat-tag">PREMIUM 광고</span>
+      <div class="sc-avatar"><span class="fb">김</span><img src="assets/img/about/1.jpg" alt="김민준" onerror="this.style.display='none'"></div>
+      <div class="sc-feat-body">
+        <div class="sc-feat-top">
+          <span class="sc-feat-name">김민준</span>
+          <span class="sc-tier premium">PREMIUM</span>
+        </div>
+        <div class="sc-feat-sub">경기 수원 · GTX-A 수혜단지 전문</div>
+        <div class="sc-metrics">
+          <div class="sc-metric"><div class="sc-metric-val hi">428<span class="u">명</span></div><div class="sc-metric-lbl">이번 달 관심고객</div></div>
+          <div class="sc-metric"><div class="sc-metric-val">32,100<span class="u">회</span></div><div class="sc-metric-lbl">프로필 조회수</div></div>
+          <div class="sc-metric"><div class="sc-metric-val">45<span class="u">일째</span></div><div class="sc-metric-lbl">최상단 노출</div></div>
+        </div>
+      </div>
+    </a>
+
+    <!-- 리스트 -->
+    <div class="sc-list">
+      <a href="consultant-listing.html" class="sc-row">
+        <span class="sc-row-rank">2</span>
+        <div class="sc-row-avatar"><span class="fb">이</span><img src="assets/img/about/2.jpg" alt="이수진" onerror="this.style.display='none'"></div>
+        <div class="sc-row-idn"><div class="sc-row-nrow"><span class="sc-row-name">이수진</span><span class="sc-tier premium">PREMIUM</span></div><div class="sc-row-meta">서울 강남 · 재개발·재건축</div></div>
+        <span class="sc-row-m hi">391<span class="u">명</span></span>
+      </a>
+      <a href="consultant-listing.html" class="sc-row">
+        <span class="sc-row-rank">3</span>
+        <div class="sc-row-avatar"><span class="fb">박</span><img src="assets/img/about/3.jpg" alt="박준혁" onerror="this.style.display='none'"></div>
+        <div class="sc-row-idn"><div class="sc-row-nrow"><span class="sc-row-name">박준혁</span><span class="sc-tier pro">PRO</span></div><div class="sc-row-meta">인천 송도 · GTX-B 수혜단지</div></div>
+        <span class="sc-row-m hi">224<span class="u">명</span></span>
+      </a>
+      <a href="consultant-listing.html" class="sc-row">
+        <span class="sc-row-rank">4</span>
+        <div class="sc-row-avatar"><span class="fb">최</span><img src="assets/img/about/4.jpg" alt="최유진" onerror="this.style.display='none'"></div>
+        <div class="sc-row-idn"><div class="sc-row-nrow"><span class="sc-row-name">최유진</span><span class="sc-tier pro">PRO</span></div><div class="sc-row-meta">부산 해운대 · 오션뷰·조망 단지</div></div>
+        <span class="sc-row-m hi">198<span class="u">명</span></span>
+      </a>
+      <a href="consultant-listing.html" class="sc-row">
+        <span class="sc-row-rank">5</span>
+        <div class="sc-row-avatar"><span class="fb">정</span><img src="assets/img/about/5.jpg" alt="정우성" onerror="this.style.display='none'"></div>
+        <div class="sc-row-idn"><div class="sc-row-nrow"><span class="sc-row-name">정우성</span><span class="sc-tier pro">PRO</span></div><div class="sc-row-meta">경기 화성 · 브랜드 대단지</div></div>
+        <span class="sc-row-m hi">176<span class="u">명</span></span>
+      </a>
+      <a href="consultant-listing.html" class="sc-row">
+        <span class="sc-row-rank">6</span>
+        <div class="sc-row-avatar"><span class="fb">한</span><img src="assets/img/about/1.jpg" alt="한지민" onerror="this.style.display='none'"></div>
+        <div class="sc-row-idn"><div class="sc-row-nrow"><span class="sc-row-name">한지민</span><span class="sc-tier pro">PRO</span></div><div class="sc-row-meta">대구 수성구 · 신도시·택지지구</div></div>
+        <span class="sc-row-m hi">151<span class="u">명</span></span>
+      </a>
+    </div>
+
+    <a href="consultant-listing.html" class="sc-more">+ <b>241명</b>이 더 입점해 있습니다 · 전체 현황 보기 →</a>
+  </div>
+</section>
+
 <!-- ── FINAL CTA ── -->
 <div class="final-cta">
   <div class="final-cta-box">
-    <h2>이미 247명이 노출 경쟁 중입니다</h2>
-    <p>지금 입점하고, 관심고객의 문의를 먼저 받으세요.</p>
+    <h2>다음 상단 노출의 주인공은 당신입니다</h2>
+    <p>지금 입점하고, 관심고객을 먼저 가져가세요.</p>
     <a href="#pricing" class="btn-lg">입점 신청하기 →</a>
   </div>
 </div>
