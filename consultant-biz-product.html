@@ -257,6 +257,38 @@ img{max-width:100%;display:block}
 }
 .sc-more:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-50)}
 .sc-more b{color:var(--primary)}
+/* 그리드 카드 (리스팅과 동일 형태) */
+.sc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+.gcard{position:relative;background:#fff;border:1px solid var(--n200);border-radius:16px;padding:20px;display:flex;flex-direction:column;text-decoration:none;transition:border-color .18s,box-shadow .18s,transform .18s}
+.gcard:hover{border-color:var(--n300);box-shadow:0 4px 16px rgba(0,0,0,.06);transform:translateY(-2px)}
+.gcard.t-premium{border-color:rgba(255,107,0,.28);background:#fffdfb}
+.gcard.t-premium:hover{border-color:rgba(255,107,0,.5);box-shadow:0 6px 20px rgba(255,107,0,.08)}
+.gcard-head{display:flex;align-items:center;gap:13px;margin-bottom:14px}
+.gcard-avatar{position:relative;width:56px;height:56px;border-radius:14px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(140deg,#a1a1aa,#71717a)}
+.gcard.t-premium .gcard-avatar{background:linear-gradient(140deg,#ff9e48,#ff6b00)}
+.gcard.t-pro .gcard-avatar{background:linear-gradient(140deg,#8b93a7,#5b647a)}
+.gcard-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.gcard-avatar .fb{font-size:20px;font-weight:800;color:#fff}
+.gcard-idn{min-width:0;flex:1}
+.gcard-nrow{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+.gcard-name{font-size:16px;font-weight:800;color:var(--n900);letter-spacing:-.03em}
+.tier-chip{font-size:10px;font-weight:800;letter-spacing:.03em;padding:2px 7px;border-radius:5px;flex-shrink:0}
+.tier-chip.premium{background:var(--primary-50);color:var(--primary);border:1px solid rgba(255,107,0,.25)}
+.tier-chip.pro{background:var(--n100);color:var(--n600);border:1px solid var(--n200)}
+.tier-chip.basic{background:var(--n100);color:var(--n400);border:1px solid var(--n200)}
+.gcard-region{font-size:12.5px;color:var(--n500)}
+.gcard-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px}
+.gtag{font-size:11.5px;font-weight:500;color:var(--n600);background:var(--n100);border-radius:6px;padding:3px 9px}
+.gtag.hot{color:var(--primary-600);background:var(--primary-50);font-weight:600}
+.gcard-metric{margin-top:auto;padding-top:14px;border-top:1px solid var(--n150);display:flex;align-items:flex-end;justify-content:space-between}
+.gm-val{font-size:21px;font-weight:800;color:var(--primary);letter-spacing:-.03em;line-height:1;display:flex;align-items:baseline;gap:2px}
+.gm-val .u{font-size:12px;font-weight:700;color:var(--n400)}
+.gm-lbl{font-size:11px;color:var(--n500);margin-top:5px}
+.gm-sub{text-align:right}
+.gm-val2{font-size:14px;font-weight:700;color:var(--n700)}
+.gm-lbl2{font-size:10.5px;color:var(--n400);margin-top:4px}
+@media(max-width:980px){.sc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.sc-grid{grid-template-columns:1fr}}
 
 /* FINAL CTA */
 .final-cta{max-width:var(--maxw);margin:0 auto;padding:0 24px 100px}
@@ -518,60 +550,59 @@ img{max-width:100%;display:block}
   <div class="showcase-inner">
     <div class="section-head center">
       <span class="live-dot"><i></i>LIVE · 실시간 입점 현황</span>
-      <h2>지금 247명이 입점해 있습니다</h2>
-      <p>상단 노출 상담사일수록 더 많은 관심고객이 몰립니다.</p>
+      <h2>지금 247명이 입점해 관심고객을 받고 있습니다</h2>
+      <p>상위 상담사는 이번 달 <b style="color:var(--primary)">400명 이상</b> 유입 — 상단 노출일수록 더 많은 고객이 몰립니다.</p>
     </div>
 
-    <!-- 최고등급 큰 카드 -->
-    <a href="consultant-listing.html" class="sc-feat">
-      <span class="sc-feat-rank">🥇 노출 1위</span>
-      <span class="sc-feat-tag">PREMIUM 광고</span>
-      <div class="sc-avatar"><span class="fb">김</span><img src="assets/img/about/1.jpg" alt="김민준" onerror="this.style.display='none'"></div>
-      <div class="sc-feat-body">
-        <div class="sc-feat-top">
-          <span class="sc-feat-name">김민준</span>
-          <span class="sc-tier premium">PREMIUM</span>
+    <!-- 카드 그리드 (리스팅과 동일 형태) -->
+    <div class="sc-grid">
+      <a href="consultant-listing.html" class="gcard t-premium">
+        <div class="gcard-head">
+          <div class="gcard-avatar"><span class="fb">김</span><img src="assets/img/about/1.jpg" alt="김민준" onerror="this.style.display='none'"></div>
+          <div class="gcard-idn"><div class="gcard-nrow"><span class="gcard-name">김민준</span><span class="tier-chip premium">PREMIUM</span></div><div class="gcard-region">경기 수원</div></div>
         </div>
-        <div class="sc-feat-sub">경기 수원 · GTX-A 수혜단지 전문</div>
-        <div class="sc-metrics">
-          <div class="sc-metric"><div class="sc-metric-val hi">428<span class="u">명</span></div><div class="sc-metric-lbl">이번 달 관심고객</div></div>
-          <div class="sc-metric"><div class="sc-metric-val">32,100<span class="u">회</span></div><div class="sc-metric-lbl">프로필 조회수</div></div>
-          <div class="sc-metric"><div class="sc-metric-val">45<span class="u">일째</span></div><div class="sc-metric-lbl">최상단 노출</div></div>
+        <div class="gcard-tags"><span class="gtag hot">GTX-A 수혜단지</span><span class="gtag">신도시·택지지구</span></div>
+        <div class="gcard-metric"><div class="gm-main"><div class="gm-val">428<span class="u">명</span></div><div class="gm-lbl">이번 달 관심고객</div></div><div class="gm-sub"><div class="gm-val2">32,100</div><div class="gm-lbl2">조회수</div></div></div>
+      </a>
+      <a href="consultant-listing.html" class="gcard t-premium">
+        <div class="gcard-head">
+          <div class="gcard-avatar"><span class="fb">이</span><img src="assets/img/about/2.jpg" alt="이수진" onerror="this.style.display='none'"></div>
+          <div class="gcard-idn"><div class="gcard-nrow"><span class="gcard-name">이수진</span><span class="tier-chip premium">PREMIUM</span></div><div class="gcard-region">서울 강남</div></div>
         </div>
-      </div>
-    </a>
-
-    <!-- 리스트 -->
-    <div class="sc-list">
-      <a href="consultant-listing.html" class="sc-row">
-        <span class="sc-row-rank">2</span>
-        <div class="sc-row-avatar"><span class="fb">이</span><img src="assets/img/about/2.jpg" alt="이수진" onerror="this.style.display='none'"></div>
-        <div class="sc-row-idn"><div class="sc-row-nrow"><span class="sc-row-name">이수진</span><span class="sc-tier premium">PREMIUM</span></div><div class="sc-row-meta">서울 강남 · 재개발·재건축</div></div>
-        <span class="sc-row-m hi">391<span class="u">명</span></span>
+        <div class="gcard-tags"><span class="gtag hot">재개발·재건축</span><span class="gtag">브랜드 대단지</span></div>
+        <div class="gcard-metric"><div class="gm-main"><div class="gm-val">391<span class="u">명</span></div><div class="gm-lbl">이번 달 관심고객</div></div><div class="gm-sub"><div class="gm-val2">28,600</div><div class="gm-lbl2">조회수</div></div></div>
       </a>
-      <a href="consultant-listing.html" class="sc-row">
-        <span class="sc-row-rank">3</span>
-        <div class="sc-row-avatar"><span class="fb">박</span><img src="assets/img/about/3.jpg" alt="박준혁" onerror="this.style.display='none'"></div>
-        <div class="sc-row-idn"><div class="sc-row-nrow"><span class="sc-row-name">박준혁</span><span class="sc-tier pro">PRO</span></div><div class="sc-row-meta">인천 송도 · GTX-B 수혜단지</div></div>
-        <span class="sc-row-m hi">224<span class="u">명</span></span>
+      <a href="consultant-listing.html" class="gcard t-premium">
+        <div class="gcard-head">
+          <div class="gcard-avatar"><span class="fb">정</span><img src="assets/img/about/5.jpg" alt="정우성" onerror="this.style.display='none'"></div>
+          <div class="gcard-idn"><div class="gcard-nrow"><span class="gcard-name">정우성</span><span class="tier-chip premium">PREMIUM</span></div><div class="gcard-region">부산 해운대</div></div>
+        </div>
+        <div class="gcard-tags"><span class="gtag hot">오션뷰·조망</span><span class="gtag">브랜드 대단지</span></div>
+        <div class="gcard-metric"><div class="gm-main"><div class="gm-val">356<span class="u">명</span></div><div class="gm-lbl">이번 달 관심고객</div></div><div class="gm-sub"><div class="gm-val2">25,400</div><div class="gm-lbl2">조회수</div></div></div>
       </a>
-      <a href="consultant-listing.html" class="sc-row">
-        <span class="sc-row-rank">4</span>
-        <div class="sc-row-avatar"><span class="fb">최</span><img src="assets/img/about/4.jpg" alt="최유진" onerror="this.style.display='none'"></div>
-        <div class="sc-row-idn"><div class="sc-row-nrow"><span class="sc-row-name">최유진</span><span class="sc-tier pro">PRO</span></div><div class="sc-row-meta">부산 해운대 · 오션뷰·조망 단지</div></div>
-        <span class="sc-row-m hi">198<span class="u">명</span></span>
+      <a href="consultant-listing.html" class="gcard t-pro">
+        <div class="gcard-head">
+          <div class="gcard-avatar"><span class="fb">박</span><img src="assets/img/about/3.jpg" alt="박준혁" onerror="this.style.display='none'"></div>
+          <div class="gcard-idn"><div class="gcard-nrow"><span class="gcard-name">박준혁</span><span class="tier-chip pro">PRO</span></div><div class="gcard-region">인천 송도</div></div>
+        </div>
+        <div class="gcard-tags"><span class="gtag">GTX-B 수혜단지</span><span class="gtag">신도시·택지지구</span></div>
+        <div class="gcard-metric"><div class="gm-main"><div class="gm-val">224<span class="u">명</span></div><div class="gm-lbl">이번 달 관심고객</div></div><div class="gm-sub"><div class="gm-val2">14,200</div><div class="gm-lbl2">조회수</div></div></div>
       </a>
-      <a href="consultant-listing.html" class="sc-row">
-        <span class="sc-row-rank">5</span>
-        <div class="sc-row-avatar"><span class="fb">정</span><img src="assets/img/about/5.jpg" alt="정우성" onerror="this.style.display='none'"></div>
-        <div class="sc-row-idn"><div class="sc-row-nrow"><span class="sc-row-name">정우성</span><span class="sc-tier pro">PRO</span></div><div class="sc-row-meta">경기 화성 · 브랜드 대단지</div></div>
-        <span class="sc-row-m hi">176<span class="u">명</span></span>
+      <a href="consultant-listing.html" class="gcard t-pro">
+        <div class="gcard-head">
+          <div class="gcard-avatar"><span class="fb">최</span><img src="assets/img/about/4.jpg" alt="최유진" onerror="this.style.display='none'"></div>
+          <div class="gcard-idn"><div class="gcard-nrow"><span class="gcard-name">최유진</span><span class="tier-chip pro">PRO</span></div><div class="gcard-region">부산 해운대</div></div>
+        </div>
+        <div class="gcard-tags"><span class="gtag">오션뷰·조망</span></div>
+        <div class="gcard-metric"><div class="gm-main"><div class="gm-val">198<span class="u">명</span></div><div class="gm-lbl">이번 달 관심고객</div></div><div class="gm-sub"><div class="gm-val2">11,850</div><div class="gm-lbl2">조회수</div></div></div>
       </a>
-      <a href="consultant-listing.html" class="sc-row">
-        <span class="sc-row-rank">6</span>
-        <div class="sc-row-avatar"><span class="fb">한</span><img src="assets/img/about/1.jpg" alt="한지민" onerror="this.style.display='none'"></div>
-        <div class="sc-row-idn"><div class="sc-row-nrow"><span class="sc-row-name">한지민</span><span class="sc-tier pro">PRO</span></div><div class="sc-row-meta">대구 수성구 · 신도시·택지지구</div></div>
-        <span class="sc-row-m hi">151<span class="u">명</span></span>
+      <a href="consultant-listing.html" class="gcard t-pro">
+        <div class="gcard-head">
+          <div class="gcard-avatar"><span class="fb">한</span><img src="assets/img/about/1.jpg" alt="한지민" onerror="this.style.display='none'"></div>
+          <div class="gcard-idn"><div class="gcard-nrow"><span class="gcard-name">한지민</span><span class="tier-chip pro">PRO</span></div><div class="gcard-region">대구 수성구</div></div>
+        </div>
+        <div class="gcard-tags"><span class="gtag">신도시·택지지구</span></div>
+        <div class="gcard-metric"><div class="gm-main"><div class="gm-val">176<span class="u">명</span></div><div class="gm-lbl">이번 달 관심고객</div></div><div class="gm-sub"><div class="gm-val2">9,940</div><div class="gm-lbl2">조회수</div></div></div>
       </a>
     </div>
 
