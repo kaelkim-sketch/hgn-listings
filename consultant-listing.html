@@ -159,16 +159,35 @@ img{max-width:100%;display:block}
   letter-spacing:.02em;
 }
 
-/* ── 사진 ── */
+/* ── 사진 (등급별 크기·강조 차등) ── */
 .ccard-photo{position:relative;flex-shrink:0}
 .ccard-avatar{
-  width:72px;height:72px;border-radius:16px;overflow:hidden;
+  position:relative;width:72px;height:72px;border-radius:16px;overflow:hidden;
   display:flex;align-items:center;justify-content:center;
-  font-size:24px;font-weight:800;color:#fff;letter-spacing:-.02em;
   background:linear-gradient(140deg,#a1a1aa,#71717a);
 }
-.t-premium .ccard-avatar{background:linear-gradient(140deg,#ff9e48,#ff6b00)}
-.t-pro .ccard-avatar{background:linear-gradient(140deg,#8b93a7,#5b647a)}
+.avatar-fallback{font-size:24px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.ccard-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+/* PREMIUM — 크게 + 오렌지 링 */
+.t-premium .ccard-avatar{
+  width:84px;height:84px;border-radius:18px;
+  background:linear-gradient(140deg,#ff9e48,#ff6b00);
+  box-shadow:0 0 0 2px #fffaf4,0 0 0 4px rgba(255,107,0,.5);
+}
+/* PRO — 중간 */
+.t-pro .ccard-avatar{width:72px;height:72px;background:linear-gradient(140deg,#8b93a7,#5b647a)}
+/* BASIC — 작게 */
+.t-basic .ccard-avatar{width:60px;height:60px;border-radius:14px}
+.t-basic .avatar-fallback{font-size:21px}
+
+/* ── 미니 신뢰 배지 (등급별 개수 차등) ── */
+.badge-mini-row{display:inline-flex;gap:4px;align-items:center;margin-left:2px}
+.badge-mini{
+  width:22px;height:22px;border-radius:50%;
+  background:linear-gradient(145deg,#fffdf5,#fff3d6);border:1px solid #f0c674;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.badge-mini img{width:13px;height:13px;object-fit:contain}
 
 /* ── 메인 정보 ── */
 .ccard-body{flex:1;min-width:0}
@@ -225,8 +244,13 @@ img{max-width:100%;display:block}
   background:var(--n900);transition:all .18s;white-space:nowrap;width:100%;
 }
 .cta-btn:hover{background:var(--primary)}
-.t-premium .cta-btn{background:var(--primary)}
+/* 등급별 CTA 차등 */
+.t-premium .cta-btn{height:44px;background:var(--primary);box-shadow:0 4px 12px rgba(255,107,0,.28)}
 .t-premium .cta-btn:hover{background:var(--primary-600)}
+.t-pro .cta-btn{background:var(--n800)}
+.t-basic .cta-btn{background:#fff;color:var(--n700);border:1px solid var(--n300);height:40px}
+.t-basic .cta-btn:hover{background:var(--n50);color:var(--n900);border-color:var(--n400)}
+.t-basic .rating-num{font-size:15px}
 
 /* ────────── PAGINATION ────────── */
 .pagination{display:flex;justify-content:center;align-items:center;gap:5px;margin-top:40px}
@@ -251,8 +275,13 @@ img{max-width:100%;display:block}
   .filter-bar-inner{padding:0 16px;height:52px}
   .results-wrap{padding:18px 16px 70px}
   .ccard{gap:14px;padding:18px 16px;align-items:flex-start;flex-wrap:wrap}
-  .ccard-avatar{width:56px;height:56px;font-size:19px;border-radius:13px}
+  .ccard-avatar{width:60px;height:60px;border-radius:14px}
+  .t-premium .ccard-avatar{width:68px;height:68px}
+  .t-basic .ccard-avatar{width:54px;height:54px}
+  .avatar-fallback{font-size:20px}
   .ccard-name{font-size:16px}
+  .badge-mini{width:20px;height:20px}
+  .badge-mini img{width:11px;height:11px}
   .ad-tag{top:14px;right:14px}
   .ccard-cta{
     flex-direction:row;width:100%;min-width:0;align-items:center;
@@ -338,12 +367,17 @@ img{max-width:100%;display:block}
     <!-- ◆ PREMIUM 1 -->
     <div class="ccard t-premium" onclick="location.href='consultant-biz-profile-v2.html'">
       <span class="ad-tag">광고</span>
-      <div class="ccard-photo"><div class="ccard-avatar">김</div></div>
+      <div class="ccard-photo"><div class="ccard-avatar"><span class="avatar-fallback">김</span><img src="assets/img/about/1.jpg" alt="김민준" onerror="this.style.display='none'"></div></div>
       <div class="ccard-body">
         <div class="ccard-top">
           <span class="ccard-name">김민준</span>
           <span class="ccard-verified"><svg viewBox="0 0 12 12"><path d="M2.5 6.2l2.2 2.3 4.8-5"/></svg></span>
           <span class="tier-pill premium">PREMIUM</span>
+          <span class="badge-mini-row">
+            <span class="badge-mini"><img src="assets/img/badges/badge-crown.png" alt="우수 상담사"></span>
+            <span class="badge-mini"><img src="assets/img/badges/badge-bolt.png" alt="빠른 응답"></span>
+            <span class="badge-mini"><img src="assets/img/badges/badge-shield.png" alt="공식 인증"></span>
+          </span>
         </div>
         <div class="ccard-sub">
           <span class="ccard-company">호갱노노 인증 파트너</span>
@@ -373,12 +407,17 @@ img{max-width:100%;display:block}
     <!-- ◆ PREMIUM 2 -->
     <div class="ccard t-premium" onclick="location.href='consultant-biz-profile-v2.html'">
       <span class="ad-tag">광고</span>
-      <div class="ccard-photo"><div class="ccard-avatar">이</div></div>
+      <div class="ccard-photo"><div class="ccard-avatar"><span class="avatar-fallback">이</span><img src="assets/img/about/2.jpg" alt="이수진" onerror="this.style.display='none'"></div></div>
       <div class="ccard-body">
         <div class="ccard-top">
           <span class="ccard-name">이수진</span>
           <span class="ccard-verified"><svg viewBox="0 0 12 12"><path d="M2.5 6.2l2.2 2.3 4.8-5"/></svg></span>
           <span class="tier-pill premium">PREMIUM</span>
+          <span class="badge-mini-row">
+            <span class="badge-mini"><img src="assets/img/badges/badge-crown.png" alt="우수 상담사"></span>
+            <span class="badge-mini"><img src="assets/img/badges/badge-trophy.png" alt="높은 완료율"></span>
+            <span class="badge-mini"><img src="assets/img/badges/badge-shield.png" alt="공식 인증"></span>
+          </span>
         </div>
         <div class="ccard-sub">
           <span class="ccard-company">직방 인증 상담사</span>
@@ -407,12 +446,15 @@ img{max-width:100%;display:block}
 
     <!-- ◇ PRO 1 -->
     <div class="ccard t-pro" onclick="location.href='consultant-biz-profile-v2.html'">
-      <div class="ccard-photo"><div class="ccard-avatar">박</div></div>
+      <div class="ccard-photo"><div class="ccard-avatar"><span class="avatar-fallback">박</span><img src="assets/img/about/3.jpg" alt="박준혁" onerror="this.style.display='none'"></div></div>
       <div class="ccard-body">
         <div class="ccard-top">
           <span class="ccard-name">박준혁</span>
           <span class="ccard-verified"><svg viewBox="0 0 12 12"><path d="M2.5 6.2l2.2 2.3 4.8-5"/></svg></span>
           <span class="tier-pill pro">PRO</span>
+          <span class="badge-mini-row">
+            <span class="badge-mini"><img src="assets/img/badges/badge-bolt.png" alt="빠른 응답"></span>
+          </span>
         </div>
         <div class="ccard-sub">
           <span class="ccard-company">분양대행사 소속</span>
@@ -440,12 +482,15 @@ img{max-width:100%;display:block}
 
     <!-- ◇ PRO 2 -->
     <div class="ccard t-pro" onclick="location.href='consultant-biz-profile-v2.html'">
-      <div class="ccard-photo"><div class="ccard-avatar">최</div></div>
+      <div class="ccard-photo"><div class="ccard-avatar"><span class="avatar-fallback">최</span><img src="assets/img/about/4.jpg" alt="최유진" onerror="this.style.display='none'"></div></div>
       <div class="ccard-body">
         <div class="ccard-top">
           <span class="ccard-name">최유진</span>
           <span class="ccard-verified"><svg viewBox="0 0 12 12"><path d="M2.5 6.2l2.2 2.3 4.8-5"/></svg></span>
           <span class="tier-pill pro">PRO</span>
+          <span class="badge-mini-row">
+            <span class="badge-mini"><img src="assets/img/badges/badge-star.png" alt="이용자 추천"></span>
+          </span>
         </div>
         <div class="ccard-sub">
           <span class="ccard-company">프리랜서 상담사</span>
@@ -473,7 +518,7 @@ img{max-width:100%;display:block}
 
     <!-- ○ BASIC 1 -->
     <div class="ccard t-basic" onclick="location.href='consultant-biz-profile-v2.html'">
-      <div class="ccard-photo"><div class="ccard-avatar">정</div></div>
+      <div class="ccard-photo"><div class="ccard-avatar"><span class="avatar-fallback">정</span><img src="assets/img/about/5.jpg" alt="정다은" onerror="this.style.display='none'"></div></div>
       <div class="ccard-body">
         <div class="ccard-top">
           <span class="ccard-name">정다은</span>
@@ -504,7 +549,7 @@ img{max-width:100%;display:block}
 
     <!-- ○ BASIC 2 -->
     <div class="ccard t-basic" onclick="location.href='consultant-biz-profile-v2.html'">
-      <div class="ccard-photo"><div class="ccard-avatar">한</div></div>
+      <div class="ccard-photo"><div class="ccard-avatar"><span class="avatar-fallback">한</span><img src="assets/img/about/1.jpg" alt="한상우" onerror="this.style.display='none'"></div></div>
       <div class="ccard-body">
         <div class="ccard-top">
           <span class="ccard-name">한상우</span>
