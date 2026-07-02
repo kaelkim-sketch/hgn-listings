@@ -150,7 +150,7 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
 /* ── PAGE LAYOUT ── */
 .page-wrap{max-width:var(--maxw);margin:0 auto;padding:20px 20px 100px}
-.page-grid{display:grid;grid-template-columns:minmax(0,270px) 480px minmax(0,250px);gap:20px;align-items:start}
+.page-grid{display:grid;grid-template-columns:minmax(0,310px) 528px minmax(0,288px);gap:40px;align-items:start}
 
 /* ── SHARED ── */
 .c-card{background:#fff;border:none;border-top:1px solid var(--line);border-radius:0;box-shadow:none}
@@ -196,6 +196,9 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .hpc-rank{font-size:10.5px;font-weight:800;color:#FFD166;background:rgba(0,0,0,.3);border-radius:10px;padding:2px 7px;margin-left:2px}
 .hero-pc-fav{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;border:none;background:rgba(0,0,0,.32);backdrop-filter:blur(6px);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
 .hero-pc-fav:hover{background:rgba(0,0,0,.55)}
+.hero-share{position:absolute;top:16px;right:62px;width:38px;height:38px;border-radius:50%;border:none;background:rgba(0,0,0,.32);backdrop-filter:blur(6px);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;z-index:10}
+.hero-share:hover{background:rgba(0,0,0,.55)}
+.hero-share svg{width:18px;height:18px}
 .hero-pc-fav.active{color:#FF5C78;background:rgba(255,92,120,.2)}
 .hero-pc-text{position:absolute;bottom:26px;left:24px;right:80px}
 .hero-pc-complex{font-size:11.5px;font-weight:700;color:rgba(255,255,255,.72);letter-spacing:.05em;margin-bottom:6px}
@@ -405,10 +408,10 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 .ql-item:hover{background:var(--soft);color:var(--brand)}
 .ql-arrow{color:var(--muted);font-size:14px}
 
-/* 왼쪽 사이드바 브랜드 헤더 */
-.sidebar-brand{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 14px;box-shadow:var(--sh-1)}
+/* 왼쪽 사이드바 브랜드 로고 (박스 없음) */
+.sidebar-brand{background:transparent;border:none;box-shadow:none;padding:2px 2px 2px;border-radius:0}
 .sbc-sub{font-size:11.5px;color:var(--muted);font-weight:500;margin-bottom:8px;letter-spacing:-.01em}
-.sbc-logo{height:30px;width:auto;display:block;margin-bottom:14px}
+.sbc-logo{height:34px;width:auto;display:block;margin-bottom:2px}
 .sbc-cta{display:flex;align-items:center;justify-content:space-between;background:var(--brand);border-radius:9px;padding:11px 14px;font-size:13px;font-weight:700;color:#fff;text-decoration:none;transition:opacity .15s}
 .sbc-cta:hover{opacity:.88}
 /* 인기 단지 TOP 카드 (left sidebar) */
@@ -498,13 +501,22 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
   header.gnb{display:none}
   .hero-mobile,.profile-info-bar{display:none}
   .page-wrap{margin-top:0;padding-top:16px}
-  .page-grid{width:1040px;max-width:100%;margin:0 auto}
+  .page-grid{max-width:100%;margin:0 auto}
   .hero-pc{display:block}
   .profile-tabs{border-top:1px solid var(--line);border-left:none;border-right:none;border-radius:0;overflow:hidden;margin:0}
   .col-center>.profile-tabs{position:sticky;top:44px;z-index:40}
   .center-util-bar{display:flex;position:sticky;top:0;z-index:50}
   .col-left{top:16px;padding-top:44px}
   .col-right{top:16px;padding-top:44px}
+}
+/* 3단 전체가 안 들어가는 폭(760~1249): 사이드 숨기고 중앙만 — 폭 점프·찌부 방지 (중앙폭 동일 유지) */
+@media(min-width:760px) and (max-width:1249px){
+  .col-left,.col-right{display:none}
+  .page-grid{grid-template-columns:minmax(0,528px);justify-content:center}
+}
+/* 3단 전부 여유롭게 들어가는 폭(1250+) */
+@media(min-width:1250px){
+  .page-grid{width:1206px}
 }
 @media(max-width:759px){
   .hgn-float{display:none}
@@ -578,6 +590,12 @@ header.gnb{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;background
 
 /* 아이콘 색상: 구체 위에서 흰색으로 */
 .badge-crown svg,.badge-bolt svg,.badge-trophy svg,.badge-star-t svg,.badge-shield svg{color:rgba(255,255,255,.95)}
+/* ── 배지: 원(써클) 제거하고 뱃지 자체를 크게, 채도↓ ── */
+.badge-circle{background:transparent!important;box-shadow:none!important;border:none!important;width:62px;height:62px;overflow:visible}
+.badge-circle img{width:100%!important;height:100%!important;object-fit:contain}
+.badge-icon-btn{background:transparent!important;box-shadow:none!important;border:none!important;overflow:visible}
+.badge-circle::before,.badge-icon-btn::before{display:none!important}
+.badge-icon-btn img,.badge-circle img{filter:saturate(.62)}
 /* ── SVG 아이콘 크기 유틸 ── */
 .badge-circle svg{width:28px;height:28px;flex-shrink:0}
 .badge-icon-btn svg{width:15px;height:15px;flex-shrink:0}
@@ -679,7 +697,7 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
 
 /* ── 좌측 영상 (마이프차 스타일 — 영상만, 카드/제목 없음) ── */
 .svc-embed{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/9;background:#111;box-shadow:var(--sh-1)}
-.svc-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.svc-embed iframe,.svc-embed video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
 
 /* ── 최근 본 상담사 플로팅 위젯 (우측 하단 고정) ── */
 .rv-fab{position:fixed;right:24px;bottom:24px;z-index:59;display:flex;flex-direction:column;align-items:center;cursor:pointer}
@@ -705,6 +723,63 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
 .rv-pcard-quick{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:700;color:var(--brand);background:var(--brand-light);border-radius:6px;padding:3px 8px}
 .rv-pcard-send{flex-shrink:0;align-self:center;width:34px;height:34px;border-radius:9px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px}
 @media(max-width:759px){.rv-fab{display:none}.rv-panel{display:none!important}.top-btn{right:16px;bottom:82px}}
+
+/* ── 좌우 사이드바 콘텐츠 15% 확대 (폭은 grid에서 처리) ── */
+.col-left .sec-label,.col-right .sec-label{font-size:17px;margin-bottom:15px}
+.sbc-logo{height:34px}
+/* 인기 단지 TOP */
+.trend-item{padding:9px 0}
+.trend-rank{width:23px;font-size:15px}
+.trend-name{font-size:15.5px}
+.trend-area{font-size:13.5px}
+.trend-hot{font-size:15px}
+/* 청약 일정 */
+.cal-date-box{width:44px;padding:6px 4px}
+.cal-month{font-size:11px}
+.cal-day{font-size:18.5px}
+.cal-name{font-size:15.5px}
+.cal-area{font-size:13.5px}
+.cal-list{gap:11px}
+.left-news-more{font-size:15px}
+/* 바로가기 카드 */
+.ql-item{font-size:15px;padding:15px 17px}
+.ql-label{gap:10px}
+.ql-item img{width:20px;height:20px}
+.ql-arrow{font-size:16px}
+/* 로그인 CTA */
+.lcc-card,.login-cta-card{padding:18px 16px}
+.lcc-title{font-size:16px}
+.lcc-sub{font-size:13.5px;margin-bottom:14px}
+.lcc-login,.lcc-signup{font-size:15px;padding:12px 0}
+/* 간편 문의 */
+.qi-header{font-size:15px;padding:14px 18px}
+.qi-btn{padding:14px 6px}
+.qi-label{font-size:13px}
+.qi-icon img,.qi-icon svg{width:23px;height:23px}
+
+/* ── 센터 본문 10% 확대 (데스크톱 최대창 기준, 모바일 미적용) ── */
+@media(min-width:760px){
+  .col-center .sec-label{font-size:17.5px}
+  .hero-pc-slogan{font-size:30px}
+  .hnp-name{font-size:26px}
+  .hnp-line{font-size:15px}
+  .tab-item{font-size:15px;padding:14px 17px}
+  .bio-quote{font-size:17.5px}
+  .bio-detail{font-size:15px}
+  .bio-expand-text{font-size:15px}
+  .r-title{font-size:18.5px}
+  .rv-txt{font-size:15px}
+  .rv-detail-title{font-size:17px}
+  .rv-detail-body{font-size:14.5px}
+  .contact-card-title{font-size:20px}
+  .contact-card-sub{font-size:14.5px}
+  .cf-btn{font-size:16px}
+  .ps-val{font-size:22px}
+  .ps-lbl{font-size:12.5px}
+  .spec-chip{font-size:14px}
+  .apt-name{font-size:13.5px}
+  .apt-price{font-size:13.5px}
+}
 </style>
 </head>
 <body>
@@ -769,6 +844,7 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
   <div class="hero-overlay"></div>
   <button class="slide-btn prev" onclick="heroNav('mob',-1)" aria-label="이전">‹</button>
   <button class="slide-btn next" onclick="heroNav('mob',1)" aria-label="다음">›</button>
+  <button class="hero-share" onclick="shareProfile()" title="공유하기" aria-label="공유하기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" stroke-linecap="round"/></svg></button>
   <button class="hero-pc-fav hero-fav-btn" onclick="toggleFav(this)" title="관심 상담사 등록">♡</button>
   <div class="hero-text">
     <div class="hero-slogan">이 단지, 저만큼<br><em>발로 뛴 사람</em> 없습니다.</div>
@@ -833,31 +909,15 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
     <!-- ① LEFT: 청약 소식 (PC 전용) -->
     <aside class="col-left">
 
-      <!-- 브랜드 헤더 -->
+      <!-- 브랜드 로고 (박스 없이 로고만) -->
       <div class="sidebar-brand">
-        <div class="sbc-sub">분양 상담사를 찾고 있다면</div>
         <img src="assets/img/logo.png" class="sbc-logo" alt="호갱노노">
-        <a class="sbc-cta" href="https://hogangnono.com/offer/commercial?regionCode=all">상담사 무료 조회하기 <span>›</span></a>
       </div>
 
-      <!-- 영상 (마이프차 스타일 — 영상만) -->
+      <!-- 영상 (로컬 mp4 — UI 없이 음소거 자동재생·반복) -->
       <div class="svc-embed">
-        <iframe src="https://www.youtube.com/embed/nj8tGTQ1NgM?autoplay=1&mute=1&loop=1&playlist=nj8tGTQ1NgM&controls=1&modestbranding=1&rel=0&playsinline=1"
-          title="분양 영상" frameborder="0"
-          allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-      </div>
-
-      <!-- 이번 달 인기 단지 TOP (전국, 플랫폼 고정) -->
-      <div class="trending-card">
-        <div class="sec-label">이번 달 인기 단지 TOP</div>
-        <div class="trend-list">
-          <a class="trend-item" href="#"><span class="trend-rank r1">1</span><div class="trend-info"><div class="trend-name">래미안 원펜타스</div><div class="trend-area">서울 서초구</div></div><span class="trend-hot">🔥</span></a>
-          <a class="trend-item" href="#"><span class="trend-rank r2">2</span><div class="trend-info"><div class="trend-name">동탄 파크뷰 자이</div><div class="trend-area">경기 화성시</div></div></a>
-          <a class="trend-item" href="#"><span class="trend-rank r3">3</span><div class="trend-info"><div class="trend-name">힐스테이트 광교센트럴</div><div class="trend-area">경기 수원시</div></div></a>
-          <a class="trend-item" href="#"><span class="trend-rank">4</span><div class="trend-info"><div class="trend-name">검단 한신더휴 에듀파크</div><div class="trend-area">인천 서구</div></div></a>
-          <a class="trend-item" href="#"><span class="trend-rank">5</span><div class="trend-info"><div class="trend-name">광안 센텀 비스타동원</div><div class="trend-area">부산 수영구</div></div></a>
-        </div>
-        <a class="left-news-more" href="#">전체 순위 보기 ›</a>
+        <video src="assets/video/zigbang-intro.mp4" autoplay muted loop playsinline preload="metadata"
+          onmouseenter="this.setAttribute('controls','')" onmouseleave="this.removeAttribute('controls')"></video>
       </div>
 
       <!-- 이번 주 청약 일정 (전국, 플랫폼 고정) -->
@@ -915,6 +975,7 @@ img[src*="assets/img/icons/"],img[src*="assets/img/badges/"]{display:inline-bloc
           <button class="slide-btn prev" onclick="heroNav('pc',-1)" aria-label="이전">‹</button>
           <button class="slide-btn next" onclick="heroNav('pc',1)" aria-label="다음">›</button>
           <a href="https://hogangnono.com/offer/commercial?regionCode=all" class="hero-pc-back" title="목록으로">←</a>
+          <button class="hero-share" onclick="shareProfile()" title="공유하기" aria-label="공유하기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" stroke-linecap="round"/></svg></button>
           <button class="hero-pc-fav hero-fav-btn" onclick="toggleFav(this)" title="관심 상담사 등록">♡</button>
           <div class="hero-pc-text">
             <div class="hero-pc-slogan">이 단지, 저만큼<br><em>발로 뛴 사람</em> 없습니다.</div>
@@ -1526,6 +1587,18 @@ function initAptSlider() {
   }
 }
 window.addEventListener('resize', function() { aptIdx = 0; initAptSlider(); }, { passive: true });
+
+// 프로필 공유 (네이티브 공유 → 링크 복사 → 폴백)
+function shareProfile() {
+  const url = location.href;
+  if (navigator.share) {
+    navigator.share({ title: document.title, url: url }).catch(function(){});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(function(){ alert('링크가 복사되었습니다.'); }).catch(function(){ prompt('링크 복사', url); });
+  } else {
+    prompt('링크 복사', url);
+  }
+}
 
 // 관심 상담사 토글 (클릭한 버튼 기준, 모바일/PC 모두 동기화)
 function toggleFav(btn) {
