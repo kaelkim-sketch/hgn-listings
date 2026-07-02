@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>비즈프로필 상품 소개 | 직방 분양광고사업</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap">
+<style>
+:root {
+  --primary:      #ff6b00;
+  --primary-50:   #fff8f1;
+  --primary-100:  #ffeedc;
+  --primary-500:  #ff6b00;
+  --primary-600:  #e66000;
+  --n50:  #fafafa;
+  --n100: #f4f4f5;
+  --n150: #ececee;
+  --n200: #e5e5e5;
+  --n300: #d4d4d8;
+  --n400: #a1a1aa;
+  --n500: #71717a;
+  --n600: #52525b;
+  --n700: #3f3f46;
+  --n800: #27272a;
+  --n900: #18181b;
+  --maxw: 1120px;
+  --maxw-nav: 1440px;
+  --shadow-premium: 0 30px 90px rgba(0,0,0,.05), 0 0 1px rgba(0,0,0,.08);
+  --shadow-card: 0 10px 40px rgba(0,0,0,.04);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans KR",-apple-system,BlinkMacSystemFont,sans-serif;
+  background:#fff;color:var(--n800);
+  -webkit-font-smoothing:antialiased;letter-spacing:-0.01em;line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+img{max-width:100%;display:block}
+.eyebrow{
+  display:block;font-size:11px;font-weight:800;color:var(--primary);
+  letter-spacing:.28em;text-transform:uppercase;margin-bottom:14px;
+}
+
+/* ────────── GNB ────────── */
+.gnb{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--n150)}
+.gnb-inner{max-width:var(--maxw-nav);margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center}
+.gnb-logo{display:flex;align-items:center;gap:10px;flex-shrink:0;margin-right:36px}
+.gnb-logo-box{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#ff6b00,#ff9e48);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.gnb-logo-box svg{width:17px;height:17px;fill:#fff}
+.gnb-logo-texts{display:flex;flex-direction:column;line-height:1.15}
+.gnb-logo-name{font-size:14px;font-weight:800;color:var(--n900);letter-spacing:-0.025em}
+.gnb-logo-sub{font-size:10.5px;font-weight:500;color:var(--n400)}
+.gnb-nav{display:flex;flex:1}
+.gnb-link{padding:0 15px;height:64px;display:flex;align-items:center;font-size:13.5px;font-weight:500;color:var(--n500);white-space:nowrap;position:relative;transition:color .18s}
+.gnb-link:hover{color:var(--n900)}
+.gnb-link.active{color:var(--primary);font-weight:700}
+.gnb-link.active::after{content:"";position:absolute;bottom:-1px;left:15px;right:15px;height:2px;background:var(--primary);border-radius:1px}
+.gnb-actions{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
+.gnb-btn{height:36px;padding:0 18px;border-radius:9999px;font-size:13px;font-weight:600;transition:all .18s}
+.gnb-btn-ghost{color:var(--n600);border:1px solid var(--n200);background:#fff}
+.gnb-btn-ghost:hover{border-color:var(--n400);color:var(--n900)}
+.gnb-btn-primary{background:var(--primary);color:#fff}
+.gnb-btn-primary:hover{background:var(--primary-600)}
+
+/* ────────── HERO ────────── */
+.hero{
+  position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 80% 60% at 70% -10%,rgba(255,107,0,.10),transparent 60%),#fff;
+  padding:88px 0 72px;
+}
+.hero-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;text-align:center}
+.hero h1{
+  font-size:48px;font-weight:800;color:var(--n900);
+  letter-spacing:-.045em;line-height:1.18;margin-bottom:22px;
+}
+.hero h1 .accent{color:var(--primary)}
+.hero-sub{
+  font-size:18px;color:var(--n500);font-weight:400;line-height:1.7;
+  max-width:620px;margin:0 auto 38px;
+}
+.hero-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-lg{height:56px;padding:0 32px;border-radius:9999px;font-size:15.5px;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-primary-lg{background:var(--primary);color:#fff;box-shadow:0 8px 24px rgba(255,107,0,.3)}
+.btn-primary-lg:hover{background:var(--primary-600);transform:translateY(-2px)}
+.btn-ghost-lg{background:#fff;color:var(--n800);border:1px solid var(--n300)}
+.btn-ghost-lg:hover{border-color:var(--n900);background:var(--n50)}
+
+/* ────────── STAT BAR (사회적 증거) ────────── */
+.statbar{max-width:var(--maxw);margin:56px auto 0;padding:0 24px}
+.statbar-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--n900);border-radius:28px;overflow:hidden;
+}
+.stat-cell{padding:32px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.stat-cell:last-child{border-right:none}
+.stat-num{font-size:34px;font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1}
+.stat-num .u{font-size:18px;font-weight:700;color:#ffb057;margin-left:2px}
+.stat-lbl{font-size:12.5px;color:var(--n400);font-weight:500;margin-top:10px}
+
+/* ────────── SECTION ────────── */
+.section{max-width:var(--maxw);margin:0 auto;padding:96px 24px}
+.section-head{margin-bottom:44px}
+.section-head.center{text-align:center}
+.section-head h2{font-size:34px;font-weight:800;color:var(--n900);letter-spacing:-.035em;line-height:1.25}
+.section-head p{font-size:16px;color:var(--n500);margin-top:14px;line-height:1.7}
+
+/* WHY cards */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why-card{
+  background:#fff;border:1px solid var(--n200);border-radius:28px;
+  padding:36px 30px;transition:box-shadow .3s,border-color .3s,transform .3s;
+}
+.why-card:hover{box-shadow:var(--shadow-premium);border-color:rgba(255,107,0,.3);transform:translateY(-4px)}
+.why-icon{
+  width:56px;height:56px;border-radius:16px;background:var(--primary-50);
+  display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+}
+.why-icon svg{width:28px;height:28px;stroke:var(--primary);stroke-width:1.8;fill:none}
+.why-card h3{font-size:20px;font-weight:800;color:var(--n900);letter-spacing:-.03em;margin-bottom:12px}
+.why-card p{font-size:14.5px;color:var(--n500);line-height:1.7}
+
+/* HOW steps */
+.how{background:var(--n50);border-radius:40px;margin:0 24px}
+.how-inner{max-width:calc(var(--maxw) - 48px);margin:0 auto;padding:80px 40px}
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
+.how-step{text-align:center;position:relative;z-index:2}
+.how-num{
+  width:56px;height:56px;border-radius:50%;margin:0 auto 22px;
+  background:var(--primary);color:#fff;font-size:22px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 20px rgba(255,107,0,.3);
+}
+.how-step h3{font-size:19px;font-weight:800;color:var(--n900);letter-spacing:-.03em;margin-bottom:10px}
+.how-step p{font-size:14px;color:var(--n500);line-height:1.7}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.price-card{
+  position:relative;background:#fff;border:1.5px solid var(--n200);border-radius:32px;
+  padding:36px 30px 34px;display:flex;flex-direction:column;
+  transition:box-shadow .3s,transform .3s;
+}
+.price-card:hover{box-shadow:var(--shadow-card);transform:translateY(-3px)}
+.price-card.featured{
+  border-color:var(--primary);background:var(--primary-50);
+  box-shadow:0 20px 60px rgba(255,107,0,.12);
+}
+.price-badge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--primary);color:#fff;font-size:11.5px;font-weight:800;
+  letter-spacing:.06em;padding:6px 16px;border-radius:9999px;white-space:nowrap;
+  box-shadow:0 6px 16px rgba(255,107,0,.35);
+}
+.price-tier{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.price-tier.basic{color:var(--n500)}
+.price-tier.pro{color:var(--n700)}
+.price-tier.premium{color:var(--primary)}
+.price-name{font-size:20px;font-weight:800;color:var(--n900);letter-spacing:-.03em;margin-bottom:18px}
+.price-amount{display:flex;align-items:baseline;gap:4px;margin-bottom:6px}
+.price-value{font-size:38px;font-weight:800;color:var(--n900);letter-spacing:-.04em;line-height:1}
+.price-unit{font-size:14px;color:var(--n500);font-weight:600}
+.price-note{font-size:12.5px;color:var(--n400);margin-bottom:26px;min-height:18px}
+.price-feats{list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:30px;flex:1}
+.price-feats li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--n700);line-height:1.5}
+.price-feats li svg{width:17px;height:17px;flex-shrink:0;margin-top:2px}
+.price-feats li.off{color:var(--n300)}
+.check{stroke:var(--primary);stroke-width:2.5;fill:none}
+.dash{stroke:var(--n300);stroke-width:2.5;fill:none}
+.price-cta{
+  height:50px;border-radius:14px;font-size:14.5px;font-weight:700;
+  transition:all .18s;width:100%;
+}
+.price-cta.dark{background:var(--n900);color:#fff}
+.price-cta.dark:hover{background:var(--primary)}
+.price-cta.fill{background:var(--primary);color:#fff;box-shadow:0 8px 20px rgba(255,107,0,.28)}
+.price-cta.fill:hover{background:var(--primary-600)}
+.price-cta.line{background:#fff;color:var(--n700);border:1px solid var(--n300)}
+.price-cta.line:hover{border-color:var(--n900);color:var(--n900)}
+.price-disclaimer{text-align:center;font-size:12.5px;color:var(--n400);margin-top:24px}
+
+/* BENEFITS */
+.benefits{background:var(--n900);color:#fff}
+.benefits-inner{max-width:var(--maxw);margin:0 auto;padding:88px 24px}
+.benefits .section-head h2{color:#fff}
+.benefits .section-head p{color:var(--n400)}
+.benefits .eyebrow{color:#ffb057}
+.ben-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.ben-item{
+  display:flex;gap:16px;padding:26px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;
+}
+.ben-ic{
+  width:44px;height:44px;border-radius:12px;flex-shrink:0;
+  background:rgba(255,176,87,.14);display:flex;align-items:center;justify-content:center;
+}
+.ben-ic svg{width:22px;height:22px;stroke:#ffb057;stroke-width:1.8;fill:none}
+.ben-item h3{font-size:16.5px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.02em}
+.ben-item p{font-size:13.5px;color:var(--n400);line-height:1.6}
+
+/* FINAL CTA */
+.final-cta{max-width:var(--maxw);margin:0 auto;padding:0 24px 100px}
+.final-cta-box{
+  background:linear-gradient(120deg,#ff6b00 0%,#ff9e48 100%);
+  border-radius:40px;padding:72px 40px;text-align:center;color:#fff;
+  position:relative;overflow:hidden;
+}
+.final-cta-box h2{font-size:34px;font-weight:800;letter-spacing:-.035em;margin-bottom:16px;line-height:1.3}
+.final-cta-box p{font-size:16px;color:rgba(255,255,255,.9);margin-bottom:34px}
+.final-cta-box .btn-lg{background:#fff;color:var(--primary);box-shadow:0 10px 30px rgba(0,0,0,.15)}
+.final-cta-box .btn-lg:hover{transform:translateY(-2px)}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--n150);padding:40px 0}
+.footer-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;text-align:center}
+.footer p{font-size:12.5px;color:var(--n400);line-height:1.8}
+
+/* ────────── MOBILE ────────── */
+@media(max-width:768px){
+  .gnb-nav,.gnb-actions{display:none}
+  .gnb-inner{padding:0 16px}
+  .hero{padding:56px 0 48px}
+  .hero h1{font-size:32px}
+  .hero-sub{font-size:15px}
+  .statbar-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-cell:nth-child(2){border-right:none}
+  .stat-cell:nth-child(1),.stat-cell:nth-child(2){border-bottom:1px solid rgba(255,255,255,.08)}
+  .stat-num{font-size:28px}
+  .section{padding:64px 20px}
+  .section-head h2{font-size:26px}
+  .why-grid,.how-steps,.pricing-grid,.ben-grid{grid-template-columns:1fr}
+  .how{margin:0 16px}
+  .how-inner{padding:52px 24px}
+  .final-cta-box{padding:52px 24px}
+  .final-cta-box h2{font-size:26px}
+  .price-card.featured{order:-1}
+}
+</style>
+</head>
+<body>
+
+<!-- ── GNB ── -->
+<header class="gnb">
+  <div class="gnb-inner">
+    <a href="#" class="gnb-logo">
+      <div class="gnb-logo-box">
+        <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"><path d="M9 1.5L2 6v9.5h5v-4.5h4v4.5h5V6L9 1.5z"/></svg>
+      </div>
+      <div class="gnb-logo-texts">
+        <span class="gnb-logo-name">직방</span>
+        <span class="gnb-logo-sub">분양광고사업</span>
+      </div>
+    </a>
+    <nav class="gnb-nav">
+      <a href="#" class="gnb-link">분양광고상품</a>
+      <a href="#" class="gnb-link">패키지</a>
+      <a href="#" class="gnb-link active">비즈프로필</a>
+      <a href="#" class="gnb-link">프로모션</a>
+      <a href="#" class="gnb-link">자료실</a>
+      <a href="#" class="gnb-link">공지사항</a>
+    </nav>
+    <div class="gnb-actions">
+      <a href="consultant-listing.html" class="gnb-btn gnb-btn-ghost">노출 화면 보기</a>
+      <button class="gnb-btn gnb-btn-primary">입점 신청</button>
+    </div>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Biz Profile · 분양 상담사 입점 상품</span>
+    <h1>MAU 1,000만 부동산 플랫폼에서<br><span class="accent">나를 광고</span>하세요</h1>
+    <p class="hero-sub">호갱노노·직방에는 분양에 관심 있는 수분양자가 매일 모입니다.<br>비즈프로필로 입점하고, 상단 노출로 관심고객의 문의를 먼저 받으세요.</p>
+    <div class="hero-cta-row">
+      <a href="#pricing" class="btn-lg btn-primary-lg">입점 상품 보기 →</a>
+      <a href="consultant-listing.html" class="btn-lg btn-ghost-lg">실제 노출 화면 미리보기</a>
+    </div>
+  </div>
+
+  <!-- 사회적 증거 -->
+  <div class="statbar">
+    <div class="statbar-grid">
+      <div class="stat-cell">
+        <div class="stat-num">1,000<span class="u">만</span></div>
+        <div class="stat-lbl">월 이용자(MAU)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">247<span class="u">명</span></div>
+        <div class="stat-lbl">현재 입점 상담사</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">18,400<span class="u">건</span></div>
+        <div class="stat-lbl">누적 상담 문의</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">92<span class="u">%</span></div>
+        <div class="stat-lbl">재계약률</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY ── -->
+<section class="section">
+  <div class="section-head center">
+    <span class="eyebrow">Why Biz Profile</span>
+    <h2>왜 지금 입점해야 할까요?</h2>
+    <p>경쟁 상담사는 이미 노출 경쟁을 시작했습니다.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m0 0a4 4 0 118 0M12 7a4 4 0 100-.01"/></svg></div>
+      <h3>고관심 수분양자가 모입니다</h3>
+      <p>지도·단지 페이지를 보던 관심고객이 상담사 프로필로 유입됩니다. 이미 "그 단지"에 관심 있는 사람에게 바로 노출됩니다.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg></div>
+      <h3>상단 노출을 선점하세요</h3>
+      <p>사람인·잡코리아처럼, 상위 노출은 광고 상품 순입니다. 먼저 입점한 상담사가 문의를 먼저, 더 많이 가져갑니다.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <h3>신뢰가 곧 전환입니다</h3>
+      <p>후기·응답률·완판실적·인증배지가 프로필에 쌓입니다. 검증된 상담사일수록 문의 전환율이 높아집니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW ── -->
+<div class="how">
+  <div class="how-inner">
+    <div class="section-head center">
+      <span class="eyebrow">How It Works</span>
+      <h2>입점부터 문의 연결까지 3단계</h2>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <h3>프로필 등록</h3>
+        <p>경력·전문분야·담당 단지·후기를 등록해 나만의 비즈프로필 페이지를 만듭니다. 등록은 무료입니다.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <h3>광고 상품 선택</h3>
+        <p>PRO·PREMIUM 등급으로 지역·단지 리스팅 상단 노출을 구매합니다. 등급이 높을수록 더 위에 노출됩니다.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <h3>관심고객 문의 연결</h3>
+        <p>수분양자가 프로필을 보고 바로 상담을 신청합니다. 문의 리드는 실시간 알림으로 받습니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PRICING ── -->
+<section class="section" id="pricing">
+  <div class="section-head center">
+    <span class="eyebrow">Plans</span>
+    <h2>입점 등급 선택</h2>
+    <p>노출 위치·신뢰 배지·리드 관리 범위가 등급별로 차등 제공됩니다.</p>
+  </div>
+  <div class="pricing-grid">
+
+    <!-- BASIC -->
+    <div class="price-card">
+      <div class="price-tier basic">Basic</div>
+      <div class="price-name">기본 입점</div>
+      <div class="price-amount"><span class="price-value">무료</span></div>
+      <div class="price-note">프로필 등록·유지 비용 없음</div>
+      <ul class="price-feats">
+        <li><svg class="check" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9"/></svg>비즈프로필 페이지 생성</li>
+        <li><svg class="check" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9"/></svg>기본 리스팅 노출</li>
+        <li><svg class="check" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9"/></svg>후기·평점 수집</li>
+        <li class="off"><svg class="dash" viewBox="0 0 20 20"><path d="M4 10h12"/></svg>상단 노출</li>
+        <li class="off"><svg class="dash" viewBox="0 0 20 20"><path d="M4 10h12"/></svg>신뢰 배지</li>
+        <li class="off"><svg class="dash" viewBox="0 0 20 20"><path d="M4 10h12"/></svg>리드 실시간 알림</li>
+      </ul>
+      <button class="price-cta line">무료로 시작</button>
+    </div>
+
+    <!-- PRO -->
+    <div class="price-card">
+      <div class="price-tier pro">Pro</div>
+      <div class="price-name">지역 상단 노출</div>
+      <div class="price-amount"><span class="price-value">25</span><span class="price-unit">만원 / 월</span></div>
+      <div class="price-note">담당 지역 리스팅 상단 노출</div>
+      <ul class="price-feats">
+        <li><svg class="check" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9"/></svg>Basic 전체 포함</li>
+        <li><svg class="check" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9"/></svg>지역 리스팅 <b>상단 노출</b></li>
+        <li><svg class="check" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9"/></svg>신뢰 배지 1종</li>
+        <li><svg class="check" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9"/></svg>리드 실시간 알림</li>
+        <li class="off"><svg class="dash" viewBox="0 0 20 20"><path d="M4 10h12"/></svg>최상단 광고 슬롯</li>
+        <li class="off"><svg class="dash" viewBox="0 0 20 20"><path d="M4 10h12"/></svg>성과 리포트</li>
+      </ul>
+      <button class="price-cta dark">Pro 입점 신청</button>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="price-card featured">
+      <span class="price-badge">가장 많이 선택</span>
+      <div class="price-tier premium">Premium</div>
+      <div class="price-name">최상단 광고 노출</div>
+      <div class="price-amount"><span class="price-value">50</span><span class="price-unit">만원 / 월</span></div>
+      <div class="price-note">지역·단지 최상단 + 전 배지</div>
+      <ul class="price-feats">
+        <li><svg class="check" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9"/></svg>Pro 전체 포함</li>
+        <li><svg class="check" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9"/></svg>지역·단지 <b>최상단 노출</b></li>
+        <li><svg class="check" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9"/></svg>신뢰 배지 전체 + 인증마크</li>
+        <li><svg class="check" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9"/></svg>프로필 사진 확대·강조</li>
+        <li><svg class="check" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9"/></svg>월간 성과 리포트</li>
+        <li><svg class="check" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9"/></svg>우선 문의 배정</li>
+      </ul>
+      <button class="price-cta fill">Premium 입점 신청</button>
+    </div>
+
+  </div>
+  <p class="price-disclaimer">※ 위 가격·구성은 기획 검토용 가안이며, 실제 상품 정책은 확정 후 공지됩니다.</p>
+</section>
+
+<!-- ── BENEFITS ── -->
+<section class="benefits">
+  <div class="benefits-inner">
+    <div class="section-head center">
+      <span class="eyebrow">What You Get</span>
+      <h2>입점하면 이런 게 생깁니다</h2>
+    </div>
+    <div class="ben-grid">
+      <div class="ben-item">
+        <div class="ben-ic"><svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1"/></svg></div>
+        <div><h3>나만의 광고 랜딩 페이지</h3><p>담당 단지·경력·후기가 담긴 프로필이 곧 광고 랜딩이 됩니다.</p></div>
+      </div>
+      <div class="ben-item">
+        <div class="ben-ic"><svg viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg></div>
+        <div><h3>상단 노출로 문의 선점</h3><p>등급이 높을수록 리스팅·지도 상단에 노출되어 문의가 몰립니다.</p></div>
+      </div>
+      <div class="ben-item">
+        <div class="ben-ic"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <div><h3>신뢰 배지·인증마크</h3><p>우수 상담사·빠른 응답·공식 인증 배지로 전환율을 높입니다.</p></div>
+      </div>
+      <div class="ben-item">
+        <div class="ben-ic"><svg viewBox="0 0 24 24"><path d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/></svg></div>
+        <div><h3>실시간 리드 알림</h3><p>수분양자 문의가 들어오는 즉시 알림으로 받아 빠르게 응대합니다.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<div class="final-cta">
+  <div class="final-cta-box">
+    <h2>이미 247명이 노출 경쟁 중입니다</h2>
+    <p>지금 입점하고, 관심고객의 문의를 먼저 받으세요.</p>
+    <a href="#pricing" class="btn-lg">입점 신청하기 →</a>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <p>직방 분양광고사업 · 비즈프로필 상품 소개 (기획 프로토타입)<br>본 페이지의 수치·가격은 데모용 가안입니다.</p>
+  </div>
+</footer>
+
+</body>
+</html>

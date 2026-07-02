@@ -80,6 +80,30 @@ img{max-width:100%;display:block}
 .gnb-btn-primary{background:var(--primary);color:#fff}
 .gnb-btn-primary:hover{background:var(--primary-600)}
 
+/* ────────── B2B 안내 배너 ────────── */
+.biz-banner{
+  background:linear-gradient(100deg,#1a1207 0%,#3d2608 55%,#7a4a0a 100%);
+  color:#fff;
+}
+.biz-banner-inner{
+  max-width:var(--maxw);margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.biz-banner-eyebrow{
+  font-size:10.5px;font-weight:800;letter-spacing:.14em;
+  color:#ffb057;text-transform:uppercase;
+  border:1px solid rgba(255,176,87,.4);border-radius:6px;padding:3px 8px;flex-shrink:0;
+}
+.biz-banner-txt{font-size:13.5px;font-weight:500;color:rgba(255,255,255,.9);flex:1;min-width:200px}
+.biz-banner-txt b{color:#ffb057;font-weight:800}
+.biz-banner-cta{
+  height:36px;padding:0 18px;border-radius:9999px;
+  background:var(--primary);color:#fff;font-size:13px;font-weight:700;
+  white-space:nowrap;flex-shrink:0;transition:background .18s;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.biz-banner-cta:hover{background:var(--primary-600)}
+
 /* ────────── PAGE HEADER ────────── */
 .page-header{padding:44px 0 30px}
 .page-header-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px}
@@ -320,6 +344,15 @@ img{max-width:100%;display:block}
     </div>
   </div>
 </header>
+
+<!-- ── B2B 안내 배너 (상담원·광고사 관점) ── -->
+<div class="biz-banner">
+  <div class="biz-banner-inner">
+    <span class="biz-banner-eyebrow">노출 미리보기</span>
+    <span class="biz-banner-txt">이 화면은 <b>수분양자에게 보이는 실제 노출 화면</b>입니다. 지금 <b>247명</b>의 상담사가 노출 경쟁 중 — 상위 노출은 광고 상품 순입니다.</span>
+    <a href="consultant-biz-product.html" class="biz-banner-cta">내 프로필 입점하기 →</a>
+  </div>
+</div>
 
 <!-- ── PAGE HEADER ── -->
 <section class="page-header">
